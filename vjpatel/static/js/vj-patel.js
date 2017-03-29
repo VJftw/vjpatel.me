@@ -115,7 +115,11 @@ jQuery(function () {
   if (jQuery('.travis-repo').length) {
     function setLastBuild(latestJob) {
       if (latestJob) {
-        last_build_time = moment(latestJob.last_build_finished_at).fromNow();
+        if (latestJob.last_build_finished_at) {
+          last_build_time = moment(latestJob.last_build_finished_at).fromNow();
+        } else {
+          last_build_time = moment(latestJob.last_build_started_at).fromNow();
+        }
 
         switch (latestJob.last_build_result) {
           case 0:
@@ -142,7 +146,9 @@ jQuery(function () {
     // Get list of jobs
     function updateBuildStatus() {
       var repositories = [
-        "MonarchsofCoding/chitchat"
+        "MonarchsofCoding/chitchat",
+        "VJftw/vjpatel.me",
+        "VJftw/invoke-tools"
       ];
 
       var latestJob;
@@ -150,14 +156,16 @@ jQuery(function () {
         jQuery.getJSON("https://api.travis-ci.org/repos/" + repositoryName, function(data) {
           if (!latestJob) {
             latestJob = data;
-            setLastBuild(latestJob);
+          } else if ((!data.last_build_finished_at && data.last_build_started_at) && (latestJob.last_build_finished_at)) {
+            // If job is in progress and current latestJob is not in progress.
+            latestJob = data;
           } else if (latestJob.last_build_finished_at < data.last_build_finished_at) {
-            setLastBuild(latestJob);
+            latestJob = data;
           }
+          setLastBuild(latestJob);
         });
       });
     }
-
     updateBuildStatus();
     setInterval(updateBuildStatus, 120*1000);
   }
