@@ -1,0 +1,47 @@
+<footer style="margin-top: 2em; border-top: 1px solid #dddddd; padding-top: 1em;">
+    <div class="row">
+        <div class="col-sm-4">
+            <address>
+                <strong>{{ .Site.Title }}</strong><br>
+                <i class="fa fa-envelope"></i> <a href="mailto:{{ .Site.Params.email_address }}">{{ .Site.Params.email_address }}</a><br />
+                <i class="fa fa-map-marker"></i> {{ .Site.Params.location }}
+            </address>
+        </div>
+        <div class="col-sm-2">
+            <ul class="list-unstyled">
+                <li><i class="fa fa-github"></i> <a target="_blank" href="https://github.com/{{ .Site.Params.github_username }}">{{ .Site.Params.github_username }}</a></li>
+                <li><i class="fa fa-linkedin"></i> <a target="_blank" href="{{ .Site.Params.linkedin_url }}">{{ .Site.Params.linkedin_name }}</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-2">
+            <ul class="list-unstyled">
+                <li><i class="fa fa-twitter"></i> <a target="_blank" href="https://twitter.com/{{ .Site.Params.twitter_username }}">{{ .Site.Params.twitter_username }}</a></li>
+                <li><i class="fa fa-google-plus"></i> <a target="_blank" href="{{ .Site.Params.google_plus_url }}">{{ .Site.Params.google_plus_name }}</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-offset-1 col-sm-3">
+            <ul class="list-unstyled">
+                <li>
+                    <i class="lastfm-icon fa fa-spin fa-refresh"> </i>
+                    <a href="" target="_blank"><span class="lastfm-track"></span></a> -
+                    <em><span class="lastfm-artist"></span></em>
+                    <div class="text-right">
+                        <small><span class="lastfm-timestamp"></span></small>
+                    </div>
+                </li>
+                <li>
+                    <div class="">
+                        <i class="travis-icon fa fa-spin fa-refresh"> </i>
+                        <a href="" target="_blank"><span class="travis-repo"></span></a>
+                    </div>
+                    <div class="text-right">
+                        <em><span class="travis-status label"></span></em>
+                    </div>
+                    <div class="text-right">
+                        <small><span class="travis-timestamp"></span></small>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,104 @@
+{{ define "title" }}VJ | Education{{ end }}
+{{ define "main" }}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Education</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            {{ range $i, $qualification := .Data.Pages.ByDate.Reverse }}
+                <div class="qualification row">
+                <div class="col-md-12">
+                    <div class="col-md-2">
+                        <h2><small>{{ $qualification.Params.year_range }}</small></h2>
+                    </div>
+                    <div class="col-md-8">
+                        <h2>{{ $qualification.Title }}</h2>
+                    </div>
+                    <div class="col-md-2 text-right">
+                        <h2><small>{{ $qualification.Params.award }}</small></h2>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                </div>
+
+                {{ range $i, $institution := $qualification.Params.institutions }}
+                <div class="col-md-offset-1 col-md-10">
+                    <h4>
+                        <a target="_blank" href="{{ $institution.url }}">
+                            {{ $institution.name }}
+                        </a>
+                    </h4>
+
+                    <div class="panel-group" role="tablist" aria-multiselectable="true">
+                        {{ range $i, $year := $institution.years }}
+                            <div class="year panel panel-default">
+                                {{ $headingId := printf "heading_%s" (replace $year.year_range "/" "_") }}
+                                <div class="panel-heading clearfix" role="tab" id="{{ $headingId }}">
+                                    {{ $panelId := printf "collapse_%s" (replace $year.year_range "/" "_") }}
+
+                                    <div class="col-md-11 clearfix">
+                                        <h4 class="panel-title">
+                                        <a
+                                            role="button"
+                                            data-toggle="collapse"
+                                            href="#{{ $panelId }}"
+                                            aria-expanded="true"
+                                            aria-controls="{{ $panelId }}"
+                                            >
+                                            <small>
+                                            <i class="fa fa-chevron-down"></i>
+                                            ({{ $year.year_range}})</small>
+                                         {{ $year.name }}</a> {{ if $year.location }}@ {{ $year.location }} {{ end }}
+                                    </div>
+
+                                    <div class="col-md-1 clearfix pull-right">
+                                        {{ if $year.score }}
+                                        <span class="label label-success">{{ $year.score }}%</span>
+                                        {{ else }}
+                                        <span class="label label-info">Sitting</span>
+                                        {{ end }}
+                                    </div>
+
+                                </div>
+
+                                <div
+                                    id="{{ $panelId }}"
+                                    class="panel-collapse collapse clearfix"
+                                    role="tabpanel"
+                                    aria-labelledby="{{ $headingId }}"
+                                >
+                                    <ul class="list-group">
+                                        <li class="list-group-item clearfix">
+                                            <div class="col-md-11"><small><strong>Module</strong></small></div>
+                                            <div class="col-md-1 text-right"><small><strong>%</strong></small></div>
+                                        </li>
+                                        {{ range $index, $module := $year.modules }}
+                                        <li class="list-group-item clearfix">
+                                            <div class="col-md-11">{{ $module.name }}</div>
+                                            {{ if $module.score }}
+                                            <div class="col-md-1 text-right">
+                                                {{ $module.score }}
+                                            </div>
+                                            {{ else }}
+                                            <div class="col-md-1 text-right">
+                                                <span class="label label-info">Sitting</span>
+                                            </div>
+                                            {{ end }}
+                                        </li>
+                                        {{ end }}
+                                    </ul>
+                                </div>
+                            </div>
+                        {{ end }}
+                    </div>
+                </div>
+                {{ end }}
+            {{ end }}
+        </div>
+    </div>
+</div>
+{{ end }}

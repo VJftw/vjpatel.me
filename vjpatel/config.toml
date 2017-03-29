@@ -1,0 +1,17 @@
+baseurl = "https://vjpatel.me"
+title = "VJ Patel"
+languageCode = "en-gb"
+
+[params]
+    email_address = "vj@vjpatel.me"
+    location = "Reading/London"
+    github_username = "VJftw"
+    linkedin_name = "VJ Patel"
+    linkedin_url = "https://uk.linkedin.com/pub/vj-patel/6b/648/109"
+    twitter_username = "VJftw"
+    google_plus_name = "VJ Patel"
+    google_plus_url = "https://google.com/+VJPatel1994"
+
+[params.meta]
+    description = ""
+    keywords = ""
