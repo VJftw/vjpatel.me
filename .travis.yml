@@ -1,0 +1,20 @@
+sudo: required
+services:
+- docker
+addons:
+  apt:
+    packages:
+    - python3
+    - python3-pip
+before_install:
+- sudo pip3 install --upgrade pip
+- sudo pip3 install --upgrade 'invoke-tools==0.2.0'
+env:
+  global:
+    # AWS_ACCESS_KEY_ID
+    - secure: gQ4dY7NFO84Ztj95pMlAx7YlIvgRvm1urYPFMrdpzAAwEEoTwuF7QGhPlCw0yCcFArhMha8uqsWjns3Uc3Bp1Pd6NJ5+C3PTe2sN11x9LClLFdFLBbFV9mKQ3vTtP5zTmaJ5Sqg1V7KKf8jyN+ZVh89xm351WNuyE8/0XyTgt8hq+mCDcF6vru0/tpqV/ikmbS2qWR45vC8INeXAYzFIqywJPavnMJbZwU3wzbAIJn4oHhFrufc5eLsZHWoCcDGLyhWRSnaJ09ttDLgxpDYp2INDdrSrSa6Mh3z7ATcbb/pLcmLhc/Ps7qkCeXuhJ6KMMJaAcuHKynha6TnBvjKLIsyEVBVET8/Koy+VZFYt9elFabd9Btbeyjn+aieGG/MXarRvCUCEyl28jYPXLhKWTDt8/0K/JkiY1TUsW2yoVIF2cNhqUj0nCqxDuA9Fj+PFEEfEUidtxThMhsVsF80H5VG8gcBnWmGoJx5Qs/sHtZBA2/tCTtpzFILqbzGdIT9OjnZ1q8oawSPUJVePo6DN3fYPpV0S7WPJTelcIa+15z/i5PBoYtVJLsWpOz2RGNbvtm4GjpQ73Ye7AQlUZcF5bDl3DYD+xD+JInB5bUET5Qcs+Iqokc2V5X99VvLoW3WKGVdGjYO8LsWa2x4GFkD87MU2//mn6j1FAuAAbVUngtE=
+    # AWS_SECRET_ACCESS_KEY
+    - secure: RZEJH0y9Kr0wKbYcm3y4+Kld/WfZfkmDLFIMSoJYgTiakqmU3RnOn0JEr320FhpYI3wA6OysWH/BX69Z2RWSrsy87dVIb+qiLuaNPtHFDDPMRqYOkHP85BdQ+aOywjV0JxpnN5glm6sjfucd6LhPx3HBOdxnMf5qMou58tUdWomL9OkkOIMv6zM3E0I6thytskrBUrxeitHF71KH+2TlFPzFobA7iiN55jGZshSsvfNtje7uYmpoZd34+U8hfD0qwoYRYxdk1iFhxA046AM5OdG4WMDGLEi1CjBHRFWsFvre8k4O4hNhMKq6AmbKC+NIk6VJBnUEo8xoXVtPl/gFGw1OJ0poT2W0r6+7Li3PXGXZx5xlbf+2T+hlJuyEO2xKQn8ZaN9U90FyUCLOg3NvC3dsv1PPx7n4R1AsAyO7nJACc7gbRIfo0YLmdX7LbLusxW932mFf7T86Wjtw/sIZH83QMwo2J4QYRKeXyjfVWnaGk2GHStgH5+38MoSt8reB/ejSWV3FSNwKpBbc7LpMI1SuvKD5UmL+em7pTh0KljR2bI/DTki7ysuiGp/pTzZ4ECkyMRh3QDZr8equQa8y04i5x2Odu74b+R34pPpvDTaOEO+XYsET+b7TR/bCru9hsicy8UWru6w5Rz5D+HWiq3y1xsji0fpVIsEestro7YM=
+script:
+  - invoke build
+  - invoke deploy
