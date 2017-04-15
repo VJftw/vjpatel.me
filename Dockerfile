@@ -3,7 +3,7 @@ FROM alpine:latest
 RUN mkdir -p /app
 VOLUME /app
 
-ENV HUGO_VERSION=0.17
+ENV HUGO_VERSION=0.20
 
 ADD https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz /tmp/hugo.tar.gz
 
