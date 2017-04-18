@@ -8,14 +8,17 @@ markup = "mmark"
 
 ### Definitions
   - **Crime**: An action which constitutes an offence and is punishable by law.
-  - **Digital crime**: Crime not only across networks, but across all digital devices. e.g. GPS, game controllers, the national infrastructure systems.
-  - **Computer crime**:
-  - **Cyber-crime**: A crime committed across a network.
-  - **Forensics**: The process of getting evidence that will be acceptable in a court of law.
-  - **Digital forensics**: Forensics from
-  - **Computer forensics**: Anything regarding a computer
-  - **Cyber-forensics**: Forensics across a large network.
+  - **Digital crime**: Crime committed using any digital device. e.g. GPS, game controllers, the national infrastructure systems.
+  - **Computer crime**: A crime committed with isolated computers.
+  - **Cyber-crime**: A crime committed across a network. e.g. DoS, hacking.
+  - **Forensics**: The process of getting evidence that will be acceptable in a **court of law**. (mention **court of law**).
+  - **Digital forensics**: Forensics related to digital devices. e.g. GPS, game controllers, the national infrastructure systems.
+  - **Computer forensics**: Forensics related to isolated computers.
+  - **Cyber-forensics**: Forensics related to networked computers.
   - **eDiscovery**: Looking into systems to find out how well they are running or secure. Normally part of a civil law, which doesn't require evidence of the same strictness or standard as criminal evidence.
+
+![alt text](https://docs.google.com/drawings/d/13i6etEMA5e-lRw_A1UxKmKtqz0eUO0JnxD_NKSCZJdM/pub?w=685&h=426 "Digital vs Computer vs Cyber")
+
 
 Conventional crimes which may involve the use of a digital system in their commission (e.g., forgery, fraud, blackmail, extortion, embezzlement, theft, etc.) are known as ***Digitally Assisted crimes***.
 Crimes in which altering the contents or operation of a digital system or network is the criminals' target (e.g. hacking, malware, denial of service, etc.) are known as ***Digitally Related crimes***.
