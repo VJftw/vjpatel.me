@@ -88,3 +88,94 @@ Figure 1 shows the total average costs of cyber-crime in 7 countries. The US tot
  - Business disruption is the highest external cost, followed by revenue loss.
  - Recovery and detection are the most costly internal activities.
  - Deployment of security intelligence systems make a difference.
+
+---
+
+## Lecture 4 - Characterisation of Cybercrime
+
+Two modes: in the USA, opportunistic attacks costing below US$2.5M each on average; organised attacks costing over US$3M each on average (“serious transnational organised cybercrime syndicates”)
+
+Study the paper “Single and Double Power Laws for Cyber-Crimes”, particularly the first equation & Figures 1 & 3.
+
+Study the paper “Cyber-psychopathy: what goes on in a hacker’s head” by Steve Gold, particularly the sections on hackers Kevin Mitnick & Gary McKinnon. Other examples include Paul Bedworth, Edward Austin Singh and Lauri Love.
+
+‘White hat’ hackers will report any vulnerability they discover to the system owner or supplier; ‘Black hats’ will exploit or sell a vulnerability; ‘Grey hats’ are often supposedly reformed Black hats, reinvented as penetration testers or security consultants.
+
+---
+
+## Lecture 5 - Prosecution of Cybercrime UK & EU Laws
+
+For Digitally Related crimes: the Computer Misuse Act (1990), as extended by the Police & Justice Act (2006), is used, most particularly Sections 1 - 3.
+
+The recent Investigatory Powers Act (2016) was introduced to aid UK anti-terrorism investigations; it significantly extends the provisions of the previous Regulation of Investigatory Powers Act (RIPA) (2000), which permitted the acquisition of communications data and decryption keys on production of a warrant authorised by the Home Secretary.
+
+
+Mutual Legal Assistance Treaties (MLATs) can be used to acquire evidence located outside the UK, but are very slow to operate in practice.
+
+
+In the Council of Europe’s Convention on Cybercrime (2001) see particularly Article 6 (dual use tools).
+
+Note that for Digitally Assisted crimes (e.g., forgery, fraud, blackmail, extortion, embezzlement, theft, etc.), the appropriate conventional laws are normally invoked.
+
+---
+
+## Lecture 6 - Characteristics of Legal Evidence
+
+To be accepted in a UK court of law, all evidence must satisfy five tests:
+
+ - Admissibility (is first-hand, original, not hearsay)
+ - Authenticity (is genuine, what it claims, or is claimed, to be)
+ - Accuracy (precise and clear, not vague)
+ - Completeness (self-contained, not partial)
+ - Probative value (relevance to the case in hand) > Prejudicial value (resulting degree of harm)
+
+---
+
+## Lecture 7 - The 4 ACPO Principles of Digital Evidence
+
+ - No action taken by law enforcement agencies or their agents should change data held on a computer or storage media which may subsequently be relied upon in court.
+ - In circumstances where a person finds it necessary to access original data held on a computer or on storage media, that person must be competent to do so and be able to give evidence explaining the relevance and the implications of their actions.
+ - An audit trail or other record of all processes applied to computer-based electronic evidence should be created and preserved. An independent third party should be able to examine those processes and achieve the same result.
+ - The person in charge of the investigation (the case officer) has overall responsibility for ensuring that the law and these principles are adhered to.
+
+Study the “ACPO Good Practice Guide for Computer-based Electronic Evidence” (2012), particularly Sections 2, 4.3, 4.4, 4.5, 4.6, 5.7 & 6.5.1
+
+---
+
+## Lecture 8 - Differences Between Conventional and Digital Forensics
+
+Locard’s Exchange Principle (Edmond Locard, ca.1910): “Every contact leaves a trace” – because it results in an exchange of physical material.  But, is this true in cyberspace? Is it possible to commit the “Perfect (cyber) crime”?
+
+Isolate the crime scene: For internet-connected devices or mobile phones, is the whole network (including ISPs / CSPs) the crime scene?
+
+Freeze the crime scene: If a device is found attended and/or connected and/or powered-on, how do we avoid losing potential digital forensic evidence?
+
+---
+
+## Lecture 9 - The Forensic Process
+
+ - Acquisition: Search & Seize Devices – warrants; reasonable suspicion; ‘bag & tag’.
+ - Preservation: Provenance & Chain of Custody of Devices – e.g. ACPO 4 principles, making ‘bit-for-bit’ images of all media with write-blockers, and use of MD5 or SHA2 hashes.
+ - c.    Searching: Extraction & Authentication of Evidence from Devices.
+ - d.    Analysis of Evidence – what does the evidence signify?
+ - e.    Evaluation of Evidence – how strong is the case?
+ - f.     Reporting, in forms and styles that (i) technical experts can validate; (ii) legal personnel and juries can understand.
+
+---
+
+## Lecture 10 - Digital Forensic Triage: in-the-field vs. in-the-lab
+
+There are a number of reasons why it may be desirable or necessary to prioritise and pre-screen digital devices for the presence of evidence before doing a full extraction, in particular the number of devices seized, the circumstances of the seizure, and the accessibility of the data (e.g. strongly encrypted or in the Cloud).
+
+Study the paper “Triage Template Pipelines in Digital Forensic Investigations”, particularly Figs.1, 2 & 3 and the scenarios in section 4.
+
+---
+
+## Lecture 11 - Post mortem versus in-vivo ("live") forensics
+
+There are a number of reasons why it may be desirable or necessary to capture forensically sound evidence from a running (“live”) system, typically 24/7 availability systems for industrial control (ICS), and critical infrastructure supervisory control and data acquisition (SCADA), or around the clock financial trading systems.
+
+
+Essentially, one has to take more than one ‘snap-shot’ of the contents of the main memory or its buffer(s), in order to determine what data is being altered over time.
+
+Study the IEEE Spectrum paper “Live Analysis”, particularly the section on Research Questions.
