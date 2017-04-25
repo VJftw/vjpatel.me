@@ -93,11 +93,35 @@ Figure 1 shows the total average costs of cyber-crime in 7 countries. The US tot
 
 ## Lecture 4 - Characterisation of Cybercrime
 
-Two modes: in the USA, opportunistic attacks costing below US$2.5M each on average; organised attacks costing over US$3M each on average (“serious transnational organised cybercrime syndicates”)
+Two modes:
+ - in the USA, opportunistic attacks costing below US$2.5M each on average
+ - organised attacks costing over US$3M each on average (“serious transnational organised cybercrime syndicates”)
 
-Study the paper “Single and Double Power Laws for Cyber-Crimes”, particularly the first equation & Figures 1 & 3.
+#### Study the paper “Single and Double Power Laws for Cyber-Crimes”, particularly the first equation & Figures 1 & 3.
+
+**Power Laws** characterise a multitude of processes which produce a large number of small events but a small number of large events.
+
+Cyber-crime can viewed as an asymmetric conflict, where resources required for defence are much greater than for an attack. It is opportunistic in nature so it resembles terrorism and guerrilla warfare rather than conventional (symmetric) warfare.
+
+$$p(x) = Cx^{-a}$$
+
+- Applying $p(x)$ is the probability of an event magnitude $x$ occurring.
+- $C$ is the normalisation constant.
+- $a$ is the exponent of the power law.
+
+![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgM2JPVG1lMkZsZkE "Figure 1")
+
+Figure 1 (above) shows a single power law applied to the cyber-crime cumulative distribution function (CDF). Note how towards the largest few points, they do not fit the single power law regime as well as the rest of the data, but the don't seem to be scattered randomly either. Figure 3 (below) shows the application of a double power law regime which fits the full set of data better.
+
+![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgQzhZdXg4LV9rUjg "Figure 3")
+
+
 
 Study the paper “Cyber-psychopathy: what goes on in a hacker’s head” by Steve Gold, particularly the sections on hackers Kevin Mitnick & Gary McKinnon. Other examples include Paul Bedworth, Edward Austin Singh and Lauri Love.
+
+White hats are vigilantes that help law enforcement, companies etc. to solve flaws for the common good.
+
+Hacking has changed since the 1970s. Back then, hacking was seen more as joy-riding by authorities and Robin-Hood like. Modern-day hacking is viewed as real and inexcusable as many crimes are against the public in general now (viruses etc.). This view of Hacking has been shifted by successive governments over the years and demonstrates their "psychological steerage" that they have over the media, and therefore the public. This gives further rise to an "us vs. them" mentality as *Hacktivists* attempt to expose covert activities by the government.
 
 ‘White hat’ hackers will report any vulnerability they discover to the system owner or supplier; ‘Black hats’ will exploit or sell a vulnerability; ‘Grey hats’ are often supposedly reformed Black hats, reinvented as penetration testers or security consultants.
 
@@ -105,15 +129,38 @@ Study the paper “Cyber-psychopathy: what goes on in a hacker’s head” by St
 
 ## Lecture 5 - Prosecution of Cybercrime UK & EU Laws
 
+#### Computer Misuse Act (1990)
+
 For Digitally Related crimes: the Computer Misuse Act (1990), as extended by the Police & Justice Act (2006), is used, most particularly Sections 1 - 3.
+
+Sections 1-3 introduced 3 criminal offences:
+
+ 1. **unauthorised access** to computer material, punishable by 12 months' imprisonment and/or an unlimited fine.
+ 2. unauthorised access with intent to commit or facilitate commission of **further offence(s)**, punishable by 12 months imprisonment and/or an unlimited fine on summary conviction and/or 5 years imprisonment and/or an unlimited fine on indictment;
+ 3. **unauthorised modification** of computer material, punishable by 12 months imprisonment and/or an unlimited fine on summary conviction and/or 10 years imprisonment and/or an unlimited fine on indictment;
+
+ §§2–3 offences are intended to deter the more serious criminals from using a computer to assist in the  commission of a criminal offence or from impairing or hindering access to data stored in a computer. The basic  offence is to attempt or achieve access to a computer or the data it stores, by inducing a computer to perform any function with intent to secure access. Hackers who program their computers to search through password permutations are therefore liable, even though all their attempts to log on are rejected by the target computer. The only precondition to liability is that the hacker should be aware that the access attempted is unauthorised  (mens rea or “guilty mind”). Thus, using another person's username or identifier (ID) and password without proper authority to access data or a program, or to alter, delete, copy or move a program or data, or simply to  output a program or data to a screen or printer, or to impersonate that other person (“masquerading”) constitutes the offence. Even if the initial access is authorised, subsequent exploration, if there is a hierarchy of privileges in the system, may lead to entry to parts of the system for which the requisite privileges are lacking and the offence will be committed. But looking over a user's shoulder (“shoulder surfing”) or using sophisticated electronic  equipment to monitor the electromagnetic radiation emitted by devices ("electronic eavesdropping") is outside the scope of this offence.
+
+The §§2–3 offences are aggravated offences, requiring a specific intent to commit another offence (for these purposes, the other offences include all the major common law and statutory offences of fraud and dishonesty.. So a hacker who obtains access to a system intending to transfer money or shares, intends to commit theft, or to obtain confidential information for blackmail or extortion. Thus, the §1 offence is committed as soon as the unauthorised access is attempted, and the §2 offence overtakes liability as soon as specific access is made for the criminal purpose. The §3 offence is specifically aimed at those who write and circulate computer viruses or worms.. Similarly, using phishing techniques or a Trojan horse to obtain identity data or to acquire any other data from an unauthorised source, or modifying the operating system files or some aspect of the computer's functions to interfere with its operation or prevent access to any data, including the destruction of files, or deliberately generating code to cause a complete system malfunction, are all criminal "modifications".
+
+#### Investigatory Powers Act (2016)
 
 The recent Investigatory Powers Act (2016) was introduced to aid UK anti-terrorism investigations; it significantly extends the provisions of the previous Regulation of Investigatory Powers Act (RIPA) (2000), which permitted the acquisition of communications data and decryption keys on production of a warrant authorised by the Home Secretary.
 
-
 Mutual Legal Assistance Treaties (MLATs) can be used to acquire evidence located outside the UK, but are very slow to operate in practice.
 
+#### Council of Europe (CoE) Convention on Cyber-crime (2001)
 
 In the Council of Europe’s Convention on Cybercrime (2001) see particularly Article 6 (dual use tools).
+
+###### Article 6 (Misuse of devices)
+1. Each Party shall adopt such legislative and other measures as may be necessary to establish as criminal offences under its domestic law, when committed intentionally and without right:
+    * a) the production, sale, procurement for use, import, distribution or otherwise making available of:
+        * i) a device, including a computer program, designed or adapted primarily for the purpose of committing any of the offences established in accordance with the above Articles 2 through 5;
+        * ii) a computer password, access code, or similar data by which the whole or any part of a computer system is capable of being accessed, with intent that it be used for the purpose of committing any of the offences established in Articles 2 through 5; and
+    * b) the possession of an item referred to in paragraphs a.i or ii above, with intent that it be used for the purpose of committing any of the offences established in Articles 2 through 5. A Party may require by law that a number of such items be possessed before criminal liability attaches.
+2. This article shall not be interpreted as imposing criminal liability where the production, sale, procurement for use, import, distribution or otherwise making available or possession referred to in paragraph 1 of this article is not for the purpose of committing an offence established in accordance with Articles 2 through 5 of this Convention, such as for the authorised testing or protection of a computer system.
+3. Each Party may reserve the right not to apply paragraph 1 of this article, provided that the reservation does not concern the sale, distribution or otherwise making available of the items referred to in paragraph 1 a.ii of this article.
 
 Note that for Digitally Assisted crimes (e.g., forgery, fraud, blackmail, extortion, embezzlement, theft, etc.), the appropriate conventional laws are normally invoked.
 
@@ -138,7 +185,45 @@ To be accepted in a UK court of law, all evidence must satisfy five tests:
  - An audit trail or other record of all processes applied to computer-based electronic evidence should be created and preserved. An independent third party should be able to examine those processes and achieve the same result.
  - The person in charge of the investigation (the case officer) has overall responsibility for ensuring that the law and these principles are adhered to.
 
+### ACPO Good Practice Guide for Computer-based Electronic Evidence (2012)
+
 Study the “ACPO Good Practice Guide for Computer-based Electronic Evidence” (2012), particularly Sections 2, 4.3, 4.4, 4.5, 4.6, 5.7 & 6.5.1
+
+#### Section 2 - The Principles of Digital Evidence
+
+##### 2.1 Principles
+
+* 2.1.1 - Principle 1: No action taken by law enforcement agencies, persons employed within those agencies or their agents should change data which may subsequently be relied upon in court.
+* 2.1.2 - Principle 2: In circumstances where a person finds it necessary to access original data, that person must be competent to do so and be able to give evidence explaining the relevance and implications of their actions.
+* 2.1.3 - Principle 3: An audit trail or other record of all processes applied to digital evidence should be created and preserved. An independent third party should be able to examine those processes and achieve the same result.
+* 2.1.3 - Principle 4: The person in charge of the investigation has overall responsibility for ensuring that the law and these principles are adhered to.
+
+##### 2.2 Explanation of the Principles
+
+* 2.2.1 - All digital evidence is subject to the same rules and laws that apply to documentary evidence.
+* 2.2.2 - The doctrine of documentary evidence may be explained thus: the onus is on the prosecution to show the court that the evidence produced is no more and no less now than when it was first taken into the possession of law enforcement.
+* 2.2.3 - Operating systems and other programs frequently alter, add and delete the contents of electronic storage. This may happen automatically without the user necessarily being aware that the data has been changed.
+* 2.2.4 - In order to comply with the principles of digital evidence, wherever practicable, proportionate and relevant an image should be made of the device. This will ensure that the original data is preserved, enabling an independent third party to re-examine it and achieve the same result, as required by principle 3.
+* 2.2.5 - This may be a physical/logical block image of the entire device,or a logical file image containing partial or selective data (which may be captured as a result of a triage process). Investigators should use their professional judgement to endeavour to capture all relevant evidence if this approach is adopted.
+* 2.2.6 - In cases dealing with data which is not stored locally but is stored at a remote, possibly inaccessible location it may not be possible to obtain an image. It may become necessary for the original data to be directly accessed to recover the data. With this is in mind, it is essential that a person who is competent to retrieve the data and then able to give evidence to a court of law makes any such access. Due consideration must also be given to applicable legislation if data is retrieved which resides in another jurisdiction.
+* 2.2.7 - It is essential to display objectivity in a court of law, as well as the continuity and integrity of evidence. It is also necessary to demonstrate how evidence has been recovered, showing each process through which the evidence was obtained. Evidence should be preserved to such an extent that a third party is able to repeat the same process and arrive at the same result presented to a court.
+* 2.2.8 - It should be noted that the application of the principles does not preclude a proportionate approach to the examination of digital evidence. Those making decisions about the conduct of a digital investigation must often make judgements about the focus and scope of an investigation, taking into account available intelligence and investigative resources. This will often include a risk assessment based on technical and non-technical factors, for example the potential evidence which may be held by a particular type of device or the previous offending history of the suspect. Where this is done it should be transparent, decisions should be justifiable and the rationale recorded.
+* 2.2.9 - Application of the four principles will also be informed by:
+    * The Forensic Science Regulator's forthcoming Codes of Practice and Conduct;
+    * The guidance around digital forensic process improvements developed by the National Policing Improvement Agency's Forensic 21 programme and those engaged in the collection, examination or reporting of digital evidence should also refer to that guidance.
+
+
+#### Section 4 - Capture
+
+##### Section 4.3 - Proportionality Issues Relating to Seizure
+
+* 4.3.1 - Proportionality issues relating to seizure are:
+    * Before seizing an item, consider whether the item is likely to hold evidence. For example, is this a family computer or a computer belonging to a suspect?
+    * Ensure that details of where the item was found are recorded, which could assist in prioritising items for examination at a later stage;
+    * Consider when the offence was committed; when seizing CCTV, give consideration to narrowing down what is seized, by camera and/or time period. Check whether another system may be better placed to record the evidence;
+    * Differentiate between mobile phones found on a suspect (likely to be in current use) and phones found in a drawer (may not be in current use), as different levels of examination may be possible for these;
+    * Also consider that evidence may be stored online, or on an internet service provider's systems and end-user devices may only be needed to obtain the details necessary to request this evidence from the service provider. If so, it is best to seize items in current usage, i.e. computers connected to the internet.
+ * 4.3.2 - Digital devices and media should not be seized just because they are there. The person in charge of the search must have reasonable grounds to remove property and there must be justifiable reasons for doing so. The search provisions of PACE Legislation Codes of Practice equally apply to digital devices and media in England, Wales and Northern Ireland. In Scotland, offices should ensure they are acting within the terms of the search warrant.
 
 ---
 
@@ -179,3 +264,17 @@ There are a number of reasons why it may be desirable or necessary to capture fo
 Essentially, one has to take more than one ‘snap-shot’ of the contents of the main memory or its buffer(s), in order to determine what data is being altered over time.
 
 Study the IEEE Spectrum paper “Live Analysis”, particularly the section on Research Questions.
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'></script>
