@@ -223,7 +223,45 @@ Study the “ACPO Good Practice Guide for Computer-based Electronic Evidence” 
     * Consider when the offence was committed; when seizing CCTV, give consideration to narrowing down what is seized, by camera and/or time period. Check whether another system may be better placed to record the evidence;
     * Differentiate between mobile phones found on a suspect (likely to be in current use) and phones found in a drawer (may not be in current use), as different levels of examination may be possible for these;
     * Also consider that evidence may be stored online, or on an internet service provider's systems and end-user devices may only be needed to obtain the details necessary to request this evidence from the service provider. If so, it is best to seize items in current usage, i.e. computers connected to the internet.
- * 4.3.2 - Digital devices and media should not be seized just because they are there. The person in charge of the search must have reasonable grounds to remove property and there must be justifiable reasons for doing so. The search provisions of PACE Legislation Codes of Practice equally apply to digital devices and media in England, Wales and Northern Ireland. In Scotland, offices should ensure they are acting within the terms of the search warrant.
+* 4.3.2 - Digital devices and media should not be seized just because they are there. The person in charge of the search must have reasonable grounds to remove property and there must be justifiable reasons for doing so. The search provisions of PACE Legislation Codes of Practice equally apply to digital devices and media in England, Wales and Northern Ireland. In Scotland, offices should ensure they are acting within the terms of the search warrant.
+* 4.3.3 - Due regard should also be given to the application of the European Convention of Human Rights.
+
+##### Section 4.4 - Before Attending a Scene to Capture Digital Evidence
+
+* 4.4.1 - Persons responsible for the seizure of digital devices, or for on-scene capture of data, should ensure:
+    * They have the necessary equipment. (Refer to the First Responder's Guide for a detailed breakdown);
+    * They have considered potential sources of evidence and know what is likely to be relevant, where possible.
+* 4.4.2 - Where an investigation is likely to involve the examination of user-created digital images, consideration should be given to the question of seizing of cameras and other devices capable of taking digital photographs. For example, in cases where a suspect is believed to have taken indecent photographs of children, seizure of devices capable of taking digital photos could be useful not only for the data they store, but also to link these devices to previously identified indecent photographs by the examination of digital metadata (EXIF data).
+* 4.4.3 - Where necessary, specialist advice from a force's Digital Forensic Unit should be sought in advance. If given sufficient information about the investigation, DFUs will be able to advise on which items are most likely to provide the evidence sought.
+
+##### Section 4.5 - When Attending a Scene
+
+* 4.5.1 - To comply with principle 3, records must be kept of all actions taken in relation digital evidence, which could include photographs/diagrams of equipment locations, details of any information provided by persons present, and records of any actions taken at the scene.
+* 4.5.2 - Refer to the First Responder's Guide for detailed guidance on seizure for individual items. However, persons attending a scene should be especially aware that **systems which are powered on (running) need to be handled with care**, as there is the potential to make unwanted changes to evidence if these are not dealt with correctly. Such systems should only be accessed by appropriately trained personnel. In addition, volatile data of evidential value may be lost.
+
+##### Section 4.6 - Capturing Online Evidence
+
+* 4.6.1 - In some investigations the capture of digital evidence may be from an online rather than a physical location. Detailed guidance on securing this evidence can be found in 'Crimes involving websites, forums and blogs' and 'Network forensics and volatile data'.
+* 4.6.2 - Online evidence can roughly be split into that which is publicly available (e.g. forum postings, where the forum does not require a login to view) and that which is private (e.g. Facebook account information). There may be scope to obtain both (e.g. by capturing the text of a forum posting and then requesting the account details of the user who made the posting from the forum owner). Investigators should be aware of the potential issues when capturing publicly available data, including the 'footprints' which are left when accessing a site, these can alert a website owner to law enforcement interest.
+* 4.6.3 - Records should be kept of all actions taken when capturing online evidence in order to comply with principle 3.
+
+#### Section 5 - Analyse
+
+* 5.7 - If initial examination results in a large amount of data to be reviewed, consideration must be given to who is best placed to review that data. Often this will be the investigator, due to their greater knowledge of the case. Dependent on the source, this data may include:
+    * Internet history records;
+    * E-mails;
+    * Instant Messaging logs;
+    * Media files (images and videos);
+    * Text documents;
+    * Spreadsheets;
+    * CCTV;
+    * Text messages.
+
+#### Section 6 - Present
+
+##### Section 6.5 - Statements or Reports
+
+* 6.5.1 - The statement or report is the ultimate product of the examination. It should outline the examination process and the significant data recovered. Whilst an initial report may be relatively brief, the practitioner should be in a position to produce a full technical report should one later be required.
 
 ---
 
