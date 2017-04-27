@@ -310,6 +310,67 @@ There are a number of reasons why it may be desirable or necessary to prioritise
 
 Study the paper “Triage Template Pipelines in Digital Forensic Investigations”, particularly Figs.1, 2 & 3 and the scenarios in section 4.
 
+![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgQk5ia1llOXgzVW8 "Figure 1")
+
+
+![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgOUlud3hrcHktWGM "Figure 2")
+The diagonal dashed line in Figure 2 (and 3) represents evidence tasks that could be done in parallel. The upper green lines from the $E_i$ denote that the evidence is found. Failing to find a piece of evidence is represented by the red line. i.e. Finding $E_1$, $E_2$ but not finding $E_3$ would result in following the red line to *Exit*.
+
+![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgZGowT2JNVjE1Y0U "Figure 3")
+
+
+HDs are primary devices whilst USB keys are not. This is because HDs normally contain the operating system and possess a greater storage capacity. If no trace of evidence is retrieved from a HD, then the search is moved to the USB keys. If the USB key search fails, it is returned to the HD. This interchange is represented by the purple/blue half headed double arrows, indicating whether or not a particular evidential trace has already been found on another device. In Figure 3, $E_4$ is shaded grey, indicating that a potential outcome my result in unrelated but criminally significant material. e.g. An original copy of child pornography.
+
+The following scenarios demonstrate some different applications of the above triage templates:
+
+#### Scenario 1 - DDoS
+
+| Hypothesis                                | The seized computer has been used to launch DDoS attacks on an organisation's website.
+|-------------------------------------------|-----------------------------------------------------------
+| Assumptions                               | The computer is believed to have been used for launching sophisticated DDoS attacks on against an organisation's website has been seized, together with USB keys, a laptop, and mobile phones.
+| Role of digital evidence                  | specific
+| Person I/C device                         | suspect - quit IT assessment $\rightarrow$ savvy individual $S$
+| Types of devices seized                   | 5 USB keys (1 connected), 2 mobile phones, 1 PC with an internal HD and 2 external HDs, 1 laptop.
+| Overall order of examination of devices   | HDs (internal then external, then laptop), USB keys, mobile phones, other (ISP).
+| Prioritised search for evidential traces  | (DDoS template - Figure 2)
+| $E_1$                                     | DDoS tools are present
+| $E_2$                                     | BotNet C&C program is present
+| $E_3$                                     | Connections to victim's machine(s) are found (IP address, URL, log file records, etc.)
+| $E_4$                                     | Connections to a BotNet C&C program are found (IP address, log file records, etc.)
+| $E_1$` (USB)                              | DDoS tools are present
+| $E_2$` (USB)                              | BotNet C&C program is present
+| $E_5$                                     | ISP confirms seized computer accessed victim's machine (IP address, etc.)
+| $E_6$                                     | Extortion messages to the victim are found
+| $E_7$                                     | Bragging messages are found (mobile phones)
+| $E_6$` (ISP)                              | Extortion messages to the victim are found
+| $E_7$` (ISP)                              | Bragging messages are found
+
+
+#### Scenario 2 - P2P
+
+| Hypothesis                                | The seized computer is suspected of being used in the illegal dissemination of films and/or albums protected by copyright via Torrent based peer-to-peer (P2P) network.
+|-------------------------------------------|-----------------------------------------------------------
+| Assumptions                               | The computer believed to have been used for uploading the material has been seized together with USB keys and copies of the originals (DVDs/CDs). A mobile phone which may contain messages announcing the upload had also been seized.
+| Role of digital evidence                  | specific
+| Person I/C device                         | suspect - quit IT assessment $\rightarrow$ unsavvy individual $S$
+| Types of devices seized                   | 9 DVDs/CDs, 3 USB keys (1 connected), 1 mobile phone, 1 PC with internal HD.
+| Overall order of examination of devices   | DVD/CD, HD, USB keys, mobile phone.
+| Prioritised search for evidential traces  | (P2P template - Figure 3)
+| $E_1$                                     | Check for presence of original copyrighted material (HD)
+| $E_2$                                     | Web browser software is present
+| $E_3$                                     | Torrent client software is present
+| $E_4$                                     | HD copy of original material found (time stamps; hash values, etc.)
+| $E_3$` (USB)                              | Torrent client software is present
+| $E_4$` (USB)                              | USB copy of original material found (time stamps; hash values, etc.)
+| $E_5$` (USB)                              | Torrent file and line found on USB key (creation records, etc.)
+| $E_6$` (USB)                              | Torrent file activation record found (tracker server login, MAC time, etc.)
+| $E_5$                                     | Torrent file and link found on HD (creation records, etc.)
+| $E_6$`                                    | Torrent file activation record found (tracker server login, MAC time, etc.)
+| $E_7$`                                    | Internet records found (cookies, cache, history, tracker server connection, etc.)
+| $E_8$`                                    | Search for messages relating to investigation (e.g. upload announcement)
+| $E_9$`                                    | Search for messages relating to investigation (e.g. upload announcement) (Mobile phone)
+
+
 ---
 
 ## Lecture 11 - Post mortem versus in-vivo ("live") forensics
