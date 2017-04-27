@@ -180,10 +180,10 @@ To be accepted in a UK court of law, all evidence must satisfy five tests:
 
 ## Lecture 7 - The 4 ACPO Principles of Digital Evidence
 
- - No action taken by law enforcement agencies or their agents should change data held on a computer or storage media which may subsequently be relied upon in court.
- - In circumstances where a person finds it necessary to access original data held on a computer or on storage media, that person must be competent to do so and be able to give evidence explaining the relevance and the implications of their actions.
- - An audit trail or other record of all processes applied to computer-based electronic evidence should be created and preserved. An independent third party should be able to examine those processes and achieve the same result.
- - The person in charge of the investigation (the case officer) has overall responsibility for ensuring that the law and these principles are adhered to.
+ 1. No action taken by law enforcement agencies or their agents should change data held on a computer or storage media which may subsequently be relied upon in court.
+ 2. In circumstances where a person finds it necessary to access original data held on a computer or on storage media, that person must be competent to do so and be able to give evidence explaining the relevance and the implications of their actions.
+ 3. An audit trail or other record of all processes applied to computer-based electronic evidence should be created and preserved. An independent third party should be able to examine those processes and achieve the same result.
+ 4. The person in charge of the investigation (the case officer) has overall responsibility for ensuring that the law and these principles are adhered to.
 
 ### ACPO Good Practice Guide for Computer-based Electronic Evidence (2012)
 
