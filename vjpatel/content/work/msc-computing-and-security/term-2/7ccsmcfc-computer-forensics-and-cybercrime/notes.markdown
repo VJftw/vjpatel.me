@@ -286,6 +286,7 @@ For internet-connected devices or mobile phones, **is the whole network (includi
 **If a device is found attended and/or connected and/or powered-on, how do we avoid losing potential digital forensic evidence?**
 
 *We unplug it directly from the mains. Operating systems perform many actions that will impact the hard disk upon graceful shutdown*.
+
 ---
 
 ## Lecture 9 - The Forensic Process
@@ -303,6 +304,8 @@ USB devices can be masqueraded as everyday objects (lipstick) and may cause them
 
 ## Lecture 10 - Digital Forensic Triage: in-the-field vs. in-the-lab
 
+**triage** means literally, sifting or screening.
+
 There are a number of reasons why it may be desirable or necessary to prioritise and pre-screen digital devices for the presence of evidence before doing a full extraction, in particular the number of devices seized, the circumstances of the seizure, and the accessibility of the data (e.g. strongly encrypted or in the Cloud).
 
 Study the paper “Triage Template Pipelines in Digital Forensic Investigations”, particularly Figs.1, 2 & 3 and the scenarios in section 4.
@@ -317,6 +320,91 @@ There are a number of reasons why it may be desirable or necessary to capture fo
 Essentially, one has to take more than one ‘snap-shot’ of the contents of the main memory or its buffer(s), in order to determine what data is being altered over time.
 
 Study the IEEE Spectrum paper “Live Analysis”, particularly the section on Research Questions.
+
+---
+
+## Lecture 12 - Full Disk Encryption (FDE)
+
+At first sight it might seem that if a disk has been secured using FDE (e.g. TrueCrypt) with a strong encryption key (e.g. 2048 bits) then a digital forensic examination is impossible. However, this is not the case.
+
+In order for the FDE system to operate, the decryption key must be stored (somewhere) in main memory or in a separate device, since if it were stored on the disk it would itself be encrypted and hence unusable. Therefore the use of live forensics techniques on the main memory may be able to retrieve the FDE decryption key and hence allow decryption of the disk’s contents for a forensic examination. When the FDE system is not in operation the key may be stored in a TPM (trusted platform module), a hidden partition, a dongle, etc.
+
+In an alternative approach, the cold boot attack, it has been found that if DRAM chips are cooled to –50C immediately after powering off, the RAM retains its ‘volatile’ data for 10 minutes or so, enabling a forensic search to be made.
+
+Study the FDE forensics paper , particularly sections 4 & 5.
+
+---
+
+## Lecture 13 - Digital Anti-forensics (a.k.a Counter-forensics)
+
+FDE can also be viewed as just one particular aspect of the more generic activity of digital anti-forensics, in which the cyber-criminal may:
+
+1. destroy potentially useful digital forensic evidence of their activities (e.g. wiping log-files);
+2. divert by planting misleading digital forensic evidence (e.g. spoofing the source IP address of a cyber-attack);
+3. deceive by hiding potentially useful digital forensic evidence (e.g. using steganography or onion-routing);
+4. deny access to potentially useful digital forensic evidence (e.g. using cryptography).
+
+---
+
+## Lecture 14 - Searching in more Detail
+
+Tools like EnCase (Guidance Software), FTK (AccessData), X-Ways Forensics , etc. enable the digital forensic examiner to find many types of data or meta-data on a device that may constitute evidence which either implicates or exonerates an individual in a criminal investigation.
+
+The data being sought may include:
+
+* Image files  containing e.g. child pornography
+* Deleted files
+* Temporary files
+* Spool files
+* Swap files
+* Log files (web browser cache & history, Operating System, firewall, anti-virus, Intrusion Detection System, etc.)
+* Automatic back-ups (Microsoft’s Windows 7 Shadow Copy or Apple’s OS X Time Machine, etc.)
+* Partial files in ‘slack space’
+
+The metadata being sought may include:
+
+* File create, last modify and last access times (beware of errors due to time zones, daylight saving, BIOS clock skew/drift, and inaccuracy of atime – up to 1 hr for NTFS file systems, up to 24 hrs for FAT file systems)
+* Windows Registry entries showing e.g. Volume Serial Numbers (VSNs) and device IDs of all USB devices attached with dates and times.
+
+File carving is the process of reassembling file contents from fragments in the absence of file system metadata. A typical carving scenario involves reassembling as much as possible of the contents of one or more files from fragments found distributed in slack space, based on their contents. It is a computationally NP-hard process, similar to reassembling one or more possibly incomplete jigsaw puzzles from their randomly scattered and mixed-up pieces.
+
+See “The Evolution of file carving” by Pal & Memon.
+
+---
+
+## Lecture 15 - Analysis in more Detail
+
+Attempts to make sense of the evidence. E.g. constructing geolocational timelines for devices and people (CCTV, mobiles, satnavs, swipe-cards, ATM cards, USB keys, games consoles, digital cameras, CSP/ISP logs, etc.)
+
+Attempts to answer the ‘5WH’ questions: who did what when, where, why and how?
+
+Intruder behavioural profiling aims to identify ‘who’ by studying online M.O. (modus operandi) from e.g. what files/directories/databases are searched? what keywords/key phrases are searched for? how frequently is email monitored? how frequently is snooping monitored? how long is a typical online session? how many computers/networks are scanned? what system/network scanning tools are used? what backdoors/Trojans/scripts are exploited?
+
+See the Case Study: FSA Insider Dealing prosecution (Owen Brady – guest lecture).
+
+---
+
+## Lecture 16 - Evaluation in more Detail
+
+In an adversarial legal system (e.g. UK), USA, HK)  the defence side will either try to discredit the prosecution side’s evidence by using the 5 legal criteria, or they may agree the evidence but argue instead that there is another perfectly innocent alternative explanation for that evidence. Since a criminal prosecution requires the prosecution side to prove their case “beyond a reasonable doubt”, the defence side only has to find a plausible alternative explanation for the evidence in order to win the case. The Trojan Horse Defence (THD) and the Inadvertent Download Defence (IDD) are two of the most common alternative defences used. In such situations it is important to be able to evaluate how plausible the defence side’s alternative explanation is, relative to the prosecution side’s contention. This is usually expressed in terms of an Odds Ratio.
+
+There are a number of ways of approaching these problems including:
+
+* Bayesian networks (introduced by Judea Pearl in 1988, pioneered for digital forensics by K-P Chow et al. in 2008; in particular, see Figure 5 and Table 5)
+* Complexity theory (based on Ockham’s razor, Einstein’s principle of simplicity, and Hoyle’s principle of contingency)
+* Probability theory (based on random browsing / downloading)
+
+Case Study: HK Possession of Child Pornography (CP) prosecutions. Both the THD and the IDD have been used successfully to avoid convictions for possession of CP in HK and UK. To combat either defence it is necessary for the prosecution side to demonstrate that they are implausible beyond a reasonable doubt.
+
+Study the paper “Quantitative Plausibility of the Trojan Horse Defence against Possession of Child Pornography” (in particular, the Methodology sections and the Table) on combating the THD using complexity theory. Study also “An approach to quantifying the plausibility of the inadvertent download defence"” on combating the IDD using probability theory (in particular, sections 2 & 4).
+
+---
+
+## Lecture 17 - Forensic Readiness
+
+The digital forensic process is greatly aided if organisations proactively prepare themselves for the possibility of an on-site forensic investigation, so that all the required evidence has been securely saved. This is described in Rob Rowlingson’s paper “A Ten-Step Process for Forensic Readiness” (see particularly pp.9–24; p.9 gives the overview).
+
+Further details of many aspects covered in this course are in Peter Sommer’s “A Guide to Forensic Readiness” (4/e).
 
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
