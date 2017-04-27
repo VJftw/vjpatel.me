@@ -267,22 +267,37 @@ Study the “ACPO Good Practice Guide for Computer-based Electronic Evidence” 
 
 ## Lecture 8 - Differences Between Conventional and Digital Forensics
 
-Locard’s Exchange Principle (Edmond Locard, ca.1910): “Every contact leaves a trace” – because it results in an exchange of physical material.  But, is this true in cyberspace? Is it possible to commit the “Perfect (cyber) crime”?
+### Locard’s Exchange Principle (Edmond Locard, ca.1910)
+> “Every contact leaves a trace”
 
-Isolate the crime scene: For internet-connected devices or mobile phones, is the whole network (including ISPs / CSPs) the crime scene?
+– because it results in an exchange of physical material.
 
-Freeze the crime scene: If a device is found attended and/or connected and/or powered-on, how do we avoid losing potential digital forensic evidence?
+But, **is this true in cyberspace? Is it possible to commit the “Perfect (cyber) crime”?**
 
+*No, we are limited to what logs a machine has kept of actions made. Logs could also be deleted or faked.*
+
+### Isolate the crime scene
+For internet-connected devices or mobile phones, **is the whole network (including ISPs / CSPs) the crime scene?**
+
+*No, just the immediate network, but we may need to request further information from ISPs etc.*
+
+### Freeze the crime scene
+
+**If a device is found attended and/or connected and/or powered-on, how do we avoid losing potential digital forensic evidence?**
+
+*We unplug it directly from the mains. Operating systems perform many actions that will impact the hard disk upon graceful shutdown*.
 ---
 
 ## Lecture 9 - The Forensic Process
 
- - Acquisition: Search & Seize Devices – warrants; reasonable suspicion; ‘bag & tag’.
- - Preservation: Provenance & Chain of Custody of Devices – e.g. ACPO 4 principles, making ‘bit-for-bit’ images of all media with write-blockers, and use of MD5 or SHA2 hashes.
- - c.    Searching: Extraction & Authentication of Evidence from Devices.
- - d.    Analysis of Evidence – what does the evidence signify?
- - e.    Evaluation of Evidence – how strong is the case?
- - f.     Reporting, in forms and styles that (i) technical experts can validate; (ii) legal personnel and juries can understand.
+* a. Acquisition: Search & Seize Devices – warrants; reasonable suspicion; ‘bag & tag’.
+* b. Preservation: Provenance & Chain of Custody of Devices – e.g. ACPO 4 principles, making ‘bit-for-bit’ images of all media with write-blockers, and use of MD5 or SHA2 hashes.
+* c. Searching: Extraction & Authentication of Evidence from Devices.
+* d. Analysis of Evidence – what does the evidence signify?
+* e. Evaluation of Evidence – how strong is the case?
+* f. Reporting, in forms and styles that (i) technical experts can validate; (ii) legal personnel and juries can understand.
+
+USB devices can be masqueraded as everyday objects (lipstick) and may cause them to be overlooked during *search and seizure*.
 
 ---
 
