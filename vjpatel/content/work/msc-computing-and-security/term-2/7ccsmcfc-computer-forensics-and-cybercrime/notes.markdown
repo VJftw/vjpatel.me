@@ -394,6 +394,47 @@ In an alternative approach, the cold boot attack, it has been found that if DRAM
 
 Study the FDE forensics paper , particularly sections 4 & 5.
 
+### Static Analysis
+Static analysis (quiescent) involves halting the target system and making a forensically valid copy, or image, of all attached storage media for analysis. Static analysis tools then search the copied media for evidence.
+
+- Effective at recovering data from storage media.
+
+One disadvantage of unplugging a system is that many OS' cache disk writes and sync them at a later time, meaning that any cached writes (potential evidence) would be lost.
+
+
+### Live Analysis
+Live analysis (nonquiescent) gathers data from a system during operation. It addresses many shortcomings of static analysis.
+
+### Research Questions
+
+#### Legal Issues
+
+Actions on a nonquiescent system may likely not be reproducible. This means that in a legal environment, we lose the ability to show reproducible steps that we had with quiescent evidence.
+
+#### Inconsistency
+The inconsistency  inherent in live analysis leads to several research problems. The research goal is to determine the inconsistency's effects on the state derived from the collected raw data.
+
+If the raw data is inconsistent, does that affect the conclusions an investigator is able to draw? Is the inconsistency worse than that produce by static analysis?
+
+#### Repeatability
+
+The essence of science is independent reproducibility. Unless a monitored system can be replayed, live analysis will likely produce unreproducible results. We only need to reproduce parts of the system relevant to the forensic results, but how do we determine which parts those are?
+
+#### Configuration
+
+Live analysis will be ineffective if there are new threats and attacks that aren't captured by an existing pre-configuration. How would we detect attacks and automate reconfiguration?
+
+#### Detection
+
+The culprit might have programmed his system to return misleading impressions of the system state if it detects that analysis is taking place. This is especially easy in VMs as the culprit could detect when the VM has been paused. How can we capture live-data without being detected?
+
+#### Memory Imaging
+
+In live forensics, the contents of memory would change during an imaging process. Is it possible for live analysis to reliably detect discrepancies and to what extent would an image of memory differ from the contents seen by the cpu. Can a process snapshot memory in a manner that reduces inconsistency?
+
+#### Best Practices
+Finally, as the practice of live analysis matures, we in this area must develop best practices and standards, as well as methodologies, to certify the forensic evidence live analysis gathers. It’s critical that these practices, standards, and methodologies be based on solid, reproducible experiments—in other words, science, rather than ad-hoc techniques that appear to work but can’t be explained or validated. Forensic evidence is the basis for decisions that can impact not only machines and money but also people’s lives. For that reason alone, accuracy, reproducibility, and precision are mandatory.
+
 ---
 
 ## Lecture 13 - Digital Anti-forensics (a.k.a Counter-forensics)
