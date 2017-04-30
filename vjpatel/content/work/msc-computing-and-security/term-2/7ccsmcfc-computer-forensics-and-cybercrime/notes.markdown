@@ -382,18 +382,6 @@ Essentially, one has to take more than one ‘snap-shot’ of the contents of th
 
 Study the IEEE Spectrum paper “Live Analysis”, particularly the section on Research Questions.
 
----
-
-## Lecture 12 - Full Disk Encryption (FDE)
-
-At first sight it might seem that if a disk has been secured using FDE (e.g. TrueCrypt) with a strong encryption key (e.g. 2048 bits) then a digital forensic examination is impossible. However, this is not the case.
-
-In order for the FDE system to operate, the decryption key must be stored (somewhere) in main memory or in a separate device, since if it were stored on the disk it would itself be encrypted and hence unusable. Therefore the use of live forensics techniques on the main memory may be able to retrieve the FDE decryption key and hence allow decryption of the disk’s contents for a forensic examination. When the FDE system is not in operation the key may be stored in a TPM (trusted platform module), a hidden partition, a dongle, etc.
-
-In an alternative approach, the cold boot attack, it has been found that if DRAM chips are cooled to –50C immediately after powering off, the RAM retains its ‘volatile’ data for 10 minutes or so, enabling a forensic search to be made.
-
-Study the FDE forensics paper , particularly sections 4 & 5.
-
 ### Static Analysis
 Static analysis (quiescent) involves halting the target system and making a forensically valid copy, or image, of all attached storage media for analysis. Static analysis tools then search the copied media for evidence.
 
@@ -434,6 +422,18 @@ In live forensics, the contents of memory would change during an imaging process
 
 #### Best Practices
 Finally, as the practice of live analysis matures, we in this area must develop best practices and standards, as well as methodologies, to certify the forensic evidence live analysis gathers. It’s critical that these practices, standards, and methodologies be based on solid, reproducible experiments—in other words, science, rather than ad-hoc techniques that appear to work but can’t be explained or validated. Forensic evidence is the basis for decisions that can impact not only machines and money but also people’s lives. For that reason alone, accuracy, reproducibility, and precision are mandatory.
+
+---
+
+## Lecture 12 - Full Disk Encryption (FDE)
+
+At first sight it might seem that if a disk has been secured using FDE (e.g. TrueCrypt) with a strong encryption key (e.g. 2048 bits) then a digital forensic examination is impossible. However, this is not the case.
+
+In order for the FDE system to operate, the decryption key must be stored (somewhere) in main memory or in a separate device, since if it were stored on the disk it would itself be encrypted and hence unusable. Therefore the use of live forensics techniques on the main memory may be able to retrieve the FDE decryption key and hence allow decryption of the disk’s contents for a forensic examination. When the FDE system is not in operation the key may be stored in a TPM (trusted platform module), a hidden partition, a dongle, etc.
+
+In an alternative approach, the cold boot attack, it has been found that if DRAM chips are cooled to –50C immediately after powering off, the RAM retains its ‘volatile’ data for 10 minutes or so, enabling a forensic search to be made.
+
+Study the FDE forensics paper , particularly sections 4 & 5.
 
 ---
 
