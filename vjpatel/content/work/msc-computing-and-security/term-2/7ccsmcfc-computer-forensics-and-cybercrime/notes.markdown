@@ -435,6 +435,24 @@ In an alternative approach, the cold boot attack, it has been found that if DRAM
 
 Study the FDE forensics paper , particularly sections 4 & 5.
 
+### 4. Forensic Soundness Considerations
+
+An examiner needs to explain the impact of the changes caused by collecting data from a live system. e.g. Running forensic tools will alter volatile data when it is loaded into the main memory, and create files and registry entries. Using remote forensic tools would establish a network connection etc.
+
+Purists argue that forensic acquisitions should not alter the original evidence source in any way. However, traditional forensic disciplines such as DNA analysis show that the measure of forensic soundness does not require the original to be left unaltered. When samples of biological material are collected, the process generally scrapes or smears the original evidence. Forensic analysis of the evidentiary sample alters the sample even more because DNA tests are destructive.
+This is also dangerous in a legal context as conforming to this standard may be impossible and therefore suggesting the purist way as "best practice" opens routes for criticisms that have no bearing on the issues under investigation (It is okay to change, but you have to preserve everything). The key to this is documentation, where a solid case built on supporting documentation about where the evidence originated and how it was handled, noting any changes that have been made with analysis of their impacts will generally be considered **forensically sound**.
+
+### 5. Forensic Examination of Fully Encrypted Disks
+
+When the credentials for decrypting a disk are no available at the time of acquisition, a forensic duplicate can be made using the normal methods. The duplicate can then be examined at a later time at the lab.
+
+- One effective way is to load the duplicate into a virtual environment using a tool like LiveView. Booting the forensic disk in this way allows the examiner to decrypt the drive using a passphrase/recovery key, acquire a duplicate of the decrypted drive and view the virtualised computer as the user would have seen it.
+- In some cases the duplicate won't load successfully in a virtual environment and so the duplicate can be restored to a working hard disk in a different computer and then decrypted etc.
+
+Case Example: In one organisation that used FDE on all laptops, examiners had to image the fully encrypted disks and return the laptops back to the organisation as quickly as possible. This would not have been possible if the FDE used a TPM as the hard disk would need to be connected to the original laptop to be decrypted.
+
+Some FDE vendors have worked with forensic software vendors to allow access to forensic duplicated of their encrypted hard drives.
+
 ---
 
 ## Lecture 13 - Digital Anti-forensics (a.k.a Counter-forensics)
