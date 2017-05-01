@@ -490,6 +490,9 @@ File carving is the process of reassembling file contents from fragments in the 
 
 See “The Evolution of file carving” by Pal & Memon.
 
+* $\text{Cluster size} = \text{Sector size} \times \text{Sectors per cluster}$
+* $\text{Disk size} = \text{Cluster size} \times \text{Count}$
+
 ---
 
 ## Lecture 15 - Analysis in more Detail
