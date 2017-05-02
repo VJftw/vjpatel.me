@@ -519,15 +519,49 @@ There are a number of ways of approaching these problems including:
 
 Case Study: HK Possession of Child Pornography (CP) prosecutions. Both the THD and the IDD have been used successfully to avoid convictions for possession of CP in HK and UK. To combat either defence it is necessary for the prosecution side to demonstrate that they are implausible beyond a reasonable doubt.
 
-Study the paper “Quantitative Plausibility of the Trojan Horse Defence against Possession of Child Pornography” (in particular, the Methodology sections and the Table) on combating the THD using complexity theory. Study also “An approach to quantifying the plausibility of the inadvertent download defence"” on combating the IDD using probability theory (in particular, sections 2 & 4).
+
+
+### Quantitative Plausibility of the Trojan Horse Defence against Possession of Child Pornography
+
+Study the paper “Quantitative Plausibility of the Trojan Horse Defence against Possession of Child Pornography” (in particular, the Methodology sections and the Table) on combating the THD using complexity theory.
+
+The Operational Complexity Model (OCM) evaluates how easy (probable) it is to accidentally/unknowingly/spontaneously perform a set of actions on a computer. The Trojan horse hypothesis is modelled by the OCM as the simplest user-oblivious process that produces all of the requisite evidential traces and no others. The reason for this is not only to achieve clarity but, even more importantly, to produce a lower bound on the complexity of the Trojan horse process, which will be reflected in an upper bound on the plausibility of the Trojan horse hypothesis. Since a simpler Trojan horse model results in a higher plausibility for this alternative hypothesis, it enables the prosecution to assess the maximum plausibility of the defence’s alternative explanation for the existence of the recovered evidence as a ‘worst case scenario’.
+
+The Enhanced Complexity Model (ECM) builds upon the OCM by taking into account the additional effort required to integrate the Trojan Horse into software components.
+
+### An approach to quantifying the plausibility of the inadvertent download defence
+
+Study also “An approach to quantifying the plausibility of the inadvertent download defence"” on combating the IDD using probability theory (in particular, sections 2 & 4).
+
+**Table 1** shows the probability of a criminal being innocent by inadvertently downloading child pornography when it is mixed with other adult images with 95% confidence.
+
 
 ---
 
 ## Lecture 17 - Forensic Readiness
 
-The digital forensic process is greatly aided if organisations proactively prepare themselves for the possibility of an on-site forensic investigation, so that all the required evidence has been securely saved. This is described in Rob Rowlingson’s paper “A Ten-Step Process for Forensic Readiness” (see particularly pp.9–24; p.9 gives the overview).
+The digital forensic process is greatly aided if organisations proactively prepare themselves for the possibility of an on-site forensic investigation, so that all the required evidence has been securely saved.
+
+**Forensic readiness** is defined as the ability of an organisation to maximise its potential to use digital evidence whilst minimising the costs of an investigation
+
+This is described in Rob Rowlingson’s paper “A Ten-Step Process for Forensic Readiness” (see particularly pp.9–24; p.9 gives the overview).
+
+1. Define the business scenarios that require digital evidence.
+2. Identify available sources and different types of potential evidence.
+3. Determine the evidence collection requirement.
+4. Establish a capability for securely gathering legally admissible evidence to meet the requirement.
+5. Establish a policy for secure storage and handling of potential evidence.
+6. Ensure monitoring is targeted to detect and deter major incidents.
+7. Specify circumstances when escalation to a full formal investigation (which may use the digital evidence) should be launched.
+8. Train staff in incident awareness, so that all those involved understand their role in the digital evidence process and the legal sensitivities of evidence.
+9. Document an evidence-based case describing the incident and its impact.
+10. Ensure legal review to facilitate action in response to the incident.
+
 
 Further details of many aspects covered in this course are in Peter Sommer’s “A Guide to Forensic Readiness” (4/e).
+
+
+
 
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
