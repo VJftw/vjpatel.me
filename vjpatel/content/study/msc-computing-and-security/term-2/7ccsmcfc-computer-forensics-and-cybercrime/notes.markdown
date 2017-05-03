@@ -291,14 +291,17 @@ For internet-connected devices or mobile phones, **is the whole network (includi
 
 ## Lecture 9 - The Forensic Process
 
-* a. Acquisition: Search & Seize Devices – warrants; reasonable suspicion; ‘bag & tag’.
-* b. Preservation: Provenance & Chain of Custody of Devices – e.g. ACPO 4 principles, making ‘bit-for-bit’ images of all media with write-blockers, and use of MD5 or SHA2 hashes.
-* c. Searching: Extraction & Authentication of Evidence from Devices.
-* d. Analysis of Evidence – what does the evidence signify?
-* e. Evaluation of Evidence – how strong is the case?
-* f. Reporting, in forms and styles that (i) technical experts can validate; (ii) legal personnel and juries can understand.
+1. Acquisition: Search & Seize Devices – warrants; reasonable suspicion; ‘bag & tag’.
+2. Preservation: Provenance & Chain of Custody of Devices – e.g. ACPO 4 principles, making ‘bit-for-bit’ images of all media with write-blockers, and use of MD5 or SHA2 hashes.
+3. Searching: Extraction & Authentication of Evidence from Devices.
+4. Analysis of Evidence – what does the evidence signify?
+5. Evaluation of Evidence – how strong is the case?
+6. Reporting, in forms and styles that (i) technical experts can validate; (ii) legal personnel and juries can understand.
 
 USB devices can be masqueraded as everyday objects (lipstick) and may cause them to be overlooked during *search and seizure*.
+
+
+$$\text{Acquire} \rightarrow \text{Preserve} \rightarrow \text{Search} \rightarrow \text{Analyse} \rightarrow \text{Evaluate} \rightarrow \text{Report}$$
 
 ---
 
@@ -560,6 +563,58 @@ This is described in Rob Rowlingson’s paper “A Ten-Step Process for Forensic
 
 Further details of many aspects covered in this course are in Peter Sommer’s “A Guide to Forensic Readiness” (4/e).
 
+
+---
+
+## Specimen Part Exam Questions
+
+### 1. Distinguish between digital forensics, cyber forensics and computer forensics.
+
+Digital forensics is the process of getting any evidence from any electronic device that is acceptable in a court of law. Cyber forensics is the process of getting any evidence from a networked computer that is acceptable in a court of law. Computer forensics is the process of getting any evidence from an isolated computer that is acceptable in a court of law.
+
+Digital forensics encompasses both Cyber and Computer forensics. Cyber and Computer forensics have some overlap.
+
+
+### 2. State Locard's principle. Does digital forensics obey Locard's principle? Justify your answer.
+
+Locard's principle is "Every contact leaves a trace". Digital forensics does not obey this as we are limited to what information a device keeps track of. Usually logs are kept in devices, but if a device is compromised then logs can be changed/deleted.
+
+### 3. Describe and distinguish between the two main types of computer crime, giving two distinct examples of each.
+
+The two main types of computer crime are:
+
+* Computer Related Crime (CRC): A computer or its contents are the subject of an attack. (e.g. Hacking or Denial of Service attacks)
+* Computer Assisted Crime (CAC): A computer is an accessory to the crime (e.g. Financial Fraud or Embezzlement)
+
+
+### 4. How can cyber-crime be characterised statistically using a power law model?
+
+
+### 5. How has the cost of cyber-crime been evaluated? Critically evaluate each approach.
+
+
+### 6. Describe the two categories of cyber-crime revealed by a power law model.
+
+The power law model reveals **opportunistic** attacks, where the resources required for defences are much greater than those required for an attacks. These attacks cost below $2.5M on average.
+
+It also reveals **orgranised** attacks which cost over $3M on average.
+
+### 7. Describe the six steps of the digital forensic process model.
+
+1. Acquisition: The search and seizure of devices.
+2. Preservation: The provenance and chain of custody of devices.
+3. Searching: The extraction and authentication of evidence from devices.
+4. Analysis of evidence: What does the evidence signify?
+5. Evaluation of evidence: How strong is the case?
+6. Reporting: Create a report that technical experts can validate and legal people and juries can understand.
+
+
+### 8. How does digital forensics differ in practice from conventional forensics.
+
+
+
+
+### 9. What is meant by triage in digital forensics and what are its advantages.
 
 
 
