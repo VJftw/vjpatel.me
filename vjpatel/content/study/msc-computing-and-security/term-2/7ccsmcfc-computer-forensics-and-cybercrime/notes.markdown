@@ -597,7 +597,7 @@ The two main types of computer crime are:
 
 The power law model reveals **opportunistic** attacks, where the resources required for defences are much greater than those required for an attacks. These attacks cost below $2.5M on average.
 
-It also reveals **orgranised** attacks which cost over $3M on average.
+It also reveals **organised** attacks which cost over $3M on average.
 
 ### 7. Describe the six steps of the digital forensic process model.
 
@@ -611,10 +611,47 @@ It also reveals **orgranised** attacks which cost over $3M on average.
 
 ### 8. How does digital forensics differ in practice from conventional forensics.
 
+In conventional forensics, Locard's principle applies "Every contact leaves a trace"; whereas in digital forensics, contacts are usually stored in log files which can be compromised to be either changed or deleted.
 
+When isolating a crime scene, usually the road/surrounding areas are cordoned off for conventional forensics. This is to reduce the likelihood of the crime scene becoming tainted. In digital forensics, this could be analogous to the network. How much of the network should we isolate? We can't really isolate the network down to the ISP so the LAN/immediate network would be most appropriate depending on the crime scene e.g. If a device is connected to a local server.
 
 
 ### 9. What is meant by triage in digital forensics and what are its advantages.
+
+Triage means literally sifting and filtering. It is advantageous in digital forensics as an individual can have terrabytes of data for a forensic examiner to trawl through. The triage process allows forensic examiners to shorten their work-load by choosing sections of data that are most likely to hold evidence. i.e. a USB stick masquerading as a lipstick versus a HD in a shared computer.
+
+### 10. Describe the four UK ACPO principles on handling digital evidence.
+
+1. No action taken by law enforcement agencies or their agents should change data held on a computer or storage media which may subsequently be relied upon in court.
+2. In circumstances where a person finds it necessary to access original data held on a computer or on storage media, that person must be competent to do so and be able to give evidence explaining the relevance and implications of their actions.
+3. An audit trail or other record of all processes applied to computer-based electronic evidence should be created and preserved. An independent third party should be able to examine those processes and achieve the same result.
+4. The person in charge of the investigation (the case officer) has overall responsibility for ensuring that the law and these principles are adhered to.
+
+### 11. Describe the three main sections of the UK Computer Misuse Act 1990, as modified by the Police and Justice Act 2006?
+
+### 12. What is meant by Full Disk Encryption? How may a digital forensic examiner attempt to overcome FDE in a reasonably short amount of time?
+
+
+### 13. Arriving at a house to seize a domestic PC and related storage media, you find the PC running but unattended. Describe and justify how you will proceed.
+
+### 15. You arrive at a large commercial organisation to investigate a suspected leak of highly confidential information. Describe and justify how you will proceed.
+
+### 16. What kinds of data and meta-data would you search for in a case of suspected possession of child pornography?
+
+
+### 17. What kinds of data and meta-data would you search for in a case of suspected blackmail and/or extortion by e-mail?
+
+### 18. What is meant by digital-(or counter-)forensics? Give 3 examples of digital anti-forensics techniques.
+
+
+### 19. What is meant by the '5WH'? What digital devices can help create a geolocational timeline for a file? What precautions must be taken with time-stamped meta-data?
+
+### 20. What digital devices can help create a geolocational timeline for an individual in order to either implicate them or exonerate them of a crime?
+
+
+### 21. Describe two ways in which the relative plausibility of two competing hypotheses explaining the existence of recovered digital evidence can be quantitatively assessed.
+
+### 22. What is meant by Forensic Readiness? What steps should a commercial CISO take to bring their organisation into forensic readiness?
 
 
 
