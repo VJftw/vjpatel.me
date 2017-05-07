@@ -135,13 +135,25 @@ For Digitally Related crimes: the Computer Misuse Act (1990), as extended by the
 
 Sections 1-3 introduced 3 criminal offences:
 
- 1. **unauthorised access** to computer material, punishable by 12 months' imprisonment and/or an unlimited fine.
- 2. unauthorised access with intent to commit or facilitate commission of **further offence(s)**, punishable by 12 months imprisonment and/or an unlimited fine on summary conviction and/or 5 years imprisonment and/or an unlimited fine on indictment;
- 3. **unauthorised modification** of computer material, punishable by 12 months imprisonment and/or an unlimited fine on summary conviction and/or 10 years imprisonment and/or an unlimited fine on indictment;
+ 1. **Unauthorised access** to computer material, punishable by 12 months' imprisonment and/or an unlimited fine.
+ 2. **Unauthorised access** with intent to commit or facilitate commission of **further offence(s)**, punishable by 12 months imprisonment and/or an unlimited fine on summary conviction and/or 5 years imprisonment and/or an unlimited fine on indictment;
+ 3. **Unauthorised modification** of computer material, punishable by 12 months imprisonment and/or an unlimited fine on summary conviction and/or 10 years imprisonment and/or an unlimited fine on indictment;
 
  §§2–3 offences are intended to deter the more serious criminals from using a computer to assist in the  commission of a criminal offence or from impairing or hindering access to data stored in a computer. The basic  offence is to attempt or achieve access to a computer or the data it stores, by inducing a computer to perform any function with intent to secure access. Hackers who program their computers to search through password permutations are therefore liable, even though all their attempts to log on are rejected by the target computer. The only precondition to liability is that the hacker should be aware that the access attempted is unauthorised  (mens rea or “guilty mind”). Thus, using another person's username or identifier (ID) and password without proper authority to access data or a program, or to alter, delete, copy or move a program or data, or simply to  output a program or data to a screen or printer, or to impersonate that other person (“masquerading”) constitutes the offence. Even if the initial access is authorised, subsequent exploration, if there is a hierarchy of privileges in the system, may lead to entry to parts of the system for which the requisite privileges are lacking and the offence will be committed. But looking over a user's shoulder (“shoulder surfing”) or using sophisticated electronic  equipment to monitor the electromagnetic radiation emitted by devices ("electronic eavesdropping") is outside the scope of this offence.
 
 The §§2–3 offences are aggravated offences, requiring a specific intent to commit another offence (for these purposes, the other offences include all the major common law and statutory offences of fraud and dishonesty.. So a hacker who obtains access to a system intending to transfer money or shares, intends to commit theft, or to obtain confidential information for blackmail or extortion. Thus, the §1 offence is committed as soon as the unauthorised access is attempted, and the §2 offence overtakes liability as soon as specific access is made for the criminal purpose. The §3 offence is specifically aimed at those who write and circulate computer viruses or worms.. Similarly, using phishing techniques or a Trojan horse to obtain identity data or to acquire any other data from an unauthorised source, or modifying the operating system files or some aspect of the computer's functions to interfere with its operation or prevent access to any data, including the destruction of files, or deliberately generating code to cause a complete system malfunction, are all criminal "modifications".
+
+##### Police and Justice Act (2006) Modifications
+
+1. **Unauthorised access** to computer material, punishable by up to 2 years in prison or a fine or both.
+2. **Unauthorised acts** with intent to **impair operation** of computer, etc. punishable by up to 10 years in prison or a fine or both (This covers DoS) attacks.
+3. Making, supplying or obtaining articles intended for use in computer misuse offences, punishable by up to 2 years in prison or a fine or both.
+
+##### Serious Crime Act (2015) Modifications
+
+1. Unauthorised acts causing, or creating **risk of serious damage** - punishable by up to 14 years in prison or both, possible life imprisonment where human welfare or national security were endangered.
+2. Obtaining articles for purposes relating to computer misuse.
+3. Territorial scope of computer misuse - Making the primary scope the UK, but can be worldwider (*Transborder offence*) especially if conspirator is British and broke a local law.
 
 #### Investigatory Powers Act (2016)
 
@@ -589,15 +601,20 @@ The two main types of computer crime are:
 
 ### 4. How can cyber-crime be characterised statistically using a power law model?
 
+The power law model characterises a multitude of processes which produce a large number of small events but a small number of large events.
+
+Looking at the average financial loss per cybercrime, we can see that there are a lot of heists yielding a smaller loss, whereas the are few very costly heists. Cybercrime can be viewed as an asymmetric conflict, where the resources for effective defence are far greater than those for attack. This makes cybercrime opportunistic in nature, resembling terrorism rather than conventional (symmetric) warfare.
+
 
 ### 5. How has the cost of cyber-crime been evaluated? Critically evaluate each approach.
 
 
+
 ### 6. Describe the two categories of cyber-crime revealed by a power law model.
 
-The power law model reveals **opportunistic** attacks, where the resources required for defences are much greater than those required for an attacks. These attacks cost below $2.5M on average.
+The power law model reveals **opportunistic** attacks which cost below $2.5M on average. Examples of these attacks could be DoS attacks using "the Ion Orbital Cannon", taking advantage of known exploits etc.
 
-It also reveals **organised** attacks which cost over $3M on average.
+It also reveals **organised** attacks which cost over $3M on average. Examples of these attacks could be larger DDoS attacks where many computers need to be compromised beforehand or an unknown zero-day exploit.
 
 ### 7. Describe the six steps of the digital forensic process model.
 
@@ -614,6 +631,8 @@ It also reveals **organised** attacks which cost over $3M on average.
 In conventional forensics, Locard's principle applies "Every contact leaves a trace"; whereas in digital forensics, contacts are usually stored in log files which can be compromised to be either changed or deleted.
 
 When isolating a crime scene, usually the road/surrounding areas are cordoned off for conventional forensics. This is to reduce the likelihood of the crime scene becoming tainted. In digital forensics, this could be analogous to the network. How much of the network should we isolate? We can't really isolate the network down to the ISP so the LAN/immediate network would be most appropriate depending on the crime scene e.g. If a device is connected to a local server.
+
+When freezing a crime scene, a computer should be disconnected from the mains as shutting it down gracefully will impact the state of the hard disk and computer.
 
 
 ### 9. What is meant by triage in digital forensics and what are its advantages.
