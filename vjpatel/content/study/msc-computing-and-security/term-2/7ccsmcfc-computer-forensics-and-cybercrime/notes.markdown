@@ -49,8 +49,14 @@ Study the UK Cabinet Office report (2011), particularly pp.2-3; the WEIS paper (
 
 Malware attacks on businesses occur every 1–3 minutes – see the FireEye report (2012).
 
-### UK Cabinet Office Report 2011
+### UK Cabinet Office Report 2011 (Detica)
 pp.2-3:
+
+**Method**:
+ * Based on estimates & assumptions instead of real data.
+ * Used public information to give worst-case, most-likely case, and best-case scenarios for the magnitude of cyber-crime.
+
+*Lack of transparency for their data*.
 
 This report estimates the cost of cyber-crime in the UK economy to be £27bn with Intellectual Property theft at the top with £9b.
 
@@ -64,7 +70,7 @@ They scaled the global estimates to the UK using the UK's share of GDP for a lot
 ### UK Home Office Review 2013
 p.14
 
->Estimating the costs of cyber crime is challenging and there are limitations with previous research that has attempted to produce estimates. As outlined by the Home Affairs Select Committee report on e-crime (Home Affairs Select Committee, 2013), the precision of Detica’s (2011) £27 billion estimate has been questioned due to the lack of robust and transparent data upon which their estimates were based. Progress in this complex area has been made with work conducted by Anderson et al. (2012) who estimated separate costs for different cyber crimes, opting not to produce one total estimate given the paucity and reliability of the data available. However, there are also limitations with Anderson et al.’s approach, which relies partly on scaled down global estimates and case-studies, based on the UK being five per cent of the world gross domestic product (GDP). The UK cyber security strategy (Cabinet Office, 2011) recognised the challenges in this area and noted “a truly robust estimate will probably never be established, but it is clear the costs are high and rising”. Based on the limited research available at present, for example, drawing upon Anderson et al. (2012), the costs of cyber crime could reasonably be assessed to equate to at least several billion pounds per year.
+*Estimating the costs of cyber crime is challenging and there are limitations with previous research that has attempted to produce estimates. As outlined by the Home Affairs Select Committee report on e-crime (Home Affairs Select Committee, 2013), the precision of Detica’s (2011) £27 billion estimate has been questioned due to the lack of robust and transparent data upon which their estimates were based. Progress in this complex area has been made with work conducted by Anderson et al. (2012) who estimated separate costs for different cyber crimes, opting not to produce one total estimate given the paucity and reliability of the data available. However, there are also limitations with Anderson et al.’s approach, which relies partly on scaled down global estimates and case-studies, based on the UK being five per cent of the world gross domestic product (GDP). The UK cyber security strategy (Cabinet Office, 2011) recognised the challenges in this area and noted “a truly robust estimate will probably never be established, but it is clear the costs are high and rising”. Based on the limited research available at present, for example, drawing upon Anderson et al. (2012), the costs of cyber crime could reasonably be assessed to equate to at least several billion pounds per year.*
 
 To improve cyber-crime evidence base
  - recording mechanisms that accurately distinguish between online and offline crime.
@@ -77,6 +83,10 @@ To improve cyber-crime evidence base
 
 ### Ponemon Institute Report 2015
 Figure 1 & p.4
+
+**Method**:
+ - Interviews with companies over 10 months.
+ - Direct and indirect expenses.
 
 Figure 1 shows the total average costs of cyber-crime in 7 countries. The US total average is $15m, Russia at $2m and the UK at $6m.
 

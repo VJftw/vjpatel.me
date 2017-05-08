@@ -34,6 +34,9 @@ Looking at the average financial loss per cybercrime, we can see that there are 
 
 ### 5. How has the cost of cyber-crime been evaluated? Critically evaluate each approach.
 
+One approach has been to survey a range of companies over 10 months to determine their average cost. An issue with this is that many companies may miss out on the survey, thus not miss reporting further heists.
+
+Another approach has been to look at the figures for other countries or globally and scale the costs using GDP. This does not give an accurate measure as other job sectors contribute to GDP.
 
 
 ### 6. Describe the two categories of cyber-crime revealed by a power law model.
@@ -112,8 +115,11 @@ Every action should be documented so that is repeatable by another party.
 
 ### 15. You arrive at a large commercial organisation to investigate a suspected leak of highly confidential information. Describe and justify how you will proceed.
 
+From Owen Brady's guest lecture, we saw that we should not alert anyone of the investigation incase they are involved and consequently take counter-forensic steps to elude prosecution.
 
+I would follow the trail of recorded hands that the confidential information could have passed through and look for connections between those people and those the information was leaked to or leaked via. If we find a connection, we can label that person a suspect and forensically examine their devices for evidence.
 
+In a case where all computers need to be examined, we cannot disrupt the organisation's operation and so images of computers will need to be taken as quickly as possible.
 
 
 ### 16. What kinds of data and meta-data would you search for in a case of suspected possession of child pornography?
@@ -168,7 +174,11 @@ We could also use ID access keys, but the defendant might say that someone had s
 
 ### 21. Describe two ways in which the relative plausibility of two competing hypotheses explaining the existence of recovered digital evidence can be quantitatively assessed.
 
+The two competing hypotheses are the **Trojan Horse Defence** (THD) and the **Inadvertent Download Defence** (IDD).
 
+For THD, we can prove its plausibility beyond reasonable doubt by using Complexity Models (Operational Complexity or Enhanced Complexity) that measure how easy it is to perform a set of actions on a computer unknowningly/accidentally. It enables prosecution to assess the maximum plausibility of the defence's alternative explanation.
+
+For IDD, we can prove its plausibility by showing how common the criminal media occurs among other media. Overill et al. provided a table showing with 95% confidence if criminal media were downloaded inadvertently among other media.
 
 
 ### 22. What is meant by Forensic Readiness? What steps should a commercial CISO take to bring their organisation into forensic readiness?
