@@ -149,6 +149,12 @@ The §§2–3 offences are aggravated offences, requiring a specific intent to c
 2. **Unauthorised acts** with intent to **impair operation** of computer, etc. punishable by up to 10 years in prison or a fine or both (This covers DoS) attacks.
 3. Making, supplying or obtaining articles intended for use in computer misuse offences, punishable by up to 2 years in prison or a fine or both.
 
+The above changes show:
+
+ * The term for unauthorised access **doubled** from 12 months to **2 years**.
+ * It takes into account further cybercrime such as DoS attacks which are costly to business, making the term up to **10 years**.
+ * Making, supplying or obtaining articles for cybercrime is also now a punishable offence with up to **2 years** imprisonment.
+
 ##### Serious Crime Act (2015) Modifications
 
 1. Unauthorised acts causing, or creating **risk of serious damage** - punishable by up to 14 years in prison or both, possible life imprisonment where human welfare or national security were endangered.
@@ -474,10 +480,10 @@ Some FDE vendors have worked with forensic software vendors to allow access to f
 
 FDE can also be viewed as just one particular aspect of the more generic activity of digital anti-forensics, in which the cyber-criminal may:
 
-1. destroy potentially useful digital forensic evidence of their activities (e.g. wiping log-files);
-2. divert by planting misleading digital forensic evidence (e.g. spoofing the source IP address of a cyber-attack);
-3. deceive by hiding potentially useful digital forensic evidence (e.g. using steganography or onion-routing);
-4. deny access to potentially useful digital forensic evidence (e.g. using cryptography).
+1. **Destroy** potentially useful digital forensic evidence of their activities (e.g. wiping log-files);
+2. **Divert** by planting misleading digital forensic evidence (e.g. spoofing the source IP address of a cyber-attack);
+3. **Deceive** by hiding potentially useful digital forensic evidence (e.g. using steganography or onion-routing);
+4. **Deny** access to potentially useful digital forensic evidence (e.g. using cryptography).
 
 ---
 
@@ -574,103 +580,6 @@ This is described in Rob Rowlingson’s paper “A Ten-Step Process for Forensic
 
 
 Further details of many aspects covered in this course are in Peter Sommer’s “A Guide to Forensic Readiness” (4/e).
-
-
----
-
-## Specimen Part Exam Questions
-
-### 1. Distinguish between digital forensics, cyber forensics and computer forensics.
-
-Digital forensics is the process of getting any evidence from any electronic device that is acceptable in a court of law. Cyber forensics is the process of getting any evidence from a networked computer that is acceptable in a court of law. Computer forensics is the process of getting any evidence from an isolated computer that is acceptable in a court of law.
-
-Digital forensics encompasses both Cyber and Computer forensics. Cyber and Computer forensics have some overlap.
-
-
-### 2. State Locard's principle. Does digital forensics obey Locard's principle? Justify your answer.
-
-Locard's principle is "Every contact leaves a trace". Digital forensics does not obey this as we are limited to what information a device keeps track of. Usually logs are kept in devices, but if a device is compromised then logs can be changed/deleted.
-
-### 3. Describe and distinguish between the two main types of computer crime, giving two distinct examples of each.
-
-The two main types of computer crime are:
-
-* Computer Related Crime (CRC): A computer or its contents are the subject of an attack. (e.g. Hacking or Denial of Service attacks)
-* Computer Assisted Crime (CAC): A computer is an accessory to the crime (e.g. Financial Fraud or Embezzlement)
-
-
-### 4. How can cyber-crime be characterised statistically using a power law model?
-
-The power law model characterises a multitude of processes which produce a large number of small events but a small number of large events.
-
-Looking at the average financial loss per cybercrime, we can see that there are a lot of heists yielding a smaller loss, whereas the are few very costly heists. Cybercrime can be viewed as an asymmetric conflict, where the resources for effective defence are far greater than those for attack. This makes cybercrime opportunistic in nature, resembling terrorism rather than conventional (symmetric) warfare.
-
-
-### 5. How has the cost of cyber-crime been evaluated? Critically evaluate each approach.
-
-
-
-### 6. Describe the two categories of cyber-crime revealed by a power law model.
-
-The power law model reveals **opportunistic** attacks which cost below $2.5M on average. Examples of these attacks could be DoS attacks using "the Ion Orbital Cannon", taking advantage of known exploits etc.
-
-It also reveals **organised** attacks which cost over $3M on average. Examples of these attacks could be larger DDoS attacks where many computers need to be compromised beforehand or an unknown zero-day exploit.
-
-### 7. Describe the six steps of the digital forensic process model.
-
-1. Acquisition: The search and seizure of devices.
-2. Preservation: The provenance and chain of custody of devices.
-3. Searching: The extraction and authentication of evidence from devices.
-4. Analysis of evidence: What does the evidence signify?
-5. Evaluation of evidence: How strong is the case?
-6. Reporting: Create a report that technical experts can validate and legal people and juries can understand.
-
-
-### 8. How does digital forensics differ in practice from conventional forensics.
-
-In conventional forensics, Locard's principle applies "Every contact leaves a trace"; whereas in digital forensics, contacts are usually stored in log files which can be compromised to be either changed or deleted.
-
-When isolating a crime scene, usually the road/surrounding areas are cordoned off for conventional forensics. This is to reduce the likelihood of the crime scene becoming tainted. In digital forensics, this could be analogous to the network. How much of the network should we isolate? We can't really isolate the network down to the ISP so the LAN/immediate network would be most appropriate depending on the crime scene e.g. If a device is connected to a local server.
-
-When freezing a crime scene, a computer should be disconnected from the mains as shutting it down gracefully will impact the state of the hard disk and computer.
-
-
-### 9. What is meant by triage in digital forensics and what are its advantages.
-
-Triage means literally sifting and filtering. It is advantageous in digital forensics as an individual can have terrabytes of data for a forensic examiner to trawl through. The triage process allows forensic examiners to shorten their work-load by choosing sections of data that are most likely to hold evidence. i.e. a USB stick masquerading as a lipstick versus a HD in a shared computer.
-
-### 10. Describe the four UK ACPO principles on handling digital evidence.
-
-1. No action taken by law enforcement agencies or their agents should change data held on a computer or storage media which may subsequently be relied upon in court.
-2. In circumstances where a person finds it necessary to access original data held on a computer or on storage media, that person must be competent to do so and be able to give evidence explaining the relevance and implications of their actions.
-3. An audit trail or other record of all processes applied to computer-based electronic evidence should be created and preserved. An independent third party should be able to examine those processes and achieve the same result.
-4. The person in charge of the investigation (the case officer) has overall responsibility for ensuring that the law and these principles are adhered to.
-
-### 11. Describe the three main sections of the UK Computer Misuse Act 1990, as modified by the Police and Justice Act 2006?
-
-### 12. What is meant by Full Disk Encryption? How may a digital forensic examiner attempt to overcome FDE in a reasonably short amount of time?
-
-
-### 13. Arriving at a house to seize a domestic PC and related storage media, you find the PC running but unattended. Describe and justify how you will proceed.
-
-### 15. You arrive at a large commercial organisation to investigate a suspected leak of highly confidential information. Describe and justify how you will proceed.
-
-### 16. What kinds of data and meta-data would you search for in a case of suspected possession of child pornography?
-
-
-### 17. What kinds of data and meta-data would you search for in a case of suspected blackmail and/or extortion by e-mail?
-
-### 18. What is meant by digital-(or counter-)forensics? Give 3 examples of digital anti-forensics techniques.
-
-
-### 19. What is meant by the '5WH'? What digital devices can help create a geolocational timeline for a file? What precautions must be taken with time-stamped meta-data?
-
-### 20. What digital devices can help create a geolocational timeline for an individual in order to either implicate them or exonerate them of a crime?
-
-
-### 21. Describe two ways in which the relative plausibility of two competing hypotheses explaining the existence of recovered digital evidence can be quantitatively assessed.
-
-### 22. What is meant by Forensic Readiness? What steps should a commercial CISO take to bring their organisation into forensic readiness?
 
 
 
