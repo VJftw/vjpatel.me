@@ -15,13 +15,13 @@ jQuery(function () {
       showCursor: false,
       callback: function() {
         intro.typed({
-          strings: ["I'm an MSc Computing and Security student at King's College, London who explores Cryptography, ^350 Dev Ops ^250 and the Internet of Things."],
-          typeSpeed: 0,
+          strings: ["I'm an MSc Computing and Security student at King's College London who explores Cryptography, ^150 Dev Ops ^100 and the Internet of Things."],
+          typeSpeed: -10,
           showCursor: false,
           callback: function() {
             moreInfo.typed({
-              strings: ['You can also find me lost in space <i class="fa fa-rotate-270 fa-space-shuttle"></i>, ^300 raving at a festival <i class="fa fa-music"></i> ^300 or buried in a book <i class="fa fa-book"></i>.'],
-              typeSpeed: 0,
+              strings: ['You can also find me lost in space <i class="fa fa-rotate-270 fa-space-shuttle"></i>, ^150 raving at a festival <i class="fa fa-music"></i> ^100 or buried in a book <i class="fa fa-book"></i>.'],
+              typeSpeed: -10,
               showCursor: false
             });
           }
