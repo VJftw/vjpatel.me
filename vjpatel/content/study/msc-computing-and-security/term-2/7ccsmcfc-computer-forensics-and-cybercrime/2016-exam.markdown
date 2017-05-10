@@ -1,0 +1,47 @@
++++
+date = "2017-05-08T00:26:19+01:00"
+title = "7CCSMCFC - 2016 Exam"
+markup = "mmark"
++++
+
+## Question 1
+
+### a). What is meant by the terms *Forensic Science* and *Digital Forensics*? [10 marks]
+
+### b). Is *digital forensics* part of Forensic Science or Computer Science? Briefly justify your answer. [10 marks]
+
+### c). List the **five** attributes of evidence in UK courts of law, giving a brief (one sentence) explanation of each. [15 marks]
+
+### d). What is meant by *probative value* and the *prejudicial value* of evidence? What criterion involving these two values must be met in order for the evidence to be deemed admissible in court? [10 marks]
+
+### e). Why are the laws and statutes involving digital evidence in continual need of updating? [5 marks]
+
+## Question 2
+
+### a). Distinguish between *digitally assisted crime* and *digitally related crime*. [10 marks]
+
+### b). Briefly explain how the 2011 Detica/Cabinet Office report estimated the annual cost of cybercrime in the UK as £27 billion whereas in 2012 a paper at WEIS concluded that it was around £2.2 billion. [10 marks]
+
+### c). Explain what is meant by a *power law relationship* giving its equation. [10 marks]
+
+### d). With the aid of a diagram explain how a *double power law* can be used to characterise cybercrime into *opportunistic cybercrime* and *organised cybercrime*, indicating which cybercrimes fall into the latter category. [20 marks]
+
+## Question 3
+
+### a). What is meant by a *digital evidence geolocation timeline*? Explain briefly how it is constructed. [9 marks]
+
+### b). List **three** devices that are capable of providing digital evidence of location. [6 marks]
+
+### c). When analysing recovered digital evidence of time, briefly describe **four** types of errors or anomalies that may be encountered. [20 marks]
+
+### d). Suggest **two** types of digital device that might potentially be capable of placing an individual person in a particular location at a particular time and explain briefly how this might be achieved. [10 marks]
+
+## Question 4
+
+### a). What is meant by a *dual use tool*? Give **one** example of such a tool and explain briefly why the Council of Europe Convention on Cybercrime had to be revised to take account of dual use tools. [10 marks]
+
+### b). In what wars do (i) cloud forensics; (ii) mobile forensics, differ from hard disk drive (HDD) digital forensics? [10 marks]
+
+### c). Explain briefly what is meant by *counter-forensics* (or *anti-forensics*), static why it might be used, and by whom. [10 marks]
+
+### d). Give four examples of *counter-forensic* or (*anti-forensic*) techniques, explaining briefly in each case how the technique achieves its aim. [20 marks]
