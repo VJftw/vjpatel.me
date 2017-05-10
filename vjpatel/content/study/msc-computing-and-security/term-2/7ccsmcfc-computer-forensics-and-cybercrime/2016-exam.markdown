@@ -8,23 +8,48 @@ markup = "mmark"
 
 ### a). What is meant by the terms *Forensic Science* and *Digital Forensics*? [10 marks]
 
+Forensic science is the process of getting evidence that will be acceptable in a court of law. Digtal forensics is Forensic science related to digital devices e.g. GPS, game controllers, etc.
+
 ### b). Is *digital forensics* part of Forensic Science or Computer Science? Briefly justify your answer. [10 marks]
+
+
 
 ### c). List the **five** attributes of evidence in UK courts of law, giving a brief (one sentence) explanation of each. [15 marks]
 
+* Admissibility: The evidence is first-hand, original, not hearsay.
+* Authenticity: Is genuine, what it claims, or is claimed, to be.
+* Accuracy: Precise and clear, not vague.
+* Completeness: Self-contained, not vague.
+* Probative value: Relevance to the case in hand must be greater than the prejudicial value (resulting degree of harm).
+
 ### d). What is meant by *probative value* and the *prejudicial value* of evidence? What criterion involving these two values must be met in order for the evidence to be deemed admissible in court? [10 marks]
 
+The probative value is the relevance to the case in hand and it must be grater than the probative value which is the resulting degree of harm. i.e. the evidence must be more relevant to the case than it is damaging.
+
 ### e). Why are the laws and statutes involving digital evidence in continual need of updating? [5 marks]
+
+As society becomes more technologically advanced, people have more knowledge on how to avoid prosecution with existing laws. e.g. With the advent of the internet, cybercrime (crime across networks) became more prominent and easy to conduct.
 
 ## Question 2
 
 ### a). Distinguish between *digitally assisted crime* and *digitally related crime*. [10 marks]
 
+Digitally assisted crime is where digital devices are used in accessory to a crime. e.g. Embezzlement, Fraud.
+
+Digitally related crime is where a digital device (or digital devices) are the subject of the crime. e.g. DoS, hacking.
+
 ### b). Briefly explain how the 2011 Detica/Cabinet Office report estimated the annual cost of cybercrime in the UK as £27 billion whereas in 2012 a paper at WEIS concluded that it was around £2.2 billion. [10 marks]
+
+The Detica paper was based on estimates and assumptions, instead of real data. They used public information to give worst-case, most-likely case, and best-case scenarios for the magnitude of cyber-crime.
+
+The WEIS paper scaled global estimates using the UK's share of GDP for different types of cybercrime.
 
 ### c). Explain what is meant by a *power law relationship* giving its equation. [10 marks]
 
+
 ### d). With the aid of a diagram explain how a *double power law* can be used to characterise cybercrime into *opportunistic cybercrime* and *organised cybercrime*, indicating which cybercrimes fall into the latter category. [20 marks]
+
+
 
 ## Question 3
 
@@ -32,16 +57,39 @@ markup = "mmark"
 
 ### b). List **three** devices that are capable of providing digital evidence of location. [6 marks]
 
+* GPS
+* CCTV
+* Entry key cards
+
 ### c). When analysing recovered digital evidence of time, briefly describe **four** types of errors or anomalies that may be encountered. [20 marks]
 
+
+
 ### d). Suggest **two** types of digital device that might potentially be capable of placing an individual person in a particular location at a particular time and explain briefly how this might be achieved. [10 marks]
+
+* GPS
 
 ## Question 4
 
 ### a). What is meant by a *dual use tool*? Give **one** example of such a tool and explain briefly why the Council of Europe Convention on Cybercrime had to be revised to take account of dual use tools. [10 marks]
 
-### b). In what wars do (i) cloud forensics; (ii) mobile forensics, differ from hard disk drive (HDD) digital forensics? [10 marks]
+A tool that can be used for both good and bad. `nmap` is one tool as it can be used to scan for open ports on a remote machine as part of a cyber attack.
+
+TODO: 2nd part of question.
+
+### b). In what ways do (i) cloud forensics; (ii) mobile forensics, differ from hard disk drive (HDD) digital forensics? [10 marks]
+
+Cloud forensics are much harder to conduct as usually data centres reside in different jurisdictions. It is possible, but usually takes a long time for a request to be processed.
+
+Mobile forensics are also difficult as it is possible for a suspect to control the mobile remotely and wipe it. Mobiles should be placed inside a faraday bag to stop all radio communication from it and it should also remain charged.
 
 ### c). Explain briefly what is meant by *counter-forensics* (or *anti-forensics*), static why it might be used, and by whom. [10 marks]
 
+
+
 ### d). Give four examples of *counter-forensic* or (*anti-forensic*) techniques, explaining briefly in each case how the technique achieves its aim. [20 marks]
+
+* Deceive - Steganography (hiding information)
+* Divert - Planting misleading information.
+* Destroy - Delete evidence
+* Deny - Cryptogaphy
