@@ -8,18 +8,39 @@ markup = "mmark"
 
 ### a). Define the term *Geolocation Timeline*. [10 marks]
 
+
+
 ### b). List 5 potential sources of digital evidence that can be used to construct a digital geolocational timeline *for a specific data file*. [15 marks]
+
+* System logs
+* Temporary files
+* Created timestamp meta-data
+* GPS of containing device
+* Pictures of containing device
 
 ### c). List 3 potential sources of digital evidence that can be used to construct a digital geolocational timeline for *an individual*. [10 marks]
 
+* GPS
+* CCTV
+* Authentication (ID cards, logging into system)
+
 ### d). When analysing the recovered digital timestamp evidence from various digital devices, what factors must be taken into account if potentially misleading results are to be avoided in constructing a geolocational timeline? Your answer should list 4 factors and you should also estimate the possible error associated with each. [15 marks]
+
+* Time drift
+* Timezones
+* BIOS clock inaccuracy
+*
 
 
 ## Question 2
 
 ### a). State *Locard's Principle*. [6 marks]
 
+"Every contact leaves a trace."
+
 ### b). Does Locard's Principle apply in cyberspace? Justify your answer. [9 marks]
+
+
 
 ### c). 'Freeze and Seize' is a part of every CSI's job; explain under what circumstances freezing a digital crime scene and seizing digital items for subsequent digital forensic investigation may be less straightforward than for a conventional crime scene. [20 marks]
 
