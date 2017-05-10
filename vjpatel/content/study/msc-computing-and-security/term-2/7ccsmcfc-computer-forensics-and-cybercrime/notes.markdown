@@ -119,6 +119,8 @@ $$p(x) = Cx^{-a}$$
 - $C$ is the normalisation constant.
 - $a$ is the exponent of the power law.
 
+From the US-based CSI Computer Crime and Security surveys:
+
 ![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgM2JPVG1lMkZsZkE "Figure 1")
 
 Figure 1 (above) shows a single power law applied to the cyber-crime cumulative distribution function (CDF). Note how towards the largest few points, they do not fit the single power law regime as well as the rest of the data, but the don't seem to be scattered randomly either. Figure 3 (below) shows the application of a double power law regime which fits the full set of data better.
