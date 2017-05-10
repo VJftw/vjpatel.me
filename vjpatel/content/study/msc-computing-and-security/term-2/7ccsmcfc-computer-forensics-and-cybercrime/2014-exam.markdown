@@ -1,0 +1,144 @@
++++
+date = "2017-05-08T00:26:19+01:00"
+title = "7CCSMCFC - 2014 Exam"
+markup = "mmark"
++++
+
+## Question 1
+
+### a). Define the term *digital crime*. [10 marks]
+
+An action which **constitutes an offence and is punishable by law** committed using **any digital device**. e.g. GPS, game controllers, national infrastructure.
+
+### b). Describe the two principal forms of digital crime. [6 marks]
+
+The two principal forms are **Digitally Related Crime (DRC)** and **Digitally Assisted Crime (DAC)**.
+
+* Digitally Related Crime is where a digital device is the subject of a criminal attack. e.g. DoS, Hacking.
+* Digitally Assisted Crime is where a digital device is accessory to a crime. e.g. Fraud, Embezzlement.
+
+### c). Explain how digital crime can be characterised statistically into opportunistic and organised digital crimes, illustrating your explanation with one or more diagrams as appropriate. [24 marks]
+
+This can be done using a **Power Law**. Power laws characterise a multitude of processes where there are a large number of small events but a small number of large events.
+
+Digital crime can be viewed as an asymmetric conflict where the resources required for defence are far greater than those required for offence. This describes its opportunistic nature, resembling terrorism rather than conventional (symmetric) warfare.
+
+Using data from the CSI Computer Crime and Surveys for average financial loss, you arrive at the diagram below.
+
+![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgM2JPVG1lMkZsZkE "Figure 1")
+
+As you can see, the last few points do not quite fit the single power law regime as well as the rest of the data. We can apply a double power law to fit the full set better. See below.
+
+![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgQzhZdXg4LV9rUjg "Figure 3")
+
+The above shows us that using a double power law we can identify the two categories:
+
+* Opportunistic crimes that cost below $2.5M on average and happen much more frequently.
+* Organised crimes that cose above $3M on average and happen less often by *serious transnational organised cybercrime syndicates*.
+
+### d). In your role as a law enforcement official, you are deployed to a location where it is suspected that a digital crime may recently have been, or is being, committed. What *additional* precautions should you take on entering the premises which a scene of crime officer in a non-digital case would not need to take? [10 marks]
+
+* Be careful of alerting the suspect of your arrival as they may perform some counter-forensics (destroy, divert, deceive, deny) if they are alerted.
+* If a crime is being committed, is it safer for society to wait for it to finish. Stopping the crime early may have unintended consequences e.g. a suspect has made a system openly vulnerable but not closed it off yet to hide their traces.
+* Knowledge of how technically competent the suspect is. Would they have been able to perform counter-forensics.
+
+## Question 2
+
+### a). Define the term *digital forensics*. [10 marks]
+
+The process of **getting evidence that will be acceptable in a court of law** related to **digital devices**. e.g. GPS, game controllers, national infrastructure.
+
+### b). Distinguish between *digital forensics* and *eDiscovery*. [6 marks]
+
+eDiscovery is looking into systems to find out how well they are running or how secure they are. It is normally part of a civil law, which doesn't require evidence of the same strictness or standard as forensic evidence.
+
+### c). Describe the six stages of the digital forensic process. [24 marks]
+
+* Acquire: Search and seize devices.
+* Preserve: provenance and chain of custody of devices using the ACPO principles.
+* Search: Extraction and authentication of evidence from devices.
+* Analyse: What does the evidence signify?
+* Evaluate: How strong is the case?
+* Report: In forms and styles that technical experts can validate and legal personnel can understand.
+
+### d). In your role as a law enforcement official you are directed to seize a laptop PC which is suspected may have been, or is being, used to download child pornography. What considerations must be taken into account if the PC is: [10 marks]
+
+#### (i). running
+
+* We cannot shut it down as that will result in the state of the laptop changing the hard disk.
+* We cannot simply unplug the laptop as it will likely have a battery.
+* Therefore, it might be safest to dismantle the laptop whilst running to remove the hard disk or battery.
+
+#### (ii). attended
+
+* Our main goal should be to distract the suspect and get him away from the laptop without alerting him.
+* We could achieve this by:
+  * Kissograms
+  * Fire alarms
+  * etc.
+* Once the suspect is away, we can detain them and sieze the laptop.
+
+
+## Question 3
+
+### a). State Locard's Principle [6 marks]
+
+"Every contact leaves a trace"
+
+### b). Does Locard's Principle apply to digital forensics? Justify your answer carefully. [9 marks]
+
+To a certain extent yes, however those "traces" are usually recorded in log files which can be removed, faked and therefore untrusted if a system has been compromised.
+
+### c). Conventional forensic scientists perform tests and analyses directly on samples of materials recovered from the crime scene. Digital forensic examiners generally do not do this. Explain why this is the case and further explain how digital forensic examiners treat digital media *before* proceeding to search for evidence. [7 marks]
+
+Conventional forensic scientists do this as they cannot duplicate the materials. They usually cut the samples into smaller segments for re-tests. Digital forensic scientists should take a hash of the media and then create an image of the media which they will then perform their examinations on. The original copy should be left in pristine condition.
+
+### d). List *six* distinct categories of file (**not** file types) that a digital forensic examiner might reasonably search for in a PC, using a tool such as EnCase, in a criminal case involving word-processed blackmail or extortion letter that was printed and then sent by post. For each category of file, explain briefly how it may have come into existence as potential evidence. [18 marks]
+
+* Spool files: The letter was printed. Spool files hold a cache of printed documents.
+* Document files: The original typed document may be present on the suspect's PC.
+* Partial files in slack space: The original document may have been deleted using the OS, but the file may exist in slack space still.  
+* Temporary files: when writing documents, some programs create a checkpoint save to help recover the document if the editor crashes.
+* Recent documents: The suspect may have opened the document recently.
+* Deleted files: The suspect may not have emptied their recycle bin.
+
+### e). What meta-data associated with files listed in (d) above could prove valuable in helper to either convict or exonerate the user or owner of the PC? Explain how. [10 marks]
+
+The file:
+* create
+* modified
+* last accessed
+
+times to show when the document was created, and written.
+
+## Question 4
+
+### a). Explain the meaning of the term *digital forensic triage*. [7 marks]
+
+Triage means literally sifting or screening, therefore digital forensic triage is sifting/screening digital evidence that could be used in a court of law.
+
+### b). Under what circumstances might it be appropriate to employ 'in-the-field' digital forensic triage? What are the disadvantages of this technique from an evidential perspective? [10 marks]
+
+It might be appropriate when the suspect has a lot of storage mediums, including ones that are masqueraded as everyday objects (usb lipstick). As we would miss out on some devices, we may miss out on evidence hidden in devices we didn't suspect.
+
+### c). Explain the meaning of the term *'live' digital forensics*. [7 marks]
+
+Live digital forensics is process of gathering evidence from a system whilst it is running.
+
+### d). Under what circumstances might it be appropriate to employ 'live' digital forensics? What are the disadvantages of this technique from an evidential perspective?
+
+It might be necessary when the computer is connected to the internet and we need to see the state of memory and running programs to find what processes are running and what they are doing.
+
+It is disadvantageous as it becomes much harder to prove the evidence's admissibility as it is much harder for another technical expert to repeat the same steps that the original investigator took.
+
+### e). In your role as a law enforcement official you take possession of a running PC whose contents appear to have been secured using full disk encryption (FDE). Whis this scenario in mind [16 marks]
+
+#### (i). explain what is meant by FDE;
+
+Full Disk Encryption is where a hard disk has been encrypted using a symmetric key.
+
+#### (ii). describe how you might attempt to gain access to its unencrypted contents in a relatively short period of time.
+
+The key cannot be stored on the hard disk, and so it is usually stored in memory whilst the system is running. If the system is not running the key may be found on a USB dongle, Trusted Platform Module etc.
+
+It may also be possible to perform a cold boot attack to obtain the key.
