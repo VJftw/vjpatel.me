@@ -30,6 +30,8 @@ The probative value is the relevance to the case in hand and it must be grater t
 
 As society becomes more technologically advanced, people have more knowledge on how to avoid prosecution with existing laws. e.g. With the advent of the internet, cybercrime (crime across networks) became more prominent and easy to conduct.
 
+---
+
 ## Question 2
 
 ### a). Distinguish between *digitally assisted crime* and *digitally related crime*. [10 marks]
@@ -46,14 +48,25 @@ The WEIS paper scaled global estimates using the UK's share of GDP for different
 
 ### c). Explain what is meant by a *power law relationship* giving its equation. [10 marks]
 
+A power law characterises a multitude of processes that have a large amount of small events but a small amount of large events. Its equation is $p(x) = Cx^{-a}$.
 
 ### d). With the aid of a diagram explain how a *double power law* can be used to characterise cybercrime into *opportunistic cybercrime* and *organised cybercrime*, indicating which cybercrimes fall into the latter category. [20 marks]
 
+Using data from the CSI Computer Crime and Surveys for average financial loss, we arrive a diagram looking similar to this:
 
+![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgQzhZdXg4LV9rUjg "Figure 3")
+
+The 2nd line of best fit(right hand side) is the organised cybercrime (the small amount of large events), and the 1st line of best fit is the opportunistic cybercrime (the large amount of small events).
+
+Cyber-crime can be viewed as an asymmetric conflict, where the resources required for defence are far greater than the resources required for attack. It is opportunistic in nature and so it resembles terrorism rather than conventional (symmetric) warfare.
+
+---
 
 ## Question 3
 
 ### a). What is meant by a *digital evidence geolocation timeline*? Explain briefly how it is constructed. [9 marks]
+
+A geolocational timeline is representation of where a piece of evidence has been moved/traveled. i.e. a locational lifespan of a piece of evidence. It is constructed using timestamp and locational information from devices that have held the evidence.
 
 ### b). List **three** devices that are capable of providing digital evidence of location. [6 marks]
 
@@ -63,11 +76,15 @@ The WEIS paper scaled global estimates using the UK's share of GDP for different
 
 ### c). When analysing recovered digital evidence of time, briefly describe **four** types of errors or anomalies that may be encountered. [20 marks]
 
+N/A: don't think possible error will come up as cannot find in teaching material.
 
 
 ### d). Suggest **two** types of digital device that might potentially be capable of placing an individual person in a particular location at a particular time and explain briefly how this might be achieved. [10 marks]
 
-* GPS
+* CCTV: an image of a person on a CCTV with a timestamp can give us the location of the individual at a specific time.
+* Retina scan entry: If someone uses a retina based authentication, we can find when that individual entered the area from logs.
+
+---
 
 ## Question 4
 
@@ -75,7 +92,7 @@ The WEIS paper scaled global estimates using the UK's share of GDP for different
 
 A tool that can be used for both good and bad. `nmap` is one tool as it can be used to scan for open ports on a remote machine as part of a cyber attack.
 
-TODO: 2nd part of question.
+The Council of Europe Convention on Cybercrime had to be revised as many tools such as `nmap` can be used for the testing and protection of systems, and were initially created for that purpose. It had to be revised to take into account whether the use of the tool was malicious.
 
 ### b). In what ways do (i) cloud forensics; (ii) mobile forensics, differ from hard disk drive (HDD) digital forensics? [10 marks]
 
@@ -83,8 +100,9 @@ Cloud forensics are much harder to conduct as usually data centres reside in dif
 
 Mobile forensics are also difficult as it is possible for a suspect to control the mobile remotely and wipe it. Mobiles should be placed inside a faraday bag to stop all radio communication from it and it should also remain charged.
 
-### c). Explain briefly what is meant by *counter-forensics* (or *anti-forensics*), static why it might be used, and by whom. [10 marks]
+### c). Explain briefly what is meant by *counter-forensics* (or *anti-forensics*), stating why it might be used, and by whom. [10 marks]
 
+Counter-forensics are a set of strategies that make a forensic inspection much more difficult or impossible. It may be used by criminals to hide incriminating evidence or give misleading incriminating evidence. It may also be used by highly secretive organisations.
 
 
 ### d). Give four examples of *counter-forensic* or (*anti-forensic*) techniques, explaining briefly in each case how the technique achieves its aim. [20 marks]
@@ -93,3 +111,18 @@ Mobile forensics are also difficult as it is possible for a suspect to control t
 * Divert - Planting misleading information.
 * Destroy - Delete evidence
 * Deny - Cryptogaphy
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'></script>

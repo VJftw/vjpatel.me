@@ -42,6 +42,8 @@ The above shows us that using a double power law we can identify the two categor
 * If a crime is being committed, is it safer for society to wait for it to finish. Stopping the crime early may have unintended consequences e.g. a suspect has made a system openly vulnerable but not closed it off yet to hide their traces.
 * Knowledge of how technically competent the suspect is. Would they have been able to perform counter-forensics.
 
+---
+
 ## Question 2
 
 ### a). Define the term *digital forensics*. [10 marks]
@@ -78,6 +80,7 @@ eDiscovery is looking into systems to find out how well they are running or how 
   * etc.
 * Once the suspect is away, we can detain them and sieze the laptop.
 
+---
 
 ## Question 3
 
@@ -110,6 +113,8 @@ The file:
 * last accessed
 
 times to show when the document was created, and written.
+
+---
 
 ## Question 4
 

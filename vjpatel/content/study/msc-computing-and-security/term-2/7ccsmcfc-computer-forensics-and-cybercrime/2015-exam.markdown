@@ -26,10 +26,13 @@ A geolocational timeline is representation of where a piece of evidence has been
 
 ### d). When analysing the recovered digital timestamp evidence from various digital devices, what factors must be taken into account if potentially misleading results are to be avoided in constructing a geolocational timeline? Your answer should list 4 factors and you should also estimate the possible error associated with each. [15 marks]
 
+N/A: don't think possible error will come up as cannot find in teaching material.
+
 * Time drift
 * Timezones
 * BIOS clock inaccuracy
 
+---
 
 ## Question 2
 
@@ -55,6 +58,7 @@ If a computer is found running, it becomes very difficult for a CSI to freeze it
 * Knockout gas through vents
 * Package delivery
 
+---
 
 ## Question 3
 
@@ -77,6 +81,7 @@ Forensic readiness is defined as the ability of an organisation to maximise its 
 
 ### c). In your capacity as a digital forensic investigator you are dispatched to a large organisation which has reported that it is has been the target of a hostile data exfiltration attack. Assuming that the organisation in question is compliant with the principles of forensic readiness, list 6 forensically useful artefacts you would expect to recover in order to assist your investigation, and explain how you would confirm that these artefacts had not been tampered with. [10 marks]
 
+---
 
 ## Question 4
 

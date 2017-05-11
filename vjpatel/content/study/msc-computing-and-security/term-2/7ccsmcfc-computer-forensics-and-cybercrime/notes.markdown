@@ -141,6 +141,51 @@ Hacking has changed since the 1970s. Back then, hacking was seen more as joy-rid
 
 ## Lecture 5 - Prosecution of Cybercrime UK & EU Laws
 
+### Summary
+
+#### Computer Misuse Act
+
+The *Computer Misuse Act (1990)* introduced sections 1-3:
+
+1. **Unauthorised access** to computer material, punishable by up to 12 months imprisonment and/or an unlimited fine.
+2. **Unauthorised access** with intent to commit **further offences**, punishable by 12 months imprisonment and/or an unlimited fine.
+3. **Unauthorised modification** of computer material, punishable by 12 months imprisonment and/or an unlimited fine.
+
+The *Police and Justice Act (2006)* then modified those sections:
+
+1. **Unauthorised access** to computer material, punishable by up to 2 years in prison or a fine or both.
+2. **Unauthorised acts** with intent to **impair operation** of computer, etc. punishable by up to 10 years in prison or a fine or both (This covers DoS) attacks.
+3. Making, supplying or obtaining articles intended for use in computer misuse offences, punishable by up to 2 years in prison or a fine or both.
+
+The above changes show:
+
+ * The term for unauthorised access **doubled** from 12 months to **2 years**.
+ * It takes into account further cybercrime such as **DoS** attacks which are costly to business, making the term up to **10 years**.
+ * Making, supplying or obtaining articles for cybercrime is also now a punishable offence with up to **2 years** imprisonment.
+
+The *Serious Crime Act (2015)* added the following:
+
+1. Unauthorised acts causing, or creating **risk of serious damage** - punishable by up to 14 years in prison or both, possible life imprisonment where human welfare or national security were endangered.
+2. Obtaining articles for purposes relating to computer misuse.
+3. Territorial scope of computer misuse - Making the primary scope the UK, but can be worldwider (*Transborder offence*) especially if conspirator is British and broke a local law.
+
+#### Investigatory Powers Act (2016)
+
+The recent Investigatory Powers Act (2016) was introduced to aid UK anti-terrorism investigations; it significantly extends the provisions of the previous Regulation of Investigatory Powers Act (RIPA) (2000), which permitted the acquisition of communications data and decryption keys on production of a warrant authorised by the Home Secretary.
+
+#### Mutual Legal Assistance Treaties
+
+**Mutual Legal Assistance Treaties (MLATs)** can be used to acquire evidence located outside the UK, but are very slow to operate in practice.
+
+#### Council of Europe's Convention on Cybercrime (2001) - Dual-use tools
+
+1. The making available of a device/program or information to access computer systems (passwords etc.) with the intent to commit a crime is criminal.
+2. It is not criminal if the tool is used for authorised testing or protection of a computer system.
+3. It is not criminal unless the tool contains information to access a computer system (password, access codes).
+
+
+### Full Notes
+
 #### Computer Misuse Act (1990)
 
 For Digitally Related crimes: the Computer Misuse Act (1990), as extended by the Police & Justice Act (2006), is used, most particularly Sections 1 - 3.
@@ -177,7 +222,6 @@ The above changes show:
 
 The recent Investigatory Powers Act (2016) was introduced to aid UK anti-terrorism investigations; it significantly extends the provisions of the previous Regulation of Investigatory Powers Act (RIPA) (2000), which permitted the acquisition of communications data and decryption keys on production of a warrant authorised by the Home Secretary.
 
-Mutual Legal Assistance Treaties (MLATs) can be used to acquire evidence located outside the UK, but are very slow to operate in practice.
 
 #### Council of Europe (CoE) Convention on Cyber-crime (2001)
 
@@ -191,6 +235,10 @@ In the Council of Europe’s Convention on Cybercrime (2001) see particularly Ar
     * b) the possession of an item referred to in paragraphs a.i or ii above, with intent that it be used for the purpose of committing any of the offences established in Articles 2 through 5. A Party may require by law that a number of such items be possessed before criminal liability attaches.
 2. This article shall not be interpreted as imposing criminal liability where the production, sale, procurement for use, import, distribution or otherwise making available or possession referred to in paragraph 1 of this article is not for the purpose of committing an offence established in accordance with Articles 2 through 5 of this Convention, such as for the authorised testing or protection of a computer system.
 3. Each Party may reserve the right not to apply paragraph 1 of this article, provided that the reservation does not concern the sale, distribution or otherwise making available of the items referred to in paragraph 1 a.ii of this article.
+
+1. The making available of a device/program or information to access computer systems (passwords etc.) with the intent to commit a crime is criminal.
+2. It is not criminal if the tool is used for authorised testing or protection of a computer system.
+3. It is not criminal unless the tool contains information to access a computer system (password, access codes).
 
 Note that for Digitally Assisted crimes (e.g., forgery, fraud, blackmail, extortion, embezzlement, theft, etc.), the appropriate conventional laws are normally invoked.
 
