@@ -137,6 +137,10 @@ Hacking has changed since the 1970s. Back then, hacking was seen more as joy-rid
 
 ‘White hat’ hackers will report any vulnerability they discover to the system owner or supplier; ‘Black hats’ will exploit or sell a vulnerability; ‘Grey hats’ are often supposedly reformed Black hats, reinvented as penetration testers or security consultants.
 
+Kevin Mitnick was a hacker that had compulsive behavioural traits. Nowadays he makes a living as a security consultant. Quote: "Cyber-security is about people, processes and technology, and organisations need to bolster the weakest link - which invariably is the human element".
+
+Another hacker, Gary Mckinnon was diagnosed as having ASD (Aspergers), known as the UFO hacker, is currently living in the UK as the home secretary has been blocking his extradition to the US.
+
 ---
 
 ## Lecture 5 - Prosecution of Cybercrime UK & EU Laws
@@ -258,10 +262,10 @@ To be accepted in a UK court of law, all evidence must satisfy five tests:
 
 ## Lecture 7 - The 4 ACPO Principles of Digital Evidence
 
- 1. No action taken by law enforcement agencies or their agents should change data held on a computer or storage media which may subsequently be relied upon in court.
- 2. In circumstances where a person finds it necessary to access original data held on a computer or on storage media, that person must be competent to do so and be able to give evidence explaining the relevance and the implications of their actions.
- 3. An audit trail or other record of all processes applied to computer-based electronic evidence should be created and preserved. An independent third party should be able to examine those processes and achieve the same result.
- 4. The person in charge of the investigation (the case officer) has overall responsibility for ensuring that the law and these principles are adhered to.
+ * No action taken by law enforcement agencies should change data held on storage media which may subsequently be relied upon in court.
+ * In circumstances where it is necessary to access the original data, the person must be competent to do so and give evidence explaining the relevance and implications of their actions.
+ * An audit trail of processes should be kept so that an independent third party can repeat their actions and achieve the same result.
+ * The person in charge of the investigation has overall responsibility for ensuring that the law and these principles are adhered to.
 
 ### ACPO Good Practice Guide for Computer-based Electronic Evidence (2012)
 
@@ -540,10 +544,10 @@ Some FDE vendors have worked with forensic software vendors to allow access to f
 
 FDE can also be viewed as just one particular aspect of the more generic activity of digital anti-forensics, in which the cyber-criminal may:
 
-1. **Destroy** potentially useful digital forensic evidence of their activities (e.g. wiping log-files);
-2. **Divert** by planting misleading digital forensic evidence (e.g. spoofing the source IP address of a cyber-attack);
-3. **Deceive** by hiding potentially useful digital forensic evidence (e.g. using steganography or onion-routing);
-4. **Deny** access to potentially useful digital forensic evidence (e.g. using cryptography).
+* **Deny** access to potentially useful digital forensic evidence (e.g. using cryptography).
+* **Destroy** potentially useful digital forensic evidence of their activities (e.g. wiping log-files);
+* **Deceive** by hiding potentially useful digital forensic evidence (e.g. using steganography or onion-routing);
+* **Divert** by planting misleading digital forensic evidence (e.g. spoofing the source IP address of a cyber-attack);
 
 ---
 
