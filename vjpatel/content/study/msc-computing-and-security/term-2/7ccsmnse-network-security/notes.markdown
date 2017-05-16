@@ -121,8 +121,190 @@ PGP is create because in society, social networks are small world networks. Theo
 
 Email is no longer reliable e.g. Job offers can go into spam folder etc.
 
+Traditional whitelists suffer from:
+* Spammers being able to forge sender addresses.
+* Whitelists don't help with strangers.
+
+
+The main idea of this is to whitelist senders based on friends-of-friends.
+
+A recipient queries the sender's server to find mutual-friends. This however, reveals the sender's correspondents.
+
 
 ---
+
+## Lecture 2
+
+### Why use GNU/Linux
+
+* A large fraction of internet servers run Unix. LAMP is an extremely popular software stack.
+* Elegant software model.
+  * Well-defined interface for both programmers POSIX and for (power) users GNU utils.
+  * Serves as a good example for how to design software, in general, and how to secure it, in particular.
+
+### Free and Open Source Software (FOSS)
+
+Gives the following guarantees:
+* The freedom to run the program as you wish, for and purpose.
+* The freedom to study how the program works, and change it so it does your computing as you wish.
+* The freedom to redistribute copies so you can help your neighbour.
+* The freedom to distribute copies of your modified versions to others.
+
+
+### Linux interface
+
+![alt text](https://docs.google.com/drawings/d/1rnurDoB5i2vMTUT2VUNWwS-K0b11rrZwLboN8_HU3hY/pub?w=480&amp;h=360 "Linux Interface")
+
+The shell gives us:
+
+* **Environment**: `export HELLO="Hello World"; echo ${HELLO}`
+* **Flow control**: `if`, `for`, `while` etc.
+* **Job control**: list `jobs`, foreground `fg`, background `bg`.
+* **Globbing**: `*/*`.
+
+* **Pipe** `|`: Chain the output of one program into the input of another.
+* **Sequence** `a ; b`: Perform a, then b.
+* **Conditional execution**:
+  * *Success* `a && b`: Perform `b` only if `a` returns 0.
+  * *Failure* `a || b`: Perform `b` only if `a` does not succeed.
+* **Background execution** `a &`: Perform `a` in the background.
+
+### Shellshock
+
+As `bash` operates both as a command interpreter and a command, it is possible to execute bash from within itself. When this happens, the original instance can export environment variables and function definitions into the new instance. The new instance of bash, scans its environment variable list for functions and converts them into internal functions, it performs this conversion by creating a fragment of code from the value and executing it. Affected versions do not verify that the fragment is a valid function definition.
+
+```
+env x='() {:;}; echo vulnerable' bash -c 'echo hello'
+```
+
+### Files?
+---
+
+## Lecture 3
+
+### Spoofing Attack: ARP Spoofing
+
+* Network layer: IP address
+* Physical layer: MAC address
+
+**ARP** (Address Resolution Protocol) functions by:
+
+1. Getting the IP address of target.
+2. Create request ARP message.
+  * Fill sender **physical** address.
+  * Fill sender **IP** address.
+  * Fill target **IP** address.
+  * Target **physical** address is filled with `0`.
+3. Message is passed to data link-layer where it is encapsulated into a frame.
+  * Source address: sender **physical** address.
+  * Destination address: broadcast address.
+4. Every host or router on the LAN receives the message.
+  * All stations pass it to ARP.
+  * All machines apart from the target drops the packet.
+5. Target machine replies with **unicast** ARP message that contains its physical address.
+6. Sender receives reply message and therefore discovers the physical address of the target.
+
+ARP has a cache to avoid querying everytime. It is a **stateless** protocol so it can be updated regardless of whether a request was sent. The ARP cache can therefore be poisoned.
+
+Given **Alice**(`10.0.0.1`, `aa:aa:aa:aa`) and **Bob**(`10.0.0.2`, `bb:bb:bb:bb`). An attacker, **Charlie**(`10.0.0.3`, `cc:cc:cc:cc`) can send an ARP message (`10.0.0.2`, `cc:cc:cc:cc`) to **Alice**, so that all of her packets intended for **Bob** are now sent to **Charlie** instead.
+
+The ARP cache expires, but it would sufficient for **Charlie** to send the poison every ~40s.
+
+An attacker can perform a **Man-in-the-middle** attack by doing this by also sending an ARP message (`10.0.0.1`, `cc:cc:cc:cc`) to **Bob**. Bob will also then send all of his packets intended for **Alice** to **Charlie** instead. **Charlie** can then relay these packets to **Alice**.
+
+### Spoofing Attack: Smurfing (Amplification attack)
+
+**Amplification attack**: Small amounts of traffic are converted into large amounts of traffic, enabling people with weaker connections to attack larger companies.
+
+#### NTP DoS
+
+The Network Time Protocol(NTP) can be used for an amplification attack. This is because the NTP reply is usually much bigger than the request (up to 206x). Therefore, an attacker **Charlie** could send **Bob**'s address to an NTP server which will then send its larger response to **Bob**'s computer.
+
+### Sniffing Attack: Packet Sniffing
+
+A network card may be put in ***promiscuous*** mode to read all packets from a network. This is usually used for debugging & diagnostic purposes.
+
+
+---
+
+## Lecture 4
+
+
+### BGP Route Hijacking
+
+The Border Gateway Protocol controls the routes that packets take through autonomous systems. Autonomous systems advertise the IP ranges they serve as a CIDR e.g. `137.0.0.0/16`. BGP prefers the **longest** prefix e.g. `137.0.0.0/24` would override `137.0.0.0/16`. A **routing black hole** can be created if an autonomous system advertises for addresses that it doesn't serve.
+
+
+### TCP Session Hijacking
+
+#### TCP
+Defines a connection: *Ordered sequence of bytes over an unordered IP network*. A Connection is defined by an IP address + Port. A sequence number gives an order of packet numbers.
+
+
+### DNS Poisoning
+
+---
+
+## Lecture 5
+
+**Port**: In computer networking, a port is an application-specific or process-specific software construct serving as a communications endpoint in a computer's host operating system.
+
+The **purpose of ports** is to uniquely identify different applications or processes running on a single computer and thereby enable them to share a single physical connection to a packet-switched network like the internet. Ports are like channels that carry information into; out of; and internal to a computer.
+
+* **Ports to a computer are like windows or doors to a house**.
+
+Port scanning strategy:
+1. Determine what services are listening and reachable from the internet.
+2. Analyse underlying weaknesses.
+3. Exploit the weakness for later use.
+
+The main goal of port scanning is to find out with ports are **open**, **closed** or **filtered**.
+
+**Downfalls**:
+* Attackers can only attack the type of communication which is carried on the specific port that they are accessing.
+* Attackers cannot gain direct access to your computer's file system through port scanning.
+
+### Port Scanning Techniques
+
+#### Simple port scanning
+
+Attacker searches all ports looking for, and noting, all open ports.
+ * Tries each of the 65535 ports of the victim.
+ * Sending a carefully constructed packet with a chosen port number.
+
+```
+Pros:
+  - Attacker sees ALL available ports.
+Cons:
+  - Takes a long time.
+  - Can be detected fairly easily (as a large amount of ports are being scanned).
+  - Specific ports found may not be useful to attack.
+```
+
+#### Strobe port scanning
+
+Attacker selects a certain range of ports to check for open ports.
+
+```
+Pros:
+ - Quicker than a full scan.
+Cons:
+ - Does not give entire vulnerability profile of target.
+ - Is somewhat easy to detect.
+```
+
+#### Stealth port scanning
+
+Attacker searches only a few random ports at once over a long period of time (usually a day or more). Often jumping between different computers on a network.
+
+```
+Pros:
+ - Hard to detect as individual port scans appear to be accidental communication attempts.
+Cons:
+ - Takes a long time.
+```
+
+### Port Scanning Types
 
 
 <script type="text/x-mathjax-config">
