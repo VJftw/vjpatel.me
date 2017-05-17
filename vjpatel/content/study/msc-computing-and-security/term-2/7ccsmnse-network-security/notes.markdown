@@ -407,7 +407,17 @@ It is **NOT** illegal. It is analogous to someone ringing a doorbell. It is only
 
 ---
 
-## Lecture 6
+## Lecture 6 - firewalls
+
+Typically used to provide a **perimeter defence** with a single choke point as part of a comprehensive security strategy.
+
+A Firewall is a computer or network security system that sits between your internal network and the rest of the network. It attempts to prevent bad things from happening without preventing good things from happening.
+
+* A **firewall** forms a barrier through which all the traffic going in each direction must pass.
+* A **firewall security policy** dictates which traffic is authorised to pass in each direction.
+* A firewall is a **choke point** of control and monitoring.
+
+It interconnects networks with differing trust levels where only authorised traffic is allowed.
 
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
