@@ -306,6 +306,108 @@ Cons:
 
 ### Port Scanning Types
 
+#### SYN Scanning
+
+#### TCP 3-way handshake
+
+**If the server is listening on TCP port**:
+1. Client sends `SYN+PORT`.
+2. Server sends `SYN+ACK`.
+3. Client sends `RST+ACK`.
+
+**If there is no service on the TCP port**:
+1. Client sends `SYN+PORT`.
+2. Server sends `RST`
+
+#### SYN Scanning (Half-open scanning)
+
+An attacker does not complete all of the formal steps to create a TCP connection (doesn't do the 3rd step.).
+
+```
+Pros:
+ - The attack is not easily detected as the server doesn't think a communication is being made.
+Cons:
+ - The server might find it suspicious not to receive the final message.
+```
+
+#### TCP Stealth Scan
+
+Instead of sending `RST+ACK`, the attacker sends `RST` in an attempt to tear down the connection as quickly as possible prevent the attempt appearing in logs.
+
+#### FIN Scanning
+
+Attacker sends erroneous `FIN` (finish packet used to orderly close the connection) and listens for a response:
+ * If a port is closed the attacker will receive a `RST`.
+ * Open ports ignore the packet.
+
+```
+Pros:
+ - It is difficult to recognise this attack as packets are random data.
+Cons:
+ - The error response could be dropped by a firewall and therefore an attacker could believe the port is open since it did not receive a response.
+```
+
+#### FTP bound scan
+
+Bounce attack vulnerability in FTP servers allow somebody to request that the FTP server opens a connection to a third party on a particular port.
+
+This way an attacker can force an FTP server to perform a port scan and send back the results.
+
+```
+Pros:
+ - Hard to trace.
+Cons:
+ - Slower.
+```
+
+
+#### UDP Scanning
+
+UDP is a connectionless protocol in which a packet transfer takes place without checking if there is a communication channel available between client and server. The data is just sent to the destination, assuming that the destination is available.
+
+An attacker sends a UDP packet to a port, if the server responds with:
+ * A UDP packet, then the port is open.
+ * An ICMP port unreachable error type 3, code 3 then the port is closed.
+ * An ICMP error type 3 and code 1, 2, 9, 10 or 13 then the port is filtered.
+If there is no response, then the port is either open or filtered.
+
+Neither UDP nor ICMP packets are guaranteed to arrive so UDP scanners must also implement retransmission.
+
+### Port Scanning Attacks
+
+* Ports are often used by administrators to verify security policies of their networks.
+* Majority uses of port scans aren't malicious.
+
+### Port Scanning Law
+
+It is **NOT** illegal. It is analogous to someone ringing a doorbell. It is only illegal if a crime is committed.
+
+### Protecting against port scanning
+
+* Use non-standard ports
+* Port scanning sniffing software
+
+### Packet Forgery
+
+**Uses**:
+ * Disrupting services (file sharing, HTTP).
+ * Compromising wireless access points.
+ * Exploiting functionality in online games.
+ * Determining the presence of internet censorship.
+ * Allows for custom packet designers to test their packets.
+ * Simulation of specific network traffic.
+ * Testing of network firewalls and IDS.
+ * Computer network auditing.
+
+**Detecting Packet Forgery**:
+* Packet analyzers and sniffers.
+* Packet log showing inconsistencies.
+* TCP resets are sent to both access points.
+
+
+---
+
+## Lecture 6
 
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
