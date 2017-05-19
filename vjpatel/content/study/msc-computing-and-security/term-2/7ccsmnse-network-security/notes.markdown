@@ -407,7 +407,7 @@ It is **NOT** illegal. It is analogous to someone ringing a doorbell. It is only
 
 ---
 
-## Lecture 6 - firewalls
+## Lecture 6 - Firewalls
 
 Typically used to provide a **perimeter defence** with a single choke point as part of a comprehensive security strategy.
 
@@ -418,6 +418,74 @@ A Firewall is a computer or network security system that sits between your inter
 * A firewall is a **choke point** of control and monitoring.
 
 It interconnects networks with differing trust levels where only authorised traffic is allowed.
+
+**Techniques that firewalls use to control access and enforce the site's security policy**:
+* **Service Control**: Determines the types of internet services that can be accessed, inbound or outbound.
+* **Direction control**: Determines the direction in which particular service requests may be initiated and allowed to flow through the firewall.
+* **User Control**: Controls access to a service according to which user is attempting to access it.
+* **Behaviour Control**: Controls how particular services are used.
+
+
+### Limitations
+
+Cannot protect against:
+ * Attacks that bypass the firewall (side doors)
+ * Malware imported via laptop, PDA etc.
+ * Access via WLAN if improperly secured. (insecure wireless)
+ * Internal threats.
+
+
+### Firewall Types
+
+* Positive filter: Allow packets that meet a specific criteria.
+* Negative filter: Reject packets that meet a specific criteria.
+
+
+### Packet-Filter Firewall
+
+The packet-filter firewall is the simplest, fastest firewall. It is the foundation of any firewall system. It examines each IP packet (without context) and permits/denies according to pre-defined rules.
+
+*A* ***Packet-filter firewall*** *applies a set of rules to each incoming and outgoing IP packet and forwards of discards the packet.*
+
+**Note:** Rules are applied top to bottom.
+
+A packet filter firewall's default can be set to:
+ * Discard: More conservative. Only specific ports are allowed. More likely used in governments.
+ * Forward: Increases ease of use. More used in open organisations e.g. universities.
+
+**Disadvantages**:
+ * No examination of upper-layer data, therefore no prevention of attacks that employ application specific vulnerabilities.
+ * Limited log information as there is little information available.
+ * Vulnerable to spoofing addresses.
+ * Due to a small amount of variables used in decisions, they are more susceptible to security breaches due to improper configuration.
+
+#### Attacks and Countermeasures
+
+**IP address spoofing**: An attacker could transmit packets from the outside with the source set as an internal address.  This can be countered by denying inbound packets that have an internal IP address.
+
+**Source routing attacks**: An attacker could change the route a packet takes in the hope that it bypasses security measures. This can be countered by denying *source routed packets*).
+
+**Tiny fragment attacks**: Typically a packet filter makes filtering decisions on the first fragment of a packet. An attacker can take advantage of this by splitting packet headers across different fragments. This can be countered by either discarding fragmented packet headers or reassembling them before checking.
+
+
+### Stateful Packet-Filter (packet inspection) Firewall
+
+A stateful packet inspection firewall tightens rules for TCP by creating a directory of outbound TCP connections. There will be an entry for each currently established connection.
+
+The packet filter will now only allow incoming traffic to high-numbered ports for those packets that match one of the entries in the directory. It reviews the same information as a normal packet-filter firewall but also records information about TCP connections. e.g. sequence numbers.
+
+
+### Application Level Gateway (Application Proxy)
+
+These act as a relay of application-level traffic which has full access to protocols. e.g. in a User contacts gateway using a TCP/IP application (telnet):
+ 1. Gateway asks user for name of remote host to be accessed.
+ 2. User responds and provides a valid user ID and authentication information.
+ 3. Gateway contacts application on remote host and relays TCP segments containing application data.
+
+If the gateway does not implement proxy code for the specific service, then the service is not supported. It can also be configured to support only specific features of an application.
+
+
+
 
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
