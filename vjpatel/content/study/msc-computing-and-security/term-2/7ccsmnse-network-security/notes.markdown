@@ -796,7 +796,90 @@ The heart of this protocol are the exchanges:
 
 ---
 
-## Lecture 8
+## Lecture 8 - Privacy and Anonymity
+
+**Privacy**: A state in which one is not observed or disturbed by others. *You choose what you let other people know*.
+
+**Anonymity**: *A condition in which your true identity is not known*. **Unlinkability and Unobservability**.
+
+Anonymity is difficult on a public network as **packet headers** identify recipients and **packet routes** can be tracked via traffic analysis.
+
+An **Anonymity Set** is a group in which your actions cannot be distinguished from others in the group.
+
+It is possible to attack Anonymity by:
+ * Passive traffic analysis. By infering who is talking to whom. **The only way to hide your traffic is to carry other people's traffic**
+ * Active traffic analysis. By Injecting packets.
+ * Compromise of network nodes. It is best not trust any nodes.
+
+
+### Proxies
+
+Sending packets can be sent through a proxy which communicates with external server. It carries many people's traffic so enables some anonymity.
+
+**Weaknesses**:
+ * The proxy knows everything.
+ * Traffic analysis is possible.
+
+#### Cascaded Proxies with encryption
+
+Assuming a client shares a key with proxy a single proxy solution is:
+
+
+![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgVkZsOVZWT096WnM "Single Proxy with Encryption")
+
+$k_p(M, S)$: client $C$ encrypts message $M$ for proxy using proxy's public key $k_p$ along with server address $S$.
+
+![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgNFhZMTVwcjNRTk0 "Chained Proxy with Encryption")
+
+Traffic analysis is still possible.
+
+
+### Mix Networks
+
+Uses Public-key cryptography plus a trusted re-mailer (Mix). Public keys are used as persistent pseudonyms. It is designed to work in an environment with an active attacker whom:
+
+1. Can learn original, destination(s), and representation of all messages in the communication system.
+2. Can inject, remove, or modify messages.
+3. However, cannot determine anything about the correspondences between a set of encrypted items and the corresponding set of unencrypted items or create forgeries.
+
+A **Mix** is a server the processes (mail) items.
+
+An adversary can know all senders and receivers, but cannot link a sent message with a received message.
+
+To **foil traffic analysis**:
+* Agents/mixes work with uniformly sized items (all messages are fixed sized blocks).
+* The order of arrival is hidden by outputting items in batches.
+* Repeated information must be blocked.
+* Sufficient traffic from a large anonymity set is required. This solution involves clients regularly exchanging dummy messages.
+
+#### Functionality of a Mix
+
+![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgSk5tdlJxZHBna2c "Mix Functionality")
+
+#### Generating Receipts
+
+A mix can return a receipt $Y$ for messages received.
+
+
+#### Weaknesses
+
+A single mix has the same weakness as a single proxy. i.e. If you can compromise it, you know everything. The weakness can be lessened by forming a **mix network (or cascade)** where messages are sent through a sequence of mixes.
+
+
+### Onion Routing
+
+
+### Dining Cryptographers
+
+---
+
+## Lecture 9 - Web Security
+
+### Cookies
+
+### Authentication
+
+#### OWASP Top 10 Common
 
 
 
