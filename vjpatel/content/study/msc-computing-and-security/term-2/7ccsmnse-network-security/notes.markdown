@@ -477,12 +477,326 @@ The packet filter will now only allow incoming traffic to high-numbered ports fo
 
 ### Application Level Gateway (Application Proxy)
 
+* Does not permit an end-to-end TCP connection.
+
 These act as a relay of application-level traffic which has full access to protocols. e.g. in a User contacts gateway using a TCP/IP application (telnet):
  1. Gateway asks user for name of remote host to be accessed.
  2. User responds and provides a valid user ID and authentication information.
  3. Gateway contacts application on remote host and relays TCP segments containing application data.
 
 If the gateway does not implement proxy code for the specific service, then the service is not supported. It can also be configured to support only specific features of an application.
+
+Tend to be more secure than packet filters because:
+ * They work by whitelisting applications by implementing proxy code for allowed applications.
+ * It is easy to log and audit all incoming traffic at the application level.
+
+**Disadvantages**:
+ * Additional processing overhead on each connection.
+ * Need separate proxies for each service.
+
+
+### Circuit Level Gateway (Circuit level proxy)
+
+Typically used when system admin trusts internal users by allowing general outbound connections.
+
+* Also doesn't permit an end-to-end TCP connection.
+
+It sets up and relays two TCP connections:
+ * one between itself and the inner host.
+ * one between itself and the outside host.
+
+Once the connection has been established, the gateway typically relays TCP segments from one connection to the other without examining its contents.
+
+The gateway can be configured to support application-level or proxy services on inbound connections and circuit-level for outbound connections. By doing this, we only have the processing overhead on inbound connections and not outbound connections.
+
+e.g. **SOCKet Secure (SOCKS)**: An internet protocol that routes network packets between a client and server through a proxy server.
+
+
+### Bastion Host
+
+A system identified by the firewall administrator as a critical strong point in the network's security.
+
+Typically a bastion host serves as a platform for an application-level or circuit-level gateway.
+
+It is potentially exposed to *hostile* elements hence is secured to withstand this.
+
+
+### Host-based firewall
+
+A **host-based** firewall is a software module used to secure individual host. It is available in many operating systems. They filter and restrict packets like conventional stand-alone firewalls.
+
+Advantages:
+ * Can tailor rules to host environment.
+ * Protection is provided independent of topology. (Roaming with laptops)
+ * An additional layer of protection.
+
+
+### Personal firewall
+
+Controls traffic between a PC/workstation and the internet or enterprise network. They are typically much less complex than other firewall types. Their primary role is to deny unauthorised remote access to the computer and monitor outgoing activity for malware.
+
+
+### Firewall Location and Configuration
+
+#### DeMilitarised Zone (DMZ)
+
+Area between an **external** and **internal** firewall. Systems which are externally accessible but need some protection e.g. Corporate web site, email server, DNS server.
+
+An **external** firewall provides:
+ * access control and protection for systems in the DMZ consistent with their need for external activity (allow HTTP inbound).
+ * A basic level of protection for the remainder of the network.
+
+An **internal** firewall provides:
+ * More stringent filtering capability to protect enterprise servers and workstations. (deny HTTP inbound)
+ * Two-way protection with respect to the DMZ:
+   * Remainder of network from attacks launched from DMZ systems (web server)
+   * Protects DMZ systems from attacks launched from internal networks (corporate)
+
+
+#### Virtual Private Network (VPN)
+
+A network of private computers connected over an insecure network (internet) using encryption and special protocols to provide security. The most common protocol is **IPsec**.
+
+
+#### Distributed Firewalls
+
+Involves stand-alone and host-based firewalls working together under a central administrative control. It makes sense to have an internal and external DMZ. e.g. Web Servers that don't need much protection can placed in an external DMZ.
+
+The most important aspect of this is **security monitoring** that includes log aggregation and analysis, firewall statistics, fine-grained remote monitoring of individual hosts.
+
+
+---
+
+
+## Lecture 7 - Network Security Protocols
+
+Computer networks are:
+ * **Physically**: A collection of segments that transmit bit streams.
+ * **Logically**: A communication medium between two principals.
+
+A **secure channel** another abstraction where other abstractions may concern **availability**, **privacy** of principals.
+
+Neither TCP or IP layers provide security:
+ * Addresses can be faked
+ * Payload can be read or modified.
+
+### IPsec
+
+IPsec is a capability that can be added to IPv4 or IPv6 by means of additional headers.
+
+Is between the TCP layer and IP layer. Therefore the OS changes but Applications and the TCP layer do not. All security-agnostic application can be secured using IPsec (Transparent to applications).
+
+**Advantages**:
+* Transport layer security without modification to applications.
+
+**Disadvantages**:
+* Only authenticates IP addresses.
+* More is possible but requires changing the API.
+
+
+encompasses three functional areas:
+ * **Authentication**: Assures that a received packet was, in fact transmitted by the party identified as the source in the packet header, and that the packet has not been altered in transit.
+ * **Confidentiality**: Enables communicating nodes to encrypt messages to prevent eavesdropping by third parties.
+ * **Key management**: Concerned with secure exchange of keys.
+
+It is able to do filtering based on a policy database as if there were a firewall between the two-ends. It is installed on OS for end-to-end security and security gateways.
+
+**Applications**:
+ * Secure branch/office connectivity over the internet.
+ * Secure remote access over the internet.
+ * Establishing extranet and intranet connectivity with partners.
+ * Enhancing e-commerce security.
+
+
+#### Standard
+
+IPsec is an IETF standard covering protocols for a variety of standards:
+ * **Authentication Header (AH)**: Protects the integrity and authenticity of IP datagrams (not confidentiality).
+ * **Encapsulating Security Payload (ESP)**: Protects confidentiality and optionally integrity.
+ * **Internet Key Exchange (IKE)**: Key management.
+
+| Security                              | AH                                              | ESP                                             | ESP + AH
+|---------------------------------------|-------------------------------------------------|-------------------------------------------------|-------------------------------------------------
+| Access Control                        | <i class="fa fa-check" aria-hidden="true"></i>  | <i class="fa fa-check" aria-hidden="true"></i>  | <i class="fa fa-check" aria-hidden="true"></i>
+| Connectionless Integrity              | <i class="fa fa-check" aria-hidden="true"></i>  |                                                 | <i class="fa fa-check" aria-hidden="true"></i>
+| Data origin authentication            | <i class="fa fa-check" aria-hidden="true"></i>  |                                                 | <i class="fa fa-check" aria-hidden="true"></i>
+| Rejection of replayed packets         |                                                 | <i class="fa fa-check" aria-hidden="true"></i>  | <i class="fa fa-check" aria-hidden="true"></i>
+| Confidentiality                       |                                                 | <i class="fa fa-check" aria-hidden="true"></i>  | <i class="fa fa-check" aria-hidden="true"></i>
+| Limited traffic flow confidentiality  |                                                 | <i class="fa fa-check" aria-hidden="true"></i>  | <i class="fa fa-check" aria-hidden="true"></i>
+
+
+#### Security Policy
+
+The policy is determined primarily by the interaction of:
+ * the **security association database (SAD)**
+ * the **security policy database (SPD)**
+
+
+##### Security Association Database (SAD)
+
+A security association is a one-way relationship between sender and receiver defining security services. e.g.:
+
+$$\text{Alice} \rightarrow \text{Bob}: \text{Encrypt with 3DES; Authenticate with MD5}$$
+
+a security association is uniquely identified by three parameters:
+ * **Security Parameters Index (SPI)**: A bit string assigned to this SA and having local significance only.
+ * **IP Destination Address**: Address of destination endpoint of SA.
+ * **Security Protocol Identifier**: A field from the outer IP header that indicates where SA is an AH or ESP SA.
+
+##### Security Policy Database (SPD)
+
+In its simplest form, an SPD contains entries, each of which defines a subset of IP traffic and points to a SA for that traffic.
+
+Is means by which IP traffic is related to specific Security Associations (SAs); or no SA in the case of traffic being allowed to bypass IPsec.
+
+In more complex environments there may be multiple entries that potentially relate to a single SA or multiple SAs associated with a single SPD entry.
+
+
+##### IP traffic processing
+
+IPsec is executed on a packet-by-packet bases:
+ * Each outbound packet is processed by IPsec before transmission.
+ * Each inbound packet is processed by IPsec after reception and before passing to the higher layer (TCP/UDP).
+
+
+**Outbound**:
+ 1. When data is passed down from a higher layer (TCP/UDP), an IP packet is formed.
+ 2. IPsec searches SPD for a match to this packet.
+    * If no match is found, the packet is discarded and an error message is generated.
+    * If a match is found, further processing is determined by the first matching entry in SPD. If the policy matches:
+      * `DISCARD`: the packet is discarded.
+      * `BYPASS`: the is no further IPsec processing and the packet is forwarded to the network for transmission.
+      * `PROTECT`: The Security Association Database (SAD) is searched for a matching entry.
+      * If no entry is found, then **IKE** is invoked to create a Security Association (SA) with the appropriate keys.
+
+**Inbound**:
+1. IPsec examines inbound packets to determine whether it is an **unsecured** IP packet or one that **ESP or AH headers** by examining IP fields.
+ * If the packet is unsecured, IPsec searches SPD for a match to this packet. If the policy matches:
+  * `BYPASS`: The IP header is processed and stripped off and packet body is delivered to next higher layer (TCP/UDP).
+  * `PROTECT` or `DISCARD`: The packet is discarded.
+ * If the packet is secured, IPsec searches the SAD:
+   * If no match is found, the packet is discarded.
+   * Else, IPsec applies appropriate ESP or AH processing; the IP header is processed and stripped off and the packet body is delivered to higher layer (TCP/UDP).
+
+#### Authentication Header (AH)
+
+Is an extra header between layers 3 and 4 that provides the destination enough information to identify the Security Association (SA). AH only guarantees integrity and protects part of the IP header.
+
+**Sequence number** is initialized to zero and incremented by sender for each packet. Receiver stores incoming packets in a sliding window to order and sort duplicates as IP does not guarantee delivery or order.
+
+##### AH Modes
+
+**Transport Mode**:
+ * AH inserted after IP header, before IP payload.
+ * Message Authentication Code (MAC) taken of entire packet.
+ * Provides end-to-end protection between IPsec enabled systems.
+
+**Tunnel Mode**:
+ * Entire original packet authenticated; new outer IP header.
+ * Inner header carries ultimate source/destination address.
+ * New outer header also protected (except mutable fields) and may contain different IP addresses, e.g. firewalls or security gateways.
+
+
+#### Encapsulating Security Payload (ESP)
+
+The set of services provided depends on the options selected at the time of establishment of the Security Association (SA) on the location of the implementation in a network topology.
+
+A **Header specifies encryption** and optional authentication.
+
+**Transport Mode**:
+ * Provides end-to-end encryption between hosts supporting IPsec.
+
+ e.g. Hosts on internal networks uses internet for transport of data but do not interact with other hosts on the internet.
+
+
+1. At the source, block of data consisting of ESP trailer plus entire transport-layer segment is encrypted and plaintext of this block is replaced with its ciphertext to form IP packet for transmission. Authentication is added if this option is selected.
+2. Packet is then routed to destination. Each intermediate router needs to examine and process IP header plus and plaintext IP extension headers but does not need to examine ciphertext.
+3. Destination node examines and processes IP header plus any plaintext IP extension headers. Then, on basis of SPI in ESP header, destination node decrypts remainder of packet to recover plaintext transport-layer segment.
+
+**Disadvantage**: It is possible to do traffic analysis on the transmitted packets.
+
+**Tunnel Mode**:
+ * Can be used to set up a VPN.
+
+ e.g. Terminating tunnels at security gateways to each network. This implementation allows hosts avoid implementing security.
+
+1. Source prepares an inner IP packet with a destination address of the target internal host.
+  * This packet is prefixed by an ESP header; then packet and ESP header are encrypted and Authentication data may be added.
+  * Outer IP packet: resulting block is encapsulated with a new IP header (base header + optional extensions) whose destination address is the firewall.
+2. Outer packet is routed to destination firewall. Each intermediate router needs to examine and process outer IP header + any outer IP extension headers but does not need to examine ciphertext.
+3. Destination firewall examines and processes outer IP header + other IP extension headers. Then on bases of the SPI in ESP header, destination node decrypts the remainder of packet to recover the plaintext inner IP packet. This packet is then transmitted in internal network.
+4. Inner packet is routed through zero or more routers in internal network to destination host.
+
+
+#### Combining Security Associations
+
+An individual Security Association can implement either AH or ESP but not both. To combine Security Associations, a **Security Association Bundle** is used to refer to a sequence of Security Associations through which traffic must be processed to provide a desired set of IPsec services. The SAs in a bundle may terminate at different endpoints.
+
+#### Key Management (IKE)
+
+IKE is a protocol suite for establishing and maintaining SAs.
+
+##### Phase 1
+
+Two parties negotiate an SA. They agree on keying material and mechanisms.
+
+
+##### Perfect Forward Secrecy (PFS)
+A property of key-agreement protocols ensuring that a session key derived from a set of long term keys cannot be compromised if one of the long-term keys is compromised in the future. The key used to protect transmission of data must not be used to derive any additional keys, and if the key used to protect transmission of data is derived from some other keying material, then that material must not be used to derive any more keys. In this way, compromise of a single key permits access only to data protected by that single key.
+
+The trick to achieving Perfect Forward Secrecy is to generate a temporary session key, not derivable from the information stored at the node and forgotten after the session concludes.
+
+
+### SSL
+
+The SSL protocol provides communications privacy over the Internet. The protocol allows client/server applications to communicate in a way that prevents eavesdropping, tampering, or message forgery.
+
+**Goals**:
+ * Secrecy
+ * Integrity
+ * Authentication (optionally mutual)
+
+Works by setting up a one (or two) way authentic channel for secret communication using public-key certificates.
+
+It consists of various subprotocols which run on top of TCP:
+ * **SSL Handshake**: Initiates a connection.
+ * **SSL Record**: Protocol for sending application data.
+
+An **SSL Session** is an association between the client and server with an associated state that specifies encryption method, and server MAC secrets, encryption keys, etc. An **SSL connection** is basically a secure stream within a session.
+
+
+#### Handshake
+
+* $\text{Sid}$: Session identifier.
+* $\text{Pa}$: A list of $A$'s preferences for encryption and compression (e.g. Diffie-Hellmann, RSA).
+* $\text{Pb}$: is chosen from $\text{Pa}$.
+
+1. Client sends Hello: $A \rightarrow B: \text{Na}, \text{Sid}, \text{Pa}$.
+2. Server responds with Hello: $B \rightarrow A: \text{Nb}, \text{Sid}, \text{Pb}$.
+3. Server sends certificate: $B \rightarrow A: \text{certificate}(B, K_B)$.
+4. Client exchange:
+  * *Optional* Client certificate: $A \rightarrow B: \text{certificate}(A, K_A)$
+  * Client Key Exchange: $A \rightarrow B: \left \\{ \text{PMS} \right \\}_{K_B}$
+  * *Optional* Certificate verify: $A \rightarrow B: \left \\{\text{hash}(...)\right \\}_{K_A^{-1}}$
+5. Client finished: $A \rightarrow B: \left \\{ \text{Finished} \right \\}_\text{clientK}$
+6. Server finished: $B \rightarrow A: \left \\{ \text{Finished} \right \\}_\text{serverK}$
+
+#### Interpretation
+
+The heart of this protocol are the exchanges:
+ 1. **server certificate**: $B \rightarrow A: \text{certificate}(B, K_B)$
+ 2. **client key exchance**: $A \rightarrow B: \left \\{ \text{PMS} \right \\}_{K_B}$
+
+ If $A$ shares one-sided key with a trusted CA and has a communication channel with $B$ then (1) promotes this to an authentic channel.
+
+ In (2), a non-authenticated agent $A$ sends keying material to $B$. Effect of encryption/MAC-ing with this can be understood as follows:
+  * When $A$ subsequently sends: we have a *sender invariant* channel.
+  * When $B$ subsequently responds: channel is *receiver invariant*.
+  * Both yield essentially a *secure channel with a pseudonym*. This cannot be promoted to a secure channel, where the sender's identity is authenticated. Therefore, SSL is often followed by additional client authentication.
+
+---
+
+## Lecture 8
 
 
 
