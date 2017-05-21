@@ -973,12 +973,127 @@ The `XOR` of all announcements = message bit. This is because every randomly gen
 
 ## Lecture 9 - Web Security
 
+### HTTP Headers
+On each request, a client sends a HTTP header to a server. Normally headers are sent unencrypted.
+
+**HTTPS** sends headers encrypted. It is the result of layering HTTP on top of SSL/TLS protocol.
+
+Can also contain private information:
+* `FROM`: The user's email address.
+* `AUTHORIZATION`: Contains **authentication** information.
+* `COOKIE`: A piece of data given to the client by the server and returned by the client to the server in subsequent requests.
+* `REFERER`: The page from which the client came from.
+
 ### Cookies
+
+A cookie is a small piece of data sent from a website and stored in a user's web browser while the user is browsing that website.
+
+Cookies were introduced to allow session management.
+
+#### Privacy
+
+Cookies have received lots of criticism as they can be used to track users. Privacy can also be attacked in other ways:
+ * Server logs.
+ * Eavesdropping traffic.
+ * Enforcing proxies.
+ * Revealing browser logs.
 
 ### Authentication
 
+**Basic authentication**:
+ * login/password based.
+ * Information is sent unencrypted.
+ * credentials sent on every request.
+ * Supported by nearly all server/clients and thus widely used.
+
+**Digest authentication**:
+ * Server sends nonce.
+ * Client hashes nonce based on login/password.
+ * Client sends only crpytographic hash over the net.
+ * Seldom used.
+
 #### OWASP Top 10 Common
 
+**Protection**:
+ * Validate inputs against positive specification (e.g. allowed character sets, min/max length, numeric ranges). Only server side validation can prevent these attacks.
+
+An attacker tries to execute code on the server.
+
+### SQL Injection
+
+1. Browser sends malicious input to server.
+2. Bad input validation and sanitisation on server leads to malicious SQL query.
+
+e.g. Attacker sends username/password:
+
+SQL code looks like:
+```
+SELECT * FROM users WHERE user="$username" AND passwd="$password"
+```
+
+Attacker sends:
+```
+username: Admin
+password: " OR "1" = "1
+```
+would become:
+```
+SELECT * FROM users WHERE user="Admin" AND passwd="" OR "1" = "1"
+```
+
+**Other intents**:
+ * Bypassing authentication
+ * Privilege escalation
+ * Extracting data
+ * Adding or modifying data
+ * Performing DoS
+
+**Other mechanisms**
+* Injection through user inputs.
+* Injection through cookies.
+* Injection through server variables.
+
+
+### JavaScript sandbox and same origin policy
+
+The Javascript sandbox:
+ * No access to memory of other programs, file system, network.
+ * Only the current document is accessible.
+ * Might want to make exceptions for trusted code.
+
+**Same origin policy**: Access is only granted to documents from the same site as the script.
+ * Prevents hostile script from tampering other pages in the browser.
+ * Prevents script from snooping on input in other windows.
+ * Verify URLs of target document and script that access a resource.
+
+
+### Cross-Site Scripting (XSS)
+
+Bad website sends innocent victim a script that steals information from an honest website.
+
+1. Attacker posts a malicious script that is stored on the victim website.
+2. The malicious script is shown to a victim user.
+3. Victim user enters credentials.
+4. Malicious script sends those credentials to attacker.
+
+#### Different types of XSS
+ * Stored XSS: Injected script is stored permanently on target servers.
+ * Reflected XSS: Injected script is delivered to user via another route. e.g. email. (User clicks on email link that has script in url)
+ * DOM-based XSS: Attack payload is executed as a result of modifying DOM in victim's browser by the original client script. The client side code therefore runs in an **unexpected** way.
+
+* User trusts a badly implemented website.
+* Attacker injects a script into the trusted website.
+* User's browser executes attacker's script.
+
+### Cross-Site Request Forgery (CSRF)
+
+Bad website sends browser request to good website, using credentials of an innocent victim.
+
+A malicious script can make forged requests to the "good" site using a user's cookie.
+
+* A badly implemented website trusts the user.
+* Attacker tricks user's browser into issuing requests.
+* Website executes attacker's requests.
 
 
 
