@@ -81,3 +81,48 @@ A **Model Transformation** produces a new model from an existing model. This can
  * improve the quality of the a model by removing redundancies
  * refine a PIM towards a PSM
  * refine a PSM to an implementation
+
+### UML Notation
+
+* **Use Case Diagrams**: Show services used by a system and which users/agents these services interact with.
+* **Class Diagrams** and **Object Diagrams**: Describe the structure of entities involved in a system and relationships between these entities.
+* **State machine diagrams**: Describe the behaviour of objects and execution steps of individual operations on objects.
+* **Object Constraint Language (OCL)**
+* **Interactions Diagrams**
+* **Activity Diagrams**
+* **Deployment Diagrams**
+
+#### Rules
+
+* **Rectangles** denote classes or instances.
+* **Ovals** denote functions.
+* Names of Classes are **not** underlined.
+* Names of instances are underlined.
+* An edge between two nodes denotes a relationship between the corresponding entities.
+
+
+### Use Case Diagrams
+
+**Use Case Diagrams** represent the functionality of the system from a user's point of view.
+
+*NOTE: DIAGRAM (Slide 39 of Lecture1b)*
+
+
+### Class Diagrams
+
+**Class Diagrams** represent the structure of the system.
+
+*NOTE: DIAGRAM (Slide 40 of Lecture1b)*
+
+
+### Sequence Diagrams
+
+**Sequence Diagrams** represent the behaviour of a system as messages (interactions) between different objects.
+
+### Statechart Diagrams
+
+**Statechart diagrams** represent the behaviour of a single object with interesting dynamic behaviour.
+
+### Object Constraint Language (OCL)
+
+OCL enables developers to describe properties of classes, associations and state machines in detail using a textual language.
