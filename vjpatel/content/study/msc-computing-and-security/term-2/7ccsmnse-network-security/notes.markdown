@@ -860,16 +860,114 @@ To **foil traffic analysis**:
 
 A mix can return a receipt $Y$ for messages received.
 
+$$
+Y = \left\{ c, \left\{ r_1, \left\{ r_0, M \right\}_{\text{pk}(B)}, B \right\}_{\text{pk}(\text{mix})} \right\}_{\text{priv}(\text{mix})}
+$$
+
+where $$c$$ is some large, known constant (e.g. string of zeros).
+
+A participant can later prove he sent the message by supplying:
+
+$$
+X = \left\{ r_0, M \right\}_{\text{pk}(B)}, B
+$$
+
+as well as the retained string $r_1$.
+
+**The proof of receipt**:
+
+$$
+\left\{ Y \right\}_{\text{pk}(\text{mix})} = c, \left\{ r_1, X \right\}_{\text{pk}(\text{mix})}
+$$
+
 
 #### Weaknesses
 
 A single mix has the same weakness as a single proxy. i.e. If you can compromise it, you know everything. The weakness can be lessened by forming a **mix network (or cascade)** where messages are sent through a sequence of mixes.
 
+In a **Mix Network**, a sender prepares an item for every Mix in the cascade. Each mix then peals off(decrypts) the outermost layer, forwarding the resul. The Final mix processes the same data as in a single mix case.
+
+
+#### Applying mixes to E-voting
+
+A **digital pseudonym** can be given a public key used to verify signatures of an anonymous holder. A **roster** is a list of pseudonyms, which is publicised. Building a roster is nontrivial problem.
+
+Voting can take place where votes are anonymously emailed with a digital pseudonym $K$. Authorities **and public** can eliminate duplicates and tally votes without revealing voter identity.
+
+#### Summary
+
+**Advantages**:
+ * Very high degree of anonymity.
+  * No correlation between mix input and output.
+  * Only some nonzero fraction of mixes need to be honest.
+  * With enough dummy traffic, the anonymity set is the entire network.
+ * Cryptography is used in a novel way.
+  * With anonymous response, sender is anonymous even to the receiver.
+  * Can also be used for anonymous "certified mail" where receipt is signed by receiver and every mix along the path.
+
+**Disadvantages**:
+ * Public-key encryption and decryption at each mix ad computationally expensive.
+ * The dummy messages overhead.
+ * There is high latency, which is okay for emails but not web browsing.
+
 
 ### Onion Routing
 
+Hides a message source by routing it randomly. Routers don't know for sure if the apparent source of a message is the true sender or another router.
+
+* The sender chooses a random sequence of routers. Some are honest, others can be controlled by an attacker.
+* The routing info for each link is encrypted with the router's public key. Therefore, each router only learns the identity of the next router.
+
+
+#### TOR Circuit setup
+A client proxy establishes a symmetric session key and circuit with *Onion Router #1*. The client can then extend its circuit by establishing a symmetric session key with *Onion Router #2* by tunnelling through *Onion Router #1*. The client can further extend its circuit by establishing a symmetric session key with *Onion Router #3* by tunnelling through *Onion Router #1* and *Onion Router #2*. and so on. Datagrams are then decrypted and reencrypted at every link.
+
+
+* Many application can share one circuit.
+* TOR router doesn't need root privileges which encourages people to set up their own routers.
+* Directory servers maintain a list of active onion routers etc. It controls how new routers join the network.
+
+### Location Hidden Servers
+
+A **Location hidden server** is one which is on the internet that anyone can connect to without knowing where it is or who runs it.
+
+* Accessible from anywhere.
+* Resistant to censorship.
+* Can survive full-blown DoS attacks.
+* Resistant to physical attacks.
+
+#### Creating a Location Hidden Server
+
+1. A server creates **introduction points** (other nodes on an onion routed network).
+2. The server gives the **introduction points**' descriptors and addresses to a service lookup directory.
+3. Client obtains service descriptor and introduction point address from the directory.
+
+#### Using a Location Hidden Server
+
+1. Client creates a circuit to a **rendezvous point**.
+2. Client sends the address of the **rendezvous point** and any authorisation to the server through an **introduction point**.
+3. If the server chooses to talk to the client, it connects to the **rendezvous point** which then the client and server circuits.
 
 ### Dining Cryptographers
+
+A clever idea on how to make a message public in a perfectly untraceable manner. It guarantees information-theoretic anonymity for message senders. This is an **unusually strong** form of security where it defeats an adversary with unlimited computational power.
+
+The Dining cryptographers problem presents a situation where there are **3 cryptographers** having dinner. Either the NSA is paying for dinner, or one of them but they wish to remain anonymous.
+
+1. Each diner flips a coin and shows it to their left neighbour. Every diner sees 2 coins, their own and their neighbour to the right.
+2. Each diner announces whether the two coins are the same. If they are paying, they lie about the coins being the same.
+3. If there is:
+  * Odd number of *Same*, then the NSA is paying.
+  * Even number of *Same*, then one of the cryptographers is paying. **A non-payer cannot tell which of the other two are paying.**
+
+**Superposed sending**:
+This idea generalises to any group of size $N$.
+
+1. For each bit of the message, every user generates 1 random bit and sends it to 1 neighbour. Every uses learns 2 bits (his own and his neighbour's).
+2. Each user announces their own bit `XOR` neighbour's bit.
+3. Sender announces own bit `XOR` neighbour's bit `XOR` message bit.
+
+The `XOR` of all announcements = message bit. This is because every randomly generated bit occurs twice and gets cancelled by `XOR`. The message bit occurs once.
 
 ---
 
