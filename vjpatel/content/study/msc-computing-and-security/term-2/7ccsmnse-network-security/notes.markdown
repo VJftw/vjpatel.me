@@ -389,6 +389,8 @@ It is **NOT** illegal. It is analogous to someone ringing a doorbell. It is only
 
 ### Packet Forgery
 
+**Packet Forgery** is the process of interfering with an established network connection, by means of constructing packets to appear as if they are part of the normal communication stream. They are commonly used in man-in-the-middle attacks and denial-of-service attacks.
+
 **Uses**:
  * Disrupting services (file sharing, HTTP).
  * Compromising wireless access points.
