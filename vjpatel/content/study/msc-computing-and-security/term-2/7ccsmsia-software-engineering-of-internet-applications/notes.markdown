@@ -107,6 +107,23 @@ A **Model Transformation** produces a new model from an existing model. This can
 
 *NOTE: DIAGRAM (Slide 39 of Lecture1b)*
 
+**Use cases** are a scenario-based technique in the UML which identify the actors in an interaction and which describe the interaction itself. That is, a use case is a set of scenarios tied together by a common user goal (which might succeed or fail). A set of use cases should describe all possible interactions with the system. Sequence diagrams may be used to add detail to use cases by showing the sequence of event processing in the system.
+
+* **Actor**: Models an **external entity** which communicates with the system. They have a unique name and an optional description. e.g. `Client`: *A person in the train.*
+* **Use Case**: A use case represents a **kind of task** provided by the system as an event flow. A use case consists of:
+  * Unique name
+  * Participating actors
+  * Entry conditions
+  * Flow of events
+  * Exit conditions
+  * Special requirements
+
+Each **Use case** has:
+* A **primary actor**, which calls on the system to deliver a service. It is the actor with the goal that the use-case attempts to satisfy, and are usually, but not always the initiator of the use-case. e.g. `Client` is the initiating actor of `Withdraw`.
+* A **pre-condition** (or **entry-condition**) that describes what the system should ensure is true before the system allows the use case to begin. e.g. `Withdraw:Client` must have opened a bank account and received a bank card with pin.
+* A **guarantee** (or **exit condition**) that describes what the system will ensure at the end of the use case. Success guarantees hold after a successful scenario; minimal guarantees hold after any scenario. *Success guarantees* hold after a successful scenario. *Minimal guarantees* hold after any scenario.
+* A **trigger** that specifies the event that gets the use case started.
+
 
 ### Class Diagrams
 
