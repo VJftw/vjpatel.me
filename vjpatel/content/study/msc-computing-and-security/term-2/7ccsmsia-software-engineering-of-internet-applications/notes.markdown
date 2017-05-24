@@ -124,6 +124,33 @@ Each **Use case** has:
 * A **guarantee** (or **exit condition**) that describes what the system will ensure at the end of the use case. Success guarantees hold after a successful scenario; minimal guarantees hold after any scenario. *Success guarantees* hold after a successful scenario. *Minimal guarantees* hold after any scenario.
 * A **trigger** that specifies the event that gets the use case started.
 
+Each **step** in a use case is an element of interaction between an actor and the system. The step should be a simple statement and clearly show who is carrying out the step. The step should show the intent of the actor, not the mechanics of what the actor does. The User Interface is not described in the use case.
+
+e.g.
+
+1. `actor`:Authenticate
+2. `system`: ATM displays options
+3. `actor`: Client selects "Withdraw"
+4. `system`: ATM queries amount
+5. `actor`: Client enters amount
+6. `system`: ATM returns bank card
+7. `system`: ATM outputs specific amount
+
+
+#### Reusing use cases
+Common behaviour can be factorised using the `<<include>>` **stereotype**. e.g. `Withdraw` includes the `Authenticate` use case.
+
+*DIAGRAM 1b 56*
+
+**Pros**:
+ * Convenient
+ * Shorter descriptions
+ * Common functionality = reusable components
+ * Integration of existing components
+
+**Cons**:
+ * May lead to functional decomposition rather than an object-oriented model.
+ * Requires more UML skills.
 
 ### Class Diagrams
 
@@ -143,3 +170,36 @@ Each **Use case** has:
 ### Object Constraint Language (OCL)
 
 OCL enables developers to describe properties of classes, associations and state machines in detail using a textual language.
+
+
+---
+
+## Lecture 2
+
+### Object Models
+
+**Object models** describe the system in terms of object classes and their associations.
+
+An **Object class** is ab abstraction over a set of objects with common attributes and the services (operations) provided by each object.
+
+* Natural ways of reflecting the real-world entities manipulated by the system.
+* More abstract entities are more difficult to model using this approach.
+* Object class identification is recognised as a difficult process requiring a deep understanding of the application domain.
+* Object classes reflecting domain entities are reusable across systems
+
+**objects** are the main unit of abstraction. Objects carry out **activities**. The interface to objects is **event oriented**.
+
+
+
+* A **clear** `diamond` represents an *aggregation* that denotes a "***consists-of***" hierarchy.
+
+
+* A **solid** `diamond` represents a *composition* that denotes a strong *aggregation* where the life time of the component is controlled by the aggregate. i.e. "The whole controls/destroys the parts". The component **cannot exist without** the aggregate.
+
+
+An **abstract** class cannot be directly instantiated. An abstract operation has no implementation, but is a pure declaration so that clients can bind to the abstract class. **NOTE**: It can be indicated by *italicizing* its name.
+
+An **interface** is a class that has no implementation.
+
+
+**Generalization** expresses a **kind-of** relationship. It is implemented by inheritance, where child classes inherit the attributes and operations of the parent class.
