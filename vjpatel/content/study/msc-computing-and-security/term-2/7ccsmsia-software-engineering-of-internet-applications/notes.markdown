@@ -152,6 +152,7 @@ Common behaviour can be factorised using the `<<include>>` **stereotype**. e.g. 
  * May lead to functional decomposition rather than an object-oriented model.
  * Requires more UML skills.
 
+
 ### Class Diagrams
 
 **Class Diagrams** represent the structure of the system.
