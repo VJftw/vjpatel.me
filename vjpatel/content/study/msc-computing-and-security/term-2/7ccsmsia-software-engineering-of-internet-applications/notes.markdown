@@ -181,7 +181,7 @@ OCL enables developers to describe properties of classes, associations and state
 
 **Object models** describe the system in terms of object classes and their associations.
 
-An **Object class** is ab abstraction over a set of objects with common attributes and the services (operations) provided by each object.
+An **Object class** is an abstraction over a set of objects with common attributes and the services (operations) provided by each object.
 
 * Natural ways of reflecting the real-world entities manipulated by the system.
 * More abstract entities are more difficult to model using this approach.
@@ -200,7 +200,73 @@ An **Object class** is ab abstraction over a set of objects with common attribut
 
 An **abstract** class cannot be directly instantiated. An abstract operation has no implementation, but is a pure declaration so that clients can bind to the abstract class. **NOTE**: It can be indicated by *italicizing* its name.
 
-An **interface** is a class that has no implementation.
+An **asbtract operaton** has no implementation but is a pure declaration so that clients can bind to the abstract class.
 
+An **interface** is a class that has no implementation. An **interface** defines which messages an object can receive.
+
+A **Class** describes objects with similar strucutre and behaviour.
+
+A **Class diagram** describes the kind of objects in a system and their different static relationships. They represent the structure of a system.
+
+#### Actor vs Class vs Object
+
+- **Actor**: An entity outside the system to be modeled, interacting with the system.
+- **Class**: An abstraction modeling an entity in the application or solution domain.
+- **Object**: A specific instance of a class.
+
+#### Attributes
+
+**syntax**: `visibility name : type multiplicity = default {property-string}`
+
+e.g. `- name: String [1] = "Untitled" {readOnly}`
+
+* Visibility can be:
+  * `+` public
+  * `-` private
+  * `~` package
+  * `#` protected
+* Property is additional, e.g.:
+  * `readOnly` indicates that clients may not modify the property.
+  * `frozen` indicates that the property is immutable.
+
+#### Relationships
+
+Objects of a class collaborate with objects of other classes.
+
+UML supports modeling different relationships between objects or classes.
+
+| Relationship    | Function                                                                        | Notation
+|-----------------|---------------------------------------------------------------------------------|-----------------------
+| Association     | Denotes a relationship between 2 classes.                                       | ![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgbV9LUG84MjBtaEk)
+| Generalisation  | A relationship between a more general description and a more specific variety.  | ![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgbVdfdHRzTzQ4TlE)
+| Dependency      | If changes to one model may change another.                                     | ![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6Dgc25GRnB1V0RfTTg)
+| Realisation     | Relationship between a specification and its implementation.                    | ![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgYnNPZHlpR1hGelU)
+| Usage           | Situation where one element requires another for proper functioning.            | ![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6Dgc25GRnB1V0RfTTg)
 
 **Generalization** expresses a **kind-of** relationship. It is implemented by inheritance, where child classes inherit the attributes and operations of the parent class.
+
+#### Operations
+
+**syntax**: `visibility name (parameter-list) : return-type {property-string}`
+
+#### Derived properties
+
+Can be calculated based on other values. Notation: `/property -- {constraint}`.
+
+#### Reference Objects and Value objects
+
+A **reference** object is one that has an identity. e.g. a `Customer`. All changes to the object will be made available to all users.
+
+A **value** object holds a value that is immutable.
+
+
+#### Multiple Classification
+
+* **Classification**: The relationships between an **object** and its **type**.
+  * **Single Classification**: The object belongs to a single type.
+  * **Multiple Classification**: The object may be described by several types. (Not usually possible in OO as each object must have one type even if it has multiple inheritance.)
+
+
+#### Association Classes
+
+Allow one to add attributes, operations and other features to associations.
