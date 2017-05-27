@@ -591,6 +591,8 @@ Is between the TCP layer and IP layer. Therefore the OS changes but Applications
 
 **Advantages**:
 * Transport layer security without modification to applications.
+* Transparent to end-users.
+* Resistant to bypass if all traffic uses IP and the firewall is the only entrance.
 
 **Disadvantages**:
 * Only authenticates IP addresses.
@@ -637,7 +639,7 @@ The policy is determined primarily by the interaction of:
 
 ##### Security Association Database (SAD)
 
-A security association is a one-way relationship between sender and receiver defining security services. e.g.:
+A **security association** is a one-way relationship between sender and receiver defining security services. e.g.:
 
 $$\text{Alice} \rightarrow \text{Bob}: \text{Encrypt with 3DES; Authenticate with MD5}$$
 
@@ -672,6 +674,9 @@ IPsec is executed on a packet-by-packet bases:
       * `PROTECT`: The Security Association Database (SAD) is searched for a matching entry.
       * If no entry is found, then **IKE** is invoked to create a Security Association (SA) with the appropriate keys.
 
+
+![alt text](https://docs.google.com/drawings/d/13K7uTILY81w3wywUmZUsEpurf2xX0dh32TtokQsdfw8/pub?w=885&h=719 "IPsec Outbound Processing")
+
 **Inbound**:
 1. IPsec examines inbound packets to determine whether it is an **unsecured** IP packet or one that **ESP or AH headers** by examining IP fields.
  * If the packet is unsecured, IPsec searches SPD for a match to this packet. If the policy matches:
@@ -680,6 +685,9 @@ IPsec is executed on a packet-by-packet bases:
  * If the packet is secured, IPsec searches the SAD:
    * If no match is found, the packet is discarded.
    * Else, IPsec applies appropriate ESP or AH processing; the IP header is processed and stripped off and the packet body is delivered to higher layer (TCP/UDP).
+
+![alt text](https://docs.google.com/drawings/d/1tpzYKhXRly5sMeIUG9My6htHE0ZmN2jU76Ob5sjUV5Q/pub?w=755&h=717 "IPsec Inbound Processing")
+
 
 #### Authentication Header (AH)
 
