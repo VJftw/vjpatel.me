@@ -1,7 +1,6 @@
 +++
 date = "2017-04-15T00:26:19+01:00"
 title = "7CCSMNSE Network Security notes"
-markup = "mmark"
 +++
 
 ## Lecture 1
@@ -96,6 +95,7 @@ By default, PGP compesses the message after signing but before encryption.
 #### PGP Session Keys
 
 A session key is needed for each message, these can vary from:
+
  * 56-bit DES
  * 128-bit CAST or IDEA
  * 168-bit 3DES
@@ -122,6 +122,7 @@ PGP is create because in society, social networks are small world networks. Theo
 Email is no longer reliable e.g. Job offers can go into spam folder etc.
 
 Traditional whitelists suffer from:
+
 * Spammers being able to forge sender addresses.
 * Whitelists don't help with strangers.
 
@@ -145,6 +146,7 @@ A recipient queries the sender's server to find mutual-friends. This however, re
 ### Free and Open Source Software (FOSS)
 
 Gives the following guarantees:
+
 * The freedom to run the program as you wish, for and purpose.
 * The freedom to study how the program works, and change it so it does your computing as you wish.
 * The freedom to redistribute copies so you can help your neighbour.
@@ -254,6 +256,7 @@ The **purpose of ports** is to uniquely identify different applications or proce
 * **Ports to a computer are like windows or doors to a house**.
 
 Port scanning strategy:
+
 1. Determine what services are listening and reachable from the internet.
 2. Analyse underlying weaknesses.
 3. Exploit the weakness for later use.
@@ -261,6 +264,7 @@ Port scanning strategy:
 The main goal of port scanning is to find out with ports are **open**, **closed** or **filtered**.
 
 **Downfalls**:
+
 * Attackers can only attack the type of communication which is carried on the specific port that they are accessing.
 * Attackers cannot gain direct access to your computer's file system through port scanning.
 
@@ -269,6 +273,7 @@ The main goal of port scanning is to find out with ports are **open**, **closed*
 #### Simple port scanning
 
 Attacker searches all ports looking for, and noting, all open ports.
+
  * Tries each of the 65535 ports of the victim.
  * Sending a carefully constructed packet with a chosen port number.
 
@@ -311,11 +316,13 @@ Cons:
 #### TCP 3-way handshake
 
 **If the server is listening on TCP port**:
+
 1. Client sends `SYN+PORT`.
 2. Server sends `SYN+ACK`.
 3. Client sends `RST+ACK`.
 
 **If there is no service on the TCP port**:
+
 1. Client sends `SYN+PORT`.
 2. Server sends `RST`
 
@@ -337,6 +344,7 @@ Instead of sending `RST+ACK`, the attacker sends `RST` in an attempt to tear dow
 #### FIN Scanning
 
 Attacker sends erroneous `FIN` (finish packet used to orderly close the connection) and listens for a response:
+
  * If a port is closed the attacker will receive a `RST`.
  * Open ports ignore the packet.
 
@@ -366,6 +374,7 @@ Cons:
 UDP is a connectionless protocol in which a packet transfer takes place without checking if there is a communication channel available between client and server. The data is just sent to the destination, assuming that the destination is available.
 
 An attacker sends a UDP packet to a port, if the server responds with:
+
  * A UDP packet, then the port is open.
  * An ICMP port unreachable error type 3, code 3 then the port is closed.
  * An ICMP error type 3 and code 1, 2, 9, 10 or 13 then the port is filtered.
@@ -392,6 +401,7 @@ It is **NOT** illegal. It is analogous to someone ringing a doorbell. It is only
 **Packet Forgery** is the process of interfering with an established network connection, by means of constructing packets to appear as if they are part of the normal communication stream. They are commonly used in man-in-the-middle attacks and denial-of-service attacks.
 
 **Uses**:
+
  * Disrupting services (file sharing, HTTP).
  * Compromising wireless access points.
  * Exploiting functionality in online games.
@@ -402,6 +412,7 @@ It is **NOT** illegal. It is analogous to someone ringing a doorbell. It is only
  * Computer network auditing.
 
 **Detecting Packet Forgery**:
+
 * Packet analyzers and sniffers.
 * Packet log showing inconsistencies.
 * TCP resets are sent to both access points.
@@ -422,6 +433,7 @@ A Firewall is a computer or network security system that sits between your inter
 It interconnects networks with differing trust levels where only authorised traffic is allowed.
 
 **Techniques that firewalls use to control access and enforce the site's security policy**:
+
 * **Service Control**: Determines the types of internet services that can be accessed, inbound or outbound.
 * **Direction control**: Determines the direction in which particular service requests may be initiated and allowed to flow through the firewall.
 * **User Control**: Controls access to a service according to which user is attempting to access it.
@@ -431,6 +443,7 @@ It interconnects networks with differing trust levels where only authorised traf
 ### Limitations
 
 Cannot protect against:
+
  * Attacks that bypass the firewall (side doors)
  * Malware imported via laptop, PDA etc.
  * Access via WLAN if improperly secured. (insecure wireless)
@@ -452,10 +465,12 @@ The packet-filter firewall is the simplest, fastest firewall. It is the foundati
 **Note:** Rules are applied top to bottom.
 
 A packet filter firewall's default can be set to:
+
  * Discard: More conservative. Only specific ports are allowed. More likely used in governments.
  * Forward: Increases ease of use. More used in open organisations e.g. universities.
 
 **Disadvantages**:
+
  * No examination of upper-layer data, therefore no prevention of attacks that employ application specific vulnerabilities.
  * Limited log information as there is little information available.
  * Vulnerable to spoofing addresses.
@@ -482,6 +497,7 @@ The packet filter will now only allow incoming traffic to high-numbered ports fo
 * Does not permit an end-to-end TCP connection.
 
 These act as a relay of application-level traffic which has full access to protocols. e.g.:
+
  1. User contacts gateway using a TCP/IP application (Telnet, FTP).
  2. Gateway asks user for name of remote host to be accessed.
  3. User responds and provides a valid user ID and authentication information.
@@ -490,10 +506,12 @@ These act as a relay of application-level traffic which has full access to proto
 If the gateway does not implement proxy code for the specific service, then the service is not supported. It can also be configured to support only specific features of an application.
 
 Tend to be more secure than packet filters because:
+
  * They work by whitelisting applications by implementing proxy code for allowed applications.
  * It is easy to log and audit all incoming traffic at the application level.
 
 **Disadvantages**:
+
  * Additional processing overhead on each connection.
  * Need separate proxies for each service.
 
@@ -505,6 +523,7 @@ Typically used when system admin trusts internal users by allowing general outbo
 * Also doesn't permit an end-to-end TCP connection.
 
 It sets up and relays two TCP connections:
+
  * one between itself and the inner host.
  * one between itself and the outside host.
 
@@ -529,6 +548,7 @@ It is potentially exposed to *hostile* elements hence is secured to withstand th
 A **host-based** firewall is a software module used to secure individual host. It is available in many operating systems. They filter and restrict packets like conventional stand-alone firewalls.
 
 Advantages:
+
  * Can tailor rules to host environment.
  * Protection is provided independent of topology. (Roaming with laptops)
  * An additional layer of protection.
@@ -546,10 +566,12 @@ Controls traffic between a PC/workstation and the internet or enterprise network
 Area between an **external** and **internal** firewall. Systems which are externally accessible but need some protection e.g. Corporate web site, email server, DNS server.
 
 An **external** firewall provides:
+
  * access control and protection for systems in the DMZ consistent with their need for external activity (allow HTTP inbound).
  * A basic level of protection for the remainder of the network.
 
 An **internal** firewall provides:
+
  * More strict filtering capability to protect enterprise servers and workstations. (deny HTTP inbound)
  * Two-way protection with respect to the DMZ:
    * Remainder of network from attacks launched from DMZ systems (web server)
@@ -574,12 +596,14 @@ The most important aspect of this is **security monitoring** that includes log a
 ## Lecture 7 - Network Security Protocols
 
 Computer networks are:
+
  * **Physically**: A collection of segments that transmit bit streams.
  * **Logically**: A communication medium between two principals.
 
 A **secure channel** another abstraction where other abstractions may concern **availability**, **privacy** of principals.
 
 Neither TCP or IP layers provide security:
+
  * Addresses can be faked
  * Payload can be read or modified.
 
@@ -590,16 +614,19 @@ IPsec is a capability that can be added to IPv4 or IPv6 by means of additional h
 Is between the TCP layer and IP layer. Therefore the OS changes but Applications and the TCP layer do not. All security-agnostic application can be secured using IPsec (Transparent to applications).
 
 **Advantages**:
+
 * Transport layer security without modification to applications.
 * Transparent to end-users.
 * Resistant to bypass if all traffic uses IP and the firewall is the only entrance.
 
 **Disadvantages**:
+
 * Only authenticates IP addresses.
 * More is possible but requires changing the API.
 
 
 encompasses three functional areas:
+
  * **Authentication**: Assures that a received packet was, in fact transmitted by the party identified as the source in the packet header, and that the packet has not been altered in transit.
  * **Confidentiality**: Enables communicating nodes to encrypt messages to prevent eavesdropping by third parties.
  * **Key management**: Concerned with secure exchange of keys.
@@ -607,6 +634,7 @@ encompasses three functional areas:
 It is able to do filtering based on a policy database as if there were a firewall between the two-ends. It is installed on OS for end-to-end security and security gateways.
 
 **Applications**:
+
  * Secure branch/office connectivity over the internet.
  * Secure remote access over the internet.
  * Establishing extranet and intranet connectivity with partners.
@@ -616,6 +644,7 @@ It is able to do filtering based on a policy database as if there were a firewal
 #### Standard
 
 IPsec is an IETF standard covering protocols for a variety of standards:
+
  * **Authentication Header (AH)**: Protects the integrity and authenticity of IP datagrams (not confidentiality).
  * **Encapsulating Security Payload (ESP)**: Protects confidentiality and optionally integrity.
  * **Internet Key Exchange (IKE)**: Key management.
@@ -633,6 +662,7 @@ IPsec is an IETF standard covering protocols for a variety of standards:
 #### Security Policy
 
 The policy is determined primarily by the interaction of:
+
  * the **security association database (SAD)**
  * the **security policy database (SPD)**
 
@@ -644,6 +674,7 @@ A **security association** is a one-way relationship between sender and receiver
 $$\text{Alice} \rightarrow \text{Bob}: \text{Encrypt with 3DES; Authenticate with MD5}$$
 
 a security association is uniquely identified by three parameters:
+
  * **Security Parameters Index (SPI)**: A bit string assigned to this SA and having local significance only.
  * **IP Destination Address**: Address of destination endpoint of SA.
  * **Security Protocol Identifier**: A field from the outer IP header that indicates where SA is an AH or ESP SA.
@@ -660,31 +691,34 @@ In more complex environments there may be multiple entries that potentially rela
 ##### IP traffic processing
 
 IPsec is executed on a packet-by-packet bases:
+
  * Each outbound packet is processed by IPsec before transmission.
  * Each inbound packet is processed by IPsec after reception and before passing to the higher layer (TCP/UDP).
 
 
 **Outbound**:
+
  1. When data is passed down from a higher layer (TCP/UDP), an IP packet is formed.
  2. IPsec searches SPD for a match to this packet.
     * If no match is found, the packet is discarded and an error message is generated.
     * If a match is found, further processing is determined by the first matching entry in SPD. If the policy matches:
-      * `DISCARD`: the packet is discarded.
-      * `BYPASS`: the is no further IPsec processing and the packet is forwarded to the network for transmission.
-      * `PROTECT`: The Security Association Database (SAD) is searched for a matching entry.
-      * If no entry is found, then **IKE** is invoked to create a Security Association (SA) with the appropriate keys.
+        * `DISCARD`: the packet is discarded.
+        * `BYPASS`: the is no further IPsec processing and the packet is forwarded to the network for transmission.
+        * `PROTECT`: The Security Association Database (SAD) is searched for a matching entry.
+            * If no entry is found, then Internet Key Exchange (IKE) is invoked to create a Security Association (SA) with the appropriate keys.
 
 
 ![alt text](https://docs.google.com/drawings/d/13K7uTILY81w3wywUmZUsEpurf2xX0dh32TtokQsdfw8/pub?w=885&h=719 "IPSec Outbound Processing")
 
 **Inbound**:
+
 1. IPsec examines inbound packets to determine whether it is an **unsecured** IP packet or one that **ESP or AH headers** by examining IP fields.
- * If the packet is unsecured, IPsec searches SPD for a match to this packet. If the policy matches:
-  * `BYPASS`: The IP header is processed and stripped off and packet body is delivered to next higher layer (TCP/UDP).
-  * `PROTECT` or `DISCARD`: The packet is discarded.
- * If the packet is secured, IPsec searches the SAD:
-   * If no match is found, the packet is discarded.
-   * Else, IPsec applies appropriate ESP or AH processing; the IP header is processed and stripped off and the packet body is delivered to higher layer (TCP/UDP).
+    * If the packet is **unsecured**, IPsec searches SPD for a match to this packet. If the policy matches:
+      * `BYPASS`: The IP header is processed and stripped off and packet body is delivered to next higher layer (TCP/UDP).
+      * `PROTECT` or `DISCARD`: The packet is discarded.
+    * If the packet is **secured**, IPsec searches the SAD:
+      * If no match is found, the packet is discarded.
+      * Else, IPsec applies appropriate ESP or AH processing; the IP header is processed and stripped off and the packet body is delivered to higher layer (TCP/UDP).
 
 ![alt text](https://docs.google.com/drawings/d/1tpzYKhXRly5sMeIUG9My6htHE0ZmN2jU76Ob5sjUV5Q/pub?w=755&h=717 "IPSec Inbound Processing")
 
@@ -698,11 +732,13 @@ Is an extra header between layers 3 and 4 that provides the destination enough i
 ##### AH Modes
 
 **Transport Mode**:
- * AH inserted after IP header, before IP payload.
- * Message Authentication Code (MAC) taken of entire packet.
- * Provides end-to-end protection between IPsec enabled systems.
+
+* AH inserted after IP header, before IP payload.
+* Message Authentication Code (MAC) taken of entire packet.
+* Provides end-to-end protection between IPsec enabled systems.
 
 **Tunnel Mode**:
+
  * Entire original packet authenticated; new outer IP header.
  * Inner header carries ultimate source/destination address.
  * New outer header also protected (except mutable fields) and may contain different IP addresses, e.g. firewalls or security gateways.
@@ -715,6 +751,7 @@ The set of services provided depends on the options selected at the time of esta
 A **Header specifies encryption** and optional authentication.
 
 **Transport Mode**:
+
  * Provides end-to-end encryption between hosts supporting IPsec.
 
  e.g. Hosts on internal networks uses internet for transport of data but do not interact with other hosts on the internet.
@@ -727,6 +764,7 @@ A **Header specifies encryption** and optional authentication.
 **Disadvantage**: It is possible to do traffic analysis on the transmitted packets.
 
 **Tunnel Mode**:
+
  * Can be used to set up a VPN.
 
  e.g. Terminating tunnels at security gateways to each network. This implementation allows hosts avoid implementing security.
@@ -763,6 +801,7 @@ The trick to achieving Perfect Forward Secrecy is to generate a temporary sessio
 The SSL protocol provides communications privacy over the Internet. The protocol allows client/server applications to communicate in a way that prevents eavesdropping, tampering, or message forgery.
 
 **Goals**:
+
  * Secrecy
  * Integrity
  * Authentication (optionally mutual)
@@ -770,6 +809,7 @@ The SSL protocol provides communications privacy over the Internet. The protocol
 Works by setting up a one (or two) way authentic channel for secret communication using public-key certificates.
 
 It consists of various subprotocols which run on top of TCP:
+
  * **SSL Handshake**: Initiates a connection.
  * **SSL Record**: Protocol for sending application data.
 
@@ -795,12 +835,14 @@ An **SSL Session** is an association between the client and server with an assoc
 #### Interpretation
 
 The heart of this protocol are the exchanges:
+
  1. **server certificate**: $B \rightarrow A: \text{certificate}(B, K_B)$
  2. **client key exchance**: $A \rightarrow B: \left \\{ \text{PMS} \right \\}_{K_B}$
 
  If $A$ shares one-sided key with a trusted CA and has a communication channel with $B$ then (1) promotes this to an authentic channel.
 
  In (2), a non-authenticated agent $A$ sends keying material to $B$. Effect of encryption/MAC-ing with this can be understood as follows:
+
   * When $A$ subsequently sends: we have a *sender invariant* channel.
   * When $B$ subsequently responds: channel is *receiver invariant*.
   * Both yield essentially a *secure channel with a pseudonym*. This cannot be promoted to a secure channel, where the sender's identity is authenticated. Therefore, SSL is often followed by additional client authentication.
@@ -818,6 +860,7 @@ Anonymity is difficult on a public network as **packet headers** identify recipi
 An **Anonymity Set** is a group in which your actions cannot be distinguished from others in the group.
 
 It is possible to attack Anonymity by:
+
  * Passive traffic analysis. By infering who is talking to whom. **The only way to hide your traffic is to carry other people's traffic**
  * Active traffic analysis. By Injecting packets.
  * Compromise of network nodes. It is best not trust any nodes.
@@ -828,6 +871,7 @@ It is possible to attack Anonymity by:
 Sending packets can be sent through a proxy which communicates with external server. It carries many people's traffic so enables some anonymity.
 
 **Weaknesses**:
+
  * The proxy knows everything.
  * Traffic analysis is possible.
 
@@ -858,6 +902,7 @@ A **Mix** is a server the processes (mail) items.
 An adversary can know all senders and receivers, but cannot link a sent message with a received message.
 
 To **foil traffic analysis**:
+
 * Agents/mixes work with uniformly sized items (all messages are fixed sized blocks).
 * The order of arrival is hidden by outputting items in batches.
 * Repeated information must be blocked.
@@ -908,6 +953,7 @@ Voting can take place where votes are anonymously emailed with a digital pseudon
 #### Summary
 
 **Advantages**:
+
  * Very high degree of anonymity.
   * No correlation between mix input and output.
   * Only some nonzero fraction of mixes need to be honest.
@@ -917,6 +963,7 @@ Voting can take place where votes are anonymously emailed with a digital pseudon
   * Can also be used for anonymous "certified mail" where receipt is signed by receiver and every mix along the path.
 
 **Disadvantages**:
+
  * Public-key encryption and decryption at each mix ad computationally expensive.
  * The dummy messages overhead.
  * There is high latency, which is okay for emails but not web browsing.
@@ -990,6 +1037,7 @@ On each request, a client sends a HTTP header to a server. Normally headers are 
 **HTTPS** sends headers encrypted. It is the result of layering HTTP on top of SSL/TLS protocol.
 
 Can also contain private information:
+
 * `FROM`: The user's email address.
 * `AUTHORIZATION`: Contains **authentication** information.
 * `COOKIE`: A piece of data given to the client by the server and returned by the client to the server in subsequent requests.
@@ -1004,6 +1052,7 @@ Cookies were introduced to allow session management.
 #### Privacy
 
 Cookies have received lots of criticism as they can be used to track users. Privacy can also be attacked in other ways:
+
  * Server logs.
  * Eavesdropping traffic.
  * Enforcing proxies.
@@ -1012,12 +1061,14 @@ Cookies have received lots of criticism as they can be used to track users. Priv
 ### Authentication
 
 **Basic authentication**:
+
  * login/password based.
  * Information is sent unencrypted.
  * credentials sent on every request.
  * Supported by nearly all server/clients and thus widely used.
 
 **Digest authentication**:
+
  * Server sends nonce.
  * Client hashes nonce based on login/password.
  * Client sends only crpytographic hash over the net.
@@ -1026,6 +1077,7 @@ Cookies have received lots of criticism as they can be used to track users. Priv
 #### OWASP Top 10 Common
 
 **Protection**:
+
  * Validate inputs against positive specification (e.g. allowed character sets, min/max length, numeric ranges). Only server side validation can prevent these attacks.
 
 An attacker tries to execute code on the server.
@@ -1038,28 +1090,34 @@ An attacker tries to execute code on the server.
 e.g. Attacker sends username/password:
 
 SQL code looks like:
+
 ```
 SELECT * FROM users WHERE user="$username" AND passwd="$password"
 ```
 
 Attacker sends:
+
 ```
 username: Admin
 password: " OR "1" = "1
 ```
+
 would become:
+
 ```
 SELECT * FROM users WHERE user="Admin" AND passwd="" OR "1" = "1"
 ```
 
 **Other intents**:
- * Bypassing authentication
- * Privilege escalation
- * Extracting data
- * Adding or modifying data
- * Performing DoS
 
-**Other mechanisms**
+* Bypassing authentication
+* Privilege escalation
+* Extracting data
+* Adding or modifying data
+* Performing DoS
+
+**Other mechanisms**:
+
 * Injection through user inputs.
 * Injection through cookies.
 * Injection through server variables.
@@ -1068,11 +1126,13 @@ SELECT * FROM users WHERE user="Admin" AND passwd="" OR "1" = "1"
 ### JavaScript sandbox and same origin policy
 
 The Javascript sandbox:
+
  * No access to memory of other programs, file system, network.
  * Only the current document is accessible.
  * Might want to make exceptions for trusted code.
 
 **Same origin policy**: Access is only granted to documents from the same site as the script.
+
  * Prevents hostile script from tampering other pages in the browser.
  * Prevents script from snooping on input in other windows.
  * Verify URLs of target document and script that access a resource.
@@ -1088,6 +1148,7 @@ Bad website sends innocent victim a script that steals information from an hones
 4. Malicious script sends those credentials to attacker.
 
 #### Different types of XSS
+
  * Stored XSS: Injected script is stored permanently on target servers.
  * Reflected XSS: Injected script is delivered to user via another route. e.g. email. (User clicks on email link that has script in url)
  * DOM-based XSS: Attack payload is executed as a result of modifying DOM in victim's browser by the original client script. The client side code therefore runs in an **unexpected** way.
