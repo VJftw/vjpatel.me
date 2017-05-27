@@ -675,7 +675,7 @@ IPsec is executed on a packet-by-packet bases:
       * If no entry is found, then **IKE** is invoked to create a Security Association (SA) with the appropriate keys.
 
 
-![alt text](https://docs.google.com/drawings/d/13K7uTILY81w3wywUmZUsEpurf2xX0dh32TtokQsdfw8/pub?w=885&h=719 "IPsec Outbound Processing")
+![alt text](https://docs.google.com/drawings/d/13K7uTILY81w3wywUmZUsEpurf2xX0dh32TtokQsdfw8/pub?w=885&h=719 "IPSec Outbound Processing")
 
 **Inbound**:
 1. IPsec examines inbound packets to determine whether it is an **unsecured** IP packet or one that **ESP or AH headers** by examining IP fields.
@@ -686,7 +686,7 @@ IPsec is executed on a packet-by-packet bases:
    * If no match is found, the packet is discarded.
    * Else, IPsec applies appropriate ESP or AH processing; the IP header is processed and stripped off and the packet body is delivered to higher layer (TCP/UDP).
 
-![alt text](https://docs.google.com/drawings/d/1tpzYKhXRly5sMeIUG9My6htHE0ZmN2jU76Ob5sjUV5Q/pub?w=755&h=717 "IPsec Inbound Processing")
+![alt text](https://docs.google.com/drawings/d/1tpzYKhXRly5sMeIUG9My6htHE0ZmN2jU76Ob5sjUV5Q/pub?w=755&h=717 "IPSec Inbound Processing")
 
 
 #### Authentication Header (AH)
