@@ -481,10 +481,11 @@ The packet filter will now only allow incoming traffic to high-numbered ports fo
 
 * Does not permit an end-to-end TCP connection.
 
-These act as a relay of application-level traffic which has full access to protocols. e.g. in a User contacts gateway using a TCP/IP application (telnet):
- 1. Gateway asks user for name of remote host to be accessed.
- 2. User responds and provides a valid user ID and authentication information.
- 3. Gateway contacts application on remote host and relays TCP segments containing application data.
+These act as a relay of application-level traffic which has full access to protocols. e.g.:
+ 1. User contacts gateway using a TCP/IP application (Telnet, FTP).
+ 2. Gateway asks user for name of remote host to be accessed.
+ 3. User responds and provides a valid user ID and authentication information.
+ 4. Gateway contacts application on remote host and relays TCP segments containing application data.
 
 If the gateway does not implement proxy code for the specific service, then the service is not supported. It can also be configured to support only specific features of an application.
 
@@ -549,7 +550,7 @@ An **external** firewall provides:
  * A basic level of protection for the remainder of the network.
 
 An **internal** firewall provides:
- * More stringent filtering capability to protect enterprise servers and workstations. (deny HTTP inbound)
+ * More strict filtering capability to protect enterprise servers and workstations. (deny HTTP inbound)
  * Two-way protection with respect to the DMZ:
    * Remainder of network from attacks launched from DMZ systems (web server)
    * Protects DMZ systems from attacks launched from internal networks (corporate)
