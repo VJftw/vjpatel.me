@@ -268,7 +268,27 @@ Defines a connection: *Ordered sequence of bytes over an unordered IP network*. 
 
 **On-path TCP connection hijacking**:
 
+A man-in-the-middle (on-path) can alter a TCP stream without the receiver (Harambe) ever realising that there was an alteration. Mallory needs to know the sequence number in order to perform this.
+
 ![alt text](https://docs.google.com/drawings/d/1zfKYDJkVOXFrbWR-6t_8OQxOKQfQhFKXQfy7jyWYeLk/pub?w=925&h=588 "TCP Connection Hijacking")
+
+
+**Steps to TCP connection hijacking**:
+
+1. Sniff packets
+2. Predict the sequence number.
+3. Inject data.
+
+Mallory can then use a hijacked stream to:
+
+ * Spoof a client. e.g. performing actions as an authenticated user (sending money etc.)
+ * Spoof a server. e.g. Send misinformation to client.
+
+**Off-patch TCP connection hijacking**:
+
+This is much harder as Mallory needs to guess the initial sequence number.
+
+It is possible to guess the initial sequence by using your system clock.
 
 
 
