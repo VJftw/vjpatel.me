@@ -226,6 +226,11 @@ The Network Time Protocol(NTP) can be used for an amplification attack. This is 
 
 A network card may be put in ***promiscuous*** mode to read all packets from a network. This is usually used for debugging & diagnostic purposes.
 
+#### Berkeley Packet Filter
+
+Programs like `tcpdump` need a lot of flexibility in what packets to capture. Thus, the naive solution would have the network card pass all packets to the filtering program. This is a performance issue because each time data has to be fetched, user code has to **trap the kernel** and have the buffer filled.
+To get over this performance bottleneck, in the Berkeley Packet Filter, filtering commands are written as commands for a **virtual machine** interpreter run by the kernel. Just-in-time compilation of filtering regular expressions is used to decrease overheads.
+
 
 ---
 
