@@ -231,6 +231,23 @@ A network card may be put in ***promiscuous*** mode to read all packets from a n
 
 ## Lecture 4
 
+### Control plane vs. Data plane attacks
+
+Routers and switches are split into:
+
+* **control plane**: For learning routes. This needs to be thorough.
+* **data plane**: For doing forwarding. This needs to be fast.
+
+Attacks can be carried out on both these planes.
+
+### Off-path vs. On-path Adversaries
+
+* **On-path** adversaries are more powerful than **Off-path** adversaries.
+
+It is difficult for an **Off-path** adversary to insert data on the data plane.
+
+An **On-path** adversary can use the connection state, however this is difficult to do at scale.
+
 
 ### BGP Route Hijacking
 
@@ -241,6 +258,18 @@ The Border Gateway Protocol controls the routes that packets take through autono
 
 #### TCP
 Defines a connection: *Ordered sequence of bytes over an unordered IP network*. A Connection is defined by an IP address + Port. A sequence number gives an order of packet numbers.
+
+##### TCP Connection set up
+
+![alt text](https://docs.google.com/drawings/d/1O24BtOgz6_BH3dl70udx6e_kRoxxPfn-zDuxwfdiFSw/pub?w=925&h=588 "TCP Connection set up")
+
+
+##### TCP Connection hijacking
+
+**On-path TCP connection hijacking**:
+
+![alt text](https://docs.google.com/drawings/d/1zfKYDJkVOXFrbWR-6t_8OQxOKQfQhFKXQfy7jyWYeLk/pub?w=925&h=588 "TCP Connection Hijacking")
+
 
 
 ### DNS Poisoning
@@ -916,26 +945,25 @@ To **foil traffic analysis**:
 
 A mix can return a receipt $Y$ for messages received.
 
-$$
-Y = \left\{ c, \left\{ r_1, \left\{ r_0, M \right\}_{\text{pk}(B)}, B \right\}_{\text{pk}(\text{mix})} \right\}_{\text{priv}(\text{mix})}
-$$
+<div>
+$$Y = \left\{ c, \left\{ r_1, \left\{ r_0, M \right\}_{\text{pk}(B)}, B \right\}_{\text{pk}(\text{mix})} \right\}_{\text{priv}(\text{mix})}$$
+</div>
 
 where $$c$$ is some large, known constant (e.g. string of zeros).
 
 A participant can later prove he sent the message by supplying:
 
-$$
-X = \left\{ r_0, M \right\}_{\text{pk}(B)}, B
-$$
+<div>
+$$X = \left\{ r_0, M \right\}_{\text{pk}(B)}, B$$
+</div>
 
 as well as the retained string $r_1$.
 
 **The proof of receipt**:
 
-$$
-\left\{ Y \right\}_{\text{pk}(\text{mix})} = c, \left\{ r_1, X \right\}_{\text{pk}(\text{mix})}
-$$
-
+<div>
+$$\left\{ Y \right\}_{\text{pk}(\text{mix})} = c, \left\{ r_1, X \right\}_{\text{pk}(\text{mix})}$$
+</div>
 
 #### Weaknesses
 
