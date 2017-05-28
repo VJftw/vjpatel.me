@@ -256,15 +256,14 @@ The Border Gateway Protocol controls the routes that packets take through autono
 
 ### TCP Session Hijacking
 
-#### TCP
-Defines a connection: *Ordered sequence of bytes over an unordered IP network*. A Connection is defined by an IP address + Port. A sequence number gives an order of packet numbers.
+**TCP**: Defines a connection: *Ordered sequence of bytes over an unordered IP network*. A Connection is defined by an IP address + Port. A sequence number gives an order of packet numbers.
 
-##### TCP Connection set up
+#### TCP Connection set up
 
 ![alt text](https://docs.google.com/drawings/d/1O24BtOgz6_BH3dl70udx6e_kRoxxPfn-zDuxwfdiFSw/pub?w=925&h=588 "TCP Connection set up")
 
 
-##### TCP Connection hijacking
+#### TCP Connection hijacking
 
 **On-path TCP connection hijacking**:
 
