@@ -545,22 +545,15 @@ A stateful packet inspection firewall tightens rules for TCP by creating a direc
 The packet filter will now only allow incoming traffic to high-numbered ports for those packets that match one of the entries in the directory. It reviews the same information as a normal packet-filter firewall but also records information about TCP connections. e.g. sequence numbers.
 
 
-### Application Level Gateway (Application Proxy)
+### Application-level Gateway (Application Proxy)
 
-* Does not permit an end-to-end TCP connection.
-
-These act as a relay of application-level traffic which has full access to protocols. e.g.:
-
- 1. User contacts gateway using a TCP/IP application (Telnet, FTP).
- 2. Gateway asks user for name of remote host to be accessed.
- 3. User responds and provides a valid user ID and authentication information.
- 4. Gateway contacts application on remote host and relays TCP segments containing application data.
+An application-level gateway can be configured to only support specific features of an application that a network administrator considers acceptable whilst denying all other features.
 
 If the gateway does not implement proxy code for the specific service, then the service is not supported. It can also be configured to support only specific features of an application.
 
-Tend to be more secure than packet filters because:
+**Advantages**:
 
- * They work by whitelisting applications by implementing proxy code for allowed applications.
+ * Tend to be more secure than packet filters because They work by whitelisting applications by implementing proxy code for allowed applications.
  * It is easy to log and audit all incoming traffic at the application level.
 
 **Disadvantages**:
@@ -569,20 +562,21 @@ Tend to be more secure than packet filters because:
  * Need separate proxies for each service.
 
 
-### Circuit Level Gateway (Circuit level proxy)
+### Circuit-level Gateway (Circuit level proxy)
 
-Typically used when system admin trusts internal users by allowing general outbound connections.
+A circuit-level gateway can be a standalone system or specialised function performed by an application level gateway.
 
-* Also doesn't permit an end-to-end TCP connection.
+It doesn't permit an end-to-end TCP connection.
 
 It sets up and relays two TCP connections:
 
  * one between itself and the inner host.
  * one between itself and the outside host.
 
-Once the connection has been established, the gateway typically relays TCP segments from one connection to the other without examining its contents.
-
+The security function is that **it determines which connections are allowed**.
 The gateway can be configured to support application-level or proxy services on inbound connections and circuit-level for outbound connections. By doing this, we only have the processing overhead on inbound connections and not outbound connections.
+
+Typically used when system admin trusts internal users by allowing general outbound connections.
 
 e.g. **SOCKet Secure (SOCKS)**: An internet protocol that routes network packets between a client and server through a proxy server.
 
@@ -790,11 +784,16 @@ Is an extra header between layers 3 and 4 that provides the destination enough i
 * Message Authentication Code (MAC) taken of entire packet.
 * Provides end-to-end protection between IPsec enabled systems.
 
+![alt text](https://docs.google.com/drawings/d/1lmkpc01MC2z_Lc5Q7No-fkk41IMaG9Fy_ZMDD2zzrrs/pub?w=400&h=100 "IPSec AH Transport")
+
+
 **Tunnel Mode**:
 
  * Entire original packet authenticated; new outer IP header.
  * Inner header carries ultimate source/destination address.
  * New outer header also protected (except mutable fields) and may contain different IP addresses, e.g. firewalls or security gateways.
+
+ ![alt text](https://docs.google.com/drawings/d/1o8alIMFwrwBCn1KTSQGliRO3ZaSyAiALkddGfEDLK_M/pub?w=495&h=109 "IPSec AH Tunnel")
 
 
 #### Encapsulating Security Payload (ESP)
@@ -818,9 +817,7 @@ A **Header specifies encryption** and optional authentication.
 
 **Tunnel Mode**:
 
- * Can be used to set up a VPN.
-
- e.g. Terminating tunnels at security gateways to each network. This implementation allows hosts avoid implementing security.
+ * Can be used to set up a VPN by terminating tunnels at security gateways to each network. This implementation allows hosts avoid implementing security.
 
 1. Source prepares an inner IP packet with a destination address of the target internal host.
   * This packet is prefixed by an ESP header; then packet and ESP header are encrypted and Authentication data may be added.
@@ -875,15 +872,18 @@ An **SSL Session** is an association between the client and server with an assoc
 * $\text{Pa}$: A list of $A$'s preferences for encryption and compression (e.g. Diffie-Hellmann, RSA).
 * $\text{Pb}$: is chosen from $\text{Pa}$.
 
-1. Client sends Hello: $A \rightarrow B: \text{Na}, \text{Sid}, \text{Pa}$.
-2. Server responds with Hello: $B \rightarrow A: \text{Nb}, \text{Sid}, \text{Pb}$.
-3. Server sends certificate: $B \rightarrow A: \text{certificate}(B, K_B)$.
-4. Client exchange:
-  * *Optional* Client certificate: $A \rightarrow B: \text{certificate}(A, K_A)$
-  * Client Key Exchange: $A \rightarrow B: \left \\{ \text{PMS} \right \\}_{K_B}$
-  * *Optional* Certificate verify: $A \rightarrow B: \left \\{\text{hash}(...)\right \\}_{K_A^{-1}}$
-5. Client finished: $A \rightarrow B: \left \\{ \text{Finished} \right \\}_\text{clientK}$
-6. Server finished: $B \rightarrow A: \left \\{ \text{Finished} \right \\}_\text{serverK}$
+1. Establish security capabilities:
+    * Client sends Hello: $A \rightarrow B: \text{Na}, \text{Sid}, \text{Pa}$.
+    * Server responds with Hello: $B \rightarrow A: \text{Nb}, \text{Sid}, \text{Pb}$.
+2. Exchange server certificate:
+    * Server sends certificate: $B \rightarrow A: \text{certificate}(B, K_B)$.
+3. Client key exchange:
+    * *Optional* Client certificate: $A \rightarrow B: \text{certificate}(A, K_A)$
+    * Client Key Exchange: $A \rightarrow B: \left \\{ \text{PMS} \right \\}_{K_B}$
+    * *Optional* Certificate verify: $A \rightarrow B: \left \\{\text{hash}(...)\right \\}_{K_A^{-1}}$
+5. Finish establishing connection:
+    * Client finished: $A \rightarrow B: \left \\{ \text{Finished} \right \\}_\text{clientK}$
+    * Server finished: $B \rightarrow A: \left \\{ \text{Finished} \right \\}_\text{serverK}$
 
 #### Interpretation
 
@@ -1177,7 +1177,7 @@ SELECT * FROM users WHERE user="Admin" AND passwd="" OR "1" = "1"
 
 ### JavaScript sandbox and same origin policy
 
-The Javascript sandbox:
+The JavaScript sandbox:
 
  * No access to memory of other programs, file system, network.
  * Only the current document is accessible.
