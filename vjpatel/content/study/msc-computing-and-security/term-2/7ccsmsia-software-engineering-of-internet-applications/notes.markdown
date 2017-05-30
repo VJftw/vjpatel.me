@@ -430,11 +430,18 @@ J2EE/Java EE provides automated synchronisation of entity bean data and stored d
 * Less code to write.
 * Greater portability.
 
+**Sequence diagram**:
+*Diagram from L7 S18*
+
 #### Bean Managed Persistence
 
 Synchronisation is performed manually by the programmer in the bean using JDBC.
 
 * Greater scope for customisation of database interface code.
+
+
+**Sequence diagram**:
+*Diagram from L7 S19*
 
 
 ### Separation of Code
@@ -587,16 +594,6 @@ The two forms of EJB are:
 **Statechart**:
 *Diagram from L7 S15*
 
-#### Container Managed Persistence (CMP)
-
-**Sequence diagram**:
-*Diagram from L7 S18*
-
-
-#### Bean Managed Persistence (BMP)
-
-**Sequence diagram**:
-*Diagram from L7 S19*
 
 ## Web Services
 
