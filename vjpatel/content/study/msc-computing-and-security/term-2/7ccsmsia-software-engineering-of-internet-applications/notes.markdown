@@ -37,6 +37,8 @@ A development method is formal when:
 
 The goal of development is to solve problems in the **real world**. *Structuring* and *abstraction* are critical as the real world is complex. Models are built in the early development phases with a goal of specifying the requirements and precisely whilst avoiding a premature commitment to algorithms or data-structures.
 
+The **goal of models** is to specify the requirements clearly and precisely whilst not prematurely committing into any algorithm or data-structure.
+
 * **Structuring** serves to organise/decompose the problem/solution.
 * **Abstraction** aims to eliminate insignificant details.
 
@@ -152,10 +154,38 @@ Common behaviour can be factorised using the `<<include>>` **stereotype**. e.g. 
  * May lead to functional decomposition rather than an object-oriented model.
  * Requires more UML skills.
 
+#### Sources to elicit use cases
+
+* Client
+* User
+* Existing Documents
+* Task Observations
+
+#### Types of Scenarios
+
+* **Visionary Scenarios**: Scenarios that reference future systems.
+* **As-is Scenarios**: Scenarios that reference current systems. A user describes such system.
+* **Evaluation scenarios**: The actor performs tasks against the system which is to be evaluated.
+* **Training Scenarios**: Tasks which aid a novice user for the goal of using/learning.
+
 
 ### Class Diagrams
 
 **Class Diagrams** represent the structure of the system.
+
+#### Class identification approaches
+
+* **Application Domain Approach**: Asking the application domain expert to define objects.
+* **Syntactic Approach**: Analyse all the use cases to define objects.
+* **Design Pattern Approach**: Apply design patterns.
+* **Component-Based Approach**: Use existing solution classes.
+
+#### Object kinds
+
+* **Entity Object**: object that represents application domain context.
+* **Boundary Object**: object that handles user-system interactions.
+* **Control object**: object that is responsible of control tasks (coordination of entity and boundary objects) that is executed via the server.
+
 
 *NOTE: DIAGRAM (Slide 40 of Lecture1b)*
 
@@ -167,6 +197,12 @@ Common behaviour can be factorised using the `<<include>>` **stereotype**. e.g. 
 ### Statechart Diagrams
 
 **Statechart diagrams** represent the behaviour of a single object with interesting dynamic behaviour.
+
+Show the interactions of a system.
+
+The **state** represents the value of a object. e.g. Individual Web pages.
+
+The **transition** the event that causes a change of state. e.g. Actions performed on the web pages which can be links or submitted forms.
 
 ### Object Constraint Language (OCL)
 
@@ -270,3 +306,177 @@ A **value** object holds a value that is immutable.
 #### Association Classes
 
 Allow one to add attributes, operations and other features to associations.
+
+
+----
+
+
+## Web Applications
+
+ * **Portability**: When the system is transported to a new environment, it should behave the same as when it was running in the old environment.
+ * **Usability**: The users must not put unreasonable effort into using the system to achieve provided functionality.
+ * **Accessibility**: The system must be easily accessible by disabled users.
+
+### Web Services
+Software functions that can be executed from remote applications. It enables integration of applications that are in remote locations so that these applications can behave like they are running in the same location.
+
+**Reasons to transform a task into a web service**:
+
+ * If it needs to access remote data or business-to-business interactions.
+ * If it is a common sub-task in several business process.
+ * If it does not require fine-grained interchange of data.
+ * If it is not performance critical.
+
+---
+
+## EJB
+
+### Objects
+
+ * Implements the beans remote interface
+ * When client invokes this interface, the interface delegates to the bean instance, which is in the pool.
+
+## Web Services
+
+
+
+---
+
+## Lecture 6 - Enterprise Information Systems (EIS)
+
+An EIS is a software system which holds core business data for a company or organisation and which performs operations involving this data.
+
+These are usually large and complex systems, typically involving distributed processing and data.
+
+
+### 5 Tier Architecture
+
+1. **Client tier**: Has responsibility to display information and receive information from the user to transmit to the presentation tier.
+2. **Presentation tier**: Has responsibility of managing presentation of information to clients and controlling what sequence of interaction should be followed.
+    * Insulates the business tier from UI changes.
+3. **Business tier**: Contains components implementing the business rules and data of the application.
+    * Should be the most stable part of EIS.
+4. **Integration tier**: Manages data retrieval, using interfaces such as JDBC. It insulates the higher tiers from direct knowledge of how data is stored and retrieved.
+    * Insulates the business tier from changes in persistence engines.
+5. **Resource tier**: Contains persistent data storage, such as database, and external resources such as credit card authorisation services.
+
+### Beans
+
+* **Session Bean**: Is a business component that is dedicated to a single client that lives only for the duration of the client's session. Is is not persistent. It can be used to model stateful or stateless interactions between the client and business tier components.
+    * **Stateless**: Provide a service by a single method call. They do not hold client-specific state so can be shared between them.
+    * **Stateful**: Provide an unsharable service to a single client. The cannot be shared and hold several related operations.
+
+Session Beans should be introduced when the mix of business and view/control logic in the presentation tier becomes too complex. Or when business functionality needs to be made available to multiple applications.
+
+
+* **Entity Bean**: A coarse-grained business component which provides an object view of persistent data. It is multiuser and long-lived. They act as an object-oriented facade for data of a system which may actually be stored as relational tables.
+
+
+Entity beans should be introduced when persistent business components become complex, and require transaction management.
+
+#### Container Managed Persistence
+
+J2EE/Java EE provides automated synchronisation of entity bean data and stored data in the resource tier.
+
+* Less code to write.
+* Greater portability.
+
+#### Bean Managed Persistence
+
+Synchronisation is performed manually by the programmer in the bean using JDBC.
+
+* Greater scope for customisation of database interface code.
+
+
+### Separation of Code
+
+Controller and view components are used for presentation processing.
+
+Session beans are for business processing.
+
+Entity beans are for complex business data.
+
+### EIS Presentation Patterns
+
+#### Intercepting Filter
+
+The intercepting filter's purpose is to provide a flexible and configurable means to add filtering, pre and post processing, to presentation-tier request/response handling.
+
+e.g.
+
+* Is the clients IP address from a trusted network? (IP checker)
+* Does the client have a valid session (Session checker)
+* Is the client's browser supported (Browser checker)
+
+**Architecture**:
+*Diagram from L6 S35*
+
+**Class Diagram**:
+*Diagram from L6 S36*
+
+#### Front Controller
+
+The front controller's purpose is to provide a central entry point for an application that controls and manages web request handling. The controller component can control navigation and dispatching.
+
+It makes it easier to impose consistent security, data and checks on requests.
+
+**Architecture**:
+*Diagram from L6 S41*
+
+#### Composite View
+
+The composite view's purpose is to manage views which are composed from multiple subviews.
+
+Complex web pages are often built from multiple parts. e.g. Navigation, Header, Footer.
+
+**Class Diagram**:
+*Diagram from L6 S45*
+
+### EIS Business Patterns
+
+#### Value Object
+
+The value object's purpose is to improve the efficiency of access to persistent data by grouping data and transferring data as a group of attribute values of each object.
+
+It is inefficient to invoke an Entity Bean's `getAttribute()` value one-by-one. It also reduces data transfer costs.
+
+**Class Diagram**:
+*Diagram from L6 S48*
+
+**Architecture**:
+*Diagram from L6 S49*
+
+#### Session Facade
+
+The session facade's purpose is to encapsulate the details of complex interactions between business objects. A session facade for a group of business objects manages these objects and provides a simplified coarse-grained set of operations to clients.
+
+**Architecture**:
+*Diagram from L6 S53*
+
+#### Composite Entity
+
+The composite entity's purpose is to manage a set of interrelated persistent objects to improve efficiency.
+
+This pattern groups related objects into a single entity bean.
+
+**Class Diagram**:
+*Diagram from L6 S56*
+
+
+#### Value List Handler
+
+The value list handler's purpose is to manage a list of data items/objects to be presented to clients.
+
+The result data lists produced by database searches can be very large, so it is impractical to represent the whole set in memory at once.
+
+**Class Diagram**:
+*Diagram from L6 S61*
+
+### EIS Integration Patterns
+
+#### Data Access Object
+
+The data access object's purpose is to abstract details from particular persistent storage mechanisms, hiding these details from the business layer.
+
+**Class Diagram**:
+*Diagram from L6 S64*
