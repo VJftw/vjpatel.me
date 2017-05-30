@@ -107,7 +107,8 @@ A **Model Transformation** produces a new model from an existing model. This can
 
 **Use Case Diagrams** represent the functionality of the system from a user's point of view.
 
-*NOTE: DIAGRAM (Slide 39 of Lecture1b)*
+![alt text](https://docs.google.com/drawings/d/1ioGQFYFEyxA0OskPC-sDU3hju1Of8QVUNg6i_W2CdEM/pub?w=880&h=640 "Use Case Diagrams")
+
 
 **Use cases** are a scenario-based technique in the UML which identify the actors in an interaction and which describe the interaction itself. That is, a use case is a set of scenarios tied together by a common user goal (which might succeed or fail). A set of use cases should describe all possible interactions with the system. Sequence diagrams may be used to add detail to use cases by showing the sequence of event processing in the system.
 
@@ -142,7 +143,9 @@ e.g.
 #### Reusing use cases
 Common behaviour can be factorised using the `<<include>>` **stereotype**. e.g. `Withdraw` includes the `Authenticate` use case.
 
-*DIAGRAM 1b 56*
+
+![alt text](https://docs.google.com/drawings/d/1VrR8tpX2mpnqAMT3t5zmkQ73Gl2VJa90k5k1GK0Zxww/pub?w=838&h=620 "Reusing use cases in a use case diagram")
+
 
 **Pros**:
  * Convenient
@@ -185,9 +188,6 @@ Common behaviour can be factorised using the `<<include>>` **stereotype**. e.g. 
 * **Entity Object**: object that represents application domain context.
 * **Boundary Object**: object that handles user-system interactions.
 * **Control object**: object that is responsible of control tasks (coordination of entity and boundary objects) that is executed via the server.
-
-
-*NOTE: DIAGRAM (Slide 40 of Lecture1b)*
 
 
 ### Sequence Diagrams
@@ -371,13 +371,14 @@ For relational database implementation, the following transformations are used:
 
 Servlets respond to requests, call DBI/business tier and use auxiliary classes to generate response pages.
 
-*Diagram from L5 S9*
+![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgMmV1bmU4cGZhOGM "5 Tier Pure Servlet Architecture")
 
 #### **Pure JSP**
 
 JSPs respond to requests, call DBI/business tier and generate response pages.
 
-*Diagram from L5 S22*
+![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgaVNEaHptekVSQTA "5 Tier Pure JSP Architecture")
+
 
 #### **Servelet/JSP**
 
@@ -387,7 +388,8 @@ Like pure servlet approach, but using JSPs to construct response pages, on redir
 
 Similar to **MVC**, replace Controllers with Servlets.
 
-*Diagram from L5 S31*
+![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgeUh4Wmk4Ymd0YjA "3 Tier MVC Architecture")
+
 
 ---
 
