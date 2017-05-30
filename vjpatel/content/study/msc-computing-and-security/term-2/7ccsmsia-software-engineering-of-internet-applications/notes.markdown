@@ -308,10 +308,24 @@ A **value** object holds a value that is immutable.
 Allow one to add attributes, operations and other features to associations.
 
 
-----
+---
 
+## Lecture 3 - Web Application Development
 
-## Web Applications
+**Model-driven Development** is relevant to web application development because there are many rapidly-evolving technologies involved in these applications, which create a corresponding obligation for web applications to be flexible and easily upgraded to these new or enhanced technologies.
+
+**Model-driven architecture** provides flexibility by defining PIMs that specify business data and business rules of a system, independently of particular technologies.
+
+**Development of web applications involves 3 forms of development**:
+
+1. Development of software that
+    * receives information from users
+    * processes information
+    * returns information to clients
+2. Development of visual appearance and behaviour of web pages.
+3. Deciding on information content of web pages, choice of words to use, what information to emphasise, etc.
+
+### Properties that are important for web applications
 
  * **Portability**: When the system is transported to a new environment, it should behave the same as when it was running in the old environment.
  * **Usability**: The users must not put unreasonable effort into using the system to achieve provided functionality.
@@ -327,18 +341,53 @@ Software functions that can be executed from remote applications. It enables int
  * If it does not require fine-grained interchange of data.
  * If it is not performance critical.
 
+
 ---
 
-## EJB
+## Lecture 4 - Interaction State Diagrams
 
-### Objects
+### History Connector
 
- * Implements the beans remote interface
- * When client invokes this interface, the interface delegates to the bean instance, which is in the pool.
+Describes which state was last active.
 
-## Web Services
+### Switch connector
 
+### From analysis to design models
 
+For relational database implementation, the following transformations are used:
+
+* **Remove inheritance by merging subclasses into their superclass**. The classes can be represented in separate tables by forming a foreign key relationship from sub to super class.
+* **Introduce primary keys** for all persistent entities that do not already have an `{identity}` attribute.
+* **Replace many-to-many associations with foreign-key associations**.
+* **Replace many-to-one associations with foreign keys**.
+
+---
+
+## Lecture 5
+
+### Different Architectural Styles for Presentation tier
+
+#### **Pure Servlet**
+
+Servlets respond to requests, call DBI/business tier and use auxiliary classes to generate response pages.
+
+*Diagram from L5 S9*
+
+#### **Pure JSP**
+
+JSPs respond to requests, call DBI/business tier and generate response pages.
+
+*Diagram from L5 S22*
+
+#### **Servelet/JSP**
+
+Like pure servlet approach, but using JSPs to construct response pages, on redirect from servlets.
+
+*Find Diagram with JSP/Servlet only*
+
+Similar to **MVC**, replace Controllers with Servlets.
+
+*Diagram from L5 S31*
 
 ---
 
@@ -480,3 +529,92 @@ The data access object's purpose is to abstract details from particular persiste
 
 **Class Diagram**:
 *Diagram from L6 S64*
+
+
+
+---
+
+
+## Lecture 7 - EJB
+
+### Objects
+
+ * Implements the beans remote interface
+ * When client invokes this interface, the interface delegates to the bean instance, which is in the pool.
+
+### Implementation of Enterprise Information Systems
+
+**Java 2 Enterprise Edition J2EE** is a Java framework for distributed enterprise systems which includes:
+
+ * Servlets, JDBC and JSP
+ * Enterprise Java Beans (EJB): representing distributed business components, possibly with persistent data.
+ * Java Message Service (JMS): An API to communicate with message-oriented middleware (MOM) to provide messaging services between systems.
+ * Java Naming and Directory Interface (JNDI): An interface to support naming and directory services, such as the Java RMI registry for locating remote methods.
+ * JavaMail an API for platform-independent mailing and messaging in Java.
+
+J2EE uses the 5-tier architecture.
+
+### Typical J2EE System Architecture
+
+*Diagram from L7 S7*
+
+
+### Enterprise Java Beans (EJB)
+
+The two forms of EJB are:
+
+ * **Session bean**:  a business component.
+ * **Entity bean**: A coarse-grained business component.
+
+#### Interfaces
+
+* **Remote Interface**: Lists business operations specific to the bean.
+* **Home Interface**: Lists lifecycle operations (creation, deletion) and methods (such as findByPrimaryKey) to return particular bean objects.
+* **Local interface**: Listing business operations that can be accessed by local clients. i.e. those executing in the same JVM as the EJB.
+* **Local home interface**: Listing lifecycle and finder methods for local clients.
+
+
+### Session EJB lifecycle
+
+**Statechart**:
+*Diagram from L7 S13*
+
+**Sequence Diagram**:
+*Diagram from L7 S14*
+
+### Entity EJB lifecycle
+
+**Statechart**:
+*Diagram from L7 S15*
+
+#### Container Managed Persistence (CMP)
+
+**Sequence diagram**:
+*Diagram from L7 S18*
+
+
+#### Bean Managed Persistence (BMP)
+
+**Sequence diagram**:
+*Diagram from L7 S19*
+
+## Web Services
+
+Web services are software functions that can be invoked by clients across the internet. They support integration of applications at different network locations, enabling these applications to function as if they were part of a single large software system.
+
+Web services are examples of services in a **Service-Oriented Architecture (SOA)**, and can be used to provide functionalities offered in cloud computing.
+
+
+### Web Service Architecture
+
+*Diagram from L7 S27*
+
+### Web Service Design Patterns
+
+**Broker Design Pattern**: Source application needs to call multiple target services. (e.g. to find price of an item supplied by alternative suppliers). Pattern introduces a broker service to perform this distributed call.
+
+*Diagram from L7 S32*
+
+**Router Design Patter**: Source application needs to call one specific service, depending on various criteria/rules. Pattern introduces router service which applies these rules to select correct target service.
+
+*Diagram from L7 S33*
