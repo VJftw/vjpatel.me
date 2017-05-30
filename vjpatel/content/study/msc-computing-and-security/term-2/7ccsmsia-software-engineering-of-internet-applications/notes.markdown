@@ -398,7 +398,7 @@ Entity beans are for complex business data.
 
 ### EIS Presentation Patterns
 
-#### Intercepting Filter
+#### **1. Intercepting Filter**
 
 The intercepting filter's purpose is to provide a flexible and configurable means to add filtering, pre and post processing, to presentation-tier request/response handling.
 
@@ -414,7 +414,7 @@ e.g.
 **Class Diagram**:
 *Diagram from L6 S36*
 
-#### Front Controller
+#### **2. Front Controller**
 
 The front controller's purpose is to provide a central entry point for an application that controls and manages web request handling. The controller component can control navigation and dispatching.
 
@@ -423,7 +423,7 @@ It makes it easier to impose consistent security, data and checks on requests.
 **Architecture**:
 *Diagram from L6 S41*
 
-#### Composite View
+#### **3. Composite View**
 
 The composite view's purpose is to manage views which are composed from multiple subviews.
 
@@ -434,7 +434,7 @@ Complex web pages are often built from multiple parts. e.g. Navigation, Header, 
 
 ### EIS Business Patterns
 
-#### Value Object
+#### **4. Value Object**
 
 The value object's purpose is to improve the efficiency of access to persistent data by grouping data and transferring data as a group of attribute values of each object.
 
@@ -446,14 +446,14 @@ It is inefficient to invoke an Entity Bean's `getAttribute()` value one-by-one. 
 **Architecture**:
 *Diagram from L6 S49*
 
-#### Session Facade
+#### **5. Session Facade**
 
 The session facade's purpose is to encapsulate the details of complex interactions between business objects. A session facade for a group of business objects manages these objects and provides a simplified coarse-grained set of operations to clients.
 
 **Architecture**:
 *Diagram from L6 S53*
 
-#### Composite Entity
+#### **6. Composite Entity**
 
 The composite entity's purpose is to manage a set of interrelated persistent objects to improve efficiency.
 
@@ -463,7 +463,7 @@ This pattern groups related objects into a single entity bean.
 *Diagram from L6 S56*
 
 
-#### Value List Handler
+#### **7. Value List Handler**
 
 The value list handler's purpose is to manage a list of data items/objects to be presented to clients.
 
@@ -474,7 +474,7 @@ The result data lists produced by database searches can be very large, so it is 
 
 ### EIS Integration Patterns
 
-#### Data Access Object
+#### **8. Data Access Object**
 
 The data access object's purpose is to abstract details from particular persistent storage mechanisms, hiding these details from the business layer.
 
