@@ -433,7 +433,9 @@ J2EE/Java EE provides automated synchronisation of entity bean data and stored d
 * Greater portability.
 
 **Sequence diagram**:
-*Diagram from L7 S18*
+
+![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgaVFpUVlvNzBnZE0 "Container Managed Persistence Sequence diagram")
+
 
 #### Bean Managed Persistence
 
@@ -443,7 +445,8 @@ Synchronisation is performed manually by the programmer in the bean using JDBC.
 
 
 **Sequence diagram**:
-*Diagram from L7 S19*
+
+![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgSFRMUXZtTVZYUVE "Bean Managed Persistence Sequence diagram")
 
 
 ### Separation of Code
@@ -467,10 +470,14 @@ e.g.
 * Is the client's browser supported (Browser checker)
 
 **Architecture**:
-*Diagram from L6 S35*
+
+![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgNUo5V1EtZW1Yam8 "Intercepting Filter Architecture")
+
 
 **Class Diagram**:
-*Diagram from L6 S36*
+
+![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgVlgydXFidDFuc0k "Intercepting Filter Class Diagram")
+
 
 #### **2. Front Controller**
 
@@ -479,7 +486,9 @@ The front controller's purpose is to provide a central entry point for an applic
 It makes it easier to impose consistent security, data and checks on requests.
 
 **Architecture**:
-*Diagram from L6 S41*
+
+![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6Dgd1RyV2FCZF83a3c "Front Controller Architecture")
+
 
 #### **3. Composite View**
 
@@ -488,7 +497,8 @@ The composite view's purpose is to manage views which are composed from multiple
 Complex web pages are often built from multiple parts. e.g. Navigation, Header, Footer.
 
 **Class Diagram**:
-*Diagram from L6 S45*
+
+![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgcTdRREZZOWNaS1k "Composite View Class Diagram")
 
 ### EIS Business Patterns
 
@@ -499,17 +509,23 @@ The value object's purpose is to improve the efficiency of access to persistent 
 It is inefficient to invoke an Entity Bean's `getAttribute()` value one-by-one. It also reduces data transfer costs.
 
 **Class Diagram**:
-*Diagram from L6 S48*
+
+![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgVVNMYk5VVDZKODA "Value Object Class Diagram")
+
 
 **Architecture**:
-*Diagram from L6 S49*
+
+![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgZkRXWjFsam1UQ0U "Value Object Architecture")
+
 
 #### **5. Session Facade**
 
 The session facade's purpose is to encapsulate the details of complex interactions between business objects. A session facade for a group of business objects manages these objects and provides a simplified coarse-grained set of operations to clients.
 
 **Architecture**:
-*Diagram from L6 S53*
+
+![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgV2dkSjhlMGE0MTQ "Session Facade Architecture")
+
 
 #### **6. Composite Entity**
 
@@ -518,7 +534,9 @@ The composite entity's purpose is to manage a set of interrelated persistent obj
 This pattern groups related objects into a single entity bean.
 
 **Class Diagram**:
-*Diagram from L6 S56*
+
+![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgeGotR3loVTl2NEE "Composite Entity Class Diagram")
+
 
 
 #### **7. Value List Handler**
@@ -528,7 +546,9 @@ The value list handler's purpose is to manage a list of data items/objects to be
 The result data lists produced by database searches can be very large, so it is impractical to represent the whole set in memory at once.
 
 **Class Diagram**:
-*Diagram from L6 S61*
+
+![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgWTZOQkhHUUI0YUk "Value List Handler Class Diagram")
+
 
 ### EIS Integration Patterns
 
@@ -537,8 +557,8 @@ The result data lists produced by database searches can be very large, so it is 
 The data access object's purpose is to abstract details from particular persistent storage mechanisms, hiding these details from the business layer.
 
 **Class Diagram**:
-*Diagram from L6 S64*
 
+![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgQUNDTVp2N1F4ODA "Data Access Object Class Diagram")
 
 
 ---
@@ -565,7 +585,7 @@ J2EE uses the 5-tier architecture.
 
 ### Typical J2EE System Architecture
 
-*Diagram from L7 S7*
+![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgUERwQV9UVWV0REU "Typical J2EE System Architecture")
 
 
 ### Enterprise Java Beans (EJB)
@@ -586,15 +606,20 @@ The two forms of EJB are:
 ### Session EJB lifecycle
 
 **Statechart**:
-*Diagram from L7 S13*
+
+![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgNFRJUGRVd0V5M28 "Session EJB lifecycle")
 
 **Sequence Diagram**:
-*Diagram from L7 S14*
+
+![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgczUxakttYjViUHc "Session EJB sequence diagram")
+
 
 ### Entity EJB lifecycle
 
 **Statechart**:
-*Diagram from L7 S15*
+
+![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgWHZ0OXU1bkxiWGc "Entity EJB lifecycle")
+
 
 
 ## Web Services
@@ -606,14 +631,14 @@ Web services are examples of services in a **Service-Oriented Architecture (SOA)
 
 ### Web Service Architecture
 
-*Diagram from L7 S27*
+![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6Dgc2xpWGE0ZnZCMzQ "Web service architecture")
 
 ### Web Service Design Patterns
 
 **Broker Design Pattern**: Source application needs to call multiple target services. (e.g. to find price of an item supplied by alternative suppliers). Pattern introduces a broker service to perform this distributed call.
 
-*Diagram from L7 S32*
+![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6Dgd21hR2xLY2w0OTQ "Broker design pattern")
 
-**Router Design Patter**: Source application needs to call one specific service, depending on various criteria/rules. Pattern introduces router service which applies these rules to select correct target service.
+**Router Design Pattern**: Source application needs to call one specific service, depending on various criteria/rules. Pattern introduces router service which applies these rules to select correct target service.
 
-*Diagram from L7 S33*
+![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgUGNxUG4yT1lqTEE "Router design pattern")
