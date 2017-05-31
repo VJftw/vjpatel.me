@@ -642,3 +642,342 @@ Web services are examples of services in a **Service-Oriented Architecture (SOA)
 **Router Design Pattern**: Source application needs to call one specific service, depending on various criteria/rules. Pattern introduces router service which applies these rules to select correct target service.
 
 ![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgUGNxUG4yT1lqTEE "Router design pattern")
+
+
+---
+
+
+## EJB example classes
+
+### Using Container Managed Persistence (CMP)
+
+The injected `EntityManager` comes from the Container. Calling `entityManager.persist()` is where it is used.
+
+<pre><code class="java">
+package org.jboss.as.quickstarts.manager;
+
+import org.jboss.as.quickstarts.entity.Member;
+import org.jboss.as.quickstarts.exception.MemberNotFoundException;
+
+import javax.ejb.Stateless;
+import javax.persistence.*;
+import java.util.List;
+
+@Stateless
+public class MemberManager {
+
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    /**
+     * Saves a Member
+     * @param member the Member to save
+     * @return Member
+     */
+    public Member save(Member member) {
+
+        if (!this.entityManager.contains(member)) {
+            member = this.entityManager.merge(member);
+        }
+        this.entityManager.persist(member);
+
+        return member;
+    }
+
+    /**
+     * Returns a Member given by its username
+     * @param username the username to search for
+     * @return Member
+     * @throws MemberNotFoundException
+     */
+    public Member findByUsername(String username) throws MemberNotFoundException {
+
+        Query q = this.entityManager.createNamedQuery("Member.findByUsername");
+        q.setParameter("username", username);
+
+        try {
+            return (Member)q.getSingleResult();
+        } catch (NoResultException e) {
+            throw new MemberNotFoundException();
+        }
+
+    }
+
+    /**
+     * Returns all of the members that a given member is allowed to see
+     * @param member Member
+     * @return List<Member>
+     */
+    public List<Member> findAllForMember(Member member) {
+        Query q = this.entityManager.createNamedQuery("Member.findAllForMember");
+        q.setParameter("member", member);
+
+        return (List<Member>)q.getResultList();
+    }
+}
+</code></pre>
+
+
+### An Entity Bean
+
+Note that this will also be used for *ValueObjects*. I have *NamedQueries* that are computed SQL statements so, you can see this as something that provides a view of the persistent data, but isnt an instance of the persistent data itself.
+
+<pre><code class="java">
+package org.jboss.as.quickstarts.entity;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.io.IOException;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
+@Entity
+@NamedQueries({
+        @NamedQuery(name = "Member.findAll", query = "SELECT m from Member m"),
+        @NamedQuery(name = "Member.findByUsername", query = "SELECT m from Member m WHERE m.username = :username"),
+        @NamedQuery(name = "Member.findAllLoggedIn", query = "SELECT m from Member m WHERE m.loggedIn = true"),
+        @NamedQuery(
+                name = "Member.findAllForMember",
+                query = "SELECT m from Member m WHERE m <> :member " +
+                        "AND m.loggedIn = true " +
+                        "AND m.visibility <> 2 " +
+                        "AND (m.visibility = 0) " +
+                        "OR (m.visibility = 1 AND :member IN (SELECT a FROM m.friends a))"
+        )
+})
+public class Member implements Serializable {
+
+    public static int EVERYONE = 0;
+    public static int FRIENDS_ONLY = 1;
+    public static int NOBODY = 2;
+
+    @NotNull
+    @Size(min = 1, max = 255)
+    @Id
+    private String username;
+
+    @NotNull
+    @Size(min = 1, max = 255)
+    private String password;
+
+    @NotNull
+    private boolean loggedIn = false;
+
+    @NotNull
+    private int visibility = Member.EVERYONE;
+
+    @OneToMany(fetch = FetchType.EAGER)
+    private Set<Member> friends = new HashSet<>();
+
+    /**
+     * Returns the username
+     * @return String
+     */
+    public String getUsername() {
+        return this.username;
+    }
+
+    /**
+     * Sets the username
+     * @param username The username
+     */
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    /**
+     * Returns the password
+     * @return String
+     */
+    public String getPassword() {
+        return this.password;
+    }
+
+    /**
+     * Sets the password
+     * @param password The password
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    /**
+     * Returns whether or not the Member is logged in
+     * @return boolean
+     */
+    public boolean isLoggedIn() {
+        return this.loggedIn;
+    }
+
+    /**
+     * Sets whether or not the Member is logged in
+     * @param loggedIn True if the member is logged in, false otherwise
+     */
+    public void setLoggedIn(Boolean loggedIn) {
+        this.loggedIn = loggedIn;
+    }
+
+    /**
+     * Returns the Visibility level of the Member
+     * @return int
+     */
+    public int getVisibility() {
+        return this.visibility;
+    }
+
+    /**
+     * Returns the possible Visibility levels for a Member
+     * @return int[]
+     */
+    public static int[] getVisibilities() {
+        return new int[]{Member.EVERYONE, Member.FRIENDS_ONLY, Member.NOBODY};
+    }
+
+    /**
+     * Returns a human-readable string representation of the Visbility
+     * @return String
+     */
+    public String getReadableVisibility() {
+        switch (this.getVisibility()) {
+            case 0:
+                return "Everyone";
+            case 1:
+                return "Friends Only";
+            case 2:
+                return "Nobody";
+            default:
+                return "N/A";
+        }
+    }
+
+    /**
+     * Sets the visibility for the Member
+     * @param visibility The integer representation of a Visibility
+     */
+    public void setVisibility(int visibility) {
+        this.visibility = visibility;
+    }
+
+    /**
+     * Returns the Friends
+     * @return Set<Member>
+     */
+    public Set<Member> getFriends() {
+        return this.friends;
+    }
+
+    /**
+     * Adds a given Member as a Friend to the Member
+     * @param friend the Member to add
+     */
+    public void addFriend(Member friend) {
+        this.friends.add(friend);
+    }
+
+    /**
+     * Removes a given Member as a Friend from the Member
+     * @param friend the Member to remove
+     */
+    public void removeFriend(Member friend) {
+        this.friends.remove(friend);
+    }
+
+    public String toString() {
+        return String.format(
+                "Member(username: %s, loggedIn: %s)",
+                this.getUsername(),
+                this.isLoggedIn()
+        );
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (object == this) return true;
+        if (!(object instanceof Member)) return false;
+
+        Member other = (Member) object;
+
+        return other.getUsername().equals(this.getUsername());
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 31 * hash + this.username.hashCode();
+        return hash;
+    }
+
+    /**
+     * Serialize the Member without Friends to solve recursive serialization
+     * @param out the output stream
+     * @throws IOException
+     */
+    private void writeObject(java.io.ObjectOutputStream out) throws IOException {
+        out.writeObject(this.getUsername());
+        out.writeObject(this.isLoggedIn());
+        out.writeObject(this.getVisibility());
+    }
+
+    /**
+     * Serialize the Member without Friends to solve recursive serialization
+     * @param in the input stream
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
+    private void readObject(java.io.ObjectInputStream in) throws IOException, ClassNotFoundException {
+        this.username = (String) in.readObject();
+        this.loggedIn = (boolean) in.readObject();
+        this.visibility = (int) in.readObject();
+    }
+}
+</code></pre>
+
+### Intercepting Filter
+
+<pre><code class="java">
+package org.jboss.as.quickstarts.filter;
+
+import org.jboss.as.quickstarts.entity.Member;
+import org.jboss.as.quickstarts.exception.AuthTokenNotFoundException;
+import org.jboss.as.quickstarts.manager.AuthTokenManager;
+
+import javax.inject.Inject;
+import javax.servlet.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+
+public class AuthFilter implements Filter {
+
+    @Inject
+    private AuthTokenManager authTokenManager;
+
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+    }
+
+    @Override
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+
+        HttpSession session = ((HttpServletRequest)servletRequest).getSession();
+        String token = (String)session.getAttribute("auth_token");
+        Member member = (Member)session.getAttribute("member");
+
+        if (!this.authTokenManager.isValidAuthToken(token, member)) {
+            String contextPath = ((HttpServletRequest)servletRequest).getContextPath();
+            ((HttpServletResponse)servletResponse).sendRedirect(String.format("%s/auth/login.xhtml", contextPath));
+        }
+
+        filterChain.doFilter(servletRequest, servletResponse);
+    }
+
+    @Override
+    public void destroy() {
+    }
+
+
+}
+</code></pre>
