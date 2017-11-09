@@ -1,104 +1,81 @@
-{{ define "title" }}VJ | Education{{ end }}
-{{ define "main" }}
+{{ define "title" }}VJ | Education{{ end }} {{ define "main" }}
 <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h1>Education</h1>
+    <div class="row" style="margin-bottom:4em;">
+        <div class="col text-center">
+            <h1>About</h1>
+        </div>
+    </div>
+
+    <div class="row" style="margin-bottom:6em">
+        <div class="col text-center">
+
+            <h3>
+                Hi, I'm a developer at
+                <a href="https://www.uvd.co.uk">UVD</a> helping bring start-ups to life.
+            </h3>
+            <h3>
+                I explore
+                <i class="fa fa-lock" aria-hidden="true"> Cryptography</i>,
+                <i class="fa fa-cogs" aria-hidden="true"> Dev Ops</i> and the
+                <i class="fa fa-cloud" aria-hidden="true"> Internet of Things</i>.
+            </h3>
+            <h3>
+                You can also find me at
+                <i class="fa fa-music" aria-hidden="true"></i> festivals, excited about
+                <i class="fa fa-rocket" aria-hidden="true"></i> space exploration and binge watching
+                <i class="fa fa-television" aria-hidden="true"></i> TV shows.
+            </h3>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-md-12">
-            {{ range $i, $qualification := .Data.Pages.ByDate.Reverse }}
-                <div class="qualification row">
-                <div class="col-md-12">
-                    <div class="col-md-2">
-                        <h2><small>{{ $qualification.Params.year_range }}</small></h2>
-                    </div>
-                    <div class="col-md-8">
-                        <h2>{{ $qualification.Title }}</h2>
-                    </div>
-                    <div class="col-md-2 text-right">
-                        <h2><small>{{ $qualification.Params.award }}</small></h2>
-                    </div>
+        <div class="col">
+            <h2>Education</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <div class="col-sm-5 text-center text-sm-left">
+                    <h2>MSc in Computing and Security</h2>
                 </div>
-                <div class="col-md-12">
+                <div class="col text-center text-sm-center">
+                    <h3>
+                        <small class="text-muted">King's College London</small>
+                    </h3>
+                </div>
+                <div class="col text-center text-sm-right">
+                    <h3>
+                        <small>Pass with Distinction</small>
+                    </h3>
                 </div>
 
-                {{ range $i, $institution := $qualification.Params.institutions }}
-                <div class="col-md-offset-1 col-md-10">
-                    <h4>
-                        <a target="_blank" href="{{ $institution.url }}">
-                            {{ $institution.name }}
-                        </a>
-                    </h4>
-
-                    <div class="panel-group" role="tablist" aria-multiselectable="true">
-                        {{ range $i, $year := $institution.years }}
-                            <div class="year panel panel-default">
-                                {{ $headingId := printf "heading_%s" (replace $year.year_range "/" "_") }}
-                                <div class="panel-heading clearfix" role="tab" id="{{ $headingId }}">
-                                    {{ $panelId := printf "collapse_%s" (replace $year.year_range "/" "_") }}
-
-                                    <div class="col-md-11 clearfix">
-                                        <h4 class="panel-title">
-                                        <a
-                                            role="button"
-                                            data-toggle="collapse"
-                                            href="#{{ $panelId }}"
-                                            aria-expanded="true"
-                                            aria-controls="{{ $panelId }}"
-                                            >
-                                            <small>
-                                            <i class="fa fa-chevron-down"></i>
-                                            ({{ $year.year_range}})</small>
-                                         {{ $year.name }}</a> {{ if $year.location }}@ {{ $year.location }} {{ end }}
-                                    </div>
-
-                                    <div class="col-md-1 clearfix pull-right">
-                                        {{ if $year.score }}
-                                        <span class="label label-success">{{ $year.score }}%</span>
-                                        {{ else }}
-                                        <span class="label label-info">Sitting</span>
-                                        {{ end }}
-                                    </div>
-
-                                </div>
-
-                                <div
-                                    id="{{ $panelId }}"
-                                    class="panel-collapse collapse clearfix"
-                                    role="tabpanel"
-                                    aria-labelledby="{{ $headingId }}"
-                                >
-                                    <ul class="list-group">
-                                        <li class="list-group-item clearfix">
-                                            <div class="col-md-11"><small><strong>Module</strong></small></div>
-                                            <div class="col-md-1 text-right"><small><strong>%</strong></small></div>
-                                        </li>
-                                        {{ range $index, $module := $year.modules }}
-                                        <li class="list-group-item clearfix">
-                                            <div class="col-md-11">{{ $module.name }}</div>
-                                            {{ if $module.score }}
-                                            <div class="col-md-1 text-right">
-                                                {{ $module.score }}
+                <div class="container col-11">
+                    <div class="row" style="margin-bottom: 1em;">
+                        <div class="col">
+                            <div class="card">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <div class="row">
+                                            <div class="col-8">
+                                                Dissertation titled
+                                                <em>"Collective Privacy Management in Social Media"</em>
                                             </div>
-                                            {{ else }}
-                                            <div class="col-md-1 text-right">
-                                                <span class="label label-info">Sitting</span>
+                                            <div class="col-4 text-right">
+                                                <small>
+                                                    <strong>74</strong> %</small>
                                             </div>
-                                            {{ end }}
-                                        </li>
-                                        {{ end }}
-                                    </ul>
-                                </div>
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
-                        {{ end }}
+                        </div>
                     </div>
                 </div>
-                {{ end }}
-            {{ end }}
+            </div>
         </div>
     </div>
 </div>
+
 {{ end }}

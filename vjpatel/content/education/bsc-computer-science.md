@@ -2,7 +2,7 @@
     "title": "BSc Computer Science with Industrial Experience",
     "date": "2016-07-22",
     "year_range": "2012 - 2016",
-    "award": "1st Class (Hons)",
+    "award": "First Class, Honours",
     "score": 75.14,
     "institutions": [
         {
