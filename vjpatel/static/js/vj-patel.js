@@ -91,7 +91,7 @@ jQuery(function () {
           case null:
           label_status = 'info';
           // text = "Building";
-          icon_status = 'fa-refresh';
+          icon_status = 'refresh';
           break;
           default:
           label_status = 'danger';
