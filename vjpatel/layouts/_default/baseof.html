@@ -36,8 +36,10 @@
 <body>
     {{ partial "nav.html" . }}
 
-    <main role="main" class="container" style="min-height: 400px; margin-top: 3em;">
-        {{ block "main" . }} {{ end }} 
+    <main role="main" class="container" >
+        <div class="container" style="min-height: 400px; margin-top: 3em;">
+            {{ block "main" . }} {{ end }} 
+        </div>
         {{ partial "footer.html" . }}
     </main>
 

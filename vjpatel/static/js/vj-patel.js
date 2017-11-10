@@ -2,45 +2,6 @@
 jQuery(function () {
   $('table').addClass('table table-striped'); // Fix Bootstrap tables for Hugo...
 
-  // Index Page
-  if (jQuery('.greeting').length) {
-    jQuery(".greeting")
-    greeting = jQuery('.greeting');
-    intro = jQuery('.short-about');
-    moreInfo = jQuery('.long-about');
-
-    greeting.typed({
-      strings: ["Hi,"],
-      typeSpeed: 0,
-      showCursor: false,
-      callback: function() {
-        intro.typed({
-          strings: ["I'm an MSc Computing and Security student at King's College London who explores Cryptography, ^150 Dev Ops ^100 and the Internet of Things."],
-          typeSpeed: -10,
-          showCursor: false,
-          callback: function() {
-            moreInfo.typed({
-              strings: ['You can also find me lost in space <i class="fa fa-rotate-270 fa-space-shuttle"></i>, ^150 raving at a festival <i class="fa fa-music"></i> ^100 or buried in a book <i class="fa fa-book"></i>.'],
-              typeSpeed: -10,
-              showCursor: false
-            });
-          }
-        });
-      }
-    });
-  }
-
-  if (jQuery('a[data-toggle="collapse"]').length) {
-    jQuery('.collapse').on('show.bs.collapse', function() {
-      chevron = jQuery(this).parent().find('a[data-toggle="collapse"] i');
-      chevron.removeClass('fa-chevron-down').addClass('fa-chevron-up');
-    });
-    jQuery('.collapse').on('hide.bs.collapse', function() {
-      chevron = jQuery(this).parent().find('a[data-toggle="collapse"] i');
-      chevron.removeClass('fa-chevron-up').addClass('fa-chevron-down');
-    });
-  }
-
   // Projects
   if (jQuery('.trello-features').length) {
 
@@ -57,19 +18,19 @@ jQuery(function () {
 
             switch (list.name) {
               case 'Deployed':
-              label = 'label-success';
+              label = 'badge-success';
               break;
               case 'Implement':
-              label = 'label-primary';
+              label = 'badge-primary';
               break;
               case 'Backlog':
-              label = 'label-info';
+              label = 'badge-info';
               break;
               case 'Specify':
-              label = 'label-warning';
+              label = 'badge-warning';
               break;
               default:
-              label = 'label-default';
+              label = 'badge-default';
             }
 
             list.cards.forEach(function(card) {
@@ -124,22 +85,26 @@ jQuery(function () {
         switch (latestJob.last_build_result) {
           case 0:
           label_status = 'success';
-          text = "Build Success";
+          // text = "Build Success";
+          icon_status = 'check';
           break;
           case null:
           label_status = 'info';
-          text = "Building";
+          // text = "Building";
+          icon_status = 'fa-refresh';
           break;
           default:
           label_status = 'danger';
-          text = "Build Failed";
+          icon_status = 'cross';
+          // text = "Build Failed";
         }
 
         jQuery('.travis-repo').html(latestJob.slug + " #" + latestJob.last_build_number);
         jQuery('.travis-repo').parent().attr('href', "https://travis-ci.org/" + latestJob.slug + "/builds/" + latestJob.last_build_id);
         jQuery('.travis-timestamp').html(last_build_time);
-        jQuery('.travis-status').addClass('label-' + label_status).html(text);
-        jQuery('.travis-icon').removeClass('fa-spin').removeClass('fa-refresh').addClass('fa-cogs');
+        jQuery('.travis-status').addClass('badge-' + label_status);
+        jQuery('.travis-status-icon').addClass('fa-' + icon_status);
+        jQuery('.travis-icon').removeClass('fa-spin').removeClass('fa-refresh');
       }
     }
 
