@@ -3,7 +3,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-			<h1>{{ .Title }} <a target="_blank" href=""><i class="fa fa-github"></i></a></h1>
+			<h1>{{ .Title }} {{ if .Params.github_address }}<a target="_blank" href="{{ .Params.github_address }}"><i class="fa fa-github"></i></a>{{ end }}</h1>
 		</div>
 	</div>
 	<div class="row">
