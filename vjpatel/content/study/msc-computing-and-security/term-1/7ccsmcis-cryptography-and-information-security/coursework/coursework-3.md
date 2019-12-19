@@ -1,7 +1,6 @@
 +++
 date = "2016-11-21T14:26:19+01:00"
 title = "7CCSMCIS - Coursework 3"
-markup = "mmark"
 +++
 
 > What is a meet-in-the-middle attack?

@@ -1,7 +1,6 @@
 +++
 date = "2017-01-30T14:26:19+01:00"
 title = "7CCSMMNSE - Lab 1"
-markup = "mmark"
 +++
 
 ## 1

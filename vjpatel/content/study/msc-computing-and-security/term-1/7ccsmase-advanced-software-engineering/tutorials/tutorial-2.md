@@ -1,7 +1,6 @@
 +++
 date = "2016-10-13T23:26:19+01:00"
 title = "7CCSMASE - Tutorial 2"
-markup = "mmark"
 +++
 
 >A company’s marketing division is worried about the start-up time of their new operating system. The marketing division representative suggests a software requirement stating that the start-up time shall not be annoying to users. Explain why this requirement is not verifiable and try reformulate in a verifiable way.

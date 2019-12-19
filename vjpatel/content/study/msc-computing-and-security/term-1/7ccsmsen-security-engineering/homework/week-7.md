@@ -1,7 +1,6 @@
 +++
 date = "2016-11-17T14:25:19+00:00"
 title = "7CCSMSEN - Homework 6"
-markup = "mmark"
 +++
 
 Q1: What are good uses of anonymity services like TOR?

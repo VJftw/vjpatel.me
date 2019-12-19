@@ -1,7 +1,6 @@
 +++
 date = "2016-10-13T23:26:19+01:00"
 title = "7CCSMCIS - Coursework 1"
-markup = "mmark"
 +++
 
 ## Caesar Cipher: Exercise

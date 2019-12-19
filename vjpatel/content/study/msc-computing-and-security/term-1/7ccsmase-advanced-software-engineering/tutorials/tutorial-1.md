@@ -1,7 +1,6 @@
 +++
 date = "2016-10-13T23:26:19+01:00"
 title = "7CCSMASE - Tutorial 1"
-markup = "mmark"
 +++
 
 >A newly hired project manager at a company questions why the quality manager is involved in the feasibility study phase of project, rather than joining the team only when the project has been approved, as at the new manager’s previous company. What argument(s) might the quality manager offer in favour of her involvement in the feasibility study?

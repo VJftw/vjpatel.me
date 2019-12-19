@@ -1,7 +1,6 @@
 +++
 date = "2016-12-05T11:26:19+01:00"
 title = "7CCSMCIS - Coursework 5"
-markup = "mmark"
 +++
 
 > Describe the man-in-the-middle attack to the Needham-Schroeder public key protocol and explain how it can be fixed.

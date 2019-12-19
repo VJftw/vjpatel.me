@@ -1,7 +1,6 @@
 +++
 date = "2016-10-18T23:26:19+01:00"
 title = "7CCSMSEN - Week 4"
-markup = "mmark"
 +++
 Q1: What should the architecture of a network application under Unix be that processes potentially hostile data?
 

@@ -1,7 +1,6 @@
 +++
 date = "2016-11-03T23:26:19+01:00"
 title = "7CCSMASE - Tutorial 4"
-markup = "mmark"
 +++
 
 > Design Example:  A vending machine

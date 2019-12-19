@@ -1,7 +1,6 @@
 +++
 date = "2016-11-25T14:26:19+01:00"
 title = "7CCSMCIS - Coursework 4"
-markup = "mmark"
 +++
 
 > What is a one-way function and what are its properties?

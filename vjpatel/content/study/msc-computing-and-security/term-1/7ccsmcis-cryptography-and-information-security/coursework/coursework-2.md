@@ -1,7 +1,6 @@
 +++
 title = "7CCSMCIS - Coursework 2"
 date = "2016-10-13T23:26:19+01:00"
-markup = "mmark"
 +++
 
 ## Rail fence cipher: exercises

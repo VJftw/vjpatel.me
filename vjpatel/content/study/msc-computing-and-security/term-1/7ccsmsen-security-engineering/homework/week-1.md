@@ -1,7 +1,6 @@
 +++
 date = "2016-10-13T23:26:19+01:00"
 title = "7CCSMSEN - Week 1"
-markup = "mmark"
 +++
 
 Q2: Practice thinking like an attacker. Assume the following situation:
