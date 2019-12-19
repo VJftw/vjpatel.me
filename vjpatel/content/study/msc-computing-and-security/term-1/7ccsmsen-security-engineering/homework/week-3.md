@@ -1,6 +1,8 @@
 +++
 date = "2016-10-18T23:26:19+01:00"
-title = "7CCSMSEN - Week 3"
+course = "MSc Computing and Security"
+module = "7CCSMSEN Security Engineering"
+title = "Homework 3"
 +++
 Q1: How does a buffer-overflow attack work? (Hint: What happens on the stack.)
 

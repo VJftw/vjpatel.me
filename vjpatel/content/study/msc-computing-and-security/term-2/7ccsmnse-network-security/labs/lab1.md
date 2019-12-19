@@ -1,6 +1,8 @@
 +++
 date = "2017-01-30T14:26:19+01:00"
-title = "7CCSMMNSE - Lab 1"
+course = "MSc Computing and Security"
+module = "7CCSMNSE Network Security"
+title = "Lab 1"
 +++
 
 ## 1

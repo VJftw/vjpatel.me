@@ -1,7 +1,8 @@
 +++
 date = "2017-05-08T00:26:19+01:00"
-title = "7CCSMCFC - 2014 Exam"
-markup = "mmark"
+course = "MSc Computing and Security"
+module = "7CCSMCFC Computer Forensics and Cybercrime"
+title = "2014 Exam"
 +++
 
 ## Question 1
@@ -100,7 +101,7 @@ Conventional forensic scientists do this as they cannot duplicate the materials.
 
 * Spool files: The letter was printed. Spool files hold a cache of printed documents.
 * Document files: The original typed document may be present on the suspect's PC.
-* Partial files in slack space: The original document may have been deleted using the OS, but the file may exist in slack space still.  
+* Partial files in slack space: The original document may have been deleted using the OS, but the file may exist in slack space still.
 * Temporary files: when writing documents, some programs create a checkpoint save to help recover the document if the editor crashes.
 * Recent documents: The suspect may have opened the document recently.
 * Deleted files: The suspect may not have emptied their recycle bin.

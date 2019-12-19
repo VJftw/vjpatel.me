@@ -1,6 +1,8 @@
 +++
-title = "7CCSMCIS - Coursework 2"
 date = "2016-10-13T23:26:19+01:00"
+course = "MSc Computing and Security"
+module = "7CCSMCIS Cryptography and Information Security"
+title = "Coursework 2"
 +++
 
 ## Rail fence cipher: exercises
@@ -39,19 +41,19 @@ Gives:
 > `The enigma cipher machine had the confidence of German forces who depended on its security`
 > in a rectangle, row by row, and read the message off column by column but permute the order of the columns using the key `3571426`
 
-| 3 | 5 | 7 | 1 | 4 | 2 | 6
-|---|---|---|---|---|---|---
-| t | h | e | e | n | i | g
-| m | a | c | i | p | h | e
-| r | m | a | c | h | i | n
-| e | h | a | d | t | h | e
-| c | o | n | f | i | d | e
-| n | c | e | o | f | g | e
-| r | m | a | n | f | o | r
-| c | e | s | w | h | o | d
-| e | p | e | n | d | e | d
-| o | n | i | t | s | s | e
-| c | u | r | i | t | y | x
+| 3   | 5   | 7   | 1   | 4   | 2   | 6   |
+| --- | --- | --- | --- | --- | --- | --- |
+| t   | h   | e   | e   | n   | i   | g   |
+| m   | a   | c   | i   | p   | h   | e   |
+| r   | m   | a   | c   | h   | i   | n   |
+| e   | h   | a   | d   | t   | h   | e   |
+| c   | o   | n   | f   | i   | d   | e   |
+| n   | c   | e   | o   | f   | g   | e   |
+| r   | m   | a   | n   | f   | o   | r   |
+| c   | e   | s   | w   | h   | o   | d   |
+| e   | p   | e   | n   | d   | e   | d   |
+| o   | n   | i   | t   | s   | s   | e   |
+| c   | u   | r   | i   | t   | y   | x   |
 
 ```
 Columns:
@@ -80,19 +82,19 @@ eicdfonwntiihihdgooesytmrecnrceocnphtiffhdsthamhocmepnugeneeerddexecaaneaseir
 
 #### Second transposition with the same key
 
-| 3 | 5 | 7 | 1 | 4 | 2 | 6
-|---|---|---|---|---|---|---
-| e | i | c | d | f | o | n
-| w | n | t | i | i | h | i
-| h | d | g | o | o | e | s
-| y | t | m | r | e | c | n
-| r | c | e | o | c | n | p
-| h | t | i | f | f | h | d
-| s | t | h | a | m | h | o
-| c | m | e | p | n | u | g
-| e | n | e | e | e | r | d
-| d | e | x | e | c | a | a
-| n | e | a | s | e | i | r
+| 3   | 5   | 7   | 1   | 4   | 2   | 6   |
+| --- | --- | --- | --- | --- | --- | --- |
+| e   | i   | c   | d   | f   | o   | n   |
+| w   | n   | t   | i   | i   | h   | i   |
+| h   | d   | g   | o   | o   | e   | s   |
+| y   | t   | m   | r   | e   | c   | n   |
+| r   | c   | e   | o   | c   | n   | p   |
+| h   | t   | i   | f   | f   | h   | d   |
+| s   | t   | h   | a   | m   | h   | o   |
+| c   | m   | e   | p   | n   | u   | g   |
+| e   | n   | e   | e   | e   | r   | d   |
+| d   | e   | x   | e   | c   | a   | a   |
+| n   | e   | a   | s   | e   | i   | r   |
 
 
 ```
@@ -124,14 +126,14 @@ diorofapeesohecnhhuraiewhyrhscednfioecfmneceindtcttmneenisnpdogdarctgmeiheexa
 
 > Consider again the arrangement:
 
-|   | A | D | F | G | V | X
-|---|---|---|---|---|---|---
-| A | 8 | P | 3 | D | 1 | N
-| D | L | T | 4 | O | A | H
-| F | 7 | K | B | C | 5 | Z
-| G | J | U | 6 | W | G | M
-| V | X | S | V | I | R | 2
-| X | 9 | E | Y | 0 | F | Q
+|     | A   | D   | F   | G   | V   | X   |
+| --- | --- | --- | --- | --- | --- | --- |
+| A   | 8   | P   | 3   | D   | 1   | N   |
+| D   | L   | T   | 4   | O   | A   | H   |
+| F   | 7   | K   | B   | C   | 5   | Z   |
+| G   | J   | U   | 6   | W   | G   | M   |
+| V   | X   | S   | V   | I   | R   | 2   |
+| X   | 9   | E   | Y   | 0   | F   | Q   |
 
 > and encrypt: `The quick brown fox jumps over the lazy dog` first with the key `MARK` and then with the key `TURING`.
 

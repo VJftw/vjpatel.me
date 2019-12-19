@@ -1,6 +1,8 @@
 +++
 date = "2016-10-18T23:26:19+01:00"
-title = "7CCSMSEN - Week 4"
+course = "MSc Computing and Security"
+module = "7CCSMSEN Security Engineering"
+title = "Homework 4"
 +++
 Q1: What should the architecture of a network application under Unix be that processes potentially hostile data?
 
@@ -85,20 +87,20 @@ A:
 
 **If we only try to R/W through microedit**:
 
-|      | manual.txt | report.txt | microedit | src/code.c | src/code.h
-|------|------------|------------|-----------|------------|------------
-| ping | R-         | R-         | RWX       | --         | --
-| bob  | R-         | R-         | RWX       | --         | --
-| emma | --         | --         | ---       | --         | --
+|      | manual.txt | report.txt | microedit | src/code.c | src/code.h |
+| ---- | ---------- | ---------- | --------- | ---------- | ---------- |
+| ping | R-         | R-         | RWX       | --         | --         |
+| bob  | R-         | R-         | RWX       | --         | --         |
+| emma | --         | --         | ---       | --         | --         |
 
 
 **If we try to R/W via `cat` or `echo`**:
 
-|      | manual.txt | report.txt | microedit | src/code.c | src/code.h
-|------|------------|------------|-----------|------------|------------
-| ping | RW         | -W         | R-X       | R-         | --
-| bob  | R-         | R-         | RWX       | --         | --
-| emma | --         | RW         | R--       | R-         | R-
+|      | manual.txt | report.txt | microedit | src/code.c | src/code.h |
+| ---- | ---------- | ---------- | --------- | ---------- | ---------- |
+| ping | RW         | -W         | R-X       | R-         | --         |
+| bob  | R-         | R-         | RWX       | --         | --         |
+| emma | --         | RW         | R--       | R-         | R-         |
 
 
 

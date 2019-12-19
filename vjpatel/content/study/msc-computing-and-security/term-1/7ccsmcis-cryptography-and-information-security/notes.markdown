@@ -1,7 +1,8 @@
 +++
 date = "2016-11-07T23:26:19+01:00"
-title = "7CCSMCIS Cryptography and Information Security Notes"
-markup = "mmark"
+course = "MSc Computing and Security"
+module = "7CCSMCIS Cryptography and Information Security"
+title = "Notes"
 +++
 
 ## Information Security
@@ -80,13 +81,13 @@ The general model shows 4 basic tasks:
 
 #### Terminology
 
-| Word          | Meaning
-|---------------|----------
-| plaintext     | Text that can be read and *understood*.
-| Encryption    | Transformation (function) $$E$$ that takes an input (commonly *plaintext*) and a key that generates a ciphertext.
-| ciphertext    | Transformed (scrambled) text that needs to be *processed*/decrypted to be *understood*.
-| Decryption    | Transformation (function) $$D$$ that takes an input (commonly *ciphertext*) and a key the generates a plaintext.
-| Cipher        | A function/algorithm for performing encryption/decryption.
+| Word       | Meaning                                                                                                           |
+| ---------- | ----------------------------------------------------------------------------------------------------------------- |
+| plaintext  | Text that can be read and *understood*.                                                                           |
+| Encryption | Transformation (function) $$E$$ that takes an input (commonly *plaintext*) and a key that generates a ciphertext. |
+| ciphertext | Transformed (scrambled) text that needs to be *processed*/decrypted to be *understood*.                           |
+| Decryption | Transformation (function) $$D$$ that takes an input (commonly *ciphertext*) and a key the generates a plaintext.  |
+| Cipher     | A function/algorithm for performing encryption/decryption.                                                        |
 
 ### Kerckhoff's "La Cryptographie Militaire"
 
@@ -95,12 +96,12 @@ The general model shows 4 basic tasks:
 
 ### A Mathematical Formalisation
 
-| Symbol | Meaning
-|--------|----------
-| $$\mathcal{A}$$ | The *alphabet*, a finite set.
-| $$\mathcal{M} \subseteq \mathcal{A}^*$$ | The *message space*. $$M \in \mathcal{M}$$ is a *plaintext (message)*.
-| $$\mathcal{C}$$ | The *ciphertext space*, whose alphabet may differ from $$\mathcal{M}$$
-| $$\mathcal{K}$$ | denotes the *key space* of *keys*.
+| Symbol                                  | Meaning                                                                |
+| --------------------------------------- | ---------------------------------------------------------------------- |
+| $$\mathcal{A}$$                         | The *alphabet*, a finite set.                                          |
+| $$\mathcal{M} \subseteq \mathcal{A}^*$$ | The *message space*. $$M \in \mathcal{M}$$ is a *plaintext (message)*. |
+| $$\mathcal{C}$$                         | The *ciphertext space*, whose alphabet may differ from $$\mathcal{M}$$ |
+| $$\mathcal{K}$$                         | denotes the *key space* of *keys*.                                     |
 
 - Each $$e \in \mathcal{K}$$ determines a bijective function from $$\mathcal{M}$$ to $$\mathcal{C}$$, denoted by $$E_e$$. $$E_e$$ is the *encryption function* or (*transformation*). We will write $$E_e(P) = C$$, which is the same as $$E(e, P) = C$$.
 - For each $$d \in \mathcal{K}$$, $$D_d$$ denotes a bijection from $$\mathcal{C}$$ to $$\mathcal{M}$$. $$D_d$$ is the *decryption function*.
@@ -152,13 +153,13 @@ Most systems involve multiple stages of substitutions and transpositions.
 
 ## Types of Attack
 
-| Type of Attack | Known to Cryptanalyst
-|----------------|------------------------
-| ciphertext Only | - Encryption Algorithm - ciphertext
-| Known plaintext | - Encryption Algorithm - ciphertext - One or more plaintext-ciphertext pairs formed with the secret key
-| Chosen Plaintext | - Encryption Algorithm - Ciphertext - Plaintext chosen by the Cryptanalyst together with its corresponding ciphertext.
-| Chosen Ciphertext | - Encryption Algorithm - Ciphertext - Ciphertext chosen by the Cryptanalyst together with its corresponding plaintext.
-| Chosen Text | - Encryption Algorithm - Ciphertext - Both plaintext/ciphertext chosen by the Cryptanalyst together with its corresponding ciphertext/plaintext.
+| Type of Attack    | Known to Cryptanalyst                                                                                                                            |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ciphertext Only   | - Encryption Algorithm - ciphertext                                                                                                              |
+| Known plaintext   | - Encryption Algorithm - ciphertext - One or more plaintext-ciphertext pairs formed with the secret key                                          |
+| Chosen Plaintext  | - Encryption Algorithm - Ciphertext - Plaintext chosen by the Cryptanalyst together with its corresponding ciphertext.                           |
+| Chosen Ciphertext | - Encryption Algorithm - Ciphertext - Ciphertext chosen by the Cryptanalyst together with its corresponding plaintext.                           |
+| Chosen Text       | - Encryption Algorithm - Ciphertext - Both plaintext/ciphertext chosen by the Cryptanalyst together with its corresponding ciphertext/plaintext. |
 
 
 ### Classification of Security
@@ -268,10 +269,10 @@ ciphertext: ZICVTWQNGRZGVTWAVZHCQYGLMGJ
 
 Expressed numerically:
 
-| Key        | 3  | 4  | 2  | 4  | 15 | 19 | 8  | 21 | 4  | 3  | 4  | 2  | 4  | 15
-|------------|----|----|----|----|----|----|----|----|----|----|----|----|----|----
-| Plaintext  | 22 |  4 |  0 | 17 |  4 |  3 |  8 | 18 |  2 | 14 | 21 |  4 | 17 | 4  
-| Ciphertext | 25 |  8 |  2 | 21 | 19 | 22 | 16 | 13 |  6 | 17 | 25 |  6 | 21 | 19
+| Key        | 3   | 4   | 2   | 4   | 15  | 19  | 8   | 21  | 4   | 3   | 4   | 2   | 4   | 15  |
+| ---------- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Plaintext  | 22  | 4   | 0   | 17  | 4   | 3   | 8   | 18  | 2   | 14  | 21  | 4   | 17  | 4   |
+| Ciphertext | 25  | 8   | 2   | 21  | 19  | 22  | 16  | 13  | 6   | 17  | 25  | 6   | 21  | 19  |
 
 - **Strength**: multiple ciphertext letters for each plaintext letter, one for each unique letter of the keyword, therefore letter frequency information is obscured.
 - However not all knowlege of the plaintext structure is lost. (See `VTW` has been repeated when matchings in the key and plaintext are repeated). It is better than Playfair though.
@@ -688,9 +689,9 @@ Extended-Euclid(a, b):
 First 3 columns for finding $$gcd$$ (Greatest Common Divisor).
 Last 3 columns for Extended Euclid's Algorithm.
 
-|   $$a$$   |   $$b$$   | $$q = [a/b]$$ |   $$d$$   |   $$x$$   |   $$y$$
-|-----------|-----------|---------------|-----------|-----------|-----------
-|           |           |               |           |           |
+| $$a$$ | $$b$$ | $$q = [a/b]$$ | $$d$$ | $$x$$ | $$y$$ |
+| ----- | ----- | ------------- | ----- | ----- | ----- |
+|       |       |               |       |       |
 
 **REMEMBER** (going backwards):
 
@@ -784,18 +785,18 @@ then $$a^{n-1} =_{n} 1$$.
 
  Let's try $$gcd(220, 3)$$ first.
 
- |   $$a$$   |   $$b$$   | $$q = [a/b]$$ |   $$d$$   |   $$x$$   |   $$y$$
- |-----------|-----------|---------------|-----------|-----------|-----------
- | $$220$$   | $$3$$     | $$73$$        |           |           |
- | $$3$$     | $$1$$     | $$3$$         |           |           |
- | $$1$$     | $$0$$     | $$-$$         |           |           |
+ | $$a$$   | $$b$$ | $$q = [a/b]$$ | $$d$$ | $$x$$ | $$y$$ |
+ | ------- | ----- | ------------- | ----- | ----- | ----- |
+ | $$220$$ | $$3$$ | $$73$$        |       |       |
+ | $$3$$   | $$1$$ | $$3$$         |       |       |
+ | $$1$$   | $$0$$ | $$-$$         |       |       |
 
  As we can see, $$gcd(220, 3) = 1$$. Let's try $$gcd(220, 5)$$ just to show the difference.
 
- |   $$a$$   |   $$b$$   | $$q = [a/b]$$ |   $$d$$   |   $$x$$   |   $$y$$
- |-----------|-----------|---------------|-----------|-----------|-----------
- | $$220$$   | $$5$$     | $$44$$        |           |           |
- | $$5$$     | $$0$$     | $$-$$         |           |           |
+ | $$a$$   | $$b$$ | $$q = [a/b]$$ | $$d$$ | $$x$$ | $$y$$ |
+ | ------- | ----- | ------------- | ----- | ----- | ----- |
+ | $$220$$ | $$5$$ | $$44$$        |       |       |
+ | $$5$$   | $$0$$ | $$-$$         |       |       |
 
  As we can see, $$gcd(220, 5) = 5$$, therefore $$e = 5$$ is **NOT** suitable. $$e = 3$$ is suitable.
 
@@ -809,11 +810,11 @@ then $$a^{n-1} =_{n} 1$$.
  - $$y = x_{i-1} - (q \times x)$$
 
 
- |   $$a$$   |   $$b$$   | $$q = [a/b]$$ |   $$d$$   |   $$x$$   |   $$y$$
- |-----------|-----------|---------------|-----------|-----------|-----------
- | $$220$$   | $$3$$     | $$73$$        | $$1$$     | $$1$$     | $$0 - (73 \times 1) = -73$$
- | $$3$$     | $$1$$     | $$3$$         | $$1$$     | $$0$$     | $$1 - (3 \times 0) = 1$$
- | $$1$$     | $$0$$     | $$-$$         | $$1$$     | $$1$$     | $$0$$
+ | $$a$$   | $$b$$ | $$q = [a/b]$$ | $$d$$ | $$x$$ | $$y$$                       |
+ | ------- | ----- | ------------- | ----- | ----- | --------------------------- |
+ | $$220$$ | $$3$$ | $$73$$        | $$1$$ | $$1$$ | $$0 - (73 \times 1) = -73$$ |
+ | $$3$$   | $$1$$ | $$3$$         | $$1$$ | $$0$$ | $$1 - (3 \times 0) = 1$$    |
+ | $$1$$   | $$0$$ | $$-$$         | $$1$$ | $$1$$ | $$0$$                       |
 
 
  We get $$y = -73$$, therefore $$d = -73 \bmod 220 = 247$$.

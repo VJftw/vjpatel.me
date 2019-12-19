@@ -1,6 +1,8 @@
 +++
 date = "2016-10-13T23:26:19+01:00"
-title = "7CCSMSEN - Week 2"
+course = "MSc Computing and Security"
+module = "7CCSMSEN Security Engineering"
+title = "Homework 2"
 +++
 
 Q1: Another question for thinking like an attacker: Imagine you have at home a broadband contract with TalkTalk. You do not like their service and want to switch to Virgin, say. The procedure between the Internet providers is that you contact Virgin and set up a new contract and they will automatically inform TalkTalk to terminate the old contract. TalkTalk will then send you a letter to confirm that you want to terminate. If they do not hear from you, they will proceed with terminating the contract and will request any outstanding cancellation fees. Virgin on the other hand sends you a new router and paperwork about the new contract. Obviously this way of doing things is meant to make switching as convenient as possible.

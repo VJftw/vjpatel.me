@@ -1,6 +1,8 @@
 +++
 date = "2016-11-20T01:03:19+00:00"
-title = "7CCSMASE - Tutorial 8"
+course = "MSc Computing and Security"
+module = "7CCSMASE Advanced Software Engineering"
+title = "Tutorial 8"
 +++
 
 >1. Consider the deceptively simple program below. Consider the three initial values of `a`, `b` and `c` to be inputs to the program. So the search space for test data generation is a vector of three values `<a, b, c>`. In this exercise, we are concerned with branch and target coverage. There are four targets: 1, 2, 3, 4 in the program for which we wish to generate test data.

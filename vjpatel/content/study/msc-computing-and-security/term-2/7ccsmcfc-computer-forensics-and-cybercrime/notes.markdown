@@ -1,7 +1,8 @@
 +++
 date = "2017-04-15T00:26:19+01:00"
-title = "7CCSMCFC Computer Forensics and Cybercrime notes"
-markup = "mmark"
+course = "MSc Computing and Security"
+module = "7CCSMCFC Computer Forensics and Cybercrime"
+title = "Notes"
 +++
 
 ## Lecture 2 - Classification of Digital Crime - Digitally Assisted Crime & Digitally Related Crime
@@ -410,50 +411,50 @@ The following scenarios demonstrate some different applications of the above tri
 
 #### Scenario 1 - DDoS
 
-| Hypothesis                                | The seized computer has been used to launch DDoS attacks on an organisation's website.
-|-------------------------------------------|-----------------------------------------------------------
-| Assumptions                               | The computer is believed to have been used for launching sophisticated DDoS attacks on against an organisation's website has been seized, together with USB keys, a laptop, and mobile phones.
-| Role of digital evidence                  | specific
-| Person I/C device                         | suspect - quit IT assessment $\rightarrow$ savvy individual $S$
-| Types of devices seized                   | 5 USB keys (1 connected), 2 mobile phones, 1 PC with an internal HD and 2 external HDs, 1 laptop.
-| Overall order of examination of devices   | HDs (internal then external, then laptop), USB keys, mobile phones, other (ISP).
-| Prioritised search for evidential traces  | (DDoS template - Figure 2)
-| $E_1$                                     | DDoS tools are present
-| $E_2$                                     | BotNet C&C program is present
-| $E_3$                                     | Connections to victim's machine(s) are found (IP address, URL, log file records, etc.)
-| $E_4$                                     | Connections to a BotNet C&C program are found (IP address, log file records, etc.)
-| $E_1$` (USB)                              | DDoS tools are present
-| $E_2$` (USB)                              | BotNet C&C program is present
-| $E_5$                                     | ISP confirms seized computer accessed victim's machine (IP address, etc.)
-| $E_6$                                     | Extortion messages to the victim are found
-| $E_7$                                     | Bragging messages are found (mobile phones)
-| $E_6$` (ISP)                              | Extortion messages to the victim are found
-| $E_7$` (ISP)                              | Bragging messages are found
+| Hypothesis                               | The seized computer has been used to launch DDoS attacks on an organisation's website.                                                                                                         |
+| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Assumptions                              | The computer is believed to have been used for launching sophisticated DDoS attacks on against an organisation's website has been seized, together with USB keys, a laptop, and mobile phones. |
+| Role of digital evidence                 | specific                                                                                                                                                                                       |
+| Person I/C device                        | suspect - quit IT assessment $\rightarrow$ savvy individual $S$                                                                                                                                |
+| Types of devices seized                  | 5 USB keys (1 connected), 2 mobile phones, 1 PC with an internal HD and 2 external HDs, 1 laptop.                                                                                              |
+| Overall order of examination of devices  | HDs (internal then external, then laptop), USB keys, mobile phones, other (ISP).                                                                                                               |
+| Prioritised search for evidential traces | (DDoS template - Figure 2)                                                                                                                                                                     |
+| $E_1$                                    | DDoS tools are present                                                                                                                                                                         |
+| $E_2$                                    | BotNet C&C program is present                                                                                                                                                                  |
+| $E_3$                                    | Connections to victim's machine(s) are found (IP address, URL, log file records, etc.)                                                                                                         |
+| $E_4$                                    | Connections to a BotNet C&C program are found (IP address, log file records, etc.)                                                                                                             |
+| $E_1$` (USB)                             | DDoS tools are present                                                                                                                                                                         |
+| $E_2$` (USB)                             | BotNet C&C program is present                                                                                                                                                                  |
+| $E_5$                                    | ISP confirms seized computer accessed victim's machine (IP address, etc.)                                                                                                                      |
+| $E_6$                                    | Extortion messages to the victim are found                                                                                                                                                     |
+| $E_7$                                    | Bragging messages are found (mobile phones)                                                                                                                                                    |
+| $E_6$` (ISP)                             | Extortion messages to the victim are found                                                                                                                                                     |
+| $E_7$` (ISP)                             | Bragging messages are found                                                                                                                                                                    |
 
 
 #### Scenario 2 - P2P
 
-| Hypothesis                                | The seized computer is suspected of being used in the illegal dissemination of films and/or albums protected by copyright via Torrent based peer-to-peer (P2P) network.
-|-------------------------------------------|-----------------------------------------------------------
-| Assumptions                               | The computer believed to have been used for uploading the material has been seized together with USB keys and copies of the originals (DVDs/CDs). A mobile phone which may contain messages announcing the upload had also been seized.
-| Role of digital evidence                  | specific
-| Person I/C device                         | suspect - quit IT assessment $\rightarrow$ unsavvy individual $S$
-| Types of devices seized                   | 9 DVDs/CDs, 3 USB keys (1 connected), 1 mobile phone, 1 PC with internal HD.
-| Overall order of examination of devices   | DVD/CD, HD, USB keys, mobile phone.
-| Prioritised search for evidential traces  | (P2P template - Figure 3)
-| $E_1$                                     | Check for presence of original copyrighted material (HD)
-| $E_2$                                     | Web browser software is present
-| $E_3$                                     | Torrent client software is present
-| $E_4$                                     | HD copy of original material found (time stamps; hash values, etc.)
-| $E_3$` (USB)                              | Torrent client software is present
-| $E_4$` (USB)                              | USB copy of original material found (time stamps; hash values, etc.)
-| $E_5$` (USB)                              | Torrent file and line found on USB key (creation records, etc.)
-| $E_6$` (USB)                              | Torrent file activation record found (tracker server login, MAC time, etc.)
-| $E_5$                                     | Torrent file and link found on HD (creation records, etc.)
-| $E_6$`                                    | Torrent file activation record found (tracker server login, MAC time, etc.)
-| $E_7$`                                    | Internet records found (cookies, cache, history, tracker server connection, etc.)
-| $E_8$`                                    | Search for messages relating to investigation (e.g. upload announcement)
-| $E_9$`                                    | Search for messages relating to investigation (e.g. upload announcement) (Mobile phone)
+| Hypothesis                               | The seized computer is suspected of being used in the illegal dissemination of films and/or albums protected by copyright via Torrent based peer-to-peer (P2P) network.                                                                 |
+| ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Assumptions                              | The computer believed to have been used for uploading the material has been seized together with USB keys and copies of the originals (DVDs/CDs). A mobile phone which may contain messages announcing the upload had also been seized. |
+| Role of digital evidence                 | specific                                                                                                                                                                                                                                |
+| Person I/C device                        | suspect - quit IT assessment $\rightarrow$ unsavvy individual $S$                                                                                                                                                                       |
+| Types of devices seized                  | 9 DVDs/CDs, 3 USB keys (1 connected), 1 mobile phone, 1 PC with internal HD.                                                                                                                                                            |
+| Overall order of examination of devices  | DVD/CD, HD, USB keys, mobile phone.                                                                                                                                                                                                     |
+| Prioritised search for evidential traces | (P2P template - Figure 3)                                                                                                                                                                                                               |
+| $E_1$                                    | Check for presence of original copyrighted material (HD)                                                                                                                                                                                |
+| $E_2$                                    | Web browser software is present                                                                                                                                                                                                         |
+| $E_3$                                    | Torrent client software is present                                                                                                                                                                                                      |
+| $E_4$                                    | HD copy of original material found (time stamps; hash values, etc.)                                                                                                                                                                     |
+| $E_3$` (USB)                             | Torrent client software is present                                                                                                                                                                                                      |
+| $E_4$` (USB)                             | USB copy of original material found (time stamps; hash values, etc.)                                                                                                                                                                    |
+| $E_5$` (USB)                             | Torrent file and line found on USB key (creation records, etc.)                                                                                                                                                                         |
+| $E_6$` (USB)                             | Torrent file activation record found (tracker server login, MAC time, etc.)                                                                                                                                                             |
+| $E_5$                                    | Torrent file and link found on HD (creation records, etc.)                                                                                                                                                                              |
+| $E_6$`                                   | Torrent file activation record found (tracker server login, MAC time, etc.)                                                                                                                                                             |
+| $E_7$`                                   | Internet records found (cookies, cache, history, tracker server connection, etc.)                                                                                                                                                       |
+| $E_8$`                                   | Search for messages relating to investigation (e.g. upload announcement)                                                                                                                                                                |
+| $E_9$`                                   | Search for messages relating to investigation (e.g. upload announcement) (Mobile phone)                                                                                                                                                 |
 
 
 ---

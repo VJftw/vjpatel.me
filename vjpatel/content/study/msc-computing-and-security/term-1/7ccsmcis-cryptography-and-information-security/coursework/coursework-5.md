@@ -1,6 +1,8 @@
 +++
 date = "2016-12-05T11:26:19+01:00"
-title = "7CCSMCIS - Coursework 5"
+course = "MSc Computing and Security"
+module = "7CCSMCIS Cryptography and Information Security"
+title = "Coursework 5"
 +++
 
 > Describe the man-in-the-middle attack to the Needham-Schroeder public key protocol and explain how it can be fixed.

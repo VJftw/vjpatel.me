@@ -1,6 +1,8 @@
 +++
 date = "2016-10-26T23:26:19+01:00"
-title = "7CCSMSEN - Week 6"
+course = "MSc Computing and Security"
+module = "7CCSMSEN Security Engineering"
+title = "Homework 6"
 +++
 
 Q1: Explain briefly the purpose of the certification authority in the public key encryption scheme.

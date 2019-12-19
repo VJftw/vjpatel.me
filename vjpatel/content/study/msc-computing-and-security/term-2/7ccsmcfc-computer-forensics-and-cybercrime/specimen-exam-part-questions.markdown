@@ -1,7 +1,8 @@
 +++
 date = "2017-05-08T00:26:19+01:00"
-title = "7CCSMCFC - Speciment Part Exam Questions"
-markup = "mmark"
+course = "MSc Computing and Security"
+module = "7CCSMCFC Computer Forensics and Cybercrime"
+title = "Specimen Part Exam"
 +++
 
 ## Specimen Part Exam Questions

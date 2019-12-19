@@ -1,7 +1,8 @@
 +++
 date = "2017-05-24T14:26:19+01:00"
-title = "7CCSMMSIA - Tutorial 4"
-markup = "mmark"
+course = "MSc Computing and Security"
+module = "7CCSMSIA Software Engineering of Internet Applications"
+title = "Tutorial 4"
 +++
 
 ## 1. Draw a 5-tier architecture for the following system, using MVC stucture for the presentation tier.

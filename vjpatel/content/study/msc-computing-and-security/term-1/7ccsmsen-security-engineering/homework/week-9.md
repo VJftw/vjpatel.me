@@ -1,6 +1,8 @@
 +++
 date = "2016-12-03T01:35:19+00:00"
-title = "7CCSMSEN - Homework 8-9"
+course = "MSc Computing and Security"
+module = "7CCSMSEN Security Engineering"
+title = "Homework 9"
 +++
 
 Q1: We have seen during the lectures that automated vulnerability scans and penetration testing are similar activities but with significant differences. What are the similarities and what are the differences between them?

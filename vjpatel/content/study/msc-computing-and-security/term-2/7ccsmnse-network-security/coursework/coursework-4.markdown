@@ -1,7 +1,8 @@
 +++
 date = "2017-04-15T00:26:19+01:00"
-title = "7CCSMNSE Network Security - Coursework 4"
-markup = "mmark"
+course = "MSc Computing and Security"
+module = "7CCSMNSE Network Security"
+title = "Coursework 4"
 +++
 
 ## Coursework 4

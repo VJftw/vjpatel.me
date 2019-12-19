@@ -1,6 +1,8 @@
 +++
 date = "2016-10-13T23:26:19+01:00"
-title = "7CCSMCIS - Coursework 1"
+course = "MSc Computing and Security"
+module = "7CCSMCIS Cryptography and Information Security"
+title = "Coursework 1"
 +++
 
 ## Caesar Cipher: Exercise
@@ -8,9 +10,9 @@ title = "7CCSMCIS - Coursework 1"
 >Use the following relative frequencies in an English text of 1000 letters:
 
 >
-| A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 73| 9 | 30| 44|130| 28| 16| 35| 74| 2 | 3 | 35| 25| 78| 74| 27| 3 | 77| 63| 93| 27| 13| 16| 5 | 19| 1 |
+| A   | B   | C   | D   | E   | F   | G   | H   | I   | J   | K   | L   | M   | N   | O   | P   | Q   | R   | S   | T   | U   | V   | W   | X   | Y   | Z   |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 73  | 9   | 30  | 44  | 130 | 28  | 16  | 35  | 74  | 2   | 3   | 35  | 25  | 78  | 74  | 27  | 3   | 77  | 63  | 93  | 27  | 13  | 16  | 5   | 19  | 1   |
 
 >to decide the most likely shift used to obtain:
 ```
@@ -18,15 +20,15 @@ K DKVO DYVN LI KX SNSYD, PEVV YP CYEXN KXN PEBI, CSQXSPISXQ XYDRSXQ.
 ```
 Don't just *brute force* but proceed strategically. Tally the frequencies of letters in the ciphertext.
 
-| A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-|   | 1 | 2 | 4 | 3 |   |   |   | 3 |   | 4 | 1 |   | 4 | 1 | 4 | 3 | 1 | 6 |   |   | 4 |   | 7 | 5 |   |
+| A   | B   | C   | D   | E   | F   | G   | H   | I   | J   | K   | L   | M   | N   | O   | P   | Q   | R   | S   | T   | U   | V   | W   | X   | Y   | Z   |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+|     | 1   | 2   | 4   | 3   |     |     |     | 3   |     | 4   | 1   |     | 4   | 1   | 4   | 3   | 1   | 6   |     |     | 4   |     | 7   | 5   |     |
 
 As `X` appears in the ciphertext 7 times and `E` is the most frequent letter in the given table, it is reasonable to assume that `X = E`. If `X = E`, we have a shift of $$-19 \bmod 26$$. This would result in our cipher -> plaintext looking like this:
 
-| A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | A | B | C | D | E | F | G |
+| A   | B   | C   | D   | E   | F   | G   | H   | I   | J   | K   | L   | M   | N   | O   | P   | Q   | R   | S   | T   | U   | V   | W   | X   | Y   | Z   |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| H   | I   | J   | K   | L   | M   | N   | O   | P   | Q   | R   | S   | T   | U   | V   | W   | X   | Y   | Z   | A   | B   | C   | D   | E   | F   | G   |
 
 Which gives this plaintext for the ciphertext:
 ```
@@ -34,9 +36,9 @@ R KRCV KFCU SP RE ZUZFK, WLCC FW JFLEU REU WLIP, JZXEZWPZEX EFKYZEX.
 ```
 which, doesn't make any sense. Systematically you can then apply `X = ?` where `?` is the next most frequent letter from the given table. This gives `X = T` and finally `X = N` $$-10 \bmod 26$$ where you'll find:
 
-| A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Q | R | S | T | U | V | W | X | Y | Z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P |
+| A   | B   | C   | D   | E   | F   | G   | H   | I   | J   | K   | L   | M   | N   | O   | P   | Q   | R   | S   | T   | U   | V   | W   | X   | Y   | Z   |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Q   | R   | S   | T   | U   | V   | W   | X   | Y   | Z   | A   | B   | C   | D   | E   | F   | G   | H   | I   | J   | K   | L   | M   | N   | O   | P   |
 
 Which gives this plaintext for the ciphertext:
 ```
@@ -85,9 +87,9 @@ Steps:
 1. Find $$x$$ value for each character in key by using it's index in the alphabet. i.e. `R = 17`, `E = 4`
 2. Perform Caesar cipher for each character in plaintext with each $$x$$ value, repeating key when necessary.
 
-| Key: | R | E | L | A | T | I | O | N | S |
-|------|---|---|---|---|---|---|---|---|---|
-| $$x$$| 17| 4 | 11| 0 | 19| 8 | 14| 13| 18|
+| Key:  | R   | E   | L   | A   | T   | I   | O   | N   | S   |
+| ----- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| $$x$$ | 17  | 4   | 11  | 0   | 19  | 8   | 14  | 13  | 18  |
 
 Encrypting `TO BE OR NOT BE THAT IS THE QUESTION` gives:
 ```

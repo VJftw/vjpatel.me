@@ -1,6 +1,8 @@
 +++
 date = "2016-10-26T23:26:19+01:00"
-title = "7CCSMSEN - Week 5"
+course = "MSc Computing and Security"
+module = "7CCSMSEN Security Engineering"
+title = "Homework 5"
 +++
 
 Q1: Imagine you are researching security products (e.g. CCTV, alarms etc.) on a helpful website. They ask you for your address details? Think about where this can be bad for you.

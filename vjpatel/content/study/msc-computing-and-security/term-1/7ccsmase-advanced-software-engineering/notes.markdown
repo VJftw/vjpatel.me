@@ -1,7 +1,8 @@
 +++
 date = "2016-10-13T23:26:19+01:00"
-title = "7CCSMASE Advanced Software Engineering notes"
-markup = "mmark"
+course = "MSc Computing and Security"
+module = "7CCSMASE Advanced Software Engineering"
+title = "Notes"
 +++
 
 ## Nutshell
@@ -399,16 +400,16 @@ We generate combinations that efficiently cover all pairs of classes. The ration
 
 Given a test suite:
 
-| Test ID | X | Y | Z
-|---------|---|---|---
-|    1    | A | C | E
-|    2    | A | D | E
-|    3    | A | C | F
-|    4    | A | D | F
-|    5    | B | C | E
-|    6    | B | D | E
-|    7    | B | C | F
-|    8    | B | D | F
+| Test ID | X   | Y   | Z   |
+| ------- | --- | --- | --- |
+| 1       | A   | C   | E   |
+| 2       | A   | D   | E   |
+| 3       | A   | C   | F   |
+| 4       | A   | D   | F   |
+| 5       | B   | C   | E   |
+| 6       | B   | D   | E   |
+| 7       | B   | C   | F   |
+| 8       | B   | D   | F   |
 
 For each test case, we have 3 different combinations: `XY`, `XZ`, `YZ` and we can see if that combination has been tested elsewhere in the suite.
 

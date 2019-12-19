@@ -1,7 +1,8 @@
 +++
 date = "2017-04-15T00:26:19+01:00"
-title = "7CCSMNSE Network Security - Coursework 2"
-markup = "mmark"
+course = "MSc Computing and Security"
+module = "7CCSMNSE Network Security"
+title = "Coursework 2"
 +++
 
 ## Coursework 2
@@ -35,41 +36,41 @@ However it's disadvantages are:
 
 **Discard**:  that which is not expressly permitted is prohibited.
 
-| Action | Src  | Port  | Dest  | Flags | Comment
-|--------|------|-------|-------|-------|----------
-| Block  | *    | *     | *     | *     | ...
+| Action | Src | Port | Dest | Flags | Comment |
+| ------ | --- | ---- | ---- | ----- | ------- |
+| Block  | *   | *    | *    | *     | ...     |
 
 This is a more conservative policy. Initially, everything is blocked and services must be added on a case-by-case basis. Users will see the firewall as more of a hindrance, but is more likely to be preferred by businesses and government organisations.
 
 **Forward**: that which is not expressly prohibited is permitted.
 
-| Action | Src  | Port  | Dest  | Flags | Comment
-|--------|------|-------|-------|-------|----------
-| Allow  | *    | *     | *     | *     | ...
+| Action | Src | Port | Dest | Flags | Comment |
+| ------ | --- | ---- | ---- | ----- | ------- |
+| Allow  | *   | *    | *    | *     | ...     |
 
 This policy may be used by more open organisations, such as univerisites.
 
 ### 5. Describe the following rule set.
 
-| action  | src           | port  | dest  | port  | flags | comment
-|---------|---------------|-------|-------|-------|-------|-----------
-| allow   | {some hosts}  | *     | *     | 25    |       | ...
-| allow   | *             | 25    | *     | *     | ACK   | ...
+| action | src          | port | dest | port | flags | comment |
+| ------ | ------------ | ---- | ---- | ---- | ----- | ------- |
+| allow  | {some hosts} | *    | *    | 25   |       | ...     |
+| allow  | *            | 25   | *    | *    | ACK   | ...     |
 
 The first rule allows **some hosts** to send IP packets destined for port 25 at any destination. The second rule allows incoming packets from any host and port 25 with the `ACK` flag set to any destination host on any port.
 
 
 ### 6. Consider the following packet filter firewall rule set for an imaginary network of IP addresses that range from 192.168.1.0 to 192.168.1.254. Describe the effect of each rule.
 
-| # | action  | src           | port  | dest        | port  | ...
-|---|---------|---------------|-------|-------------|-------|------
-| 1 | allow   | *             | *     | 192.168.1.0 | >1023 | ...
-| 2 | deny    | 192.168.1.1   | *     | *           | *     | ...
-| 3 | deny    | *             | *     | 192.168.1.1 | *     | ...
-| 4 | allow   | 192.168.1.0   | *     | *           | *     | ...
-| 5 | allow   | *             | *     | 192.168.1.0 | SMTP  | ...
-| 6 | allow   | *             | *     | 192.168.1.2 | HTTP  | ...
-| 7 | deny    | *             | *     | 192.168.1.3 | *     | ...
+| #   | action | src         | port | dest        | port  | ... |
+| --- | ------ | ----------- | ---- | ----------- | ----- | --- |
+| 1   | allow  | *           | *    | 192.168.1.0 | >1023 | ... |
+| 2   | deny   | 192.168.1.1 | *    | *           | *     | ... |
+| 3   | deny   | *           | *    | 192.168.1.1 | *     | ... |
+| 4   | allow  | 192.168.1.0 | *    | *           | *     | ... |
+| 5   | allow  | *           | *    | 192.168.1.0 | SMTP  | ... |
+| 6   | allow  | *           | *    | 192.168.1.2 | HTTP  | ... |
+| 7   | deny   | *           | *    | 192.168.1.3 | *     | ... |
 
 1. Allow return TCP connections to internal subnet.
 2. Prevent firewall system itself from directly connecting to anything.

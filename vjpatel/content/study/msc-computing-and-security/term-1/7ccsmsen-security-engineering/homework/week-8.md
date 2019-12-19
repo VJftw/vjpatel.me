@@ -1,6 +1,8 @@
 +++
 date = "2016-11-19T01:35:19+00:00"
-title = "7CCSMSEN - Homework 7"
+course = "MSc Computing and Security"
+module = "7CCSMSEN Security Engineering"
+title = "Homework 8"
 +++
 
 Q1: How can the hardness of the proof-of-work puzzles in Bitcoins be adjusted? What is the parameter that determines how the hardness is adjusted?

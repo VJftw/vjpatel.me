@@ -1,7 +1,8 @@
 +++
 date = "2017-04-15T00:26:19+01:00"
-title = "7CCSMSIA Software Engineering of Internet Applications notes"
-markup = "mmark"
+course = "MSc Computing and Security"
+module = "7CCSMSIA Software Engineering of Internet Applications"
+title = "Notes"
 +++
 
 ## Lecture 1 - Why bother?
@@ -271,13 +272,13 @@ Objects of a class collaborate with objects of other classes.
 
 UML supports modeling different relationships between objects or classes.
 
-| Relationship    | Function                                                                        | Notation
-|-----------------|---------------------------------------------------------------------------------|-----------------------
-| Association     | Denotes a relationship between 2 classes.                                       | ![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgbV9LUG84MjBtaEk)
-| Generalisation  | A relationship between a more general description and a more specific variety.  | ![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgbVdfdHRzTzQ4TlE)
-| Dependency      | If changes to one model may change another.                                     | ![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6Dgc25GRnB1V0RfTTg)
-| Realisation     | Relationship between a specification and its implementation.                    | ![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgYnNPZHlpR1hGelU)
-| Usage           | Situation where one element requires another for proper functioning.            | ![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6Dgc25GRnB1V0RfTTg)
+| Relationship   | Function                                                                       | Notation                                                                             |
+| -------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| Association    | Denotes a relationship between 2 classes.                                      | ![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgbV9LUG84MjBtaEk) |
+| Generalisation | A relationship between a more general description and a more specific variety. | ![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgbVdfdHRzTzQ4TlE) |
+| Dependency     | If changes to one model may change another.                                    | ![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6Dgc25GRnB1V0RfTTg) |
+| Realisation    | Relationship between a specification and its implementation.                   | ![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgYnNPZHlpR1hGelU) |
+| Usage          | Situation where one element requires another for proper functioning.           | ![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6Dgc25GRnB1V0RfTTg) |
 
 **Generalization** expresses a **kind-of** relationship. It is implemented by inheritance, where child classes inherit the attributes and operations of the parent class.
 

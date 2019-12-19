@@ -1,6 +1,8 @@
 +++
 date = "2016-11-03T23:26:19+01:00"
-title = "7CCSMASE - Tutorial 7"
+course = "MSc Computing and Security"
+module = "7CCSMASE Advanced Software Engineering"
+title = "Tutorial 7"
 +++
 
 > Question A

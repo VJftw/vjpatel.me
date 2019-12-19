@@ -1,6 +1,8 @@
 +++
 date = "2017-04-15T00:26:19+01:00"
-title = "7CCSMNSE Network Security notes"
+course = "MSc Computing and Security"
+module = "7CCSMNSE Network Security"
+title = "Notes"
 +++
 
 ## Lecture 1
@@ -51,11 +53,11 @@ Types of Mechanisms:
 * **Sniffing**: Listening to conversations that are not meant for you. Network cards may be put in *promiscuous* mode to read all packets from a network.
 * **Spoofing**: Pretending to be somebody you are not (masquerading). Can spoof IP addresses and/or MAC addresses.
 
-| Policy Type       | Attack    | Solution (Mechanism)
-|-------------------|-----------|-------------------------
-| Confidentiality   | Sniffing  | Encrypt
-| Integrity         | Spoofing  | Message Digest & Sign
-| Availability      | Jamming   | Account and Police
+| Policy Type     | Attack   | Solution (Mechanism)  |
+| --------------- | -------- | --------------------- |
+| Confidentiality | Sniffing | Encrypt               |
+| Integrity       | Spoofing | Message Digest & Sign |
+| Availability    | Jamming  | Account and Police    |
 
 ### Secure Email
 
@@ -696,14 +698,14 @@ IPsec is an IETF standard covering protocols for a variety of standards:
  * **Encapsulating Security Payload (ESP)**: Protects confidentiality and optionally integrity.
  * **Internet Key Exchange (IKE)**: Key management.
 
-| Security                              | AH                                              | ESP                                             | ESP + AH
-|---------------------------------------|-------------------------------------------------|-------------------------------------------------|-------------------------------------------------
-| Access Control                        | <i class="fa fa-check" aria-hidden="true"></i>  | <i class="fa fa-check" aria-hidden="true"></i>  | <i class="fa fa-check" aria-hidden="true"></i>
-| Connectionless Integrity              | <i class="fa fa-check" aria-hidden="true"></i>  |                                                 | <i class="fa fa-check" aria-hidden="true"></i>
-| Data origin authentication            | <i class="fa fa-check" aria-hidden="true"></i>  |                                                 | <i class="fa fa-check" aria-hidden="true"></i>
-| Rejection of replayed packets         |                                                 | <i class="fa fa-check" aria-hidden="true"></i>  | <i class="fa fa-check" aria-hidden="true"></i>
-| Confidentiality                       |                                                 | <i class="fa fa-check" aria-hidden="true"></i>  | <i class="fa fa-check" aria-hidden="true"></i>
-| Limited traffic flow confidentiality  |                                                 | <i class="fa fa-check" aria-hidden="true"></i>  | <i class="fa fa-check" aria-hidden="true"></i>
+| Security                             | AH                                             | ESP                                            | ESP + AH                                       |
+| ------------------------------------ | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Access Control                       | <i class="fa fa-check" aria-hidden="true"></i> | <i class="fa fa-check" aria-hidden="true"></i> | <i class="fa fa-check" aria-hidden="true"></i> |
+| Connectionless Integrity             | <i class="fa fa-check" aria-hidden="true"></i> |                                                | <i class="fa fa-check" aria-hidden="true"></i> |
+| Data origin authentication           | <i class="fa fa-check" aria-hidden="true"></i> |                                                | <i class="fa fa-check" aria-hidden="true"></i> |
+| Rejection of replayed packets        |                                                | <i class="fa fa-check" aria-hidden="true"></i> | <i class="fa fa-check" aria-hidden="true"></i> |
+| Confidentiality                      |                                                | <i class="fa fa-check" aria-hidden="true"></i> | <i class="fa fa-check" aria-hidden="true"></i> |
+| Limited traffic flow confidentiality |                                                | <i class="fa fa-check" aria-hidden="true"></i> | <i class="fa fa-check" aria-hidden="true"></i> |
 
 
 #### Security Policy

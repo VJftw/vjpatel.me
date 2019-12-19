@@ -1,7 +1,8 @@
 +++
 date = "2016-10-13T23:26:19+01:00"
-title = "7CCSMWIN Web Infrastructure Notes"
-markup = "mmark"
+course = "MSc Computing and Security"
+module = "7CCSMWIN Web Infrastructure"
+title = "Notes"
 +++
 
 
@@ -132,8 +133,8 @@ The size of a TCP packet is dependent on the Maximum Segment Size (MSS), typical
 
 ### TCP Structure
 
-| IP Header | TCP Header | Payload
-|-----------|------------|------------
+| IP Header | TCP Header | Payload |
+| --------- | ---------- | ------- |
 | 20 bytes  | 20 bytes   |
 
 

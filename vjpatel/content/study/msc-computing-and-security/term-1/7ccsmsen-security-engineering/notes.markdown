@@ -1,7 +1,8 @@
 +++
 date = "2016-10-13T23:26:19+01:00"
-title = "7CCSMSEN Notes"
-markup = "mmark"
+course = "MSc Computing and Security"
+module = "7CCSMSEN Security Engineering"
+title = "Notes"
 +++
 
 

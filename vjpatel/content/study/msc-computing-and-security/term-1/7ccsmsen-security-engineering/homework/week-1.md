@@ -1,6 +1,8 @@
 +++
 date = "2016-10-13T23:26:19+01:00"
-title = "7CCSMSEN - Week 1"
+course = "MSc Computing and Security"
+module = "7CCSMSEN Security Engineering"
+title = "Homework 1"
 +++
 
 Q2: Practice thinking like an attacker. Assume the following situation:
