@@ -4,7 +4,7 @@ build:
 	docker run --rm \
 	--volume ${CURDIR}/vjpatel:/app \
 	--workdir /app \
-	publysher/hugo \
+	registry.gitlab.com/pages/hugo/hugo_extended \
 	hugo
 
 deploy:
