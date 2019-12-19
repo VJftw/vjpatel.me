@@ -3,7 +3,7 @@ date = "2016-10-13T21:38:34+01:00"
 title = "Invoke Tools"
 dev_status = "abandoned"
 trello_board_id = "cXzsT7lZ"
-short_description = "A PyPi package for use with Docker containers and Python's Invoke task runner. Abandoned in favour of Make + Docker."
+description = "A PyPi package for use with Docker containers and Python's Invoke task runner. Abandoned in favour of Make + Docker."
 github_address = "https://github.com/VJftw/invoke-tools"
 +++
 

@@ -6,12 +6,28 @@ languageCode = "en-gb"
     email_address = "vj@vjpatel.me"
     location = "London"
     github_username = "VJftw"
-    linkedin_name = "VJ Patel"
-    linkedin_url = "https://uk.linkedin.com/pub/vj-patel/6b/648/109"
     twitter_username = "VJftw"
-    google_plus_name = "VJ Patel"
-    google_plus_url = "https://google.com/+VJPatel1994"
+    linkedin_url = "https://uk.linkedin.com/pub/vj-patel/6b/648/109"
 
 [params.meta]
     description = ""
     keywords = ""
+
+[markup]
+  defaultMarkdownHandler = "goldmark"
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true
+    [markup.goldmark.parser]
+      attribute = true
+      autoHeadingID = true
+    [markup.goldmark.renderer]
+      hardWraps = false
+      unsafe = false
+      xHTML = false

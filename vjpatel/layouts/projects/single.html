@@ -3,7 +3,26 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-			<h1>{{ .Title }} {{ if .Params.github_address }}<a target="_blank" href="{{ .Params.github_address }}"><i class="fa fa-github"></i></a>{{ end }}</h1>
+			<h1>{{ .Title }}</h1>
+		</div>
+		<div class="col-md-12">
+			<ul class="list list-inline">
+				{{ if .Params.github_address }}
+				<li class="list-inline-item">
+					<a target="_blank" href="{{ .Params.github_address }}">
+						<i class="fa fa-github"></i>
+					</a>
+				</li>
+				{{end}}
+				{{ if .Params.website }}
+				<li class="list-inline-item">
+					<a target="_blank" href="{{ .Params.website }}">
+						<i class="fa fa-globe"></i>
+					</a>
+				</li>
+				{{end}}
+			</ul>
+
 		</div>
 	</div>
 	<div class="row">
@@ -11,23 +30,30 @@
 			<p class="lead">{{ .Description }}</p>
 		</div>
 	</div>
+
+	<hr />
+
 	<div class="row">
-		<div class="col-md-6">
-		<p>{{ .Content }}</p>
-		</div>
 		{{ if .Params.trello_board_id }}
-			<div class="col-md-6">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-				    	<h3 class="panel-title">Feature progress</h3>
-					</div>
-					<table class="table trello-features" board="{{ .Params.trello_board_id }}">
+		<div class="col-md-6">
+			<p>{{ .Content }}</p>
+		</div>
+		<div class="col-md-6">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Feature progress</h3>
+				</div>
+				<table class="table trello-features" board="{{ .Params.trello_board_id }}">
 					<tr>
 						<td><i class="fa fa-spin fa-refresh"></i></td>
 					</tr>
-					</table>
-				</div>
+				</table>
 			</div>
+		</div>
+		{{ else }}
+		<div class="col-md-12">
+			<p>{{ .Content }}</p>
+		</div>
 		{{ end }}
 	</div>
 </div>

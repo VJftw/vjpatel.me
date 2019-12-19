@@ -1,8 +1,8 @@
 +++
 date = "2016-04-24T23:09:26+01:00"
-markup = "mmark"
 title = "Implementations of Homomorphic Encryption"
-summart = "Excerpts from my undergraduate dissertation about Homomorphic Encryption"
+summary = "Excerpts from my undergraduate dissertation about Homomorphic Encryption"
+latex = true
 +++
 
 
@@ -28,28 +28,28 @@ One of the earliest and basic known cryptosystems is the Caesar cipher, used by 
 
 $$E_x(m) = (m + x) \bmod 26$$
 
-Where $$m$$ is the message and $$x$$ is a secret number. Decryption is simply done with
+Where $m$ is the message and $x$ is a secret number. Decryption is simply done with
 
-$$ D_x(m) = (m - x) \bmod 26$$
+$$D_x(m) = (m - x) \bmod 26$$
 
-The Vigenère cipher, invented by Blaise de Vigenère in the sixteenth century, builds upon the Caesar cipher and was believed to be secure for a significant period in history (Simmons 2016). It demonstrates using a positional dependency to defeat single letter frequency analysis (which easily breaks the Caesar and substitution ciphers) (Martin 2012). It achieves this by introducing a key-word that is compared against the plaintext to create an individual secret $$x$$ for each character and then used in the classical Caesar cipher. Figure 1 illustrates this.
+The Vigenère cipher, invented by Blaise de Vigenère in the sixteenth century, builds upon the Caesar cipher and was believed to be secure for a significant period in history (Simmons 2016). It demonstrates using a positional dependency to defeat single letter frequency analysis (which easily breaks the Caesar and substitution ciphers) (Martin 2012). It achieves this by introducing a key-word that is compared against the plaintext to create an individual secret $x$ for each character and then used in the classical Caesar cipher. Figure 1 illustrates this.
 
- Plaintext | Key-word  | $$x$$ for character   | Cipher-text   |
------------|-----------|-----------------------|---------------|
- b         | s         | 18                    | t             |
- o         | e         | 4                     | s             |
- n         | c         | 2                     | p             |
- j         | r         | 17                    | a             |
- o         | e         | 4                     | s             |
- u         | t         | 19                    | n             |
- r         | k         | 10                    | b             |
+ | Plaintext | Key-word | $x$ for character | Cipher-text |
+ | --------- | -------- | ----------------- | ----------- |
+ | b         | s        | 18                | t           |
+ | o         | e        | 4                 | s           |
+ | n         | c        | 2                 | p           |
+ | j         | r        | 17                | a           |
+ | o         | e        | 4                 | s           |
+ | u         | t        | 19                | n           |
+ | r         | k        | 10                | b           |
 
 *Figure 1: Example of Vigenère cipher*
 
 
-When the key-word is known, you can perform decryption with the Caesar cipher for each character once you have determined each individual $$x$$.
+When the key-word is known, you can perform decryption with the Caesar cipher for each character once you have determined each individual $x$.
 
-This scheme can be cracked once the length of the key-word is learnt because an adversary is able to learn at which positions the same individual $$x$$ is used and perform frequency analysis.
+This scheme can be cracked once the length of the key-word is learnt because an adversary is able to learn at which positions the same individual $x$ is used and perform frequency analysis.
 
 ### Asymmetric Encryption
 
@@ -61,25 +61,25 @@ One of the first proposed and widely used practical asymmetric cryptosystems is 
 
 *Bob* and *Alice* are two people that wish to communicate securely. They both take the following steps to create their own unique public and private key pairs.
 
-1. Find two random primary numbers $$p$$ and $$q$$.
-2. Calculate $$n = p \times q$$
-3. Calculate $$\phi(n)$$ using Euler's totient function.
-4. Find a random integer $$e$$ that is coprime with $$\phi(n)$$.
-5. Calculate $$d = e^{-1} \bmod \phi(n)$$.
+1. Find two random primary numbers $p$ and $q$.
+2. Calculate $n = p \times q$
+3. Calculate $\phi(n)$ using Euler's totient function.
+4. Find a random integer $e$ that is coprime with $\phi(n)$.
+5. Calculate $d = e^{-1} \bmod \phi(n)$.
 
-The public key is made up of $$n$$ and $$e$$, whilst the private key consists of $$n$$ and $$d$$. The other variables ($$p$$, $$q$$ and $$\phi(n)$$) can be discarded but not revealed as they are used to calculate $$d$$. Both *Bob*’s and *Alice*’s public keys can be placed in a public domain where anyone is able to read them.
+The public key is made up of $n$ and $e$, whilst the private key consists of $n$ and $d$. The other variables ($p$, $q$ and $\phi(n)$) can be discarded but not revealed as they are used to calculate $d$. Both *Bob*’s and *Alice*’s public keys can be placed in a public domain where anyone is able to read them.
 
 Once *Bob* and *Alice* have their key pairs, they can communicate with each other. If *Bob* wanted to send *Alice* a message, he would:
 
-1. Read *Alice*'s public key from the public domain which bears the variables $$n$$ and $$e$$.
-2. Calculate the cipher-text $$c = m^e \bmod n$$, where $$m$$ is the message he wants to send.
-3. Transmit the cipher-text $$c$$ to *Alice*.
+1. Read *Alice*'s public key from the public domain which bears the variables $n$ and $e$.
+2. Calculate the cipher-text $c = m^e \bmod n$, where $m$ is the message he wants to send.
+3. Transmit the cipher-text $c$ to *Alice*.
 
-*Alice* can then decrypt $$c$$ to $$m$$ by calculating $$m = c^d \bmod n$$ with her private key that contains the values of $$n$$ and $$d$$. *Alice* can also send *Bob* messages by using *Bob*'s public key.
+*Alice* can then decrypt $c$ to $m$ by calculating $m = c^d \bmod n$ with her private key that contains the values of $n$ and $d$. *Alice* can also send *Bob* messages by using *Bob*'s public key.
 
-RSA is regarded as secure based on the assumption that large number factorisation is difficult for current computers. These problems are in a complexity class known as $$NP$$ #TODO: explain complexity with computability and P = NP.
+RSA is regarded as secure based on the assumption that large number factorisation is difficult for current computers. These problems are in a complexity class known as $NP$ #TODO: explain complexity with computability and P = NP.
 
-This is an impending weakness of this cryptosystem that we currently rely on as Shor's quantum factorisation algorithm can be used to rapidly factorise large numbers in polynomial time, thus placing this problem into $$P$$ and breaking this scheme (Cao 2005).
+This is an impending weakness of this cryptosystem that we currently rely on as Shor's quantum factorisation algorithm can be used to rapidly factorise large numbers in polynomial time, thus placing this problem into $P$ and breaking this scheme (Cao 2005).
 
 ## Homomorphic Encryption
 
@@ -91,43 +91,43 @@ Verifiable computing allows us to validate whether or not a computation has been
 
 ### The Pailler Cryptosystem
 
-The Pailler cryptosystem (Pailler 1999) is an asymmetric scheme with additive homomorphic properties based on the composite residuosity problem, which describs how it is computationally difficult to decide where a number $$z$$ is an $$n$$-residue modulo $$n^2$$ given by the existence of a $$y$$ in
+The Pailler cryptosystem (Pailler 1999) is an asymmetric scheme with additive homomorphic properties based on the composite residuosity problem, which describs how it is computationally difficult to decide where a number $z$ is an $n$-residue modulo $n^2$ given by the existence of a $y$ in
 
 $$z = y^n \bmod n^2$$
 
 To generate a key-pair we begin quite similarly to RSA:
 
-1. Find two random primes $$p$$ and $$q$$ wth the same bit-length.
-2. Calculate $$n = p \times q$$.
-3. Calculate $$g = n + 1$$.
-4. Calculate $$l = \phi(n)$$ using Euler's totient function.
-5. Calculate $$k = l^{-1} \bmod n$$.
+1. Find two random primes $p$ and $q$ wth the same bit-length.
+2. Calculate $n = p \times q$.
+3. Calculate $g = n + 1$.
+4. Calculate $l = \phi(n)$ using Euler's totient function.
+5. Calculate $k = l^{-1} \bmod n$.
 
-The public key consists of $$n$$ and $$g$$ and the private key is made up of $$l$$ and $$k$$.
+The public key consists of $n$ and $g$ and the private key is made up of $l$ and $k$.
 
-To encrypt a plain-text $$m$$ to cipher-text $$c$$ we:
-1. Find a random prime $$r$$ where $$0 < r < n$$.
-2. Calculate cipher-text $$c = g^m \times r^n \bmod n^2$$.
+To encrypt a plain-text $m$ to cipher-text $c$ we:
+1. Find a random prime $r$ where $0 < r < n$.
+2. Calculate cipher-text $c = g^m \times r^n \bmod n^2$.
 
-And to decrypt a cipher-text $$c$$ to $$m$$ we:
+And to decrypt a cipher-text $c$ to $m$ we:
 
-1. Calculate $$u = c^l \bmod n^2$$
-2. Calculate $$v = \frac{u - 1}{n}$$.
-3. Calculate plain-text $$m = v \times k \bmod n$$.
+1. Calculate $u = c^l \bmod n^2$
+2. Calculate $v = \frac{u - 1}{n}$.
+3. Calculate plain-text $m = v \times k \bmod n$.
 
-As per the composite residuosity problem, $$c$$ is one way without knowledge of $$l$$.
+As per the composite residuosity problem, $c$ is one way without knowledge of $l$.
 
-The homomorphic property of the Pailler cryptosystem is that the product of two cipher-texts modulo $$n^2$$ will be the sum of the matching cipher-texts modulo $$n$$. The following equation illustrates this:
+The homomorphic property of the Pailler cryptosystem is that the product of two cipher-texts modulo $n^2$ will be the sum of the matching cipher-texts modulo $n$. The following equation illustrates this:
 
 $$D(c_1 \times c_2 \bmod n^2) = m_1 + m_2$$
 
-Where $$D$$ is the decryption function we outline the steps for, $$c_1$$ and $$c_2$$ are the cipher-texts for two plain-texts $$m_1$$ and $$m_2$$ respectively.
+Where $D$ is the decryption function we outline the steps for, $c_1$ and $c_2$ are the cipher-texts for two plain-texts $m_1$ and $m_2$ respectively.
 
 The Pailler cryptosystem, with its additive homomorphic properties, can be used in a binary (for or against) voting system (Damgård et al. 2010).
 
-To note, the Pailler cryptosystem works with any plain-text $$m$$ when $$m < n$$. This is quite impressive as with an 8-bit key length we would be able to use numbers up to a minimum of 128, dependent on the random primes $$p$$ and $$q$$.
+To note, the Pailler cryptosystem works with any plain-text $m$ when $m < n$. This is quite impressive as with an 8-bit key length we would be able to use numbers up to a minimum of 128, dependent on the random primes $p$ and $q$.
 
-A potential disadvantage of this cryptosystem is that, in order to add $$m_1$$ and $$m_2$$, the server is told to compute:
+A potential disadvantage of this cryptosystem is that, in order to add $m_1$ and $m_2$, the server is told to compute:
 
 $$c_1 \times c_2 \bmod n^2$$
 
@@ -147,21 +147,21 @@ Gorti's enhanced homomorphic cryptosystem (Rao & Uma 2013) is a symmetric crypto
 
 To generate a key, we begin similarly to RSA:
 
-1. Find two large primes $$p$$ and $$q$$ such that $$p < q$$.
-2. Calculate $$m = p \times q$$.
+1. Find two large primes $p$ and $q$ such that $p < q$.
+2. Calculate $m = p \times q$.
 
-In the original paper, they use $$p$$ as a shared key inside a MANET (Mobile Ad-hoc Network) for the multiple clients that wish to communicate with each other. For this cryptosystem in the client-server model, $$p$$ remains secret along with the rest of the values.
+In the original paper, they use $p$ as a shared key inside a MANET (Mobile Ad-hoc Network) for the multiple clients that wish to communicate with each other. For this cryptosystem in the client-server model, $p$ remains secret along with the rest of the values.
 
-To encrypt a plain-text $$t$$ into cipher-text $$c$$:
+To encrypt a plain-text $t$ into cipher-text $c$:
 
-1. Let $$r$$ be a random number.
-2. Calculate $$c = t + rpq \bmod m$$.
+1. Let $r$ be a random number.
+2. Calculate $c = t + rpq \bmod m$.
 
-And to decrypt a cipher-text $$c$$ to plain-text $$p$$:
+And to decrypt a cipher-text $c$ to plain-text $p$:
 
-1. Calculate $$t = c \bmod p$$.
+1. Calculate $t = c \bmod p$.
 
-As you can see, an adversary would need to find the value of $$p$$ in order to decrypt the message. Finding $$p$$ without knowing $$m$$, $$q$$ or $$r$$ is currently believed to be "very tough" (Rao & Uma 2013) to solve as this presents a large number factorisation problem, the same problem that RSA relies on to be secure.
+As you can see, an adversary would need to find the value of $p$ in order to decrypt the message. Finding $p$ without knowing $m$, $q$ or $r$ is currently believed to be "very tough" (Rao & Uma 2013) to solve as this presents a large number factorisation problem, the same problem that RSA relies on to be secure.
 
 The homomorphic properties of Gorti's enhanced cryptosystem could be expressed by, the addition or multiplication of two cipher-texts, when decrypted correspond to the sum or product of the plain-texts. The equations below illustrate this.
 
@@ -243,5 +243,3 @@ Rivest, R.L., 1990. Handbook of Theoretical Computer Science (Vol. A). In J. van
 Rivest, R.L., Adleman, L. & Dertouzos, M.L., 1978. On Data Banks and Privacy Homomorphisms, Available at: <http://luca-giuzzi.unibs.it/corsi/Support/papers-cryptography/RAD78.pdf>.
 
 Simmons, G.J., 2016. Vigenere Cipher. Available at: <http://www.britannica.com/topic/Vigenere-cipher>.
-
-<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>

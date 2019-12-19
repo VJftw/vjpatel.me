@@ -1,20 +1,22 @@
 {{ define "title" }}VJ | Blog > {{ .Title }}{{ end }}
 {{ define "main" }}
 <div class="container">
-	<div class="row">
-		<div class="col-md-12">
-			<h1>{{ .Title }} <small>{{ .Date }}</small></h1>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-12">
-			<p class="lead">{{ .Summary }}</p>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
-			<p>{{ .Content }}</p>
-		</div>
-	</div>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h1>{{ .Title }}</h1>
+      <div class="col-md-12 text-right"><small>on {{ dateFormat "Monday, 2 January 2006" .Date }}</small></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <p class="lead">{{ .Summary }}</p>
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <p>{{ .Content }}</p>
+    </div>
+  </div>
 </div>
 {{ end }}

@@ -1,5 +1,6 @@
 {{ define "title" }}VJ | Projects{{ end }} {{ define "main" }}
 
+
 <div class="container">
     <div class="row" style="margin-bottom:4em;">
         <div class="col text-center">
@@ -7,10 +8,12 @@
         </div>
     </div>
 
-    {{ $pagesLen := len .Data.Pages }} {{ range $i, $page := .Data.Pages.ByDate.Reverse }} {{ if modBool $i 2 }}
-    <div class="row" style="margin-bottom:2em;">
-        <div class="card-deck">
-            {{ end }}
+    {{ $pagesLen := len .Data.Pages }}
+    {{ range $i, $page := .Data.Pages.ByDate.Reverse }}
+    {{ if modBool $i 2 }}
+    <div class="row row-cols-1 row-cols-md-2">
+        {{ end }}
+        <div class="col mb-4">
             <div class="card">
                 <div class="card-body">
                     <div class="row">
@@ -33,14 +36,16 @@
                             {{ end }}
                         </div>
                     </div>
-                    <p>{{ $page.Params.short_description }}</p>
+                    <p>{{ $page.Description }}</p>
                 </div>
             </div>
-            {{ if modBool (add $i 1) 2 }}
         </div>
+        {{ if modBool (add $i 1) 2 }}
     </div>
     {{ else if eq $pagesLen (add $i 1) }}
 </div>
-{{ end }} {{ end }}
+{{ end }}
+
+{{ end }}
 </div>
 {{ end }}
