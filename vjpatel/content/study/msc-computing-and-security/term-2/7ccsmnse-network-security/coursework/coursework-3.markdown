@@ -3,6 +3,7 @@ date = "2017-04-15T00:26:19+01:00"
 course = "MSc Computing and Security"
 module = "7CCSMNSE Network Security"
 title = "Coursework 3"
+latex = true
 +++
 
 ## Coursework 3
@@ -75,29 +76,14 @@ The Internet Key Exchange (IKE) protocol aims to establish and maintain Security
 ### 10. Describe the SSL Handshake protocol, illustrating all of its different steps.
 
 1. Establish security Capabilities:
-    * `client hello` $A \rightarrow B: A, \text{Na}, \text{Sid}, \text{Pa}$
-    * `server hello` $B \rightarrow A: \text{Nb}, \text{Sid}, \text{Pb}$
+    * `client hello`: `$A \rightarrow B: A, \text{Na}, \text{Sid}, \text{Pa}$`
+    * `server hello`: `$B \rightarrow A: \text{Nb}, \text{Sid}, \text{Pb}$`
 2. Exchange Server certificate:
-    * `server certificate` $B \rightarrow A: \text{certificate}(B, K_B)$
+    * `server certificate`: `$B \rightarrow A: \text{certificate}(B, K_B)$`
 3. Client Key Exchange:
-    * **Optional** `client certificate` $A \rightarrow B: \text{certificate}(A, K_A)$
-    * `client key exchange` $A \rightarrow B: \\{ \text{PMS} \\}_{K_B}$
-    * **Optional** `client verify` $A \rightarrow B: \left \\{\text{hash}(...)\right \\}_{K_A^{-1}}$
+    * **Optional** `client certificate`: `$A \rightarrow B: \text{certificate}(A, K_A)$`
+    * `client key exchange`: `$A \rightarrow B: \{ \text{PMS} \}_{K_B}$`
+    * **Optional** `client verify`: `$A \rightarrow B: \left \{\text{hash}(...)\right \}_{K_A^{-1}}$`
 4. Finish establishing connection:
-    * `client finished` $A \rightarrow B: \left \\{ \text{Finished} \right \\}_{\text{client}K}$
-    * `server finished` $B \rightarrow A: \left \\{ \text{Finished} \right \\}_{\text{server}K}$
-
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    extensions: ["tex2jax.js"],
-    jax: ["input/TeX", "output/HTML-CSS"],
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-      processEscapes: true
-    },
-    "HTML-CSS": { availableFonts: ["TeX"] }
-  });
-</script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+    * `client finished`: `$A \rightarrow B: \left \{ \text{Finished} \right \}_{\text{client}K}$`
+    * `server finished`: `$B \rightarrow A: \left \{ \text{Finished} \right \}_{\text{server}K}$`
