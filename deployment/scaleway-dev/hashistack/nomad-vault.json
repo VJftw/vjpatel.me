@@ -1,0 +1,32 @@
+{
+  "variables": {},
+  "builders": [
+    {
+      "type": "scaleway",
+      "image": "f974feac-abae-4365-b988-8ec7d1cec10d",
+      "region": "par1",
+      "commercial_type": "DEV1-S",
+      "ssh_username": "root",
+      "ssh_private_key_file": "~/.ssh/id_rsa",
+      "remove_volume": true,
+      "image_name": "nomad-vault"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "file",
+      "source": "packer/filesystem/",
+      "destination": "/"
+    },
+    {
+      "type": "shell",
+      "scripts": [
+        "packer/docker.sh",
+        "packer/vault.sh",
+        "packer/consul.sh",
+        "packer/nomad.sh",
+        "packer/bootstrap.sh"
+      ]
+    }
+  ]
+}
