@@ -14,12 +14,17 @@
   ],
   "provisioners": [
     {
+      "type": "file",
+      "source": "filesystem/",
+      "destination": "/"
+    },
+    {
       "type": "shell",
       "scripts": [
         "docker.sh",
-        "pki.sh",
         "nomad.sh",
-        "vault.sh"
+        "vault.sh",
+        "bootstrap.sh"
       ]
     }
   ]

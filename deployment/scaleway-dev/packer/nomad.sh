@@ -10,57 +10,15 @@ chown root:root nomad
 mv nomad /usr/local/bin/
 nomad version
 
-mkdir -p /etc/systemd/system
-touch /etc/systemd/system/nomad.service
+useradd --system --home /etc/nomad.d --shell /bin/false nomad
+usermod -aG docker nomad
 
-cat << EOF > /etc/systemd/system/nomad.service
-[Unit]
-Description=Nomad
-Documentation=https://nomadproject.io/docs/
-Wants=network-online.target
-After=network-online.target
+mkdir -p /opt/nomad
+chmod 700 /opt/nomad
+chown -R nomad:nomad /opt/nomad
 
-[Service]
-ExecReload=/bin/kill -HUP $MAINPID
-ExecStart=/usr/local/bin/nomad agent -config /etc/nomad.d
-KillMode=process
-KillSignal=SIGINT
-LimitNOFILE=infinity
-LimitNPROC=infinity
-Restart=on-failure
-RestartSec=2
-StartLimitBurst=3
-StartLimitIntervalSec=10
-TasksMax=infinity
-
-[Install]
-WantedBy=multi-user.target
-EOF
-
-mkdir -p /etc/nomad.d
 chmod 700 /etc/nomad.d
-touch /etc/nomad.d/nomad.hcl
-
-cat << EOF > /etc/nomad.d/nomad.hcl
-datacenter = "dc1"
-data_dir = "/opt/nomad"
-EOF
-
-cat << EOF > /etc/nomad.d/server.hcl
-server {
-  enabled = true
-  bootstrap_expect = 1
-}
-
-acl {
-  enabled = true
-}
-EOF
-
-cat << EOF > /etc/nomad.d/client.hcl
-client {
-  enabled = true
-}
-EOF
+chown -R nomad:nomad /etc/nomad.d
+chmod 640 /etc/nomad.d/*
 
 systemctl enable nomad
