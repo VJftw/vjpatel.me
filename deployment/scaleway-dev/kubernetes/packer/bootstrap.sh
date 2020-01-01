@@ -13,7 +13,7 @@ chown root:root kustomize
 mv kustomize /usr/local/bin/
 kustomize version
 
-chmod +x /bootstrap/*.sh
+find /bootstrap -type f -name '*.sh' | xargs chmod +x
 systemctl enable bootstrap
 
 systemctl enable socat-http

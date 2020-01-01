@@ -2,10 +2,10 @@
 
 /bootstrap/kubernetes/kubernetes.sh
 
-/bootstrap/hashicorp-vault-auth/hashicorp-vault-auth.sh
+/bootstrap/kubernetes/hashicorp-vault-auth/hashicorp-vault-auth.sh
 
-/bootstrap/cert-manager/cert-manager.sh
+/bootstrap/kubernetes/cert-manager/cert-manager.sh
 
-/bootstrap/ingress-nginx/ingress-nginx.sh
+/bootstrap/kubernetes/ingress-nginx/ingress-nginx.sh
 
-/bootstrap/dashboard/dashboard.sh
+/bootstrap/kubernetes/dashboard/dashboard.sh
