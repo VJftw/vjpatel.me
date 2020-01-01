@@ -1,5 +1,0 @@
-# Temporary listener to allow generation of TLS certs from Vault PKI on boot provisioning
-listener "tcp" {
-  address     = "127.0.0.1:8200"
-  tls_disable = true
-}
