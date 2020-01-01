@@ -1,0 +1,11 @@
+[Unit]
+Description=Bootstrap
+After=vault.service
+
+[Service]
+Type=oneshot
+ExecStart=/bootstrap/bootstrap.sh
+StandardOutput=journal
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,17 @@
+---
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: kubernetes-dashboard
+spec:
+  secretName: kubernetes-dashboard-certs
+  duration: 2160h # 90d
+  renewBefore: 360h # 15d
+  isCA: false
+  keySize: 2048
+  keyAlgorithm: rsa
+  keyEncoding: pkcs1
+  dnsNames: []
+  issuerRef:
+    name: vault-issuer
+    kind: ClusterIssuer

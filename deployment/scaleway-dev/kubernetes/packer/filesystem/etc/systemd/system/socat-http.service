@@ -1,0 +1,10 @@
+[Unit]
+Description=socat https to kubernetes ingress
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/socat tcp-listen:80,reuseaddr,fork tcp:localhost:30080
+
+[Install]
+WantedBy=multi-user.target
