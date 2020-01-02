@@ -1,0 +1,13 @@
+namespace: setup-web
+resources:
+  - deployment.yaml
+  - ingress.yaml
+  - service.yaml
+  - namespace.yaml
+
+configMapGenerator:
+  - name: setup-web-html
+    files:
+      - index.html
+      - ca.crt
+      - kube-config.yaml

@@ -1,0 +1,10 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: setup-web
+spec:
+  ports:
+    - port: 80
+  selector:
+    app: setup-web

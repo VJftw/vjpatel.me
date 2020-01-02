@@ -3,6 +3,7 @@ Description=Bootstrap
 After=vault.service
 
 [Service]
+User=root
 Type=oneshot
 ExecStart=/bootstrap/bootstrap.sh
 StandardOutput=journal

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <h1>Root CA (Certificate Authority) for *.dev.vjpatel.me</h1>
+  <div>
+    <a href="/ca.crt">PEM</a>
+  </div>
+
+  <h2>Linux</h2>
+  <pre>
+curl http://root.dev.vjpatel.me/ca.crt
+</pre>
+
+  <h1>Kubernetes configuration</h1>
+  <div>
+    <a href="/kube-config.yaml">kube-config.yaml</a>
+  </div>
+  <h2>Linux</h2>
+  <pre>
+curl http://root.dev.vjpatel.me/kube-config.yaml -o ~/.kube/config-dev-vjpatel-me
+VAULT_ADDR=http://vault.dev.vjpatel.me:8200 vault login -method=oidc role=default
+kubectl --kubeconfig ~/.kube/config-dev-vjpatel-me get pod
+</pre>
+
+</body>
+
+</html>
