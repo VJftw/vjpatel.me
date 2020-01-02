@@ -9,7 +9,7 @@
 
   <h2>Linux</h2>
   <pre>
-curl http://root.dev.vjpatel.me/ca.crt
+curl http://setup.dev.vjpatel.me/ca.crt
 </pre>
 
   <h1>Kubernetes configuration</h1>
@@ -18,8 +18,8 @@ curl http://root.dev.vjpatel.me/ca.crt
   </div>
   <h2>Linux</h2>
   <pre>
-curl http://root.dev.vjpatel.me/kube-config.yaml -o ~/.kube/config-dev-vjpatel-me
-VAULT_ADDR=http://vault.dev.vjpatel.me:8200 vault login -method=oidc role=default
+curl http://setup.dev.vjpatel.me/kube-config.yaml -o ~/.kube/config-dev-vjpatel-me
+VAULT_ADDR=https://vault.dev.vjpatel.me:8200 vault login -method=oidc role=default
 kubectl --kubeconfig ~/.kube/config-dev-vjpatel-me get pod
 </pre>
 

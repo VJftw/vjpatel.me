@@ -26,13 +26,14 @@ users:
 - name: user
   user:
     exec:
+      apiVersion: "client.authentication.k8s.io/v1beta1"
       command: /bin/sh
       env:
         - name: VAULT_ADDRESS
           vault: https://vault.${BASE_DOMAIN}:8200
       args:
         - "-c"
-        - vault read identity/oidc/token/kubernetes -format=json | jq '{"apiVersion":"client.authentication.k8s.io/v1beta1","kind":"ExecCredential","status":{"token": .data.token}}'
+        - "VAULT_ADDR=https://vault.${BASE_DOMAIN}:8200 vault read identity/oidc/token/kubernetes -format=json | jq '{\"apiVersion\":\"client.authentication.k8s.io/v1beta1\",\"kind\":\"ExecCredential\",\"status\":{\"token\": .data.token}}'"
 EOF
 
 kustomize build /bootstrap/kubernetes/setup-web | kubectl apply -f-
