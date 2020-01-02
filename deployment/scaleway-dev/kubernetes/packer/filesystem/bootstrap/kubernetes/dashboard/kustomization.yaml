@@ -13,7 +13,7 @@ patchesJson6902:
     patch: |-
       - op: add
         path: /spec/dnsNames/-
-        value: [k8s.dev.vjpatel.me]
+        value: k8s.dev.vjpatel.me
   - target:
       group: apps
       version: v1
@@ -35,7 +35,8 @@ patchesJson6902:
       namespace: kubernetes-dashboard
     patch: |-
       - op: add
-        path: /spec/tls/hosts/-
+        path: /spec/tls/0/hosts/-
         value: k8s.dev.vjpatel.me
       - op: replace
-        path: /spec/0/host/k8s.dev.vjpatel.me
+        path: /spec/rules/0/host
+        value: k8s.dev.vjpatel.me

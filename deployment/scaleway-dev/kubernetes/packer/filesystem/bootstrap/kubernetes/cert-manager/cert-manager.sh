@@ -10,7 +10,6 @@ export VAULT_TOKEN="${rootToken}"
 # Configure cert-manager with Vault
 kubectl create namespace cert-manager
 kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v0.12.0/cert-manager.yaml
-kubectl -n cert-manager create serviceaccount cert-manager
 
 vault write auth/kubernetes/role/cert-manager \
         bound_service_account_names=cert-manager-vault \
@@ -28,6 +27,10 @@ metadata:
   name: cert-manager-vault
   namespace: cert-manager
 EOF
+
+kubectl -n cert-manager \
+  wait --for=condition=available --timeout=10m \
+  deployment cert-manager-webhook
 
 cert_manager_vault_token=$(kubectl get secret -n cert-manager | grep cert-manager-vault-token | cut -f1 -d" ")
 

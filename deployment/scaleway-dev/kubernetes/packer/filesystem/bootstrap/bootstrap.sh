@@ -1,5 +1,4 @@
 #!/bin/bash -e
 
-/bootstrap/vault.sh
-
-/bootstrap/kubernetes.sh
+/bootstrap/vault.sh && \
+  /bootstrap/kubernetes.sh
