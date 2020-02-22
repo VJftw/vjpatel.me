@@ -3,6 +3,7 @@ date = "2016-10-13T23:26:19+01:00"
 course = "MSc Computing and Security"
 module = "7CCSMWIN Web Infrastructure"
 title = "Notes"
+latex = true
 +++
 
 
@@ -175,10 +176,10 @@ Window size minimum of:
 
 - Congestion windows size bounds the amount of data that can be sent per-roud-trip (RTT)
 
-- For window size $$W$$, the achievable throughput $$T$$ will be: $$T <= \frac{W}{RTT}$$.
-- If $$\text{Ideal size} = \text{delay} \times \text{bandwidth}$$: Delay bandwidth product.
-- If $$\text{window size} < \text{delay} \times \text{bandwidth}$$: Wasted bandwidth
-- If $$\text{window size} > \text{delay} \times \text{bandwidth}$$: Queueing at routers and potentially packet loss.
+- For window size {{<latex i="W" />}}, the achievable throughput {{<latex i="T" />}} will be: {{<latex i="T <= \frac{W}{RTT}" />}}.
+- If {{<latex i="\text{Ideal size} = \text{delay} \times \text{bandwidth}" />}}: Delay bandwidth product.
+- If {{<latex i="\text{window size} < \text{delay} \times \text{bandwidth}" />}}: Wasted bandwidth
+- If {{<latex i="\text{window size} > \text{delay} \times \text{bandwidth}" />}}: Queueing at routers and potentially packet loss.
 
 #### Detecting packet loss
 
@@ -753,6 +754,3 @@ Caching occurs at various levels in order to reduce load on the higher-up/root s
 ## Web Traffic & Markup
 
 ## Security
-
-
-<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>

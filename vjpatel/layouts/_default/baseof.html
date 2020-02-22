@@ -47,6 +47,7 @@
     <script src="/js/vj-patel.js"></script>
 
     {{ if eq .Page.Params.latex true }} {{ partial "mathjax_support.html" . }} {{ end }}
+    {{ if eq .Page.Params.mermaid true }} {{ partial "mermaid_support.html" . }} {{ end }}
 </body>
 
 </html>

@@ -3,6 +3,7 @@ date = "2016-10-13T23:26:19+01:00"
 course = "MSc Computing and Security"
 module = "7CCSMSEN Security Engineering"
 title = "Notes"
+latex = true
 +++
 
 
@@ -28,7 +29,7 @@ title = "Notes"
 ### Difrerential Privacy
 Adding noise to a sensitive data set so that the statistical information is still retained but the real individuial's information is hidden among other entires.
 
-Some questions ($$f(x)$$) are not allowed to be asked as they may be deducible. e.g. a single/few person in the original data set.
+Some questions ({{<latex i="f(x)" />}}) are not allowed to be asked as they may be deducible. e.g. a single/few person in the original data set.
 
 
 ---

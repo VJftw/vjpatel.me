@@ -28,6 +28,6 @@ languageCode = "en-gb"
       attribute = true
       autoHeadingID = true
     [markup.goldmark.renderer]
-      hardWraps = false
-      unsafe = false
-      xHTML = false
+      hardWraps = true
+      unsafe = true
+      xHTML = true

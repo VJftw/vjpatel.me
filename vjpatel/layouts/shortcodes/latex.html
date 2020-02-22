@@ -1,0 +1,11 @@
+{{ if .IsNamedParams }}
+<span class="mathjax_process">
+  ${{ .Get "i" }}$
+</span>
+{{ else }}
+<div class="mathjax_process">
+  $$
+  {{.Inner}}
+  $$
+</div>
+{{ end }}

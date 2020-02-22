@@ -3,12 +3,13 @@ date = "2016-10-13T23:26:19+01:00"
 course = "MSc Computing and Security"
 module = "7CCSMCIS Cryptography and Information Security"
 title = "Coursework 2"
+latex = true
 +++
 
 ## Rail fence cipher: exercises
 
 > Decrypt the following ciphertext that was generated using a rail fence cipher with 2 rails.
-> ```
+```
 TEETN WRTRA HNWSE EOEBA TUSHR ISHBS KONOO MCIEA DVLPD YRHRC EBU
 ```
 
@@ -203,26 +204,24 @@ DDDGFGXGAXDFVXAXGV XXGDVGVADDGDDDVFG DXGFFDADGGVVVDDFAG DXVFVGXVGADXDXDXD
 
 Given:
 
-- $$LD_{16-i} \parallel RD_{16-i} = RE_i \parallel LE_i$$.
-- Encryption: $$LE_i = RE_{i-1}$$ and $$RE_i = LE_{i-1} \oplus F(RE_{i-1}, K_i)$$.
-- Decryption: $$LD_i = RD_{i-1}$$ and $$RD_i = LD_{i-1} \oplus F(RD_{i-1}, K_i)$$.
+- {{<latex i="LD_{16-i} \parallel RD_{16-i} = RE_i \parallel LE_i" />}}.
+- Encryption: {{<latex i="LE_i = RE_{i-1}" />}} and {{<latex i="RE_i = LE_{i-1} \oplus F(RE_{i-1}, K_i)" />}}.
+- Decryption: {{<latex i="LD_i = RD_{i-1}" />}} and {{<latex i="RD_i = LD_{i-1} \oplus F(RD_{i-1}, K_i)" />}}.
 
-We want to show that $$LD_{13} \parallel RD_{13} = RE_3 \parallel LE_3$$.
+We want to show that {{<latex i="LD_{13} \parallel RD_{13} = RE_3 \parallel LE_3" />}}.
 
 **Encryption**:
 
-- $$LE_3 = RE_2$$
-- $$RE_3 = LE_2 \oplus F(RE_2, K_3)$$
+- {{<latex i="LE_3 = RE_2" />}}
+- {{<latex i="RE_3 = LE_2 \oplus F(RE_2, K_3)" />}}
 
 **Decryption**:
 
-- $$LD_{13} = RD_{12} = LE_4 = RE_3$$
-- $$RD_{13} = LD_{12} \oplus F(RD_{12}, K_{13})$$
-- $$ = RE_4 \oplus F(LE_4, K_{13})$$
-- $$ = RE_4 \oplus F(RE_3, K_{13})$$
-- $$ = [LE_3 \oplus F(RE_3, K_{13})] \oplus F(RE_3, K_{13})$$
-- $$ = LE_3$$
+- {{<latex i="LD_{13} = RD_{12} = LE_4 = RE_3" />}}
+- {{<latex i="RD_{13} = LD_{12} \oplus F(RD_{12}, K_{13})" />}}
+- {{<latex i=" = RE_4 \oplus F(LE_4, K_{13})" />}}
+- {{<latex i=" = RE_4 \oplus F(RE_3, K_{13})" />}}
+- {{<latex i=" = [LE_3 \oplus F(RE_3, K_{13})] \oplus F(RE_3, K_{13})" />}}
+- {{<latex i=" = LE_3" />}}
 
-Hence: $$LD_{13} \parallel RD_{13} = RE_3 \parallel LE_3$$.
-
-<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+Hence: {{<latex i="LD_{13} \parallel RD_{13} = RE_3 \parallel LE_3" />}}.

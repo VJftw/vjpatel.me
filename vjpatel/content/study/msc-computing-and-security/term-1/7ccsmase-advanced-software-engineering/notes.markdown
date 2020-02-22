@@ -3,6 +3,7 @@ date = "2016-10-13T23:26:19+01:00"
 course = "MSc Computing and Security"
 module = "7CCSMASE Advanced Software Engineering"
 title = "Notes"
+latex = true
 +++
 
 ## Nutshell
@@ -73,7 +74,7 @@ Generally in engineering there are 3 principles:
   - Divide testing into unit, integration, subsystem and system testing. We'll have different types of faults at different stages.
   - We can use stubs to abstract other parts of the model so dependent parts of code can be tested without the full system being implemented.
  - Visibility: making information accessible, measuring progress against goals.
-  - $$x$$ *Visibility*: ability to judge on how we are doing on $$X$$. Are we ahead or behind schedule? Does quality meet our objectives?
+  - {{<latex i="x" />}} *Visibility*: ability to judge on how we are doing on {{<latex i="X" />}}. Are we ahead or behind schedule? Does quality meet our objectives?
   - Set goals that can be assessed at each stage of development.
  - Feedback: tuning the development process.
   - Each project provides information to improve on the next (learning from experience).
@@ -329,18 +330,18 @@ It can be used to answer what is **missing** from a test suite as it can tell yo
 Is a cut down version of Multiple Condition Coverage in order to test **important** combinations of conditions without test suite size increasing exponentially.
 
 **Requires**:
- - For each basic condition $$c$$, two test cases.
- - Values of all evaluated conditions except $$c$$ are the same.
+ - For each basic condition {{<latex i="c" />}}, two test cases.
+ - Values of all evaluated conditions except {{<latex i="c" />}} are the same.
  - Compound condition as a whole evaluates to *true* for one and *false* for the other.
 
-In general we need $$n + 1$$ test cases, where $$n$$ is the number of conditions $$c$$.
+In general we need {{<latex i="n + 1" />}} test cases, where {{<latex i="n" />}} is the number of conditions {{<latex i="c" />}}.
 
 
 ### Cyclomatic Complexity
 
 Is a quantitative measure of the number of linearly independent paths through a program's source code. It measures how complex a source code's logic is.
 
-For a CFG: $$\text{edges} - \text{nodes} + 2$$
+For a CFG: {{<latex i="\text{edges} - \text{nodes} + 2" />}}
 
 
 ### Boundary interior path testing
@@ -626,5 +627,3 @@ Reusable.
 Did the test case succeed of fail.
 
 Sometimes we have to capture and replay a test case to see how a test fails.
-
-<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>

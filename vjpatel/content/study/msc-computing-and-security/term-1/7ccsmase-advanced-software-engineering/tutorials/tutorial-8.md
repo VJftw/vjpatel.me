@@ -3,6 +3,7 @@ date = "2016-11-20T01:03:19+00:00"
 course = "MSc Computing and Security"
 module = "7CCSMASE Advanced Software Engineering"
 title = "Tutorial 8"
+latex = true
 +++
 
 >1. Consider the deceptively simple program below. Consider the three initial values of `a`, `b` and `c` to be inputs to the program. So the search space for test data generation is a vector of three values `<a, b, c>`. In this exercise, we are concerned with branch and target coverage. There are four targets: 1, 2, 3, 4 in the program for which we wish to generate test data.
@@ -54,9 +55,9 @@ Because of the first if-else statement, `c` is always set to either `1` or `2`. 
 
 It is not possible to attain 100% branch coverage as target 3 is unreachable. The following test suite covers the other branches:
 
-- $$TC_1$$: `<3, 2, 1>` (target 1)
-- $$TC_2$$: `<1, 2, 1>` (target 2)
-- $$TC_3$$: `<1, 42, 1>` (target 4)
+- {{<latex i="TC_1" />}}: `<3, 2, 1>` (target 1)
+- {{<latex i="TC_2" />}}: `<1, 2, 1>` (target 2)
+- {{<latex i="TC_3" />}}: `<1, 42, 1>` (target 4)
 
 This could be done with 2 test cases, but then you are combining 2 targets into one test.
 
@@ -70,16 +71,16 @@ else do Y;
 > Construct a test suite that gives 100% condition coverage; 100% branch coverage; 100% MC/DC.
 
 **Test Suite**:
- - $$TC_1$$: `TTT`
- - $$TC_2$$: `TTF`
- - $$TC_3$$: `TFF`
- - $$TC_4$$: `FFF`
- - $$TC_5$$: `FFT`
- - $$TC_6$$: `FTT`
- - $$TC_7$$: `FTF`
- - $$TC_8$$: `TFT`
+ - {{<latex i="TC_1" />}}: `TTT`
+ - {{<latex i="TC_2" />}}: `TTF`
+ - {{<latex i="TC_3" />}}: `TFF`
+ - {{<latex i="TC_4" />}}: `FFF`
+ - {{<latex i="TC_5" />}}: `FFT`
+ - {{<latex i="TC_6" />}}: `FTT`
+ - {{<latex i="TC_7" />}}: `FTF`
+ - {{<latex i="TC_8" />}}: `TFT`
 
-$$(a && b) || c$$
+$(a \\&\\& b) || c$
 
 ```
 a:
@@ -96,11 +97,9 @@ c:
 
 >3. Calculate the McCabe Number (cyclomatic complexity) for the following graphs:
 
-- a). $$e - n + c = 1 - 2 + 2 = 1$$
-- b). $$e - n + c = 4 - 4 + 2 = 2$$
-- c). $$e - n + c = 2 - 4 + 2 = 0$$
-- d). $$e - n + 2 = 15 - 13 + 2 = 4$$
+- a). {{<latex i="e - n + c = 1 - 2 + 2 = 1" />}}
+- b). {{<latex i="e - n + c = 4 - 4 + 2 = 2" />}}
+- c). {{<latex i="e - n + c = 2 - 4 + 2 = 0" />}}
+- d). {{<latex i="e - n + 2 = 15 - 13 + 2 = 4" />}}
 
 a, b, c) are control flow graphs, whereas d is an arbitrary graph.
-
- <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
