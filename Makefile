@@ -1,6 +1,13 @@
 AWS_DEFAULT_REGION ?= eu-west-1
 
-build: 
+sass:
+	docker run --rm \
+	--volume ${CURDIR}/vjpatel:/app \
+	--workdir /app \
+	node:13 \
+	/bin/sh -c "npm install && npm run scss"
+
+build: sass
 	docker run --rm \
 	--volume ${CURDIR}/vjpatel:/app \
 	--workdir /app \

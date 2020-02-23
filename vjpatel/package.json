@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "scss": "node-sass ./scss/vjpatel.scss -o static/css --output-style compressed",
+    "scss": "node-sass ./scss -o static/css --output-style compressed",
     "scss:watch": "node-sass ./scss -w -o static/css --output-style compressed"
   },
   "author": "",
