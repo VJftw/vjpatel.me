@@ -3,15 +3,15 @@ title = "VJ Patel"
 languageCode = "en-gb"
 
 [params]
-    email_address = "vj@vjpatel.me"
-    location = "London"
-    github_username = "VJftw"
-    twitter_username = "VJftw"
-    linkedin_url = "https://uk.linkedin.com/pub/vj-patel/6b/648/109"
+  email_address = "vj@vjpatel.me"
+  location = "London"
+  github_username = "VJftw"
+  twitter_username = "VJftw"
+  linkedin_url = "https://uk.linkedin.com/pub/vj-patel/6b/648/109"
 
 [params.meta]
-    description = ""
-    keywords = ""
+  description = ""
+  keywords = ""
 
 [markup]
   defaultMarkdownHandler = "goldmark"

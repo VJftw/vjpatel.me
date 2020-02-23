@@ -1,6 +1,47 @@
 // vj-patel.js
 jQuery(function () {
+  googleAnalytics()
 
+  $('table').addClass('table table-striped'); // Fix Bootstrap tables for Hugo...
+
+  projectsTrelloFeatures()
+  lastFMTracks()
+  travisLastBuild()
+});
+
+loadStyle();
+
+function toggleStyle() {
+  let links = document.getElementsByTagName("link")
+  let oldStyleLink = links.item(links.length - 1);
+
+  let currentStyle = sessionStorage.getItem("sessionStyle")
+  if (currentStyle == "main.css") {
+    sessionStorage.setItem("sessionStyle", "dark.css")
+  } else {
+    sessionStorage.setItem("sessionStyle", "main.css")
+  }
+  let head = document.getElementsByTagName("head").item(0);
+  head.removeChild(oldStyleLink);
+
+  loadStyle()
+}
+
+function loadStyle() {
+  let sessionStyle = sessionStorage.getItem("sessionStyle")
+  if (sessionStyle == null) {
+    sessionStorage.setItem("sessionStyle", "main.css")
+    loadStyle()
+  }
+
+  var newlink = document.createElement("link");
+  newlink.setAttribute("rel", "stylesheet");
+  newlink.setAttribute("type", "text/css");
+  newlink.setAttribute("href", "/css/" + sessionStyle);
+  document.getElementsByTagName("head").item(0).appendChild(newlink);
+}
+
+function googleAnalytics() {
   // Google analytics
   (function (i, s, o, g, r, a, m) {
     i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
@@ -12,13 +53,9 @@ jQuery(function () {
   ga('create', 'UA-97913793-1', 'auto');
   ga('send', 'pageview');
 
+}
 
-  // init hljs
-  hljs.initHighlightingOnLoad();
-
-  $('table').addClass('table table-striped'); // Fix Bootstrap tables for Hugo...
-
-  // Projects
+function projectsTrelloFeatures() {
   if (jQuery('.trello-features').length) {
 
     jQuery.getScript("https://api.trello.com/1/client.js?key=4b1c19d05b3ada3ae1fbade211cbdb3b").done(function (script, textStatus) {
@@ -61,8 +98,9 @@ jQuery(function () {
       });
     });
   }
+}
 
-  // Last.fm tracks
+function lastFMTracks() {
   if (jQuery('.lastfm-track').length) {
 
     function updateLastFM() {
@@ -87,8 +125,9 @@ jQuery(function () {
     updateLastFM();
     setInterval(updateLastFM, 60 * 1000);
   }
+}
 
-  // Travis last build
+function travisLastBuild() {
   if (jQuery('.travis-repo').length) {
     function setLastBuild(latestJob) {
       if (latestJob) {
@@ -150,5 +189,4 @@ jQuery(function () {
     updateBuildStatus();
     setInterval(updateBuildStatus, 120 * 1000);
   }
-
-});
+}

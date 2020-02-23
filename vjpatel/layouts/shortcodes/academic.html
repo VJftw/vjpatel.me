@@ -1,0 +1,29 @@
+<h4 style="margin-bottom:1em;">Academic</h4>
+{{ range sort $.Site.Data.academic "years" "desc" }}
+<h5>{{ .years }} - {{ .title }} at <a href="{{ .institution_url }}">{{ .institution }}</a> <small>({{ .grade }})</small>
+</h5>
+
+<ul>
+  {{ if isset . "dissertation" }}
+  <li>Dissertation titled <em>"{{ if isset . "dissertation_url" }}<a
+        href="{{ .dissertation_url }}">{{ .dissertation }}</a>{{ else }}{{ .dissertation }}{{ end }}"</em></li>
+  {{ end }}
+  {{ range .accolades }}
+  <li>{{ . }}</li>
+  {{ end }}
+</ul>
+
+{{ $finalYearModule := index (sort .modules "year" "desc") 0}}
+{{ $finalYearModules := where .modules "year" $finalYearModule.year }}
+
+<div class="container">
+  <p>
+    <small>C-score: {{ math.Round .mark }}%.
+      {{ range $i, $e := first 5 (sort $finalYearModules "mark" "desc") }}{{ if $i }}, {{ end }}
+      {{if isset $e "asset_url" }}<a href="{{ $e.asset_url }}">{{ $e.name }}
+        ({{ math.Round $e.mark }}%)</a>{{ else }}{{ $e.name }} ({{ math.Round $e.mark }}%){{ end }}{{ end }}
+    </small>
+  </p>
+</div>
+
+{{ end }}

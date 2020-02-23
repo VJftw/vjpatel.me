@@ -448,7 +448,7 @@ We use *Analysis* to exhaustively check properties that are difficult to test e.
 
  e.g.
 
-```
+```java
 public int kcl(in x, int y)
 {
   int a; // def x, y

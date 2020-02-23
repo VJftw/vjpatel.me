@@ -1,0 +1,170 @@
+title = "BSc Computer Science with Industrial Experience"
+years = "2012/16"
+institution = "Queen Mary, University of London"
+institution_url = "https://www.qmul.ac.uk"
+grade = "First Class Honours"
+mark = 75.14
+dissertation = "Implementations of Homomorphic Encryption"
+dissertation_url = "/blog/implementations-of-homomorphic-encryption/"
+
+[[modules]]
+year = 3
+code = "ECS608U"
+credits = 15
+name = "Distributed Systems and Security"
+mark = 66.6
+
+[[modules]]
+year = 3
+code = "ECS613U"
+credits = 15
+name = "Advanced Database Systems and Technology"
+mark = 70.4
+
+[[modules]]
+year = 3
+code = "ECS631U"
+credits = 15
+name = "Computability"
+mark = 82
+
+[[modules]]
+year = 3
+code = "ECS634U"
+credits = 15
+name = "Algorithms and Complexity"
+mark = 73.2
+
+[[modules]]
+year = 3
+code = "ECS635U"
+credits = 30
+name = "Project - Implementations of Homomorphic Encryption"
+mark = 81.9
+asset_url = "/projects/homomorphic-encryption/"
+
+[[modules]]
+year = 3
+code = "ECS639U"
+credits = 15
+name = "Web Programming"
+mark = 79.8
+
+[[modules]]
+year = 3
+code = "ECS642U"
+credits = 15
+name = "Embedded Systems"
+mark = 83.4
+
+[[modules]]
+year = 2
+code = "ECS550U"
+credits = 30
+name = "Industrial Placement Project"
+mark = 77
+
+[[modules]]
+year = 2
+code = "ECS524U"
+credits = 15
+name = "Internet Protocols and Applications"
+mark = 67.4
+
+[[modules]]
+year = 2
+code = "ECS524U"
+credits = 15
+name = "Graphical User Interfaces"
+mark = 66.4
+
+[[modules]]
+year = 2
+code = "ECS519U"
+credits = 15
+name = "Database Systems"
+mark = 64.6
+
+[[modules]]
+year = 2
+code = "ECS510U"
+credits = 15
+name = "Algorithms and Data Structures in an Object-Oriented Framework"
+mark = 66.0
+
+[[modules]]
+year = 2
+code = "ECS509U"
+credits = 15
+name = "Probability and Matrices"
+mark = 59.3
+
+[[modules]]
+year = 2
+code = "ECS509U"
+credits = 15
+name = "Software Engineering Project"
+mark = 94.0
+
+[[modules]]
+year = 2
+code = "ECS505U"
+credits = 15
+name = "Software Engineering"
+mark = 73.4
+
+[[modules]]
+year = 1
+code = "4COM0046"
+credits = 15
+name = "Programming Principles"
+mark = 97
+
+[[modules]]
+year = 1
+code = "4COM0047"
+credits = 15
+name = "E-Media Design"
+mark = 88
+
+[[modules]]
+year = 1
+code = "4COM0049"
+credits = 15
+name = "Programming and Program Design 1"
+mark = 91
+
+[[modules]]
+year = 1
+code = "4COM0052"
+credits = 15
+name = "Internet Technologies"
+mark = 89
+
+[[modules]]
+year = 1
+code = "4COM0055"
+credits = 15
+name = "Systems Requirements"
+mark = 83
+
+[[modules]]
+year = 1
+code = "4COM0072"
+credits = 15
+name = "Principles of Network Systems"
+mark = 77
+
+[[modules]]
+year = 1
+code = "4COM1001"
+credits = 15
+name = "Foundations of Computation"
+mark = 93
+
+[[modules]]
+year = 1
+code = "4COM1001"
+credits = 15
+name = "Data Driven Systems"
+mark = 87

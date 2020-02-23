@@ -1,0 +1,17 @@
+{
+  "name": "vjpatel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass ./scss/vjpatel.scss -o static/css --output-style compressed",
+    "scss:watch": "node-sass ./scss -w -o static/css --output-style compressed"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "node-sass": "^4.13.1"
+  }
+}

@@ -1,0 +1,75 @@
+title = "MSc Computing and Security"
+years = "2016/17"
+institution = "King's College London"
+institution_url = "https://www.kcl.ac.uk"
+grade = "Pass with Distinction"
+mark = 73
+dissertation = "Collective Privacy Management in Social Media"
+accolades = [
+  "Awarded the prize for the best overall performance on the MSc in Computing and Security."
+]
+
+[[modules]]
+year = 1
+code = "7CCSMASE"
+name = "Advanced Software Engineering"
+mark = 60
+credits = 15
+
+[[modules]]
+year = 1
+code = "7CCSMCFC"
+name = "Computer Forensics and Cybercrime"
+mark = 53
+credits = 15
+
+[[modules]]
+year = 1
+code = "7CCSMCIS"
+name = "Cryptography and Information Security"
+mark = 80
+credits = 15
+
+[[modules]]
+year = 1
+code = "7CCSMGPR"
+name = "Group Project - Chit Chat"
+asset_url = "/projects/chit-chat/"
+mark = 85
+credits = 15
+
+[[modules]]
+year = 1
+code = "7CCSMNSE"
+name = "Network Security"
+mark = 69
+credits = 15
+
+[[modules]]
+year = 1
+code = "7CCSMPRJ"
+name = "MSc Individual Project - Collective Privacy Management in Social Media"
+asset_url = "/projects/privacy-negotiator/"
+mark = 74
+credits = 60
+
+[[modules]]
+year = 1
+code = "7CCSMSEN"
+name = "Security Engineering"
+mark = 92
+credits = 15
+
+[[modules]]
+year = 1
+code = "7CCSMSIA"
+name = "Software Engineering of Internet Applications"
+mark = 68
+credits = 15
+
+[[modules]]
+year = 1
+code = "7CCSMWIN"
+name = "Web Infrastructure"
+mark = 69
+credits = 15
