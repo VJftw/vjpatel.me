@@ -1,6 +1,6 @@
 AWS_DEFAULT_REGION ?= eu-west-1
 
-sass:
+build:
 	docker run --rm \
 	--volume ${CURDIR}/vjpatel:/app \
 	--workdir /app \
