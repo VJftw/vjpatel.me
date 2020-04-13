@@ -9,22 +9,26 @@
     </div>
 
     {{ range .Data.Pages.GroupByParam "course" }}
-    <div class="card">
-        <h2 class="card-header">{{ .Key }}</h2>
-        {{ range .Pages.GroupByParam "module" }}
-        <div class="card">
-            <h5 class="card-header"><a data-toggle="collapse" href="#collapse{{ sha1 .Key}}" role="button"
-                    aria-expanded="false" aria-controls="collapse{{ sha1 .Key}}">
-                    {{ .Key }}
-                </a></h5>
-            <div class="collapse" id="collapse{{ sha1 .Key}}">
-                <ul class="list-group list-group-flush">
-                    {{ range .Pages.ByDate }}<li class="list-group-item"><a class="project-link"
-                            href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}
-                </ul>
+    <div class="row">
+        <div class="col-12" style="margin-bottom:1em;">
+            <div class="card">
+                <h2 class="card-header">{{ .Key }}</h2>
+                {{ range .Pages.GroupByParam "module" }}
+                <div class="card">
+                    <h5 class="card-header"><a data-toggle="collapse" href="#collapse{{ sha1 .Key}}" role="button"
+                            aria-expanded="false" aria-controls="collapse{{ sha1 .Key}}">
+                            {{ .Key }}
+                        </a></h5>
+                    <div class="collapse" id="collapse{{ sha1 .Key}}">
+                        <ul class="list-group list-group-flush">
+                            {{ range .Pages.ByDate }}<li class="list-group-item"><a class="project-link"
+                                    href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}
+                        </ul>
+                    </div>
+                </div>
+                {{ end }}
             </div>
         </div>
-        {{ end }}
     </div>
     {{ end }}
 </div>
