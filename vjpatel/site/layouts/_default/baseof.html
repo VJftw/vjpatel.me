@@ -12,21 +12,19 @@
 
     {{ $stylesheet := .Site.Data.webpack.main }}
     {{ with $stylesheet.css }}
-    <!-- <link href="{{ relURL . }}" rel="stylesheet"> -->
-    <link rel="preload" href="{{ relURL . }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    {{ end }}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var link = document.createElement("link");
+            link.href = "{{ relURL . }}"
+            link.type = "text/css"
+            link.rel = "stylesheet"
 
-    {{ $stylesheet := .Site.Data.webpack.deferred }}
-    {{ with $stylesheet.css }}
-    <link rel="preload" href="{{ relURL . }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+            document.getElementsByTagName("head")[0].appendChild(link);
+        })
+    </script>
     {{ end }}
-
 
     {{ $script := .Site.Data.webpack.main }}
-    {{ with $script.js }}
-    <script src="{{ relURL . }}" defer async></script>
-    {{ end }}
-    {{ $script := .Site.Data.webpack.deferred }}
     {{ with $script.js }}
     <script src="{{ relURL . }}" defer async></script>
     {{ end }}

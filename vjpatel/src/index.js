@@ -42,6 +42,63 @@ function bulmaNav() {
   }
 }
 
+// Font Awesome 5
+import { library, dom } from "@fortawesome/fontawesome-svg-core";
+
+import {
+  faCheck,
+  faMapMarker,
+  faLock,
+  faCogs,
+  faCloud,
+  faMusic,
+  faRocket,
+  faTv,
+  faEnvelope,
+  faGlobe,
+} from "@fortawesome/free-solid-svg-icons";
+
+import {
+  faGithub,
+  faLinkedin,
+  faTwitter
+} from "@fortawesome/free-brands-svg-icons";
+
+function fontAwesome5() {
+  // brands
+  library.add(
+    faGithub,
+    faLinkedin,
+    faTwitter,
+  );
+  // solids
+  library.add(
+    faCheck,
+    faMapMarker,
+    faLock,
+    faCogs,
+    faCloud,
+    faMusic,
+    faRocket,
+    faTv,
+    faEnvelope,
+    faGlobe,
+  );
+  dom.watch();
+}
+fontAwesome5();
+
+
+// Turbolinks
+var Turbolinks = require("turbolinks");
+Turbolinks.start();
+Turbolinks.setProgressBarDelay(1);
+
+document.addEventListener("turbolinks:load", function () {
+  bulmaNav();
+  fontAwesome5();
+});
+
 // function lastFMTracks() {
 //   if (jQuery('.lastfm-track').length) {
 
