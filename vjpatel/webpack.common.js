@@ -3,11 +3,15 @@ const path = require("path");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const AssetsPlugin = require("assets-webpack-plugin");
-
+const PurgecssPlugin = require('purgecss-webpack-plugin');
+const glob = require('glob');
+const PATHS = {
+  src: path.join(__dirname, 'site/layouts')
+}
+console.log(glob.sync(`${PATHS.src}/**/*.html`, { nodir: true }));
 module.exports = {
   entry: {
     main: path.join(__dirname, "src", "index.js"),
-    deferred: path.join(__dirname, "src", "deferred.js"),
   },
 
   output: {
@@ -71,5 +75,11 @@ module.exports = {
         flatten: true
       }
     ]),
+
+    new PurgecssPlugin({
+      paths: () => glob.sync(`${PATHS.src}/**/*.html`, { nodir: true }),
+      // fontFace: true,
+      // rejected: true,
+    }),
   ]
 };
