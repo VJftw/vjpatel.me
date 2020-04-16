@@ -78,8 +78,9 @@ module.exports = {
 
     new PurgecssPlugin({
       paths: () => glob.sync(`${PATHS.src}/**/*.html`, { nodir: true }),
-      // fontFace: true,
-      // rejected: true,
+      fontFace: true,
+      rejected: true,
+      whitelistPatterns: [/is-active$/],
     }),
   ]
 };
