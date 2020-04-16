@@ -6,7 +6,8 @@ const AssetsPlugin = require("assets-webpack-plugin");
 
 module.exports = {
   entry: {
-    main: path.join(__dirname, "src", "index.js")
+    main: path.join(__dirname, "src", "index.js"),
+    deferred: path.join(__dirname, "src", "deferred.js"),
   },
 
   output: {

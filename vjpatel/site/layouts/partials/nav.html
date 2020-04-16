@@ -1,21 +1,24 @@
-<!-- <nav class="navbar navbar-expand-md navbar-light bg-light"> -->
-<!-- <nav class="navbar navbar-expand-md navbar-dark bg-primary"> -->
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="/">{{ .Site.Title }}</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+<nav class="navbar" role="navigation" aria-label="main navigation" data-turbolinks-permanent>
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">{{ .Site.Title }}</a>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                {{ $currentPage := . }}
-                {{ range sort .Site.Menus.main "Weight" "desc" }}
-                <li class="nav-item {{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}">
-                    <a class="nav-link" href="{{ .URL }}">{{.Title}}</a></li>
-                {{ end }}
-            </ul>
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="mainNavBar">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div id="mainNavBar" class="navbar-menu">
+        <div class="navbar-start">
+        </div>
+
+        <div class="navbar-end">
+            {{ $currentPage := . }}
+            {{ range sort .Site.Menus.main "Weight" "desc" }}
+            {{ $active := or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}
+            <a class="navbar-item{{ if $active }} has-text-primary{{ end }}" href="{{ .URL }}">{{.Title}}</a>
+            {{ end }}
         </div>
     </div>
 </nav>

@@ -703,12 +703,12 @@ IPsec is an IETF standard covering protocols for a variety of standards:
 
 | Security                             | AH                                             | ESP                                            | ESP + AH                                       |
 | ------------------------------------ | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Access Control                       | <i class="fa fa-check" aria-hidden="true"></i> | <i class="fa fa-check" aria-hidden="true"></i> | <i class="fa fa-check" aria-hidden="true"></i> |
-| Connectionless Integrity             | <i class="fa fa-check" aria-hidden="true"></i> |                                                | <i class="fa fa-check" aria-hidden="true"></i> |
-| Data origin authentication           | <i class="fa fa-check" aria-hidden="true"></i> |                                                | <i class="fa fa-check" aria-hidden="true"></i> |
-| Rejection of replayed packets        |                                                | <i class="fa fa-check" aria-hidden="true"></i> | <i class="fa fa-check" aria-hidden="true"></i> |
-| Confidentiality                      |                                                | <i class="fa fa-check" aria-hidden="true"></i> | <i class="fa fa-check" aria-hidden="true"></i> |
-| Limited traffic flow confidentiality |                                                | <i class="fa fa-check" aria-hidden="true"></i> | <i class="fa fa-check" aria-hidden="true"></i> |
+| Access Control                       | <i class="fas fa-check" aria-hidden="true"></i> | <i class="fas fa-check" aria-hidden="true"></i> | <i class="fas fa-check" aria-hidden="true"></i> |
+| Connectionless Integrity             | <i class="fas fa-check" aria-hidden="true"></i> |                                                | <i class="fas fa-check" aria-hidden="true"></i> |
+| Data origin authentication           | <i class="fas fa-check" aria-hidden="true"></i> |                                                | <i class="fas fa-check" aria-hidden="true"></i> |
+| Rejection of replayed packets        |                                                | <i class="fas fa-check" aria-hidden="true"></i> | <i class="fas fa-check" aria-hidden="true"></i> |
+| Confidentiality                      |                                                | <i class="fas fa-check" aria-hidden="true"></i> | <i class="fas fa-check" aria-hidden="true"></i> |
+| Limited traffic flow confidentiality |                                                | <i class="fas fa-check" aria-hidden="true"></i> | <i class="fas fa-check" aria-hidden="true"></i> |
 
 
 #### Security Policy

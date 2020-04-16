@@ -1,14 +1,17 @@
 {{ define "main" }}
-<div class="container">
-  <div class="row" style="margin-bottom:4em;">
-    <div class="col text-center">
-      <h1>{{ .Title }}</h1>
+<section class="section">
+  <div class="container has-text-centered">
+    <h1 class="title">{{ .Title }}</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="columns">
+    <div class="column is-full">
+      <div class="container">
+        {{ .Content }}
+      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col">
-      {{ .Content }}
-    </div>
-  </div>
-</div>
+</section>
 {{ end }}

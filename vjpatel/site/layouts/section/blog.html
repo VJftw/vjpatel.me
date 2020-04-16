@@ -1,42 +1,50 @@
-{{ define "title" }}VJ | Blog{{ end }} {{ define "main" }}
+{{ define "title" }}VJ | Blog{{ end }}
 
-<div class="container">
-    <div class="row" style="margin-bottom:4em;">
-        <div class="col text-center">
-            <h1>Blog</h1>
-        </div>
+{{ define "main" }}
+
+<section class="section">
+    <div class="container has-text-centered">
+        <h1 class="title">{{ .Title }}</h1>
     </div>
+</section>
 
-    {{ $pagesLen := len .Data.Pages }} {{ range $i, $page := .Data.Pages.ByDate.Reverse }}
-    <div class="row">
-        <div class="col">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h4>
-                                <a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a>
-                            </h4>
+<section class="section">
+    {{ range $i, $page := .Data.Pages.ByDate.Reverse }}
+    <div class="columns">
+        <div class="column is-12">
+            <a href="{{ $page.RelPermalink }}" class="box">
+                <div class="level">
+                    <div class="level-left">
+                        <div class="level-item">
+                            <h4 class="title is-5">{{ $page.Title }}</h4>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <p>{{ $page.Params.summary }}</p>
+                    <div class="level-right">
+                        <div class="level-item">
+                            <div class="tags">
+                                {{ range $i, $category := $page.Params.tags }}
+                                <span class="tag">{{ $category }}</span>
+                                {{ end }}
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-8">
-
-                        </div>
-                        <div class="col-md-4">
-                            <small class="text-right pull-right">{{ $page.Date.Format "2 Jan, 2006" }}</small>
+                        <div class="level-item">
+                            <p>{{ $page.Date.Format "2 Jan, 2006" }}</p>
                         </div>
                     </div>
                 </div>
-            </div>
+                <div class="columns">
+                    <div class="column is-full">
+                        <div class="container">
+                            <div class="content">
+                                <p class="has-text-weight-light">{{ $page.Params.summary }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
         </div>
     </div>
     {{ end }}
+</section>
 
-</div>
 {{ end }}

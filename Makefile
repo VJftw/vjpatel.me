@@ -14,5 +14,6 @@ deploy:
 	--env AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} \
 	--env AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY} \
 	--env AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION} \
-	anigeo/awscli:latest \
-	s3 cp dist/. s3://vjpatel.me --acl public-read --recursive --cache-control max-age=120
+	--entrypoint="" \
+	amazon/aws-cli:latest \
+	scripts/deploy.sh

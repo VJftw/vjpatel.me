@@ -1,61 +1,45 @@
 {{ define "title" }}VJ | Projects > {{ .Title }}{{ end }}
 {{ define "main" }}
-<div class="container">
-	<div class="row">
-		<div class="col-md-12">
-			<h1>{{ .Title }}</h1>
+
+<section class="section">
+	<div class="columns">
+		<div class="column is-12">
+			<h1 class="title">{{ .Title }}</h1>
 		</div>
-		<div class="col-md-12">
-			<ul class="list list-inline">
+	</div>
+	<div class="columns">
+		<div class="column is-12">
+			<ul>
 				{{ if .Params.github_address }}
-				<li class="list-inline-item">
+				<li class="is-inline">
 					<a target="_blank" href="{{ .Params.github_address }}">
-						<i class="fa fa-github"></i>
+						<i class="fab fa-github"></i>
 					</a>
 				</li>
 				{{end}}
 				{{ if .Params.website }}
-				<li class="list-inline-item">
+				<li class="is-inline">
 					<a target="_blank" href="{{ .Params.website }}">
-						<i class="fa fa-globe"></i>
+						<i class="fas fa-globe"></i>
 					</a>
 				</li>
 				{{end}}
 			</ul>
-
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-md-12">
-			<p class="lead">{{ .Description }}</p>
+	<div class="columns">
+		<div class="column is-12">
+			<h2 class="subtitle">{{ .Description }}</h2>
 		</div>
 	</div>
-
 	<hr />
-
-	<div class="row">
-		{{ if .Params.trello_board_id }}
-		<div class="col-md-6">
-			<p>{{ .Content }}</p>
-		</div>
-		<div class="col-md-6">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-title">Feature progress</h3>
-				</div>
-				<table class="table trello-features" board="{{ .Params.trello_board_id }}">
-					<tr>
-						<td><i class="fa fa-spin fa-refresh"></i></td>
-					</tr>
-				</table>
+	<div class="columns">
+		<div class="column is-12">
+			<div class="content">
+				<p>{{ .Content }}</p>
 			</div>
 		</div>
-		{{ else }}
-		<div class="col-md-12">
-			<p>{{ .Content }}</p>
-		</div>
-		{{ end }}
 	</div>
-</div>
+</section>
 
 {{ end }}

@@ -1,49 +1,52 @@
 {{ define "title" }}VJ | Projects{{ end }}
 
 {{ define "main" }}
-<div class="container">
-    <div class="row" style="margin-bottom:4em;">
-        <div class="col text-center">
-            <h1>Projects</h1>
-        </div>
-    </div>
 
-    {{ $pagesLen := len .Data.Pages }}
-    {{ range $i, $page := .Data.Pages.ByDate.Reverse }}
-    {{ if modBool $i 2 }} <div class="row row-cols-1 row-cols-md-2"> {{ end }}
-        <div class="col mb-4">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-10">
-                            <h4 class="pull-left">
-                                <a class="project-link" href="{{ $page.RelPermalink }}">{{ $page.Title }}</a>
-                            </h4>
+<section class="section">
+    <div class="container has-text-centered">
+        <h1 class="title">{{ .Title }}</h1>
+    </div>
+</section>
+
+<section class="section">
+    {{ $pagesLen := len .Data.Pages }} {{ range $i, $page := .Data.Pages.ByDate.Reverse }}
+    <div class="columns">
+        <div class="column is-full">
+            <a href="{{ $page.RelPermalink }}" class="box">
+                <div class="level">
+                    <div class="level-left">
+                        <div class="level-item">
+                            <h4 class="title is-5">{{ $page.Title }}</h4>
                         </div>
-                        <div class="col-md-2">
+                    </div>
+                    <div class="level-right">
+                        <div class="level-item">
                             {{ if eq $page.Params.dev_status "in-progress" }}
-                            <span class="pull-right badge badge-primary">In progress</span>
+                            <span class="tag is-primary">In progress</span>
                             {{ else if eq $page.Params.dev_status "concept" }}
-                            <span class="pull-right badge badge-info">Concept</span>
+                            <span class="tag is-info">Concept</span>
                             {{ else if eq $page.Params.dev_status "complete" }}
-                            <span class="pull-right badge badge-success">Complete</span>
+                            <span class="tag is-success">Complete</span>
                             {{ else if eq $page.Params.dev_status "idle" }}
-                            <span class="pull-right badge badge-warning">Idle</span>
+                            <span class="tag is-warning">Idle</span>
                             {{ else if eq $page.Params.dev_status "abandoned" }}
-                            <span class="pull-right badge badge-danger">Abandoned</span>
+                            <span class="tag is-danger">Abandoned</span>
                             {{ end }}
                         </div>
                     </div>
-                    <p>{{ $page.Description }}</p>
                 </div>
-            </div>
+                <div class="columns">
+                    <div class="column is-full">
+                        <div class="container">
+                            <div class="content">
+                                <p class="has-text-weight-light">{{ $page.Description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
         </div>
-        {{ if modBool (add $i 1) 2 }}
     </div>
-    {{ else if eq $pagesLen (add $i 1) }}
-</div>
-{{ end }}
-
-{{ end }}
-</div>
+    {{ end }}
+</section>
 {{ end }}

@@ -15,8 +15,8 @@ module.exports = merge(common, {
   mode: "production",
 
   output: {
-    filename: "[name].[hash:5].js",
-    chunkFilename: "[id].[hash:5].css"
+    filename: "[name].[contenthash].js",
+    chunkFilename: "[id].[contenthash].css"
   },
 
   optimization: {
@@ -27,15 +27,17 @@ module.exports = merge(common, {
         sourceMap: true
       }),
 
+      new PurgecssPlugin({
+        paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
+        whitelistPatterns: [/is-active$/],
+      }),
+
       new MiniCssExtractPlugin({
-        filename: "[name].[hash:5].css",
-        chunkFilename: "[id].[hash:5].css"
+        filename: "[name].[contenthash].css",
+        chunkFilename: "[id].[contenthash].css"
       }),
 
       new OptimizeCSSAssetsPlugin({}),
-      new PurgecssPlugin({
-        paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
-      }),
     ]
   }
 });

@@ -1,18 +1,28 @@
 {{ define "title" }}VJ | Notes > {{ .Title }}{{ end }}
 {{ define "main" }}
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 text-center">
-      <h1>{{ .Params.module }}</h1>
-      <h2>{{ .Title }}</h2>
-      <div class="col-md-12 text-center"><small>{{.Params.course}}</small></div>
+<section class="section">
+  <div class="columns">
+    <div class="column is-12">
+      <h1 class="title">{{ .Params.module }}</h1>
     </div>
   </div>
-  <hr />
-  <div class="row">
-    <div class="col-md-12">
-      <p>{{ .Content }}</p>
+  <div class="columns">
+    <div class="column is-12">
+      <h2 class="subtitle">{{ .Title }}</h2>
     </div>
   </div>
-</div>
+  <div class="columns">
+    <div class="column is-12"><small>{{.Params.course}}</small></div>
+  </div>
+</section>
+<hr />
+<section class="section">
+  <div class="columns">
+    <div class="column is-12">
+      <div class="content">
+        <p>{{ .Content }}</p>
+      </div>
+    </div>
+  </div>
+</section>
 {{ end }}
