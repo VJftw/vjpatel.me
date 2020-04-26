@@ -1,0 +1,48 @@
+{{ define "title" }}VJ | Study{{ end }}
+
+{{ define "main" }}
+
+<section class="section">
+    <div class="container has-text-centered">
+        <h1 class="title">{{ .Title }}</h1>
+    </div>
+</section>
+
+<section class="section">
+    {{ range .Data.Pages.GroupByParam "course" }}
+    <div class="columns">
+        <div class="column is-full">
+            <div class="panel is-primary">
+                <a name="{{ .Key | urlize }}" href="#{{ .Key | urlize }}">
+                    <h4 class="panel-heading">{{ .Key }}</h4>
+                </a>
+                {{ range .Pages.GroupByParam "module" }}
+                <div class="panel-block">
+                    <div class="container">
+                        <div class="panel is-info">
+                            <a name="{{ .Key | urlize }}" href="#{{ .Key | urlize }}">
+                                <h5 class="panel-heading is-size-6">{{.Key}}</h5>
+                            </a>
+                            {{ range .Pages.ByDate }}
+                            <div class="panel-block">
+                                <div class="columns">
+                                    <div class="column is-full">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item"><a class="project-link"
+                                                    href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            {{ end }}
+                        </div>
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+    {{ end }}
+</section>
+
+{{ end }}

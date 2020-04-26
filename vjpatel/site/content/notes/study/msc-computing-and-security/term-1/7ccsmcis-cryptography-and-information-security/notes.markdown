@@ -1,5 +1,5 @@
 +++
-date = "2016-11-07T23:26:19+01:00"
+date = "2016-10-12T23:26:19+01:00"
 course = "MSc Computing and Security"
 module = "7CCSMCIS Cryptography and Information Security"
 title = "Notes"

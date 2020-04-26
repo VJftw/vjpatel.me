@@ -1,4 +1,4 @@
-{{ define "title" }}VJ | Study{{ end }}
+{{ define "title" }}VJ | Notes{{ end }}
 
 {{ define "main" }}
 
@@ -9,37 +9,27 @@
 </section>
 
 <section class="section">
-    {{ range .Data.Pages.GroupByParam "course" }}
+    {{ range $i, $page := .Data.Pages.ByDate.Reverse }}
     <div class="columns">
-        <div class="column is-full">
-            <div class="panel is-primary">
-                <h4 class="panel-heading">{{ .Key }}</h4>
-                {{ range .Pages.GroupByParam "module" }}
-                <div class="panel-block">
-                    <div class="container">
-                        <!-- <div class="columns"> -->
-                        <!-- <div class="column is-full"> -->
-                        <div class="panel is-info">
-                            <h5 class="panel-heading is-size-6">{{.Key}}</h5>
-                            {{ range .Pages.ByDate }}
-                            <div class="panel-block">
-                                <div class="columns">
-                                    <div class="column is-full">
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item"><a class="project-link"
-                                                    href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            {{ end }}
+        <div class="column is-12">
+            <a href="{{ $page.RelPermalink }}" class="box">
+                <div class="level">
+                    <div class="level-left">
+                        <div class="level-item">
+                            <h4 class="title is-5">{{ $page.Title }}</h4>
                         </div>
-                        <!-- </div> -->
-                        <!-- </div> -->
                     </div>
                 </div>
-                {{ end }}
-            </div>
+                <div class="columns">
+                    <div class="column is-full">
+                        <div class="container">
+                            <div class="content">
+                                <p class="has-text-weight-light">{{ $page.Params.summary }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
         </div>
     </div>
     {{ end }}
