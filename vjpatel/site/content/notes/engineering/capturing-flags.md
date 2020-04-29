@@ -9,6 +9,6 @@ title = "Capturing Flags"
 ```
 nmap -F <target>
 ```
-  * If http server `gobuster -w /usr/share/wordlists/dirb/common.txt -u http://<target>`
+  * If http server, find php files `gobuster -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://<target> -x php`
 
 2. Use `searchsploit` to find known exploits.
