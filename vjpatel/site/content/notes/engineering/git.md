@@ -1,6 +1,7 @@
 +++
 date = "2020-05-13T18:26:19+01:00"
 title = "Git"
+Summary = "Git SCM tips and tricks"
 +++
 
 # Committing Partial Changes in a Changed File
