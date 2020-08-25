@@ -6,4 +6,9 @@ description = "Team Fortress 2 on Sundays."
 github_address = "https://github.com/VJftw/tf2-sundays"
 +++
 
-[Join!](steam://connect/tf2.vjpatel.me)
+{{<joinwithsteam tf2.vjpatel.me>}}
+
+This server is running [SourceMod](https://www.sourcemod.net/) such that you should be able to change maps by typing into chat `!sm_votemap`. 
+
+**Notes**:
+ - Bots currently only work on `ctf_2fort` as I haven't generated the navigation meshes for the other maps.

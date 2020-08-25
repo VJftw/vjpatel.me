@@ -61,7 +61,8 @@ import {
 import {
   faGithub,
   faLinkedin,
-  faTwitter
+  faTwitter,
+  faSteam,
 } from "@fortawesome/free-brands-svg-icons";
 
 function fontAwesome5() {
@@ -70,6 +71,7 @@ function fontAwesome5() {
     faGithub,
     faLinkedin,
     faTwitter,
+    faSteam,
   );
   // solids
   library.add(
