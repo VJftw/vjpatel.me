@@ -8,7 +8,9 @@ github_address = "https://github.com/VJftw/tf2-sundays"
 
 {{<joinwithsteam tf2.vjpatel.me>}}
 
-This server is running [SourceMod](https://www.sourcemod.net/) such that you should be able to change maps by typing into chat `!sm_votemap`. 
+This server is running [SourceMod](https://www.sourcemod.net/). 
+
+You can vote to change maps etc. with (`Menu` -> `Call Vote`)
 
 **Notes**:
  - Bots currently only work on `ctf_2fort` as I haven't generated the navigation meshes for the other maps.
