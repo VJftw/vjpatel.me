@@ -1,0 +1,95 @@
+
+def nodejs_toolchain(
+    name: str,
+    version: str,
+    hashes: list = [],
+    visibility: list = [],
+):
+    arch = CONFIG.HOSTARCH
+    if arch == "amd64": 
+        arch="x64"
+    download_rule=remote_file(
+        name=f"_{name}_download",
+        url=f"https://nodejs.org/dist/{version}/node-{version}-{CONFIG.HOSTOS}-{arch}.tar.gz",
+        hashes = hashes,
+        extract = True,
+    )
+
+    install_rule=build_rule(
+        name = f"_{name}_install",
+        srcs = [download_rule],
+        outs = ["nodejs"],
+        cmd = """
+mv $SRCS $OUTS
+chmod +x $OUTS/bin/node
+$OUTS/bin/node $OUTS/lib/node_modules/npm/bin/npm-cli.js install \\
+    -ddd --global \\
+    --prefix=$(pwd) \\
+    npm
+cp -r lib $OUTS/
+cp -r bin $OUTS/
+chmod +x $OUTS/bin/npm
+chmod +x $OUTS/bin/npx
+""",
+    )
+
+    sh_cmd(
+        name = f"{name}_node",
+        shell = "/bin/bash",
+        data = [install_rule],
+        cmd = f"""
+set -euo pipefail
+ROOT=$(pwd | sed 's#/plz-out/.*##g')
+export PATH="\\\$ROOT/$(out_location {install_rule})/bin:$PATH"
+node \\\$@
+        """,
+        visibility = visibility,
+    )
+
+    sh_cmd(
+        name = f"{name}_npm",
+        shell = "/bin/bash",
+        data = [install_rule],
+        cmd = f"""
+set -euo pipefail
+ROOT=$(pwd | sed 's#/plz-out/.*##g')
+export PATH="\\\$ROOT/$(out_location {install_rule})/bin:$PATH"
+npm \\\$@
+        """,
+        visibility = visibility,
+    )
+
+    sh_cmd(
+        name = f"{name}_npx",
+        shell = "/bin/bash",
+        data = [install_rule],
+        cmd = f"""
+set -euo pipefail
+ROOT=$(pwd | sed 's#/plz-out/.*##g')
+export PATH="\\\$ROOT/$(out_location {install_rule})/bin:$PATH"
+npx \\\$@
+        """,
+        visibility = visibility,
+    )
+
+# def npm_script(
+#     name: str,
+#     script: str,
+#     srcs: list = [],
+#     node_modules: str,
+# ):
+#     sh_cmd(
+#         name = name,
+#         srcs = srcs,
+#         data = [node_modules, "//third_party/lang:nodejs", script] + srcs,
+#         cmd = f"""
+# cwd=\\\$(pwd)
+# cd \\\$cwd/$(out_location {node_modules})
+# for src in $SRCS; do 
+#     cp -r \\\$(dirname \\\$cwd/plz-out/gen/\\\$src) .
+# done
+# export NODE_PATH=\\\$cwd/$(out_location {node_modules})/node_modules
+# export PATH="\\\$cwd/$(out_location //third_party/lang:nodejs)/bin:\\\$cwd/$(out_location {node_modules})/node_modules/.bin:$PATH"
+# \\\$cwd/$(out_location //third_party/lang:nodejs)/bin/npm run {script}
+# """,
+#     )

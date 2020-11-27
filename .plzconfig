@@ -1,0 +1,11 @@
+[please]
+Version = 15.8.2
+
+[alias "node"]
+cmd = run //third_party/lang:nodejs_node --
+
+[alias "npm"]
+cmd = run //third_party/lang:nodejs_npm --
+
+[alias "npx"]
+cmd = run //third_party/lang:nodejs_npx --
