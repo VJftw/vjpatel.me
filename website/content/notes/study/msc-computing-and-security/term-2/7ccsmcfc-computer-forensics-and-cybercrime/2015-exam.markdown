@@ -1,0 +1,103 @@
++++
+date = "2017-05-08T00:26:19+01:00"
+course = "MSc Computing and Security"
+module = "7CCSMCFC Computer Forensics and Cybercrime"
+title = "2015 Exam"
++++
+
+## Question 1
+
+### a). Define the term *Geolocation Timeline*. [10 marks]
+
+A geolocational timeline is representation of where a piece of evidence has been moved/traveled. i.e. a locational lifespan of a piece of evidence.
+
+### b). List 5 potential sources of digital evidence that can be used to construct a digital geolocational timeline *for a specific data file*. [15 marks]
+
+* System logs
+* Temporary files
+* Created timestamp meta-data
+* GPS of containing device
+* Pictures of containing device
+
+### c). List 3 potential sources of digital evidence that can be used to construct a digital geolocational timeline for *an individual*. [10 marks]
+
+* GPS
+* CCTV
+* Authentication (ID cards, logging into system)
+
+### d). When analysing the recovered digital timestamp evidence from various digital devices, what factors must be taken into account if potentially misleading results are to be avoided in constructing a geolocational timeline? Your answer should list 4 factors and you should also estimate the possible error associated with each. [15 marks]
+
+N/A: don't think possible error will come up as cannot find in teaching material.
+
+* Time drift
+* Timezones
+* BIOS clock inaccuracy
+
+---
+
+## Question 2
+
+### a). State *Locard's Principle*. [6 marks]
+
+"Every contact leaves a trace."
+
+### b). Does Locard's Principle apply in cyberspace? Justify your answer. [9 marks]
+
+To a certain extent yes, however those "traces" are usually recorded in log files which can be removed, faked and therefore untrusted if a system has been compromised.
+
+### c). 'Freeze and Seize' is a part of every CSI's job; explain under what circumstances freezing a digital crime scene and seizing digital items for subsequent digital forensic investigation may be less straightforward than for a conventional crime scene. [20 marks]
+
+If a computer is found running, it becomes very difficult for a CSI to freeze its state. The computer may be running programs, have connections open to other computers on a WAN, and all of this could be a source of evidence. You may have to perform live forensics if this is the case, but if you are just after the hard disk; the computer must be directly disconnected from the mains instead of gracefully shutting it down. Gracefully shutting it down will, in most OS', perform many other changes to the hard disk and potentially tarnish evidence.
+
+### d). Suppose that you are a member of a digital forensic CSI team, sent to a property to search for and seize digital items suspected of being associated with downloading child pornographic images from the internet. Your information is that the suspect is currently online and is technically sophisticated. List 7 distinct tactics you might consider adopting in order to avoid the suspect erasing the digital evidence you wish to recover before you can seize the devices. [15 marks]
+
+* Fire alarm
+* Kissogram
+* Family/friend emergency phone call
+* Car alarm
+* Power cut
+* Knockout gas through vents
+* Package delivery
+
+---
+
+## Question 3
+
+### a). Define the term *Forensic Readiness* [10 marks]
+
+Forensic readiness is defined as the ability of an organisation to maximise its potential to use digital evidence whilst minimising the costs of an investigation.
+
+### b). List the 10 steps to digital forensic readiness as proposed by Rowlingson. [30 marks]
+
+1. Define the business scenarios that require digital evidence.
+2. Identify available sources and different types of potential evidence.
+3. Determine the evidence collection requirement.
+4. Establish a capability for securely gathering legally admissible evidence to meet the requirement.
+5. Establish a policy for secure storage and handling of potential evidence.
+6. Ensure monitoring is targeted to detect and deter major incidents.
+7. Specify circumstances when escalation to a full formal investigation (which may use the digital evidence) should be launched.
+8. Train staff in incident awareness, so that all those involved understand their role in the digital evidence process and the legal sensitivities of evidence.
+9. Document an evidence-based case describing the incident and its impact.
+10. Ensure legal review to facilitate action in response to the incident.
+
+### c). In your capacity as a digital forensic investigator you are dispatched to a large organisation which has reported that it is has been the target of a hostile data exfiltration attack. Assuming that the organisation in question is compliant with the principles of forensic readiness, list 6 forensically useful artefacts you would expect to recover in order to assist your investigation, and explain how you would confirm that these artefacts had not been tampered with. [10 marks]
+
+---
+
+## Question 4
+
+### a). Outline the 3 principal offences defined by the UK Computer Misuse Act 1990 as modified by the Police & Justice Act 2006. [15 marks]
+
+The Police & Justice Act 2006 modified the 3 offences to be
+
+* doubling the unauthorised access term from 12 months to 2 years.
+* It takes into account further acts that intend to impair operation of computers such as DoS attacks, making the term for those 10 years.
+* Making, supplying or obtaining articles that are used for computer misuse offences is punishable by up to 2 years in prison or a fine or both.
+
+
+### b). Outline the 2 provisions of Investigatory Powers Act 2000 which may assist digital forensic investigators in their investigations. [10 marks]
+
+The Investigatory Powers Act (2000) permitted the acquisition of communications data and decryption keys on production of a warrant authorised by the Home Secretary in order to help forensic investigators find evidence.
+
+
+### c). Behavioural profiling of cybercriminals is a relatively recent development. Explain why it is important, and list 10 online behavioural traits that are typically searched for by digital forensic investigators to identify individual cybercriminals. [25 marks]
