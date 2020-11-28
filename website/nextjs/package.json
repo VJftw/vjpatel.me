@@ -7,24 +7,29 @@
     "start": "next start"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-brands-svg-icons": "^5.15.1",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/react-fontawesome": "^0.1.13",
+    "@zeit/next-css": "^1.0.1",
     "classnames": "2.2.6",
     "date-fns": "2.10.0",
     "gray-matter": "4.0.2",
     "next": "latest",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
-    "remark-parse": "^9.0.0",
-    "remark-rehype": "^7.0.0",
-    "rehype-stringify": "^8.0.0",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
     "rehype-autolink-headings": "^4.0.0",
     "rehype-highlight": "^4.0.0",
     "rehype-mathjax": "^3.0.0",
+    "rehype-stringify": "^8.0.0",
     "remark-gfm": "^1.0.0",
+    "remark-parse": "^9.0.0",
+    "remark-rehype": "^7.0.0",
     "unified": "^9.2.0"
   },
   "devDependencies": {
     "postcss-preset-env": "^6.7.0",
-    "tailwindcss": "^1.4.0"
+    "tailwindcss": "^2.0.0"
   },
   "license": "MIT"
 }

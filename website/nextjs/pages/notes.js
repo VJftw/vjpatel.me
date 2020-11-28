@@ -1,19 +1,19 @@
 import Container from '../components/container'
-import AllProjects from '../components/projects/all-projects'
+import AllNotes from '../components/notes/all-notes'
 import Layout from '../components/layout'
-import { getAllProjects } from '../lib/api/projects'
+import { getAllNotes } from '../lib/api/notes'
 import Head from 'next/head'
 import { SITE_TITLE } from '../lib/constants'
 
-export default function Blog({ allProjects }) {
+export default function Blog({ allNotes }) {
   return (
     <>
       <Layout>
         <Head>
-          <title>Blog | {SITE_TITLE}</title>
+          <title>Notes | {SITE_TITLE}</title>
         </Head>
         <Container>
-          {allProjects.length > 0 && <AllProjects projects={allProjects} />}
+          {allNotes.length > 0 && <AllNotes notes={allNotes} />}
         </Container>
       </Layout>
     </>
@@ -21,13 +21,13 @@ export default function Blog({ allProjects }) {
 }
 
 export async function getStaticProps() {
-  const allProjects = getAllProjects([
+  const allNotes = getAllNotes([
     'title',
     'date',
     'slug',
   ])
 
   return {
-    props: { allProjects },
+    props: { allNotes },
   }
 }

@@ -1,40 +1,40 @@
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import Container from '../../components/container'
-import ProjectBody from '../../components/projects/project-body'
-import ProjectHeader from '../../components/projects/project-header'
+import NoteBody from '../../components/notes/note-body'
+import NoteHeader from '../../components/notes/note-header'
 import Layout from '../../components/layout'
-import { getProjectBySlug, getAllProjects } from '../../lib/api/projects'
-import ProjectTitle from '../../components/projects/project-title'
+import { getNoteBySlug, getAllNotes } from '../../lib/api/notes'
+import NoteTitle from '../../components/notes/note-title'
 import Head from 'next/head'
 import { SITE_TITLE } from '../../lib/constants'
 import markdownToHtml from '../../lib/markdownToHtml'
 
-export default function Project({ project, preview }) {
+export default function Note({ note, preview }) {
   const router = useRouter()
-  if (!router.isFallback && !project?.slug) {
+  if (!router.isFallback && !note?.slug) {
     return <ErrorPage statusCode={404} />
   }
   return (
     <Layout preview={preview}>
       <Container>
         {router.isFallback ? (
-          <ProjectTitle>Loading…</ProjectTitle>
+          <NoteTitle>Loading…</NoteTitle>
         ) : (
           <>
             <article className="mb-32">
               <Head>
                 <title>
-                  {project.title} | {SITE_TITLE}
+                  {note.title} | {SITE_TITLE}
                 </title>
               </Head>
-              <ProjectHeader
-                title={project.title}
-                coverImage={project.coverImage}
-                date={project.date}
-                author={project.author}
+              <NoteHeader
+                title={note.title}
+                coverImage={note.coverImage}
+                date={note.date}
+                author={note.author}
               />
-              <ProjectBody content={project.content} />
+              <NoteBody content={note.content} />
             </article>
           </>
         )}
@@ -44,18 +44,18 @@ export default function Project({ project, preview }) {
 }
 
 export async function getStaticProps({ params }) {
-  const project = getProjectBySlug(params.slug, [
+  const note = getNoteBySlug(params.slug, [
     'title',
     'date',
     'slug',
     'content',
   ])
-  const content = await markdownToHtml(project.content || '')
+  const content = await markdownToHtml(note.content || '')
 
   return {
     props: {
-      project: {
-        ...project,
+      note: {
+        ...note,
         content,
       },
     },
@@ -63,13 +63,13 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const projects = getAllProjects(['slug'])
+  const notes = getAllNotes(['slug'])
 
   return {
-    paths: projects.map((project) => {
+    paths: notes.map((note) => {
       return {
         params: {
-          slug: project.slug,
+          slug: note.slug,
         },
       }
     }),

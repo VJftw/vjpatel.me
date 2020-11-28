@@ -1,16 +1,17 @@
-import Footer from '../components/footer'
-import Meta from '../components/meta'
+import Footer from './footer'
+import Meta from './meta'
+import Navbar from './nav'
 
 
 export default function Layout({ children }) {
   return (
     <>
       <Meta />
-      <div className="min-h-screen">
-      {/* <Navbar /> */}
-        <main>{children}</main>
+      <div className="min-h-screen flex flex-col">
+        <Navbar />
+          <main className="my-10 flex-grow">{children}</main>
+        <Footer />
       </div>
-      <Footer />
     </>
   )
 }

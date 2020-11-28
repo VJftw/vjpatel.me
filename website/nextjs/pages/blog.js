@@ -1,6 +1,5 @@
 import Container from '../components/container'
 import AllPosts from '../components/blog/all-posts'
-import Intro from '../components/intro'
 import Layout from '../components/layout'
 import { getAllPosts } from '../lib/api/blog'
 import Head from 'next/head'
@@ -14,7 +13,6 @@ export default function Blog({ allPosts }) {
           <title>Blog | {SITE_TITLE}</title>
         </Head>
         <Container>
-          <Intro />
           {allPosts.length > 0 && <AllPosts posts={allPosts} />}
         </Container>
       </Layout>

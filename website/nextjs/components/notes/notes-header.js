@@ -1,6 +1,4 @@
-import Avatar from '../util/avatar'
-import DateFormatter from '../util/date-formatter'
-import ProjectTitle from './project-title'
+import ProjectTitle from './notes-title'
 
 export default function ProjectHeader({ title, date, author }) {
   return (

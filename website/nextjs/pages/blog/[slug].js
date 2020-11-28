@@ -2,7 +2,6 @@ import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import Container from '../../components/container'
 import PostBody from '../../components/blog/post-body'
-import Header from '../../components/header'
 import PostHeader from '../../components/blog/post-header'
 import Layout from '../../components/layout'
 import { getPostBySlug, getAllPosts } from '../../lib/api/blog'
@@ -19,17 +18,12 @@ export default function Post({ post, morePosts, preview }) {
   return (
     <Layout preview={preview}>
       <Container>
-        <Header />
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
           <>
             <article className="mb-32">
-              <Head>
-                <title>
-                  {post.title} | {SITE_TITLE}
-                </title>
-              </Head>
+              <Head><title>{post.title} | {SITE_TITLE}</title></Head>
               <PostHeader
                 title={post.title}
                 coverImage={post.coverImage}

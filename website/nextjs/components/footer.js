@@ -1,25 +1,45 @@
 import Container from './container'
-// import { EXAMPLE_PATH } from '../lib/constants'
+import { faGithub, faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faEnvelope, faMapMarker } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Author } from '../lib/constants'
 
 export default function Footer() {
   return (
-    <footer className="bg-accent-1 border-t border-accent-2">
+    <footer className="border-t border-accent-4 flex-shrink text-gray-800">
       <Container>
-        {/* <div className="py-28 flex flex-col lg:flex-row items-center">
-          <h3 className="text-4xl lg:text-5xl font-bold tracking-tighter leading-tight text-center lg:text-left mb-10 lg:mb-0 lg:pr-4 lg:w-1/2">
-            Statically Generated with Next.js.
-          </h3>
-          <div className="flex flex-col lg:flex-row justify-center items-center lg:pl-4 lg:w-1/2">
-            <a
-              href="https://nextjs.org/docs/basic-features/pages"
-              className="mx-3 bg-black hover:bg-white hover:text-black border border-black text-white font-bold py-3 px-12 lg:px-8 duration-200 transition-colors mb-6 lg:mb-0"
-            >
-              Read Documentation
-            </a>
-            
-              View on GitHub
+        <div className="my-2 flex-row md:flex-col">
+          <div className="">
+            <ul>
+              <li><strong>{Author.name}</strong></li>
+              <li>
+                <FontAwesomeIcon icon={faEnvelope} className="mr-1" fixedWidth/>
+                <a href={`mailto:${Author.email}`}>{Author.email}</a>
+              </li>
+              <li>
+                <FontAwesomeIcon icon={faMapMarker} className="mr-1" fixedWidth/>
+                {`${Author.location}`}
+              </li>
+            </ul>
+            <ul>
+              <li className="inline">
+                <a target="_blank" href={Author.github}>
+                  <FontAwesomeIcon icon={faGithub} className="mr-1" fixedWidth/>
+                </a>
+              </li>
+              <li className="inline">
+                <a target="_blank" href={Author.twitter}>
+                  <FontAwesomeIcon icon={faTwitter} className="mr-1" fixedWidth/>
+                </a>
+              </li>
+              <li className="inline">
+                <a target="_blank" href={Author.linkedIn}>
+                  <FontAwesomeIcon icon={faLinkedin} className="mr-1" fixedWidth/>
+                </a>
+              </li>
+            </ul>
           </div>
-        </div> */}
+        </div>
       </Container>
     </footer>
   )

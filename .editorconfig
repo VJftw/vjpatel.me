@@ -5,6 +5,6 @@ root = true
 end_of_line = lf
 insert_final_newline = true
 
-[*.{js,sh,yaml,yml,md}]
+[*.{js,sh,yaml,yml,md,css}]
 indent_size = 2
 indent_style = space

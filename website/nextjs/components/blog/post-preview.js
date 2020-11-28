@@ -10,17 +10,16 @@ export default function PostPreview({
   slug,
 }) {
   return (
-    <div>
-      <h3 className="text-3xl mb-3 leading-snug">
-        <Link as={`/blog/${slug}`} href="/blog/[slug]">
-          <a className="hover:underline">{title}</a>
-        </Link>
-      </h3>
-      <div className="text-lg mb-4">
-        <DateFormatter dateString={date} />
-      </div>
-      <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-      <Avatar name={author.name} picture={author.picture} />
-    </div>
+    <Link as={`/blog/${slug}`} href="/blog/[slug]">
+      <a className="shadow m-3 p-2 rounded-sm hover:bg-accent-1 hover:text-current">
+        <h3 className="text-xl mb-2 leading-snug">
+            {title}
+        </h3>
+        <div className="text-sm italic mb-1 text-gray-700 mx-1">
+          <DateFormatter dateString={date} />
+        </div>
+        <p className="text-sm leading-relaxed mb-4 text-gray-700 mx-1">{excerpt}</p>
+      </a>
+    </Link>
   )
 }
