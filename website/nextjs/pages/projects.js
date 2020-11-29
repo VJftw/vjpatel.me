@@ -22,9 +22,12 @@ export default function Blog({ allProjects }) {
 
 export async function getStaticProps() {
   const allProjects = getAllProjects([
-    'title',
     'date',
     'slug',
+    'title',
+    'status',
+    'description',
+    'links',
   ])
 
   return {

@@ -1,9 +1,10 @@
 ---
 date: "2020-02-13T21:17:53+01:00"
 title: "Docker Registry Proxy"
-dev_status: "in-progress"
+status: "active"
 description: "An authenticating Docker Registry proxy with transparent Kubernetes integration."
-github_address: "https://github.com/VJftw/docker-registry-proxy"
+links:
+  githubAddress: "https://github.com/VJftw/docker-registry-proxy"
 ---
 
 This project provides a proxy to a Docker Registry with support for arbitrary authentication. We desire managed private Docker Registries, such as [Google Container Registry (GCR)](https://cloud.google.com/container-registry), [Amazon Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/), [Private Docker Hub](https://docs.docker.com/docker-hub/repos/#private-repositories), [Quay.io](https://quay.io/), etc., as they are much cheaper to set-up, manage and reliably scale. However, authentication and access control options for these are limited.

@@ -9,7 +9,7 @@ export default function Layout({ children }) {
       <Meta />
       <div className="min-h-screen flex flex-col">
         <Navbar />
-          <main className="my-10 flex-grow">{children}</main>
+          <main className="my-10 flex-grow flex flex-col">{children}</main>
         <Footer />
       </div>
     </>

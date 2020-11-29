@@ -1,8 +1,8 @@
-+++
-date = "2020-04-29T18:26:19+01:00"
-title = "Capturing Flags"
-summary = "Notes for CTFs"
-+++
+---
+date: "2020-04-29T18:26:19+01:00"
+title: "Capturing Flags"
+summary: "Notes for CTFs"
+---
 
 # 1. Enumerate for services
 

@@ -7,9 +7,12 @@ export default function AllProjects({ projects }) {
         {projects.map((project) => (
           <ProjectPreview
             key={project.slug}
-            title={project.title}
-            date={project.date}
             slug={project.slug}
+            date={project.date}
+            title={project.title}
+            description={project.description}
+            status={project.status}
+            links={project.links}
           />
         ))}
       </div>

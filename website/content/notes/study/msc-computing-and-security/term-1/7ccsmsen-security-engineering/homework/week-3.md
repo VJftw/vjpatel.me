@@ -1,9 +1,9 @@
-+++
-date = "2016-10-18T23:26:19+01:00"
-course = "MSc Computing and Security"
-module = "7CCSMSEN Security Engineering"
-title = "Homework 3"
-+++
+---
+date: "2016-10-18T23:26:19+01:00"
+course: "MSc Computing and Security"
+module: "7CCSMSEN Security Engineering"
+title: "Homework 3"
+---
 Q1: How does a buffer-overflow attack work? (Hint: What happens on the stack.)
 
 A: An adversary abuses the size/length of allocated memory for an input string. For example, an input of 40 characters could be set to a variable that only has room for 20 characters, resulting in a buffer-overflow where lower addresses are overwritten.

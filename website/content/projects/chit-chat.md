@@ -1,9 +1,10 @@
 ---
 date: "2017-05-13T21:17:53+01:00"
 title: "Chit Chat"
-dev_status: "complete"
+status: "complete"
 description: "Our MSc Group Project at KCL in which we created a secure, distributed chat application with an Elixir backend, Java desktop client and Java Android app."
-github_address: "https://github.com/MonarchsofCoding/chitchat"
+links:
+  githubAddress: "https://github.com/MonarchsofCoding/chitchat"
 ---
 
 For our MSc Group Project, we were tasked to create a secure, distributed chat application with 2 separate client applications.

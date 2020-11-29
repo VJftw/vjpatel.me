@@ -1,9 +1,9 @@
-+++
-date = "2016-11-17T14:25:19+00:00"
-course = "MSc Computing and Security"
-module = "7CCSMSEN Security Engineering"
-title = "Homework 7"
-+++
+---
+date: "2016-11-17T14:25:19+00:00"
+course: "MSc Computing and Security"
+module: "7CCSMSEN Security Engineering"
+title: "Homework 7"
+---
 
 Q1: What are good uses of anonymity services like TOR?
 

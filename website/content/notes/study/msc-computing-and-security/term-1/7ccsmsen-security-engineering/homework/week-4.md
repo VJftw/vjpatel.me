@@ -1,9 +1,9 @@
-+++
-date = "2016-10-18T23:26:19+01:00"
-course = "MSc Computing and Security"
-module = "7CCSMSEN Security Engineering"
-title = "Homework 4"
-+++
+---
+date: "2016-10-18T23:26:19+01:00"
+course: "MSc Computing and Security"
+module: "7CCSMSEN Security Engineering"
+title: "Homework 4"
+---
 Q1: What should the architecture of a network application under Unix be that processes potentially hostile data?
 
 A: The application should split into two parts:

@@ -1,8 +1,8 @@
-+++
-date = "2016-10-13T23:26:19+01:00"
-course = "(ISC)²"
-module = "CCSP (Certified Cloud Security Professional)"
-title = "Exam"
-latex = true
-+++
+---
+date: "2016-10-13T23:26:19+01:00"
+course: "(ISC)²"
+module: "CCSP (Certified Cloud Security Professional)"
+title: "Exam"
+latex: true
+---
 asd

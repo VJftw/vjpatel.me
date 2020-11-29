@@ -1,9 +1,9 @@
-+++
-date = "2017-04-15T00:26:19+01:00"
-course = "MSc Computing and Security"
-module = "7CCSMSIA Software Engineering of Internet Applications"
-title = "Notes"
-+++
+---
+date: "2017-04-15T00:26:19+01:00"
+course: "MSc Computing and Security"
+module: "7CCSMSIA Software Engineering of Internet Applications"
+title: "Notes"
+---
 
 ## Lecture 1 - Why bother?
 

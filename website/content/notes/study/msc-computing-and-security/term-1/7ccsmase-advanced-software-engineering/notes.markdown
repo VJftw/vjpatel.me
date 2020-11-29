@@ -1,10 +1,10 @@
-+++
-date = "2016-10-13T23:26:19+01:00"
-course = "MSc Computing and Security"
-module = "7CCSMASE Advanced Software Engineering"
-title = "Notes"
-latex = true
-+++
+---
+date: "2016-10-13T23:26:19+01:00"
+course: "MSc Computing and Security"
+module: "7CCSMASE Advanced Software Engineering"
+title: "Notes"
+latex: true
+---
 
 ## Nutshell
 

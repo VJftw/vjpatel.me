@@ -1,10 +1,10 @@
-+++
-date = "2016-11-21T14:26:19+01:00"
-course = "MSc Computing and Security"
-module = "7CCSMCIS Cryptography and Information Security"
-title = "Coursework 3"
-latex = true
-+++
+---
+date: "2016-11-21T14:26:19+01:00"
+course: "MSc Computing and Security"
+module: "7CCSMCIS Cryptography and Information Security"
+title: "Coursework 3"
+latex: true
+---
 
 > What is a meet-in-the-middle attack?
 

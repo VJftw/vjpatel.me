@@ -1,16 +1,23 @@
 import fs from 'fs'
 import { join } from 'path'
 import matter from 'gray-matter'
+import glob from 'glob'
+import path from 'path'
 
 const notesDirectory = join(process.cwd(), '..', 'content', 'notes')
 
 export function getNoteSlugs() {
-  return fs.readdirSync(notesDirectory)
+  return glob.sync("**/*.md", 
+    {cwd:notesDirectory},
+  )
 }
 
 export function getNoteBySlug(slug, fields = []) {
+  if (Array.isArray(slug)) {
+    slug = slug.join("/")
+  }
   const realSlug = slug.replace(/\.md$/, '')
-  const fullPath = join(notesDirectory, `${realSlug}.md`)
+  const fullPath = join(notesDirectory, realSlug + ".md")
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const { data, content } = matter(fileContents)
 
@@ -20,6 +27,7 @@ export function getNoteBySlug(slug, fields = []) {
   fields.forEach((field) => {
     if (field === 'slug') {
       items[field] = realSlug
+      items['directory'] = path.dirname(realSlug)
     }
     if (field === 'content') {
       items[field] = content

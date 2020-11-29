@@ -1,10 +1,11 @@
 ---
 date: "2016-10-13T21:38:34+01:00"
 title: "Invoke Tools"
-dev_status: "abandoned"
+status: "inactive"
 trello_board_id: "cXzsT7lZ"
 description: "A PyPi package for use with Docker containers and Python's Invoke task runner. Abandoned in favour of Make + Docker."
-github_address: "https://github.com/VJftw/invoke-tools"
+links:
+  githubAddress: "https://github.com/VJftw/invoke-tools"
 ---
 
 Dockerising large agile projects can become quite tedious when it comes to naming images and using task runners like Python's Invoke or Ruby's Rake.

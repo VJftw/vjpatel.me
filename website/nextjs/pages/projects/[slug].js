@@ -29,10 +29,12 @@ export default function Project({ project, preview }) {
                 </title>
               </Head>
               <ProjectHeader
-                title={project.title}
-                coverImage={project.coverImage}
+                slug={project.slug}
                 date={project.date}
-                author={project.author}
+                title={project.title}
+                description={project.description}
+                status={project.status}
+                links={project.links}
               />
               <ProjectBody content={project.content} />
             </article>
@@ -45,9 +47,12 @@ export default function Project({ project, preview }) {
 
 export async function getStaticProps({ params }) {
   const project = getProjectBySlug(params.slug, [
-    'title',
     'date',
     'slug',
+    'title',
+    'status',
+    'description',
+    'links',
     'content',
   ])
   const content = await markdownToHtml(project.content || '')

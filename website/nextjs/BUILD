@@ -8,7 +8,7 @@ sh_cmd(
 set -euo pipefail
 ROOT=$(echo "$PWD" | sed 's#/plz-out/.*##g')
 cd $PKG
-"\\\${ROOT}/$(out_location //third_party/lang:nodejs_npm)" install --save @zeit/next-css
+"\\\${ROOT}/$(out_location //third_party/lang:nodejs_npm)" install --save glob
 """,
 )
 

@@ -1,10 +1,10 @@
-+++
-date = "2016-10-13T23:26:19+01:00"
-course = "MSc Computing and Security"
-module = "7CCSMCIS Cryptography and Information Security"
-title = "Coursework 1"
-latex = true
-+++
+---
+date: "2016-10-13T23:26:19+01:00"
+course: "MSc Computing and Security"
+module: "7CCSMCIS Cryptography and Information Security"
+title: "Coursework 1"
+latex: true
+---
 
 ## Caesar Cipher: Exercise
 

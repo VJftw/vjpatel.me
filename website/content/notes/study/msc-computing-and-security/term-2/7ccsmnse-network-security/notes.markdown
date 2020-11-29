@@ -1,10 +1,10 @@
-+++
-date = "2017-01-29T14:26:19+01:00"
-course = "MSc Computing and Security"
-module = "7CCSMNSE Network Security"
-title = "Notes"
-latex = true
-+++
+---
+date: "2017-01-29T14:26:19+01:00"
+course: "MSc Computing and Security"
+module: "7CCSMNSE Network Security"
+title: "Notes"
+latex: true
+---
 
 ## Lecture 1
 

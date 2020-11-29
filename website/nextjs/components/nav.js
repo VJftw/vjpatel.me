@@ -20,7 +20,7 @@ export default function Navbar() {
             <Link href="/">
               <a className="flex-shrink-0 flex items-center text-xl text-gray-800 font-semibold hover:underline hover:text-current">
                 <img
-                  className="h-8 w-8 mr-2 rounded-full"
+                  className="h-10 w-10 mr-2 rounded-full"
                   src={Author.picture}
                   alt=""
                 />
@@ -32,7 +32,7 @@ export default function Navbar() {
               <Link href="/blog"><a>Blog</a></Link>
               <Link href="/projects"><a>Projects</a></Link>
               <Link href="/notes"><a>Notes</a></Link>
-              <Link href="/about"><a>About</a></Link>
+              <Link href="/academic"><a>Academic</a></Link>
               </div>
             </div>
           </div>

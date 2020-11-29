@@ -12,7 +12,6 @@ export default async function markdownToHtml(markdown) {
     .use(remarkParse)
     .use(remark2rehype)
     .use(autolink)
-    .use(autolink)
     .use(attacher)
     .use(renderSvg)
     .use(gfm)

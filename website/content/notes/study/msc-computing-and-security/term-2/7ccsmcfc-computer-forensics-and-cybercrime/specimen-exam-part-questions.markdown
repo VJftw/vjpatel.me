@@ -1,9 +1,9 @@
-+++
-date = "2017-05-08T00:26:19+01:00"
-course = "MSc Computing and Security"
-module = "7CCSMCFC Computer Forensics and Cybercrime"
-title = "Specimen Part Exam"
-+++
+---
+date: "2017-05-08T00:26:19+01:00"
+course: "MSc Computing and Security"
+module: "7CCSMCFC Computer Forensics and Cybercrime"
+title: "Specimen Part Exam"
+---
 
 ## Specimen Part Exam Questions
 

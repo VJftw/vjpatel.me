@@ -1,11 +1,11 @@
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
-import Container from '../../components/container'
-import NoteBody from '../../components/notes/note-body'
-import NoteHeader from '../../components/notes/note-header'
-import Layout from '../../components/layout'
+import Container from '@/components/container'
+import NoteBody from '@/components/notes/note-body'
+import NoteHeader from '@/components/notes/note-header'
+import Layout from '@/components/layout'
 import { getNoteBySlug, getAllNotes } from '../../lib/api/notes'
-import NoteTitle from '../../components/notes/note-title'
+import NoteTitle from '@/components/notes/note-title'
 import Head from 'next/head'
 import { SITE_TITLE } from '../../lib/constants'
 import markdownToHtml from '../../lib/markdownToHtml'
@@ -48,6 +48,7 @@ export async function getStaticProps({ params }) {
     'title',
     'date',
     'slug',
+    'directory',
     'content',
   ])
   const content = await markdownToHtml(note.content || '')
@@ -63,16 +64,13 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const notes = getAllNotes(['slug'])
-
+  const notes = await getAllNotes(['slug'])
   return {
-    paths: notes.map((note) => {
-      return {
-        params: {
-          slug: note.slug,
-        },
-      }
-    }),
+    paths: notes.map(note => ({
+      params: {
+        slug: note.slug.split("/"),
+      },
+    })),
     fallback: false,
   }
 }

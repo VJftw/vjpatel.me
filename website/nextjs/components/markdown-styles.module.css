@@ -44,7 +44,7 @@
 }
 /* Paragraph */
 .markdown p {
-  @apply mb-4;
+  @apply mb-4 text-justify;
 }
 /* Lists */
 .markdown ul,

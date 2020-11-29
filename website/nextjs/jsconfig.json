@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@/components/*": ["./components/*"],
+            // "@/components/notes/*": ["./components/notes/*"],
+            // "@/components/projects/*": ["./components/projects/*"],
+            // "@/components/blog/*": ["./components/blog/*"],
+            // "@/components/util/*": ["./components/util/*"],
+            "@/lib/*": ["./lib/*"],
+            "@/lib/api/*": ["./lib/api/*"],
+
+        }
+    }
+}

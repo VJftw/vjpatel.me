@@ -1,10 +1,10 @@
-+++
-date = "2016-11-25T14:26:19+01:00"
-course = "MSc Computing and Security"
-module = "7CCSMCIS Cryptography and Information Security"
-title = "Coursework 4"
-latex = true
-+++
+---
+date: "2016-11-25T14:26:19+01:00"
+course: "MSc Computing and Security"
+module: "7CCSMCIS Cryptography and Information Security"
+title: "Coursework 4"
+latex: true
+---
 
 > What is a one-way function and what are its properties?
 
