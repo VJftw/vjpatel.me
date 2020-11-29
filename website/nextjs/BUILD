@@ -8,7 +8,7 @@ sh_cmd(
 set -euo pipefail
 ROOT=$(echo "$PWD" | sed 's#/plz-out/.*##g')
 cd $PKG
-"\\\${ROOT}/$(out_location //third_party/lang:nodejs_npm)" install --save glob
+"\\\${ROOT}/$(out_location //third_party/lang:nodejs_npm)" install
 """,
 )
 
@@ -26,6 +26,6 @@ for script in scripts:
     set -euo pipefail
     ROOT=$(echo "$PWD" | sed 's#/plz-out/.*##g')
     cd $PKG
-    "\\\${ROOT}/$(out_location //third_party/lang:nodejs_npm)" run {script}
+    "\\\${{ROOT}}/$(out_location //third_party/lang:nodejs_npm)" run {script}
     """,
     )
