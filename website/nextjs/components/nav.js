@@ -3,7 +3,6 @@ import { Author } from "../lib/constants";
 import React from "react";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Image from 'next/image';
 
 export default function Navbar() {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
@@ -14,15 +13,11 @@ export default function Navbar() {
         <div className="w-full relative flex justify-between md:w-auto md:static md:block md:justify-start">
           <Link href="/">
             <a className="flex-shrink-0 flex items-center text-xl text-gray-800 font-semibold hover:underline hover:text-current">
-              <div className="mr-2">
-                <Image
-                  className="h-10 w-10 mr-2 rounded-full"
-                  src={Author.picture}
-                  alt={`Picture of ${Author.name}`}
-                  width="40"
-                  height="40"
-                />
-              </div>
+              <img
+                className="h-10 w-10 mr-2 rounded-full"
+                src={require(`../public/images/author.jpg`)}
+                alt={`Picture of ${Author.name}`}
+              />
               VJ Patel
             </a>
           </Link>

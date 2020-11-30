@@ -8,8 +8,7 @@ export const Employer = {
 
 export const Author = {
   name: 'VJ Patel',
-  // picture: 'https://pbs.twimg.com/profile_images/834560710743044096/Uzk3Xx52_400x400.jpg',
-  picture: 'https://pbs.twimg.com/profile_images/1332838733767462913/WS72oCkT_400x400.jpg',
+  picture: 'vj',
   email: 'vj@vjpatel.me',
   location: 'London',
   github: 'https://github.com/VJftw',
