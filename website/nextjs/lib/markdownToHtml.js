@@ -4,6 +4,7 @@ import remark2rehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
 import autolink from 'rehype-autolink-headings'
 import attacher from 'rehype-highlight'
+import math from 'remark-math'
 import renderSvg from 'rehype-mathjax'
 import gfm from 'remark-gfm'
 
@@ -13,6 +14,7 @@ export default async function markdownToHtml(markdown) {
     .use(remark2rehype)
     .use(autolink)
     .use(attacher)
+    .use(math)
     .use(renderSvg)
     .use(gfm)
     .use(rehypeStringify)

@@ -115,13 +115,13 @@ Two modes:
 
 Cyber-crime can viewed as an asymmetric conflict, where resources required for defence are much greater than for an attack. It is opportunistic in nature so it resembles terrorism and guerrilla warfare rather than conventional (symmetric) warfare.
 
-{{<latex>}}
+$$
 p(x) = Cx^{-a}
-{{</latex>}}
+$$
 
-- Applying {{<latex i="p(x)" />}} is the probability of an event magnitude {{<latex i="x" />}} occurring.
-- {{<latex i="C" />}} is the normalisation constant.
-- {{<latex i="a" />}} is the exponent of the power law.
+- Applying $ p(x) $ is the probability of an event magnitude $ x $ occurring.
+- $ C $ is the normalisation constant.
+- $ a $ is the exponent of the power law.
 
 From the US-based CSI Computer Crime and Security surveys:
 
@@ -387,9 +387,9 @@ For internet-connected devices or mobile phones, **is the whole network (includi
 USB devices can be masqueraded as everyday objects (lipstick) and may cause them to be overlooked during *search and seizure*.
 
 
-{{<latex>}}
+$$
 \text{Acquire} \rightarrow \text{Preserve} \rightarrow \text{Search} \rightarrow \text{Analyse} \rightarrow \text{Evaluate} \rightarrow \text{Report}
-{{</latex>}}
+$$
 ---
 
 ## Lecture 10 - Digital Forensic Triage: in-the-field vs. in-the-lab
@@ -404,12 +404,12 @@ Study the paper “Triage Template Pipelines in Digital Forensic Investigations�
 
 
 ![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgOUlud3hrcHktWGM "Figure 2")
-The diagonal dashed line in Figure 2 (and 3) represents evidence tasks that could be done in parallel. The upper green lines from the {{<latex i="E_i" />}}denote that the evidence is found. Failing to find a piece of evidence is represented by the red line. i.e. Finding {{<latex i="E_1" />}}, {{<latex i="E_2" />}} but not finding {{<latex i="E_3" />}}would result in following the red line to *Exit*.
+The diagonal dashed line in Figure 2 (and 3) represents evidence tasks that could be done in parallel. The upper green lines from the $ E_i $denote that the evidence is found. Failing to find a piece of evidence is represented by the red line. i.e. Finding $ E_1 $, $ E_2 $ but not finding $ E_3 $would result in following the red line to *Exit*.
 
 ![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgZGowT2JNVjE1Y0U "Figure 3")
 
 
-HDs are primary devices whilst USB keys are not. This is because HDs normally contain the operating system and possess a greater storage capacity. If no trace of evidence is retrieved from a HD, then the search is moved to the USB keys. If the USB key search fails, it is returned to the HD. This interchange is represented by the purple/blue half headed double arrows, indicating whether or not a particular evidential trace has already been found on another device. In Figure 3, {{<latex i="E_4" />}} is shaded grey, indicating that a potential outcome my result in unrelated but criminally significant material. e.g. An original copy of child pornography.
+HDs are primary devices whilst USB keys are not. This is because HDs normally contain the operating system and possess a greater storage capacity. If no trace of evidence is retrieved from a HD, then the search is moved to the USB keys. If the USB key search fails, it is returned to the HD. This interchange is represented by the purple/blue half headed double arrows, indicating whether or not a particular evidential trace has already been found on another device. In Figure 3, $ E_4 $ is shaded grey, indicating that a potential outcome my result in unrelated but criminally significant material. e.g. An original copy of child pornography.
 
 The following scenarios demonstrate some different applications of the above triage templates:
 
@@ -419,21 +419,21 @@ The following scenarios demonstrate some different applications of the above tri
 | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Assumptions                              | The computer is believed to have been used for launching sophisticated DDoS attacks on against an organisation's website has been seized, together with USB keys, a laptop, and mobile phones. |
 | Role of digital evidence                 | specific                                                                                                                                                                                       |
-| Person I/C device                        | suspect - quit IT assessment {{<latex i="\rightarrow" />}} savvy individual {{<latex i="S" />}}                                                                                                |
+| Person I/C device                        | suspect - quit IT assessment $ \rightarrow $ savvy individual $ S $                                                                                                |
 | Types of devices seized                  | 5 USB keys (1 connected), 2 mobile phones, 1 PC with an internal HD and 2 external HDs, 1 laptop.                                                                                              |
 | Overall order of examination of devices  | HDs (internal then external, then laptop), USB keys, mobile phones, other (ISP).                                                                                                               |
 | Prioritised search for evidential traces | (DDoS template - Figure 2)                                                                                                                                                                     |
-| {{<latex i="E_1" />}}                    | DDoS tools are present                                                                                                                                                                         |
-| {{<latex i="E_2" />}}                    | BotNet C&C program is present                                                                                                                                                                  |
-| {{<latex i="E_3" />}}                    | Connections to victim's machine(s) are found (IP address, URL, log file records, etc.)                                                                                                         |
-| {{<latex i="E_4" />}}                    | Connections to a BotNet C&C program are found (IP address, log file records, etc.)                                                                                                             |
-| {{<latex i="E_1" />}} (USB)              | DDoS tools are present                                                                                                                                                                         |
-| {{<latex i="E_2" />}} (USB)              | BotNet C&C program is present                                                                                                                                                                  |
-| {{<latex i="E_5" />}}                    | ISP confirms seized computer accessed victim's machine (IP address, etc.)                                                                                                                      |
-| {{<latex i="E_6" />}}                    | Extortion messages to the victim are found                                                                                                                                                     |
-| {{<latex i="E_7" />}}                    | Bragging messages are found (mobile phones)                                                                                                                                                    |
-| {{<latex i="E_6" />}} (ISP)              | Extortion messages to the victim are found                                                                                                                                                     |
-| {{<latex i="E_7" />}} (ISP)              | Bragging messages are found                                                                                                                                                                    |
+| $ E_1 $                    | DDoS tools are present                                                                                                                                                                         |
+| $ E_2 $                    | BotNet C&C program is present                                                                                                                                                                  |
+| $ E_3 $                    | Connections to victim's machine(s) are found (IP address, URL, log file records, etc.)                                                                                                         |
+| $ E_4 $                    | Connections to a BotNet C&C program are found (IP address, log file records, etc.)                                                                                                             |
+| $ E_1 $ (USB)              | DDoS tools are present                                                                                                                                                                         |
+| $ E_2 $ (USB)              | BotNet C&C program is present                                                                                                                                                                  |
+| $ E_5 $                    | ISP confirms seized computer accessed victim's machine (IP address, etc.)                                                                                                                      |
+| $ E_6 $                    | Extortion messages to the victim are found                                                                                                                                                     |
+| $ E_7 $                    | Bragging messages are found (mobile phones)                                                                                                                                                    |
+| $ E_6 $ (ISP)              | Extortion messages to the victim are found                                                                                                                                                     |
+| $ E_7 $ (ISP)              | Bragging messages are found                                                                                                                                                                    |
 
 
 #### Scenario 2 - P2P
@@ -442,23 +442,23 @@ The following scenarios demonstrate some different applications of the above tri
 | ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Assumptions                              | The computer believed to have been used for uploading the material has been seized together with USB keys and copies of the originals (DVDs/CDs). A mobile phone which may contain messages announcing the upload had also been seized. |
 | Role of digital evidence                 | specific                                                                                                                                                                                                                                |
-| Person I/C device                        | suspect - quit IT assessment {{<latex i="\rightarrow" />}} unsavvy individual {{<latex i="S" />}}                                                                                                                                       |
+| Person I/C device                        | suspect - quit IT assessment $ \rightarrow $ unsavvy individual $ S $                                                                                                                                       |
 | Types of devices seized                  | 9 DVDs/CDs, 3 USB keys (1 connected), 1 mobile phone, 1 PC with internal HD.                                                                                                                                                            |
 | Overall order of examination of devices  | DVD/CD, HD, USB keys, mobile phone.                                                                                                                                                                                                     |
 | Prioritised search for evidential traces | (P2P template - Figure 3)                                                                                                                                                                                                               |
-| {{<latex i="E_1" />}}                    | Check for presence of original copyrighted material (HD)                                                                                                                                                                                |
-| {{<latex i="E_2" />}}                    | Web browser software is present                                                                                                                                                                                                         |
-| {{<latex i="E_3" />}}                    | Torrent client software is present                                                                                                                                                                                                      |
-| {{<latex i="E_4" />}}                    | HD copy of original material found (time stamps; hash values, etc.)                                                                                                                                                                     |
-| {{<latex i="E_3" />}} (USB)              | Torrent client software is present                                                                                                                                                                                                      |
-| {{<latex i="E_4" />}} (USB)              | USB copy of original material found (time stamps; hash values, etc.)                                                                                                                                                                    |
-| {{<latex i="E_5" />}} (USB)              | Torrent file and line found on USB key (creation records, etc.)                                                                                                                                                                         |
-| {{<latex i="E_6" />}} (USB)              | Torrent file activation record found (tracker server login, MAC time, etc.)                                                                                                                                                             |
-| {{<latex i="E_5" />}}                    | Torrent file and link found on HD (creation records, etc.)                                                                                                                                                                              |
-| {{<latex i="E_6" />}}                    | Torrent file activation record found (tracker server login, MAC time, etc.)                                                                                                                                                             |
-| {{<latex i="E_7" />}}                    | Internet records found (cookies, cache, history, tracker server connection, etc.)                                                                                                                                                       |
-| {{<latex i="E_8" />}}                    | Search for messages relating to investigation (e.g. upload announcement)                                                                                                                                                                |
-| {{<latex i="E_9" />}}                    | Search for messages relating to investigation (e.g. upload announcement) (Mobile phone)                                                                                                                                                 |
+| $ E_1 $                    | Check for presence of original copyrighted material (HD)                                                                                                                                                                                |
+| $ E_2 $                    | Web browser software is present                                                                                                                                                                                                         |
+| $ E_3 $                    | Torrent client software is present                                                                                                                                                                                                      |
+| $ E_4 $                    | HD copy of original material found (time stamps; hash values, etc.)                                                                                                                                                                     |
+| $ E_3 $ (USB)              | Torrent client software is present                                                                                                                                                                                                      |
+| $ E_4 $ (USB)              | USB copy of original material found (time stamps; hash values, etc.)                                                                                                                                                                    |
+| $ E_5 $ (USB)              | Torrent file and line found on USB key (creation records, etc.)                                                                                                                                                                         |
+| $ E_6 $ (USB)              | Torrent file activation record found (tracker server login, MAC time, etc.)                                                                                                                                                             |
+| $ E_5 $                    | Torrent file and link found on HD (creation records, etc.)                                                                                                                                                                              |
+| $ E_6 $                    | Torrent file activation record found (tracker server login, MAC time, etc.)                                                                                                                                                             |
+| $ E_7 $                    | Internet records found (cookies, cache, history, tracker server connection, etc.)                                                                                                                                                       |
+| $ E_8 $                    | Search for messages relating to investigation (e.g. upload announcement)                                                                                                                                                                |
+| $ E_9 $                    | Search for messages relating to investigation (e.g. upload announcement) (Mobile phone)                                                                                                                                                 |
 
 
 ---
@@ -580,8 +580,8 @@ File carving is the process of reassembling file contents from fragments in the 
 
 See “The Evolution of file carving” by Pal & Memon.
 
-* {{<latex i="\text{Cluster size} = \text{Sector size} \times \text{Sectors per cluster}" />}}
-* {{<latex i="\text{Disk size} = \text{Cluster size} \times \text{Count}" />}}
+* $ \text{Cluster size} = \text{Sector size} \times \text{Sectors per cluster} $
+* $ \text{Disk size} = \text{Cluster size} \times \text{Count} $
 
 ---
 

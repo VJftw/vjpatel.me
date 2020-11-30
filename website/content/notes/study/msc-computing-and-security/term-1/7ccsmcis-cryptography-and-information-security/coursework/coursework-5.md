@@ -10,9 +10,9 @@ latex: true
 
 The Needham-Schroeder protocol is as follows:
 
-1. Alice sends Bob a nonce (random number) and her name {{<latex i="A \rightarrow B: {{NA, A}_K}_B" />}}.
-2. Bob sends Alice her nonce back along with a nonce he has generated. {{<latex i="B \rightarrow A: {{NA, NB}_K}_A" />}}.
-3. Alice sends Bob his nonce back {{<latex i="A \rightarrow A: {{NB}_K}_B" />}}.
+1. Alice sends Bob a nonce (random number) and her name $ A \rightarrow B: {{NA, A}_K}_B $.
+2. Bob sends Alice her nonce back along with a nonce he has generated. $ B \rightarrow A: {{NA, NB}_K}_A $.
+3. Alice sends Bob his nonce back $ A \rightarrow A: {{NB}_K}_B $.
 
 The man-in-the-middle attack for this takes advantage of, in step 2, Alice not knowing where the new nonce NB is really from. A MITM could proxy the protocol between Alice and Bob whilst switching the answers with his key. The way to resolve this is having B send his name in step 2.
 

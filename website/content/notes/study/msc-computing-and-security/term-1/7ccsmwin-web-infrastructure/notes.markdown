@@ -176,10 +176,10 @@ Window size minimum of:
 
 - Congestion windows size bounds the amount of data that can be sent per-roud-trip (RTT)
 
-- For window size {{<latex i="W" />}}, the achievable throughput {{<latex i="T" />}} will be: {{<latex i="T <= \frac{W}{RTT}" />}}.
-- If {{<latex i="\text{Ideal size} = \text{delay} \times \text{bandwidth}" />}}: Delay bandwidth product.
-- If {{<latex i="\text{window size} < \text{delay} \times \text{bandwidth}" />}}: Wasted bandwidth
-- If {{<latex i="\text{window size} > \text{delay} \times \text{bandwidth}" />}}: Queueing at routers and potentially packet loss.
+- For window size $ W $, the achievable throughput $ T $ will be: $ T <= \frac{W}{RTT} $.
+- If $ \text{Ideal size} = \text{delay} \times \text{bandwidth} $: Delay bandwidth product.
+- If $ \text{window size} < \text{delay} \times \text{bandwidth} $: Wasted bandwidth
+- If $ \text{window size} > \text{delay} \times \text{bandwidth} $: Queueing at routers and potentially packet loss.
 
 #### Detecting packet loss
 

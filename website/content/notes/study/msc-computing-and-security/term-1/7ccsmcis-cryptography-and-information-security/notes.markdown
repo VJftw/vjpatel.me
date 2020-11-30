@@ -85,9 +85,9 @@ The general model shows 4 basic tasks:
 | Word       | Meaning                                                                                                                         |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | plaintext  | Text that can be read and *understood*.                                                                                         |
-| Encryption | Transformation (function) {{<latex i="E" />}} that takes an input (commonly *plaintext*) and a key that generates a ciphertext. |
+| Encryption | Transformation (function) $ E $ that takes an input (commonly *plaintext*) and a key that generates a ciphertext. |
 | ciphertext | Transformed (scrambled) text that needs to be *processed*/decrypted to be *understood*.                                         |
-| Decryption | Transformation (function) {{<latex i="D" />}} that takes an input (commonly *ciphertext*) and a key the generates a plaintext.  |
+| Decryption | Transformation (function) $ D $ that takes an input (commonly *ciphertext*) and a key the generates a plaintext.  |
 | Cipher     | A function/algorithm for performing encryption/decryption.                                                                      |
 
 ### Kerckhoff's "La Cryptographie Militaire"
@@ -99,18 +99,18 @@ The general model shows 4 basic tasks:
 
 | Symbol                                                | Meaning                                                                              |
 | ----------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| {{<latex i="\mathcal{A}" />}}                         | The *alphabet*, a finite set.                                                        |
-| {{<latex i="\mathcal{M} \subseteq \mathcal{A}^*" />}} | The *message space*. {{<latex i="M \in \mathcal{M}" />}} is a *plaintext (message)*. |
-| {{<latex i="\mathcal{C}" />}}                         | The *ciphertext space*, whose alphabet may differ from {{<latex i="\mathcal{M}" />}} |
-| {{<latex i="\mathcal{K}" />}}                         | denotes the *key space* of *keys*.                                                   |
+| $ \mathcal{A} $                         | The *alphabet*, a finite set.                                                        |
+| $ \mathcal{M} \subseteq \mathcal{A}^* $ | The *message space*. $ M \in \mathcal{M} $ is a *plaintext (message)*. |
+| $ \mathcal{C} $                         | The *ciphertext space*, whose alphabet may differ from $ \mathcal{M} $ |
+| $ \mathcal{K} $                         | denotes the *key space* of *keys*.                                                   |
 
-- Each {{<latex i="e \in \mathcal{K}" />}} determines a bijective function from {{<latex i="\mathcal{M}" />}} to {{<latex i="\mathcal{C}" />}}, denoted by {{<latex i="E_e" />}}. {{<latex i="E_e" />}} is the *encryption function* or (*transformation*). We will write {{<latex i="E_e(P) = C" />}}, which is the same as {{<latex i="E(e, P) = C" />}}.
-- For each {{<latex i="d \in \mathcal{K}" />}}, {{<latex i="D_d" />}} denotes a bijection from {{<latex i="\mathcal{C}" />}} to {{<latex i="\mathcal{M}" />}}. {{<latex i="D_d" />}} is the *decryption function*.
-- Applying {{<latex i="E_e" />}} (or {{<latex i="D_d" />}}) is called *encryption* (or *decryption*).
+- Each $ e \in \mathcal{K} $ determines a bijective function from $ \mathcal{M} $ to $ \mathcal{C} $, denoted by $ E_e $. $ E_e $ is the *encryption function* or (*transformation*). We will write $ E_e(P) = C $, which is the same as $ E(e, P) = C $.
+- For each $ d \in \mathcal{K} $, $ D_d $ denotes a bijection from $ \mathcal{C} $ to $ \mathcal{M} $. $ D_d $ is the *decryption function*.
+- Applying $ E_e $ (or $ D_d $) is called *encryption* (or *decryption*).
 
 ### Requirements for Symmetric-key Encryption
 
-An encryption scheme {{<latex i="{E_e | e \in \mathcal{K}}" />}} and {{<latex i="{D_d | d \in \mathcal{K}}" />}} is *symmetric-key* if for each associated pair it is computationally "easy" to determine {{<latex i="d" />}} knowing only {{<latex i="e" />}} and to determine {{<latex i="e" />}} from {{<latex i="d" />}}. In practice {{<latex i="e = d" />}}.
+An encryption scheme $ {E_e | e \in \mathcal{K}} $ and $ {D_d | d \in \mathcal{K}} $ is *symmetric-key* if for each associated pair it is computationally "easy" to determine $ d $ knowing only $ e $ and to determine $ e $ from $ d $. In practice $ e = d $.
 
 The sender and recipient share a common-key.
 
@@ -194,15 +194,15 @@ A single cipher alphabet (mapping from plain alphabet to cipher alphabet) is use
 
 Earliest known, simplest, substitution cipher (used by Julius Caesar). Used by shifting characters in the plaintext a specified amount of characters in the alphabet such that:
 
-{{<latex>}}
+$$
 E_x(m) = (m + x) \bmod 26
-{{</latex>}}
+$$
 
-Where $ m{{<latex i="is the message and" />}} x$ is a secret number, decryption is simple done with:
+Where $ m$ is the message and $ x$ is a secret number, decryption is simple done with:
 
-{{<latex>}}
+$$
 D_x(m) = (m - x) \bmod 26
-{{</latex>}}
+$$
 
 ##### Brute-forcing
 
@@ -217,7 +217,7 @@ Brute-forcing is normally impractical if:
  - The output is compressed/abbreviated
 
 #### Security of Mono-alphabetic substitution ciphers
-Key spaces are huge ({{<latex i="26! == 4 \times 10^{26}" />}} possible keys). However it is easy to crack using frequency analysis. The ciphertext still holds some information about the structure of the plaintext.
+Key spaces are huge ($ 26! == 4 \times 10^{26} $ possible keys). However it is easy to crack using frequency analysis. The ciphertext still holds some information about the structure of the plaintext.
 
 We can count the occurrences of a single cipher-character and make reasonable assumptions about what that character could mean in the plaintext.
 
@@ -233,9 +233,9 @@ To lessen the extent of the structure of plaintext making its way into the plain
 
 
 ## Playfair Cipher
-- Uses a {{<latex i="5 \times 5" />}} matrix of letters constructed using a keyword. e.g. if `MONARCHY` is the keyword we have:
+- Uses a $ 5 \times 5 $ matrix of letters constructed using a keyword. e.g. if `MONARCHY` is the keyword we have:
 
-{{<latex>}}
+$$
 \begin{bmatrix}
 M & O & N & A & R\\
 C & H & Y & B & D\\
@@ -243,18 +243,18 @@ E & F & G & I/J & K\\
 L & P & Q & S & T\\
 U & V & W & X & Z
 \end{bmatrix}
-{{</latex>}}
+$$
 
 **The plaintext is encrypted two letters at a time**:
-1. If a pair is a repeated letter, insert filler like `X` (e.g. `BALLOON` {{<latex i="\rightarrow" />}} `BA LX LO ON`). Add an `X` at the end if necessary.
+1. If a pair is a repeated letter, insert filler like `X` (e.g. `BALLOON` $ \rightarrow $ `BA LX LO ON`). Add an `X` at the end if necessary.
 2. If both letters fall in the same row, replace each with the letter letter to the right, wrapping back to start from end (e.g. `AR` is encrypted as `RM`).
 3. If both letters fall in the same column, replace each with the letter below it, wrapping top to bottom (e.g. `MU` is encrypted as `CM`).
 4. Otherwise each letter is replaced by the letter in the same row and inthe column of the other letter of the pair. (e.g. `HS` becomes `BP`, `EA` becomes `IM` or `JM`).
 
 ### Security of the Playfair cipher
 
-- Much improved over mono-alphabetic: {{<latex i="26 \times 26 = 676" />}} digrams vs {{<latex i="26" />}} letters.
-- Would need a {{<latex i="676" />}} entry frequency table analyse and correspondingly more ciphertext.
+- Much improved over mono-alphabetic: $ 26 \times 26 = 676 $ digrams vs $ 26 $ letters.
+- Would need a $ 676 $ entry frequency table analyse and correspondingly more ciphertext.
 
 However, breaking this cipher is still relatively easy:
 - It still leaves much of the structure of the plaintext language intact.
@@ -293,30 +293,30 @@ Expressed numerically:
 
 Properties of XOR:
 
- - {{<latex i="0 \oplus 0 = 0" />}}
- - {{<latex i="0 \oplus 1 = 1" />}}
- - {{<latex i="1 \oplus 0 = 1" />}}
- - {{<latex i="1 \oplus 1 = 0" />}}
+ - $ 0 \oplus 0 = 0 $
+ - $ 0 \oplus 1 = 1 $
+ - $ 1 \oplus 0 = 1 $
+ - $ 1 \oplus 1 = 0 $
 
  so that:
 
- - {{<latex i="a \oplus a = 0" />}}
- - {{<latex i="a \oplus 0 = a" />}}
- - {{<latex i="a \oplus b = b \oplus a" />}}
- - {{<latex i="a \oplus b \oplus b = a" />}}
- - {{<latex i="(a \oplus b) \oplus c = a \oplus (b \oplus c)" />}}
+ - $ a \oplus a = 0 $
+ - $ a \oplus 0 = a $
+ - $ a \oplus b = b \oplus a $
+ - $ a \oplus b \oplus b = a $
+ - $ (a \oplus b) \oplus c = a \oplus (b \oplus c) $
 
  XOR can be used as a polyalphabetic cipher:
- - {{<latex i="P \oplus K = C" />}}
- - {{<latex i="C \oplus K = P" />}}
+ - $ P \oplus K = C $
+ - $ C \oplus K = P $
 
 #### Usage
 
-{{<latex i="c_i = p_i \oplus k_i" />}}
+$ c_i = p_i \oplus k_i $
 
-{{<latex i="p_i = c_i \oplus k_i" />}}
+$ p_i = c_i \oplus k_i $
 
-The {{<latex i="i^{th}" />}} binary digit of the plaintext {{<latex i="p" />}} is XOR'd with the keystream {{<latex i="k" />}} to produce a ciphertext, {{<latex i="c" />}}.
+The $ i^{th} $ binary digit of the plaintext $ p $ is XOR'd with the keystream $ k $ to produce a ciphertext, $ c $.
 
 This is difficult to break if the key is long, but is still breakable with a sufficient amount of ciphertext as we can use known/probable plaintext sequences.
 
@@ -330,9 +330,9 @@ Before a ciphertext is intercepted, an attacker can only guess what the message 
 
 Use a truly random key that is as long as the message, so that the key need not be repeated and, used to encrypt and decrypt a single message and then discarded.
 
- - Each new message {{<latex i="P" />}} requires a new key of same length as {{<latex i="P" />}}.
+ - Each new message $ P $ requires a new key of same length as $ P $.
  - Produces random output with no statistical relation to plaintext.
- - **Unbreakable**: {{<latex i="C" />}} contains no information whatsoever about {{<latex i="P" />}}.
+ - **Unbreakable**: $ C $ contains no information whatsoever about $ P $.
 
 One-time pad is the only cryptosystem that exhibits *perfect secrecy*.
 
@@ -441,27 +441,27 @@ The Feistel cipher alternates between substitutions (s-box) and transpositions(p
 
 
 #### Block Cipher
-Encrypts {{<latex i="n" />}}-bit plaintext into {{<latex i="n" />}}-bit ciphertext.
+Encrypts $ n $-bit plaintext into $ n $-bit ciphertext.
 
- - There are {{<latex i="2^n" />}} possible different plaintext blocks.
- - If limited to reversible mappings, {{<latex i="2^n!" />}} different transormations.
+ - There are $ 2^n $ possible different plaintext blocks.
+ - If limited to reversible mappings, $ 2^n! $ different transormations.
   - The encryption must be reversible (for decryption to be possible).
 
-e.g. for {{<latex i="n = 2" />}}. ciphertext `01` could come from plaintext `10` or `11`. It is a bijective mapping, i.e. we can go from {{<latex i="A \rightarrow B" />}} and {{<latex i="B \rightarrow A" />}}.
+e.g. for $ n = 2 $. ciphertext `01` could come from plaintext `10` or `11`. It is a bijective mapping, i.e. we can go from $ A \rightarrow B $ and $ B \rightarrow A $.
 
 
 ##### Problems of Block cipher
  - A small block size is equivalent to classical substitution ciphers and thus easily attackable.
  - A large block size is impractical for performance.
 
-Feistel suggests an invertible product cipher. i.e. approximation to ideal block cipher for large {{<latex i="n" />}}, built out of easily recognizable components.
+Feistel suggests an invertible product cipher. i.e. approximation to ideal block cipher for large $ n $, built out of easily recognizable components.
 
 ### 4 Rules to Remember
 
-1. {{<latex i="LD_{16-i} \parallel RD_{16-i} = RE_i \parallel LE_i" />}} (meaning that {{<latex i="LD_{16-i} = RE_i" />}} and {{<latex i="RD_{16-i} = LE_i" />}}).
-2. Encryption: {{<latex i="LE_i = RE_{i-1}" />}} and {{<latex i="RE_i = LE_{i-1} \oplus F(RE_{i-1}, K_i)" />}}.
-3. Decryption: {{<latex i="LD_i = RD_{i-1}" />}} and {{<latex i="RD_i = LD_{i-1} \oplus F(RD_{i-1}, K_i)" />}}.
-4. There is a swap at the end of encryption and at the start of decryption ({{<latex i="RE_1 = LE_0" />}}, {{<latex i="LE_1 = RE_0" />}}, {{<latex i="LD_1 = RD_0" />}}, {{<latex i="RD_1 = LD_0" />}})
+1. $ LD_{16-i} \parallel RD_{16-i} = RE_i \parallel LE_i $ (meaning that $ LD_{16-i} = RE_i $ and $ RD_{16-i} = LE_i $).
+2. Encryption: $ LE_i = RE_{i-1} $ and $ RE_i = LE_{i-1} \oplus F(RE_{i-1}, K_i) $.
+3. Decryption: $ LD_i = RD_{i-1} $ and $ RD_i = LD_{i-1} \oplus F(RD_{i-1}, K_i) $.
+4. There is a swap at the end of encryption and at the start of decryption ($ RE_1 = LE_0 $, $ LE_1 = RE_0 $, $ LD_1 = RD_0 $, $ RD_1 = LD_0 $)
 
 2 and 3 can be determined from the fiestel diagrams.
 
@@ -494,21 +494,21 @@ This means that only 56 bits are needed because 7 of the 8 bits are used to dete
 
 #### Meet-in-the-Middle attack (2DES)
 
-Given a known Plaintext and Ciphertext, we can find all possible encryptions of the Plaintext encrypted by {{<latex i="K_1" />}} ({{<latex i="2^{56}" />}}). We can store these sorted in a table. We can then find all possible decryptions ({{<latex i="2^{56}" />}}) of the Ciphertext decrypted by {{<latex i="K_2" />}} and look for a match.
-Each hit would be a candidate solution which can be validated with another plain/cipher pair. And this effort will succeed on {{<latex i="2^{56}" />}} operations, even though we have 2 56-bit keys (112-bits).
+Given a known Plaintext and Ciphertext, we can find all possible encryptions of the Plaintext encrypted by $ K_1 $ ($ 2^{56} $). We can store these sorted in a table. We can then find all possible decryptions ($ 2^{56} $) of the Ciphertext decrypted by $ K_2 $ and look for a match.
+Each hit would be a candidate solution which can be validated with another plain/cipher pair. And this effort will succeed on $ 2^{56} $ operations, even though we have 2 56-bit keys (112-bits).
 
 
 #### 3DES
 
-Uses 3 stages of encryption with 2 keys {{<latex i="K_1, K_2" />}}.
+Uses 3 stages of encryption with 2 keys $ K_1, K_2 $.
 
-1. Encrypt ({{<latex i="K_1" />}})
-2. Decrypt ({{<latex i="K_2" />}})
-3. Encrypt ({{<latex i="K_1" />}})
+1. Encrypt ($ K_1 $)
+2. Decrypt ($ K_2 $)
+3. Encrypt ($ K_1 $)
 
-Maintains compatibility with standard DES ({{<latex i="K_2 = K_1" />}}). And there is no practical attack. A brute force search takes {{<latex i="2^{112}" />}} operations.
+Maintains compatibility with standard DES ($ K_2 = K_1 $). And there is no practical attack. A brute force search takes $ 2^{112} $ operations.
 
-3DES is not compatible with 2DES but is compatible with DES as {{<latex i="K_1 = K_2" />}}
+3DES is not compatible with 2DES but is compatible with DES as $ K_1 = K_2 $
 
 
 
@@ -528,69 +528,69 @@ Is ideal for short amounts of data such as encryption keys.
 
 The input to the encryption algorithm is: previous 64 bits of ciphertext XOR next 64 bits of plaintext.
 
-Is ideal for encrypting messages longer than {{<latex i="b" />}} bits.
+Is ideal for encrypting messages longer than $ b $ bits.
 
 **Encryption**:
 
-{{<latex>}}
+$$
 C_i = E(K, C_{i-1} \oplus P_i)
-{{</latex>}}
+$$
 
-{{<latex>}}
+$$
 C_0 = IV
-{{</latex>}}
+$$
 
 **Decryption**:
 
-{{<latex>}}
+$$
 P_i = D(K, C_i) \oplus C_{i-1}
-{{</latex>}}
+$$
 
-{{<latex>}}
+$$
 C_0 = IV
-{{</latex>}}
+$$
 
 
 **Proof of correctness**:
 
 Via Encryption:
 
-{{<latex>}}
+$$
 \begin{aligned}
 C_i &= E(K, C_{i-1} \oplus P_i)\\
 C_i &= E(K, C_{i-1} \oplus (D(K, C_i) \oplus C_{i-1}))\\
 C_i &= E(K, D(K, C_i))\\
 C_i &= C_i
 \end{aligned}
-{{</latex>}}
+$$
 
 Via Decryption:
 
-{{<latex>}}
+$$
 \begin{aligned}
 P_i &= D(K, C_i) \oplus C_{i-1}\\
 P_i &= D(K, E(K, C_{i-1} \oplus P_i)) \oplus C_{i-1}\\
 P_i &= D(K, E(K, P_i))\\
 P_i &= P_i
 \end{aligned}
-{{</latex>}}
+$$
 
 ### CFB (Stream)
 
-Input is processed {{<latex i="s" />}} bits at a time. Previous ciphertext is used as input to the encryption algorithm which produces pseudorandom output. This is XORed with the next plaintext to produce the next unit of output.
+Input is processed $ s $ bits at a time. Previous ciphertext is used as input to the encryption algorithm which produces pseudorandom output. This is XORed with the next plaintext to produce the next unit of output.
 
 **Encryption**
 
-{{<latex>}}
+$$
 C_i = P_i \oplus \text{MSB}_s(E(K, C_{i-1}))
-{{</latex>}}
+$$
 
 
 **Decryption**
 
-{{<latex>}}
+$$
 P_i = C_i \oplus \text{MSB}_s(E(K, C_{i-1}))
-{{</latex>}}
+$$
 
 ### OFB (Stream)
 
@@ -601,7 +601,7 @@ Similar to CFB, except that the input is the previous ciphertext and full blocks
 
 ## Public Key Cryptography
 
-Let {{<latex i="{E_e | e \in \mathcal{K}}" />}} and {{<latex i="{D_d | d \in \mathcal{K}}" />}} form an encryption scheme. Given transformation pairs {{<latex i="(E_e, D_d)" />}} and {{<latex i="c \in \mathcal{C}" />}}, it is infeasible to find an {{<latex i="m \in \mathcal{M}" />}} such that {{<latex i="E_e(m) = c" />}}. This implies that it is infeasible to also determine {{<latex i="d" />}} from {{<latex i="e" />}}, hence {{<latex i="E_e" />}} is a trap-door one-way function with {{<latex i="d" />}} as the trap-door. {{<latex i="e" />}} can be public information.
+Let $ {E_e | e \in \mathcal{K}} $ and $ {D_d | d \in \mathcal{K}} $ form an encryption scheme. Given transformation pairs $ (E_e, D_d) $ and $ c \in \mathcal{C} $, it is infeasible to find an $ m \in \mathcal{M} $ such that $ E_e(m) = c $. This implies that it is infeasible to also determine $ d $ from $ e $, hence $ E_e $ is a trap-door one-way function with $ d $ as the trap-door. $ e $ can be public information.
 
 It has 3 main uses:
 
@@ -637,29 +637,29 @@ Needed for security:
 
 ### Requirements for Public-key Cryptography
 
-1. It is computationally easy for any principal {{<latex i="B" />}} to generate a pair (public key {{<latex i="PU_b" />}}, private key {{<latex i="PR_b" />}}).
-2. It is computationally easy for sender {{<latex i="A" />}}, knowing {{<latex i="PU_b" />}} and {{<latex i="M" />}}, to generate {{<latex i="C = E(PU_b, M)" />}}.
-3. It is computationally easy for receiver {{<latex i="B" />}} to decrypt {{<latex i="C" />}} using {{<latex i="PR_b" />}} to recover {{<latex i="M" />}}: {{<latex i="M = D(PR_b, C) = D(PR_b, E(PU_b, M))" />}}.
+1. It is computationally easy for any principal $ B $ to generate a pair (public key $ PU_b $, private key $ PR_b $).
+2. It is computationally easy for sender $ A $, knowing $ PU_b $ and $ M $, to generate $ C = E(PU_b, M) $.
+3. It is computationally easy for receiver $ B $ to decrypt $ C $ using $ PR_b $ to recover $ M $: $ M = D(PR_b, C) = D(PR_b, E(PU_b, M)) $.
 4. It is computationally infeasible for an adversary:
- - Knowing {{<latex i="PU_b" />}} to determine {{<latex i="PR_b" />}}.
- - Knowing {{<latex i="PU_b" />}} and {{<latex i="C" />}} to recover {{<latex i="M" />}}.
-5. It is useful for the keys to be applicable in any order: {{<latex i="M = D(PU_b, E(PR_b, M)) = D(PR_b, E(PU_b, M))" />}}.
+ - Knowing $ PU_b $ to determine $ PR_b $.
+ - Knowing $ PU_b $ and $ C $ to recover $ M $.
+5. It is useful for the keys to be applicable in any order: $ M = D(PU_b, E(PR_b, M)) = D(PR_b, E(PU_b, M)) $.
 
 
 ### Functions
 
 #### One-way function
-A function {{<latex i="f: x \rightarrow Y" />}} is a **one-way function**, if {{<latex i="f" />}} is *easy* compute for all {{<latex i="x \in X" />}}, but {{<latex i="f^{-1}" />}} is *hard* or *infeasible* to compute.
+A function $ f: x \rightarrow Y $ is a **one-way function**, if $ f $ is *easy* compute for all $ x \in X $, but $ f^{-1} $ is *hard* or *infeasible* to compute.
 
 e.g:
  - square root
  - modular cube root
 
 #### Trapdoor one-way function
-A **trapdoor one-way function** is a one-way function {{<latex i="f_k : X \rightarrow Y" />}} where, given extra information {{<latex i="k" />}}, it is feasible to find, for {{<latex i="y \in \text{Image}(f)" />}} an {{<latex i="x \in X" />}} where {{<latex i="f_k(x) = y" />}}. Hence a trapdoor one-way functions holds:
- - {{<latex i="Y = f_k(X)" />}} is easy if {{<latex i="k" />}} and {{<latex i="X" />}} are known.
- - {{<latex i="X = f_{k}^{-1}(Y)" />}} is easy if {{<latex i="k" />}} and {{<latex i="Y" />}} are known.
- - {{<latex i="X = f_{k}^{-1}(Y)" />}} is infeasible if {{<latex i="Y" />}} is known but {{<latex i="k" />}} is not.
+A **trapdoor one-way function** is a one-way function $ f_k : X \rightarrow Y $ where, given extra information $ k $, it is feasible to find, for $ y \in \text{Image}(f) $ an $ x \in X $ where $ f_k(x) = y $. Hence a trapdoor one-way functions holds:
+ - $ Y = f_k(X) $ is easy if $ k $ and $ X $ are known.
+ - $ X = f_{k}^{-1}(Y) $ is easy if $ k $ and $ Y $ are known.
+ - $ X = f_{k}^{-1}(Y) $ is infeasible if $ Y $ is known but $ k $ is not.
 
 
 ### Number Theory
@@ -670,18 +670,18 @@ When we **factor** a number, we write it as a product of other numbers. Multiply
 
 #### Relatively Prime Numbers and Greatest Common Divisor (gcd)
 
-Two natural numbers are **relatively prime** if they have no **common** factors apart from 1. i.e. Their *Greatest Common Divisor* is 1. {{<latex i="gcd(a, b) = 1" />}}.
+Two natural numbers are **relatively prime** if they have no **common** factors apart from 1. i.e. Their *Greatest Common Divisor* is 1. $ gcd(a, b) = 1 $.
 
-e.g. {{<latex i="8" />}} and {{<latex i="15" />}} are relatively prime:
-- Factors of {{<latex i="8" />}}: {{<latex i="1, 2, 4, 8" />}}
-- Factors of {{<latex i="15" />}}: {{<latex i="1, 3, 5, 15" />}}
+e.g. $ 8 $ and $ 15 $ are relatively prime:
+- Factors of $ 8 $: $ 1, 2, 4, 8 $
+- Factors of $ 15 $: $ 1, 3, 5, 15 $
 
 
 #### Euclid's Algorithm and Extended Euclid's Algorithm
 
 ##### Euclid's Algorithm
 
-Based on the theorem: {{<latex i="\text{gcd}(a, b) = gcd(b, a \bmod b)" />}} for any positive integers {{<latex i="a" />}} and {{<latex i="b" />}}.
+Based on the theorem: $ \text{gcd}(a, b) = gcd(b, a \bmod b) $ for any positive integers $ a $ and $ b $.
 
 
 ```
@@ -694,7 +694,7 @@ Euclid(a, b):
 
 ##### Extended Euclid's Algorithm
 
-We use extended euclid's algorithm to compute integer coefficients {{<latex i="x, y" />}} such that {{<latex i="d = \text{gcd}(a, b) = (a \times x) + (b \times y)" />}}.
+We use extended euclid's algorithm to compute integer coefficients $ x, y $ such that $ d = \text{gcd}(a, b) = (a \times x) + (b \times y) $.
 
 ```
 Extended-Euclid(a, b):
@@ -706,88 +706,88 @@ Extended-Euclid(a, b):
     return (d, x, y)
 ```
 
-**Quotient**: {{<latex i="[a/b] = q = \text{quotient of division}" />}}. The result without remainder. e.g. {{<latex i="[99/78] = 1" />}} because {{<latex i="78" />}} goes into {{<latex i="99" />}} once remainder {{<latex i="21" />}}.
+**Quotient**: $ [a/b] = q = \text{quotient of division} $. The result without remainder. e.g. $ [99/78] = 1 $ because $ 78 $ goes into $ 99 $ once remainder $ 21 $.
 
-First 3 columns for finding {{<latex i="gcd" />}} (Greatest Common Divisor).
+First 3 columns for finding $ gcd $ (Greatest Common Divisor).
 Last 3 columns for Extended Euclid's Algorithm.
 
-| {{<latex i="a" />}} | {{<latex i="b" />}} | {{<latex i="q = [a/b]" />}} | {{<latex i="d" />}} | {{<latex i="x" />}} | {{<latex i="y" />}} |
+| $ a $ | $ b $ | $ q = [a/b] $ | $ d $ | $ x $ | $ y $ |
 | ------------------- | ------------------- | --------------------------- | ------------------- | ------------------- | ------------------- |
 |                     |                     |                             |                     |                     |
 
 **REMEMBER** (going backwards):
 
-- {{<latex i="d = d_{i-1}" />}}
-- {{<latex i="x = y_{i-1}" />}}
-- {{<latex i="y = x_{i-1} - (q \times x)" />}}
+- $ d = d_{i-1} $
+- $ x = y_{i-1} $
+- $ y = x_{i-1} - (q \times x) $
 
 
 #### Modular Arithmetic
 
-**Remainder**: Modulo gives us the remainder. {{<latex i="r = a \bmod n" />}}.
+**Remainder**: Modulo gives us the remainder. $ r = a \bmod n $.
 
-**Congruent modulo**: {{<latex i="a,b" />}} are congruent modulo if {{<latex i="a \bmod n = b \bmod n" />}}. This is written as {{<latex i="a =_n b" />}}.
+**Congruent modulo**: $ a,b $ are congruent modulo if $ a \bmod n = b \bmod n $. This is written as $ a =_n b $.
 
 #### Fermat's Little Theorem
 
-For a given {{<latex i="a" />}} and {{<latex i="n" />}}, if they are:
+For a given $ a $ and $ n $, if they are:
  - relatively prime.
- - {{<latex i="n" />}} is prime.
+ - $ n $ is prime.
 
-then {{<latex i="a^{n-1} =_{n} 1" />}}.
+then $ a^{n-1} =_{n} 1 $.
 
 **Proof**:
 
-1. Consider the set {{<latex i="\lbrace 1, 2, ..., n - 1 \rbrace" />}} of positive integers less than {{<latex i="n" />}}.
-2. Multiply each element by {{<latex i="a \bmod n" />}} to get the set {{<latex i="X = \lbrace a \bmod n, 2a \bmod n, ..., (n-1)a \bmod n \rbrace" />}}.
-3. Observe that none of the elements in {{<latex i="X" />}} are {{<latex i="0" />}} because {{<latex i="n" />}} does not divide {{<latex i="a" />}}.
-4. No two of the integers in {{<latex i="X" />}} are equal:
-  - Assume that {{<latex i="x \times a =_{n} y \times a" />}} for {{<latex i="1 \leq x \lt y \leq n - 1" />}}.
-  - {{<latex i="a" />}} and {{<latex i="n" />}} are relatively prime so we can eliminate {{<latex i="a" />}} from both sides and obtain {{<latex i="x =_{n} y" />}}. This is impossible as we assumed that {{<latex i="x" />}} and {{<latex i="y" />}} are both positive integers less than {{<latex i="n" />}}, with {{<latex i="x \lt y" />}}.
-5. From this, we know that the {{<latex i="(n-1)" />}} elements of {{<latex i="X" />}} are all positive integers with no two elements equal.
-6. Hence, {{<latex i="X" />}} consists of the set of integers {{<latex i="\lbrace 1, 2, ..., n-1 \rbrace" />}} in some order.
-7. Multiplying the numbers in both sets, and taking the result {{<latex i="\bmod n" />}} yields:
-  {{<latex i="a \times 2a \times ... \times (n-1)a =_{n} [1 \times 2 \times ... \times (n-1)]\\a^{n-1} =_{n} 1" />}}
+1. Consider the set $ \lbrace 1, 2, ..., n - 1 \rbrace $ of positive integers less than $ n $.
+2. Multiply each element by $ a \bmod n $ to get the set $ X = \lbrace a \bmod n, 2a \bmod n, ..., (n-1)a \bmod n \rbrace $.
+3. Observe that none of the elements in $ X $ are $ 0 $ because $ n $ does not divide $ a $.
+4. No two of the integers in $ X $ are equal:
+  - Assume that $ x \times a =_{n} y \times a $ for $ 1 \leq x \lt y \leq n - 1 $.
+  - $ a $ and $ n $ are relatively prime so we can eliminate $ a $ from both sides and obtain $ x =_{n} y $. This is impossible as we assumed that $ x $ and $ y $ are both positive integers less than $ n $, with $ x \lt y $.
+5. From this, we know that the $ (n-1) $ elements of $ X $ are all positive integers with no two elements equal.
+6. Hence, $ X $ consists of the set of integers $ \lbrace 1, 2, ..., n-1 \rbrace $ in some order.
+7. Multiplying the numbers in both sets, and taking the result $ \bmod n $ yields:
+  $ a \times 2a \times ... \times (n-1)a =_{n} [1 \times 2 \times ... \times (n-1)]\\a^{n-1} =_{n} 1 $
 
-8. As {{<latex i="n" />}} is prime, {{<latex i="(n-1)!" />}} is relatively prime to {{<latex i="n" />}}; so cancelling the {{<latex i="(n-1)!" />}} yields {{<latex i="a^{n-1} =_{n}1" />}} as desired.
+8. As $ n $ is prime, $ (n-1)! $ is relatively prime to $ n $; so cancelling the $ (n-1)! $ yields $ a^{n-1} =_{n}1 $ as desired.
 
 
 #### Euler's Totient Function and Euler's Theorem
 
 **Properties**:
 
- - {{<latex i="\phi(1) = 1" />}}.
- - {{<latex i="\phi(p) = p - 1" />}} if {{<latex i="p" />}} is prime.
- - {{<latex i="\phi(p \times q) = \phi(p) \times \phi(q) = (p - 1) \times (q - 1)" />}} if {{<latex i="p" />}} and {{<latex i="q" />}} are prime and {{<latex i="p \neq q" />}}.
+ - $ \phi(1) = 1 $.
+ - $ \phi(p) = p - 1 $ if $ p $ is prime.
+ - $ \phi(p \times q) = \phi(p) \times \phi(q) = (p - 1) \times (q - 1) $ if $ p $ and $ q $ are prime and $ p \neq q $.
 
- **Euler's Theorem**: {{<latex i="a^{\phi(n)} =_{n} 1" />}} for all {{<latex i="a, n" />}} such that {{<latex i="gcd(a, n) = 1" />}}.
+ **Euler's Theorem**: $ a^{\phi(n)} =_{n} 1 $ for all $ a, n $ such that $ gcd(a, n) = 1 $.
 
 ### RSA
 
- - {{<latex i="p = \text{prime number}" />}}
- - {{<latex i="q = \text{prime number}" />}}
- - {{<latex i="n = p \times q" />}}
- - {{<latex i="e = gcd(\phi(n), e) = 1; 1 < e \phi(n)" />}} (relative prime)
- - {{<latex i="d = e^{-1} \bmod \phi(n)" />}} (calculate using Extended Euclid's algorithm)
+ - $ p = \text{prime number} $
+ - $ q = \text{prime number} $
+ - $ n = p \times q $
+ - $ e = gcd(\phi(n), e) = 1; 1 < e \phi(n) $ (relative prime)
+ - $ d = e^{-1} \bmod \phi(n) $ (calculate using Extended Euclid's algorithm)
 
- {{<latex i="e" />}} and {{<latex i="n" />}} are public. {{<latex i="d" />}} is secret.
+ $ e $ and $ n $ are public. $ d $ is secret.
 
- **Encryption**: {{<latex i="C = M^e \bmod n" />}}.
+ **Encryption**: $ C = M^e \bmod n $.
 
- **Decryption**: {{<latex i="M = C^d \bmod n" />}}.
+ **Decryption**: $ M = C^d \bmod n $.
 
  #### Requirements
- 1. It is possible to find values of {{<latex i="e, d, n" />}} such that {{<latex i="M^{ed} \bmod n = M" />}} for all {{<latex i="M \lt n" />}}.
- 2. It is relatively easy to calculate {{<latex i="M^e \bmod n" />}} and {{<latex i="C^d \bmod n" />}} for all values of {{<latex i="M \lt n" />}}.
- 3. It is infeasible to determine {{<latex i="d" />}} given {{<latex i="e" />}} and {{<latex i="n" />}}.
+ 1. It is possible to find values of $ e, d, n $ such that $ M^{ed} \bmod n = M $ for all $ M \lt n $.
+ 2. It is relatively easy to calculate $ M^e \bmod n $ and $ C^d \bmod n $ for all values of $ M \lt n $.
+ 3. It is infeasible to determine $ d $ given $ e $ and $ n $.
 
  **Example**:
- > Consider the primes {{<latex i="p = 11" />}} and {{<latex i="q = 23" />}}.
- > Calculate {{<latex i="n" />}} and {{<latex i="\phi(n)" />}}
+ > Consider the primes $ p = 11 $ and $ q = 23 $.
+ > Calculate $ n $ and $ \phi(n) $
 
  For this we should know:
- - {{<latex i="n = pq" />}}
- - {{<latex i="\phi(n) = (p - 1)(q - 1)" />}}
+ - $ n = pq $
+ - $ \phi(n) = (p - 1)(q - 1) $
 
  $$
  n = 11 \times 23 = 253
@@ -801,139 +801,139 @@ then {{<latex i="a^{n-1} =_{n} 1" />}}.
  \end{aligned}
  $$
 
- > Explain which of the values {{<latex i="e = 3" />}} or {{<latex i="e = 5" />}} is usable as a public key for this given {{<latex i="n" />}}.
+ > Explain which of the values $ e = 3 $ or $ e = 5 $ is usable as a public key for this given $ n $.
 
- We have to choose an {{<latex i="e" />}} where {{<latex i="gcd(\phi(n), e) = 1" />}} and {{<latex i="1 < e < \phi(n)" />}}.
+ We have to choose an $ e $ where $ gcd(\phi(n), e) = 1 $ and $ 1 < e < \phi(n) $.
 
- Let's try {{<latex i="gcd(220, 3)" />}} first.
+ Let's try $ gcd(220, 3) $ first.
 
- | {{<latex i="a" />}}   | {{<latex i="b" />}} | {{<latex i="q = [a/b]" />}} | {{<latex i="d" />}} | {{<latex i="x" />}} | {{<latex i="y" />}} |
+ | $ a $   | $ b $ | $ q = [a/b] $ | $ d $ | $ x $ | $ y $ |
  | --------------------- | ------------------- | --------------------------- | ------------------- | ------------------- | ------------------- |
- | {{<latex i="220" />}} | {{<latex i="3" />}} | {{<latex i="73" />}}        |                     |                     |
- | {{<latex i="3" />}}   | {{<latex i="1" />}} | {{<latex i="3" />}}         |                     |                     |
- | {{<latex i="1" />}}   | {{<latex i="0" />}} | {{<latex i="-" />}}         |                     |                     |
+ | $ 220 $ | $ 3 $ | $ 73 $        |                     |                     |
+ | $ 3 $   | $ 1 $ | $ 3 $         |                     |                     |
+ | $ 1 $   | $ 0 $ | $ - $         |                     |                     |
 
- As we can see, {{<latex i="gcd(220, 3) = 1" />}}. Let's try {{<latex i="gcd(220, 5)" />}} just to show the difference.
+ As we can see, $ gcd(220, 3) = 1 $. Let's try $ gcd(220, 5) $ just to show the difference.
 
- | {{<latex i="a" />}}   | {{<latex i="b" />}} | {{<latex i="q = [a/b]" />}} | {{<latex i="d" />}} | {{<latex i="x" />}} | {{<latex i="y" />}} |
+ | $ a $   | $ b $ | $ q = [a/b] $ | $ d $ | $ x $ | $ y $ |
  | --------------------- | ------------------- | --------------------------- | ------------------- | ------------------- | ------------------- |
- | {{<latex i="220" />}} | {{<latex i="5" />}} | {{<latex i="44" />}}        |                     |                     |
- | {{<latex i="5" />}}   | {{<latex i="0" />}} | {{<latex i="-" />}}         |                     |                     |
+ | $ 220 $ | $ 5 $ | $ 44 $        |                     |                     |
+ | $ 5 $   | $ 0 $ | $ - $         |                     |                     |
 
- As we can see, {{<latex i="gcd(220, 5) = 5" />}}, therefore {{<latex i="e = 5" />}} is **NOT** suitable. {{<latex i="e = 3" />}} is suitable.
-
-
- > Use the Extended Euclid's algorithm to calculate {{<latex i="d" />}} with the {{<latex i="e" />}} you have chosen.
-
- We find our {{<latex i="d" />}} by finding the top value of {{<latex i="y" />}} in our previous table. We use the following rules (going backwards)
-
- - {{<latex i="d = d_{i-1}" />}}
- - {{<latex i="x = y_{i-1}" />}}
- - {{<latex i="y = x_{i-1} - (q \times x)" />}}
+ As we can see, $ gcd(220, 5) = 5 $, therefore $ e = 5 $ is **NOT** suitable. $ e = 3 $ is suitable.
 
 
- | {{<latex i="a" />}}   | {{<latex i="b" />}} | {{<latex i="q = [a/b]" />}} | {{<latex i="d" />}} | {{<latex i="x" />}} | {{<latex i="y" />}}                       |
+ > Use the Extended Euclid's algorithm to calculate $ d $ with the $ e $ you have chosen.
+
+ We find our $ d $ by finding the top value of $ y $ in our previous table. We use the following rules (going backwards)
+
+ - $ d = d_{i-1} $
+ - $ x = y_{i-1} $
+ - $ y = x_{i-1} - (q \times x) $
+
+
+ | $ a $   | $ b $ | $ q = [a/b] $ | $ d $ | $ x $ | $ y $                       |
  | --------------------- | ------------------- | --------------------------- | ------------------- | ------------------- | ----------------------------------------- |
- | {{<latex i="220" />}} | {{<latex i="3" />}} | {{<latex i="73" />}}        | {{<latex i="1" />}} | {{<latex i="1" />}} | {{<latex i="0 - (73 \times 1) = -73" />}} |
- | {{<latex i="3" />}}   | {{<latex i="1" />}} | {{<latex i="3" />}}         | {{<latex i="1" />}} | {{<latex i="0" />}} | {{<latex i="1 - (3 \times 0) = 1" />}}    |
- | {{<latex i="1" />}}   | {{<latex i="0" />}} | {{<latex i="-" />}}         | {{<latex i="1" />}} | {{<latex i="1" />}} | {{<latex i="0" />}}                       |
+ | $ 220 $ | $ 3 $ | $ 73 $        | $ 1 $ | $ 1 $ | $ 0 - (73 \times 1) = -73 $ |
+ | $ 3 $   | $ 1 $ | $ 3 $         | $ 1 $ | $ 0 $ | $ 1 - (3 \times 0) = 1 $    |
+ | $ 1 $   | $ 0 $ | $ - $         | $ 1 $ | $ 1 $ | $ 0 $                       |
 
 
- We get {{<latex i="y = -73" />}}, therefore {{<latex i="d = -73 \bmod 220 = 247" />}}.
+ We get $ y = -73 $, therefore $ d = -73 \bmod 220 = 247 $.
 
- > Encrypt {{<latex i="M = 165" />}} and then decrypt the resulting ciphertext.
+ > Encrypt $ M = 165 $ and then decrypt the resulting ciphertext.
 
- We use {{<latex i="C = M^e \bmod n" />}}.
+ We use $ C = M^e \bmod n $.
 
- {{<latex>}}
+ $$
  \begin{aligned}
  C &= 165^3 \bmod 253\\
  C &=
  \end{aligned}
- {{</latex>}}
+ $$
 
  **Decryption**:
 
- Using {{<latex i="M = C^d \bmod n" />}}.
+ Using $ M = C^d \bmod n $.
 
- {{<latex>}}
+ $$
  \begin{aligned}
  M &= C^{147} \bmod 253\\
  M &=
  \end{aligned}
- {{</latex>}}
+ $$
 
 #### Correctness of RSA
 
-We must show that exists {{<latex i="e, d, n" />}} such that
+We must show that exists $ e, d, n $ such that
 
-{{<latex>}}
+$$
 M^{ed} \bmod n = M \text{ for all } M \lt n
-{{</latex>}}
+$$
 
-It can be shown that the above equation holds if {{<latex i="e" />}} and {{<latex i="d" />}} are multiplicative inverses {{<latex i="\bmod \phi(n)" />}}:
-  - {{<latex i="d =_{\phi(n)} e^{-1} \text{ iff.}" />}}
-  - {{<latex i="de =_{\phi(n)} 1 \text{ iff.}" />}}
-  - {{<latex i="ed \bmod \phi(n) = 1" />}}
+It can be shown that the above equation holds if $ e $ and $ d $ are multiplicative inverses $ \bmod \phi(n) $:
+  - $ d =_{\phi(n)} e^{-1} \text{ iff.} $
+  - $ de =_{\phi(n)} 1 \text{ iff.} $
+  - $ ed \bmod \phi(n) = 1 $
 
-This is true only if {{<latex i="d" />}} and {{<latex i="e" />}} are relatively prime to {{<latex i="\phi(n)" />}}.
+This is true only if $ d $ and $ e $ are relatively prime to $ \phi(n) $.
 
 ### Diffie-Hellman
 
-Based on discrete-logarithms where it is difficult to calculate an {{<latex i="i" />}} such that {{<latex i="b = s^i \bmod p" />}}. Advantageous over RSA because the key, {{<latex i="K" />}}, is never transmitted, it is calculated by both parties.
+Based on discrete-logarithms where it is difficult to calculate an $ i $ such that $ b = s^i \bmod p $. Advantageous over RSA because the key, $ K $, is never transmitted, it is calculated by both parties.
 
 **Remember**:
 
-- {{<latex i="Y_A = \alpha^{X_A} \bmod q" />}}
-- {{<latex i="Y_B = \alpha^{X_B} \bmod q" />}}
-- {{<latex i="K_A = Y_B^{X_A} \bmod q" />}}
-- {{<latex i="K_B = Y_A^{X_B} \bmod q" />}}
+- $ Y_A = \alpha^{X_A} \bmod q $
+- $ Y_B = \alpha^{X_B} \bmod q $
+- $ K_A = Y_B^{X_A} \bmod q $
+- $ K_B = Y_A^{X_B} \bmod q $
 
 where:
- - {{<latex i="X_?" />}} is each principal's randomly generated number.
- - {{<latex i="q" />}} and {{<latex i="\alpha" />}} are public.
- - {{<latex i="K_?" />}} is the computed key for *Alice* and *Bob*.
+ - $ X_? $ is each principal's randomly generated number.
+ - $ q $ and $ \alpha $ are public.
+ - $ K_? $ is the computed key for *Alice* and *Bob*.
 
-1. *Alice* generates {{<latex i="X_A" />}} and calculates {{<latex i="Y_A" />}} and sends it to *Bob*.
-2. *Bob* generates {{<latex i="X_B" />}} and calculates {{<latex i="Y_B" />}} and sends it to *Alice*. *Bob* also calculates {{<latex i="K_B" />}}.
-3. *Alice* calculates {{<latex i="K_A" />}}.
+1. *Alice* generates $ X_A $ and calculates $ Y_A $ and sends it to *Bob*.
+2. *Bob* generates $ X_B $ and calculates $ Y_B $ and sends it to *Alice*. *Bob* also calculates $ K_B $.
+3. *Alice* calculates $ K_A $.
 
 #### Man-in-the-middle attack
 
 As the keys are **unauthenticated**, the Diffie-Hellman key exchange is vulnerable to a Man-in-the-middle attack.
 
-An attacker, {{<latex i="C" />}} can intercept and forward messages so that {{<latex i="A" />}} shares a key with {{<latex i="C" />}} and {{<latex i="B" />}} shares a key with {{<latex i="C" />}}.
+An attacker, $ C $ can intercept and forward messages so that $ A $ shares a key with $ C $ and $ B $ shares a key with $ C $.
 
-1. {{<latex i="C" />}} prepares to randomly generated private keys {{<latex i="X_{C_1}" />}} and {{<latex i="X_{C_2}" />}}. They also calculate the corresponding public keys {{<latex i="Y_{C_1} = \alpha^{X_{C_1}} \bmod q" />}} and {{<latex i="Y_{C_2} = \alpha^{X_{C_2}} \bmod q" />}}.
-2. {{<latex i="A" />}} generates {{<latex i="X_A" />}} and transmits {{<latex i="Y_A = \alpha^{X_A} \bmod q" />}} to {{<latex i="B" />}}.
-3. {{<latex i="C" />}} intercepts {{<latex i="Y_A" />}} and transmits {{<latex i="Y_{C_1}" />}} to {{<latex i="B" />}}. {{<latex i="C" />}} calculates {{<latex i="K_{C_2} = Y_A^{X_{C_2}} \bmod q" />}} as the key to share with {{<latex i="A" />}}.
-4. {{<latex i="B" />}} receives {{<latex i="Y_{C_1}" />}}, generates {{<latex i="X_B" />}} and calculates {{<latex i="K_B = Y_{C_1}^{X_B} \bmod q" />}}.
-5. {{<latex i="B" />}} transmits {{<latex i="Y_B = \alpha^{X_B} \bmod q" />}} to {{<latex i="A" />}}.
-6. {{<latex i="C" />}} intercepts {{<latex i="Y_B" />}} and transmits {{<latex i="Y_{C_2}" />}} to {{<latex i="A" />}}. {{<latex i="C" />}} calculates {{<latex i="K_{C_1} = (Y_B)^{X_{C_1}} \bmod q" />}}.
-7. {{<latex i="A" />}} receives {{<latex i="Y_{C_2}" />}} and calculates {{<latex i="K_A = (Y_{C_2})^{X_A} \bmod q" />}}.
+1. $ C $ prepares to randomly generated private keys $ X_{C_1} $ and $ X_{C_2} $. They also calculate the corresponding public keys $ Y_{C_1} = \alpha^{X_{C_1}} \bmod q $ and $ Y_{C_2} = \alpha^{X_{C_2}} \bmod q $.
+2. $ A $ generates $ X_A $ and transmits $ Y_A = \alpha^{X_A} \bmod q $ to $ B $.
+3. $ C $ intercepts $ Y_A $ and transmits $ Y_{C_1} $ to $ B $. $ C $ calculates $ K_{C_2} = Y_A^{X_{C_2}} \bmod q $ as the key to share with $ A $.
+4. $ B $ receives $ Y_{C_1} $, generates $ X_B $ and calculates $ K_B = Y_{C_1}^{X_B} \bmod q $.
+5. $ B $ transmits $ Y_B = \alpha^{X_B} \bmod q $ to $ A $.
+6. $ C $ intercepts $ Y_B $ and transmits $ Y_{C_2} $ to $ A $. $ C $ calculates $ K_{C_1} = (Y_B)^{X_{C_1}} \bmod q $.
+7. $ A $ receives $ Y_{C_2} $ and calculates $ K_A = (Y_{C_2})^{X_A} \bmod q $.
 
-Now we end up with shared secret keys {{<latex i="K_A = K_{C_2}" />}} and {{<latex i="K_B = K_{C_1}" />}}.
+Now we end up with shared secret keys $ K_A = K_{C_2} $ and $ K_B = K_{C_1} $.
 
 
 #### Group Diffie-Hellman
 
-1. Alice, Bob and Carol all generate their random large private integer {{<latex i="X_A" />}}, {{<latex i="X_B" />}}, {{<latex i="X_C" />}} respectively and calculate their public integer {{<latex i="Y_i = \alpha^{X_i} \bmod q" />}}.
+1. Alice, Bob and Carol all generate their random large private integer $ X_A $, $ X_B $, $ X_C $ respectively and calculate their public integer $ Y_i = \alpha^{X_i} \bmod q $.
 2. Each agent sends another agent's public integer raised with their private key to another agent (in a circular chain).
-  - Alice sends Carol's public integer raised with her private integer ({{<latex i="Y_C^{X_A} \bmod q" />}}) to Bob.
-  - Bob sends Alice's public integer raised with his private integer ({{<latex i="Y_A^{X_B} \bmod q" />}}) to Carol.
-  - Carol sends Bob's public integer raised with her private integer ({{<latex i="Y_B^{X_C} \bmod q" />}}) to Alice.
+  - Alice sends Carol's public integer raised with her private integer ($ Y_C^{X_A} \bmod q $) to Bob.
+  - Bob sends Alice's public integer raised with his private integer ($ Y_A^{X_B} \bmod q $) to Carol.
+  - Carol sends Bob's public integer raised with her private integer ($ Y_B^{X_C} \bmod q $) to Alice.
 3. Each agent calculates the shared key by raising what they receivied with their private integer.
-  - Alice calculates {{<latex i="K = Y_B^{X_CX_A} \bmod q" />}}.
-  - Bob calculates {{<latex i="K = Y_C^{X_AX_B} \bmod q" />}}.
-  - Carol calculates {{<latex i="K = Y_A^{X_AX_C} \bmod q" />}}.
+  - Alice calculates $ K = Y_B^{X_CX_A} \bmod q $.
+  - Bob calculates $ K = Y_C^{X_AX_B} \bmod q $.
+  - Carol calculates $ K = Y_A^{X_AX_C} \bmod q $.
 
 #### El-Gamal variant of Diffie-Hellman
 
-El Gamal is a sped up version of DH where agent {{<latex i="B" />}}, can respond to {{<latex i="A" />}} with an encrypted message. In the following protocol:
+El Gamal is a sped up version of DH where agent $ B $, can respond to $ A $ with an encrypted message. In the following protocol:
 
-1. {{<latex i="A \rightarrow B: Y_A" />}}. {{<latex i="A" />}} calculates {{<latex i="Y_A = \alpha^{X_A} \bmod q" />}} and sends it to {{<latex i="B" />}}.
-2. {{<latex i="B \rightarrow A: (E(M, K), Y_B)" />}}. {{<latex i="B" />}} calculates {{<latex i="Y_B = \alpha^{X_B} \bmod q" />}} **AND** computes the shared key {{<latex i="K_B = Y_A^{X_B} \bmod q" />}} and uses it to encrypt a message {{<latex i="M" />}}.
-3. {{<latex i="A" />}} calculates {{<latex i="Y_B^{X_A} \bmod q" />}} to get the shared key {{<latex i="K" />}}.
+1. $ A \rightarrow B: Y_A $. $ A $ calculates $ Y_A = \alpha^{X_A} \bmod q $ and sends it to $ B $.
+2. $ B \rightarrow A: (E(M, K), Y_B) $. $ B $ calculates $ Y_B = \alpha^{X_B} \bmod q $ **AND** computes the shared key $ K_B = Y_A^{X_B} \bmod q $ and uses it to encrypt a message $ M $.
+3. $ A $ calculates $ Y_B^{X_A} \bmod q $ to get the shared key $ K $.
 
 
 ### Massey-Omura scheme
@@ -947,14 +947,14 @@ Both attach locks to messages (from everyday Cryptography).
 
 #### Hash functions
 
-A **hash function** {{<latex i="h(x)" />}} has the properties:
- 1. *Compression*: {{<latex i="h" />}} maps an input {{<latex i="x" />}} of arbitrary bit length to an output {{<latex i="h(x)" />}} of fixed bit length {{<latex i="n" />}}.
+A **hash function** $ h(x) $ has the properties:
+ 1. *Compression*: $ h $ maps an input $ x $ of arbitrary bit length to an output $ h(x) $ of fixed bit length $ n $.
  2. Polynomial time computable.
 
 
 #### Cryptographic Hash functions
 
-{{<latex i="h(x)" />}} is a **cryptographic** hash function if it is **additionally**:
+$ h(x) $ is a **cryptographic** hash function if it is **additionally**:
  1. One-way (preimage resistant)
  2. Either:
   - 2nd-preimage resistant. It is infeasible to find a second input that has the same output as another input.
@@ -974,11 +974,11 @@ Prevents an adversary from changing who appears to have sent the message.
 
 ### Message Authentication Codes (MACs)
 
-A MAC algorithm is a family of hash functions {{<latex i="h_k" />}} parameterised by a secret key {{<latex i="k" />}}. The {{<latex i="h_k" />}} must be **computation-resistant** (given zero or more MAC pairs ({{<latex i="x_i" />}}, {{<latex i="h_k(x_i)" />}})), it is infeasible to compute ({{<latex i="x" />}}, {{<latex i="h_k(x)" />}}) for any new input {{<latex i="x \neq x_i" />}}.
+A MAC algorithm is a family of hash functions $ h_k $ parameterised by a secret key $ k $. The $ h_k $ must be **computation-resistant** (given zero or more MAC pairs ($ x_i $, $ h_k(x_i) $)), it is infeasible to compute ($ x $, $ h_k(x) $) for any new input $ x \neq x_i $.
 
-Alice and Bob can share a secret-key {{<latex i="k" />}} that they both use to generate a hash of the message. Alice sends the message along with the hash to Bob, and Bob can hash the message and compare his result with the hash that Alice sent. An attacker Charlie cannot alter the message as he does not know the secret {{<latex i="k" />}}.
+Alice and Bob can share a secret-key $ k $ that they both use to generate a hash of the message. Alice sends the message along with the hash to Bob, and Bob can hash the message and compare his result with the hash that Alice sent. An attacker Charlie cannot alter the message as he does not know the secret $ k $.
 
-MACs do not offer non-repudiation as anyone with the key {{<latex i="k" />}} can generate MACs for arbitrary messages.
+MACs do not offer non-repudiation as anyone with the key $ k $ can generate MACs for arbitrary messages.
 
 ### Digital Signatures
 
@@ -996,15 +996,15 @@ An attacker can select a random signature from the signature space and find the 
 
 ### Needham-Schroeder (NSPK)
 
-1. {{<latex i="A \rightarrow B: \lbrace NA, A \rbrace_{K_B}" />}}
-2. {{<latex i="B \rightarrow A: \lbrace NA, NB \rbrace_{K_A}" />}}
-3. {{<latex i="A \rightarrow B: \lbrace NB \rbrace_{K_B}" />}}
+1. $ A \rightarrow B: \lbrace NA, A \rbrace_{K_B} $
+2. $ B \rightarrow A: \lbrace NA, NB \rbrace_{K_A} $
+3. $ A \rightarrow B: \lbrace NB \rbrace_{K_B} $
 
-{{<latex i="N?" />}} is a nonce (a random number used only once).
+$ N? $ is a nonce (a random number used only once).
 
 #### Man-in-the-middle attack on Needham-Schroeder
 
-An attacker can perform the protocol with both {{<latex i="A" />}} and {{<latex i="B" />}} and forward the response. i.e. he plays the game with both principals at the same time copying their moves. The problem is that in step 2, {{<latex i="B" />}} only sends {{<latex i="\lbrace NA, NB \rbrace_{K_A}" />}}. This doesn't tie his nonce to a name and so anyone can take it. The solution is for {{<latex i="B" />}} to send {{<latex i="\lbrace NA, NB, B \rbrace_{K_A}" />}}.
+An attacker can perform the protocol with both $ A $ and $ B $ and forward the response. i.e. he plays the game with both principals at the same time copying their moves. The problem is that in step 2, $ B $ only sends $ \lbrace NA, NB \rbrace_{K_A} $. This doesn't tie his nonce to a name and so anyone can take it. The solution is for $ B $ to send $ \lbrace NA, NB, B \rbrace_{K_A} $.
 
 
 ### Kerberos
@@ -1075,19 +1075,19 @@ Fixed password schemes are vulnerable to replay attacks via eavesdropping. A par
 
 **Setup**:
 
-1. Trent chooses large primes {{<latex i="p, q" />}} and calculates {{<latex i="n = pq" />}}.
-2. {{<latex i="n" />}} is public, whereas {{<latex i="p, q" />}} are secret.
-3. Peggy chooses a secret {{<latex i="s" />}} such that {{<latex i="1 \leq s \leq n -1" />}} and calculates {{<latex i="v = s^2 \bmod n" />}}. {{<latex i="s" />}} is kept private and {{<latex i="v" />}} is public.
+1. Trent chooses large primes $ p, q $ and calculates $ n = pq $.
+2. $ n $ is public, whereas $ p, q $ are secret.
+3. Peggy chooses a secret $ s $ such that $ 1 \leq s \leq n -1 $ and calculates $ v = s^2 \bmod n $. $ s $ is kept private and $ v $ is public.
 
-Peggy aims to convince Victor that she knows {{<latex i="s" />}} without telling Victor what {{<latex i="s" />}} is.
+Peggy aims to convince Victor that she knows $ s $ without telling Victor what $ s $ is.
 
 
 **Verification**:
 
-1. Peggy chooses a random number ***commitment***, {{<latex i="r" />}} such that {{<latex i="0 \leq r \leq n-1" />}}. Peggy calculates the ***witness***, {{<latex i="x = r^2 \bmod n" />}} and sends it to Victor.
-2. Victor sends the ***challenge***, {{<latex i="c" />}} to Peggy where {{<latex i="c" />}} is either {{<latex i="0" />}} or {{<latex i="1" />}}.
-3. Peggy calculates the ***response***, {{<latex i="y = (r \times s^c) \bmod n" />}} to show that she knows her private key {{<latex i="s \bmod n" />}}.
-4. Victor calculate {{<latex i="y^2 \bmod n" />}} and {{<latex i="(x \times v^c) \bmod n" />}}. If these values are congruent, then Peggy knows the value of {{<latex i="s" />}} or she has calculated the value through dishonest means.
+1. Peggy chooses a random number ***commitment***, $ r $ such that $ 0 \leq r \leq n-1 $. Peggy calculates the ***witness***, $ x = r^2 \bmod n $ and sends it to Victor.
+2. Victor sends the ***challenge***, $ c $ to Peggy where $ c $ is either $ 0 $ or $ 1 $.
+3. Peggy calculates the ***response***, $ y = (r \times s^c) \bmod n $ to show that she knows her private key $ s \bmod n $.
+4. Victor calculate $ y^2 \bmod n $ and $ (x \times v^c) \bmod n $. If these values are congruent, then Peggy knows the value of $ s $ or she has calculated the value through dishonest means.
 
 These 4 steps constitute a ***round*** which is repeated several times with different random ***challenges***, where Peggy must pass each round to be verified.
 
@@ -1169,7 +1169,7 @@ The weakest link in a secure system is usually the human being.
  - Requirements for public key cryptography.
  - One-way function definitions, examples.
  - Definitions for number theory.
- - Euclids and Extended euclids. Check {{<latex i="e \times d \bmod \phi(n)" />}}. Write out algorithm (function).
+ - Euclids and Extended euclids. Check $ e \times d \bmod \phi(n) $. Write out algorithm (function).
  - Modular arithmetic
  - Fermat's little theorem proof.
  - Euler's totient definition.

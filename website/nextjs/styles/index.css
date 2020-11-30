@@ -40,4 +40,9 @@ nav a {
   @apply border-b-2 md:border-0;
 }
 
+/* Math */
+.math-inline {
+  @apply inline-block;
+}
+
 /* purgecss start ignore */

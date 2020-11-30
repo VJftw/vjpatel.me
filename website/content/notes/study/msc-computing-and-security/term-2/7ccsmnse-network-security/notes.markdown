@@ -8,9 +8,9 @@ latex: true
 
 ## Lecture 1
 
-{{<latex>}}
+$$
 \text{Security} = \text{Policy} + \text{Mechanism}
-{{</latex>}}
+$$
 
 Security design needs to ask and answer:
 
@@ -73,20 +73,20 @@ Email also has an *availability* problem being **spam**. It is a problem because
 
 ### Pretty Good Privacy (PGP)
 
-#### Authentication ({{<latex i="\text{Alice} \rightarrow \text{Bob}" />}})
+#### Authentication ($ \text{Alice} \rightarrow \text{Bob} $)
 
-1. {{<latex i="\text{Alice}" />}} creates a message.
-2. {{<latex i="\text{Alice}" />}} creates a 160-bit hash code of the message using SHA-1.
-3. {{<latex i="\text{Alice}" />}} encrypts hash code with RSA using the her private key, attaching the result to the message.
-4. {{<latex i="\text{Bob}" />}} uses RSA with $\text{Alice}$'s public key to decrypt and recover the hash code.
-5. {{<latex i="\text{Bob}" />}} generates new hash code for message and compares it with the decrypted hash code. If they match, the message is accepted as authentic.
+1. $ \text{Alice} $ creates a message.
+2. $ \text{Alice} $ creates a 160-bit hash code of the message using SHA-1.
+3. $ \text{Alice} $ encrypts hash code with RSA using the her private key, attaching the result to the message.
+4. $ \text{Bob} $ uses RSA with $\text{Alice}$'s public key to decrypt and recover the hash code.
+5. $ \text{Bob} $ generates new hash code for message and compares it with the decrypted hash code. If they match, the message is accepted as authentic.
 
-#### Confidentiality ({{<latex i="\text{Alice} \rightarrow \text{Bob}" />}})
+#### Confidentiality ($ \text{Alice} \rightarrow \text{Bob} $)
 
-1. {{<latex i="\text{Alice}" />}} generates a message and random 128-bit number to be used as a session key for this message only.
-2. {{<latex i="\text{Alice}" />}} encrypts message using CAST-128/IDEA/3DES (**symmetric**) with session key.
-3. {{<latex i="\text{Alice}" />}} encrypts session key using RSA with {{<latex i="\text{Bob}" />}}'s public key, then attached to the message.
-4. {{<latex i="\text{Bob}" />}} uses RSA with his private key to decrypt and recover session key.
+1. $ \text{Alice} $ generates a message and random 128-bit number to be used as a session key for this message only.
+2. $ \text{Alice} $ encrypts message using CAST-128/IDEA/3DES (**symmetric**) with session key.
+3. $ \text{Alice} $ encrypts session key using RSA with $ \text{Bob} $'s public key, then attached to the message.
+4. $ \text{Bob} $ uses RSA with his private key to decrypt and recover session key.
 5. Session key is used to decrypt message.
 
 We can use both services (Authentication and Confidentiality) on the same message:
@@ -723,9 +723,9 @@ The policy is determined primarily by the interaction of:
 
 A **security association** is a one-way relationship between sender and receiver defining security services. e.g.:
 
-{{<latex>}}
+$$
 \text{Alice} \rightarrow \text{Bob}: \text{Encrypt with 3DES; Authenticate with MD5}
-{{</latex>}}
+$$
 
 a security association is uniquely identified by three parameters:
 
@@ -875,36 +875,36 @@ An **SSL Session** is an association between the client and server with an assoc
 
 #### Handshake
 
-* {{<latex i="\text{Sid}" />}}: Session identifier.
-* {{<latex i="\text{Pa}" />}}: A list of {{<latex i="A" />}}'s preferences for encryption and compression (e.g. Diffie-Hellmann, RSA).
-* {{<latex i="\text{Pb}" />}}: is chosen from {{<latex i="\text{Pa}" />}}.
+* $ \text{Sid} $: Session identifier.
+* $ \text{Pa} $: A list of $ A $'s preferences for encryption and compression (e.g. Diffie-Hellmann, RSA).
+* $ \text{Pb} $: is chosen from $ \text{Pa} $.
 
 1. Establish security capabilities:
-    * Client sends Hello: {{<latex i="A \rightarrow B: \text{Na}, \text{Sid}, \text{Pa}" />}}.
-    * Server responds with Hello: {{<latex i="B \rightarrow A: \text{Nb}, \text{Sid}, \text{Pb}" />}}.
+    * Client sends Hello: $ A \rightarrow B: \text{Na}, \text{Sid}, \text{Pa} $.
+    * Server responds with Hello: $ B \rightarrow A: \text{Nb}, \text{Sid}, \text{Pb} $.
 2. Exchange server certificate:
-    * Server sends certificate: {{<latex i="B \rightarrow A: \text{certificate}(B, K_B)" />}}.
+    * Server sends certificate: $ B \rightarrow A: \text{certificate}(B, K_B) $.
 3. Client key exchange:
-    * *Optional* Client certificate: {{<latex i="A \rightarrow B: \text{certificate}(A, K_A)" />}}
-    * Client Key Exchange: {{<latex i="A \rightarrow B: \left \{ \text{PMS} \right \}_{K_B}" />}}
-    * *Optional* Certificate verify: {{<latex i="A \rightarrow B: \left \{\text{hash}(...)\right \}_{K_A^{-1}}" />}}
+    * *Optional* Client certificate: $ A \rightarrow B: \text{certificate}(A, K_A) $
+    * Client Key Exchange: $ A \rightarrow B: \left \{ \text{PMS} \right \}_{K_B} $
+    * *Optional* Certificate verify: $ A \rightarrow B: \left \{\text{hash}(...)\right \}_{K_A^{-1}} $
 5. Finish establishing connection:
-    * Client finished: {{<latex i="A \rightarrow B: \left \{ \text{Finished} \right \}_\text{clientK}" />}}
-    * Server finished: {{<latex i="B \rightarrow A: \left \{ \text{Finished} \right \}_\text{serverK}" />}}
+    * Client finished: $ A \rightarrow B: \left \{ \text{Finished} \right \}_\text{clientK} $
+    * Server finished: $ B \rightarrow A: \left \{ \text{Finished} \right \}_\text{serverK} $
 
 #### Interpretation
 
 The heart of this protocol are the exchanges:
 
- 1. **server certificate**: {{<latex i="B \rightarrow A: \text{certificate}(B, K_B)" />}}
- 2. **client key exchance**: {{<latex i="A \rightarrow B: \left \{ \text{PMS} \right \}_{K_B}" />}}
+ 1. **server certificate**: $ B \rightarrow A: \text{certificate}(B, K_B) $
+ 2. **client key exchance**: $ A \rightarrow B: \left \{ \text{PMS} \right \}_{K_B} $
 
- If {{<latex i="A" />}}`shares one-sided key with a trusted CA and has a communication channel with `{{<latex i="B" />}} then (1) promotes this to an authentic channel.
+ If $ A $`shares one-sided key with a trusted CA and has a communication channel with `$ B $ then (1) promotes this to an authentic channel.
 
- In (2), a non-authenticated agent {{<latex i="A" />}} sends keying material to {{<latex i="B" />}}. Effect of encryption/MAC-ing with this can be understood as follows:
+ In (2), a non-authenticated agent $ A $ sends keying material to $ B $. Effect of encryption/MAC-ing with this can be understood as follows:
 
-  * When {{<latex i="A" />}} subsequently sends: we have a *sender invariant* channel.
-  * When {{<latex i="B" />}} subsequently responds: channel is *receiver invariant*.
+  * When $ A $ subsequently sends: we have a *sender invariant* channel.
+  * When $ B $ subsequently responds: channel is *receiver invariant*.
   * Both yield essentially a *secure channel with a pseudonym*. This cannot be promoted to a secure channel, where the sender's identity is authenticated. Therefore, SSL is often followed by additional client authentication.
 
 ---
@@ -942,7 +942,7 @@ Assuming a client shares a key with proxy a single proxy solution is:
 
 ![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgVkZsOVZWT096WnM "Single Proxy with Encryption")
 
-{{<latex i="k_p(M, S)" />}}: client {{<latex i="C" />}} encrypts message {{<latex i="M" />}} for proxy using proxy's public key `{{<latex i="k_p" />}} along with server address {{<latex i="S" />}}.
+$ k_p(M, S) $: client $ C $ encrypts message $ M $ for proxy using proxy's public key `$ k_p $ along with server address $ S $.
 
 ![alt text](https://drive.google.com/uc?export=view&id=0B8i5iuobK6DgNFhZMTVwcjNRTk0 "Chained Proxy with Encryption")
 
@@ -974,27 +974,27 @@ To **foil traffic analysis**:
 
 #### Generating Receipts
 
-A mix can return a receipt {{<latex i="Y" />}} for messages received.
+A mix can return a receipt $ Y $ for messages received.
 
-{{<latex>}}
+$$
 Y = \left\{ c, \left\{ r_1, \left\{ r_0, M \right\}_{\text{pk}(B)}, B \right\}_{\text{pk}(\text{mix})} \right\}_{\text{priv}(\text{mix})}
-{{</latex>}}
+$$
 
-where {{<latex i="c" />}} is some large, known constant (e.g. string of zeros).
+where $ c $ is some large, known constant (e.g. string of zeros).
 
 A participant can later prove he sent the message by supplying:
 
-{{<latex>}}
+$$
 X = \left\{ r_0, M \right\}_{\text{pk}(B)}, B
-{{</latex>}}
+$$
 
-as well as the retained string {{<latex i="r_1" />}}.
+as well as the retained string $ r_1 $.
 
 **The proof of receipt**:
 
-{{<latex>}}
+$$
 \left\{ Y \right\}_{\text{pk}(\text{mix})} = c, \left\{ r_1, X \right\}_{\text{pk}(\text{mix})}
-{{</latex>}}
+$$
 
 #### Weaknesses
 
@@ -1007,7 +1007,7 @@ In a **Mix Network**, a sender prepares an item for every Mix in the cascade. Ea
 
 A **digital pseudonym** can be given a public key used to verify signatures of an anonymous holder. A **roster** is a list of pseudonyms, which is publicised. Building a roster is nontrivial problem.
 
-Voting can take place where votes are anonymously emailed with a digital pseudonym {{<latex i="K" />}}. Authorities **and public** can eliminate duplicates and tally votes without revealing voter identity.
+Voting can take place where votes are anonymously emailed with a digital pseudonym $ K $. Authorities **and public** can eliminate duplicates and tally votes without revealing voter identity.
 
 #### Summary
 
@@ -1078,7 +1078,7 @@ The Dining cryptographers problem presents a situation where there are **3 crypt
   * Even number of *Same*, then one of the cryptographers is paying. **A non-payer cannot tell which of the other two are paying.**
 
 **Superposed sending**:
-This idea generalises to any group of size {{<latex i="N" />}}.
+This idea generalises to any group of size $ N $.
 
 1. For each bit of the message, every user generates 1 random bit and sends it to 1 neighbour. Every uses learns 2 bits (his own and his neighbour's).
 2. Each user announces their own bit `XOR` neighbour's bit.

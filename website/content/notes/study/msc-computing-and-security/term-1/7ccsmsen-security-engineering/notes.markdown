@@ -29,7 +29,7 @@ latex: true
 ### Difrerential Privacy
 Adding noise to a sensitive data set so that the statistical information is still retained but the real individuial's information is hidden among other entires.
 
-Some questions ({{<latex i="f(x)" />}}) are not allowed to be asked as they may be deducible. e.g. a single/few person in the original data set.
+Some questions ($ f(x) $) are not allowed to be asked as they may be deducible. e.g. a single/few person in the original data set.
 
 
 ---

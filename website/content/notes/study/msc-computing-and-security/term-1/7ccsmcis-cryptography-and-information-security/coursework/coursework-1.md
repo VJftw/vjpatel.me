@@ -25,7 +25,7 @@ Don't just *brute force* but proceed strategically. Tally the frequencies of let
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |     | 1   | 2   | 4   | 3   |     |     |     | 3   |     | 4   | 1   |     | 4   | 1   | 4   | 3   | 1   | 6   |     |     | 4   |     | 7   | 5   |     |
 
-As `X` appears in the ciphertext 7 times and `E` is the most frequent letter in the given table, it is reasonable to assume that `X = E`. If `X = E`, we have a shift of {{<latex i=" -19 \bmod 26 " />}}. This would result in our cipher -> plaintext looking like this:
+As `X` appears in the ciphertext 7 times and `E` is the most frequent letter in the given table, it is reasonable to assume that `X = E`. If `X = E`, we have a shift of $  -19 \bmod 26  $. This would result in our cipher -> plaintext looking like this:
 
 | A   | B   | C   | D   | E   | F   | G   | H   | I   | J   | K   | L   | M   | N   | O   | P   | Q   | R   | S   | T   | U   | V   | W   | X   | Y   | Z   |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -35,7 +35,7 @@ Which gives this plaintext for the ciphertext:
 ```
 R KRCV KFCU SP RE ZUZFK, WLCC FW JFLEU REU WLIP, JZXEZWPZEX EFKYZEX.
 ```
-which, doesn't make any sense. Systematically you can then apply `X = ?` where `?` is the next most frequent letter from the given table. This gives `X = T` and finally `X = N` {{<latex i=" -10 \bmod 26 " />}} where you'll find:
+which, doesn't make any sense. Systematically you can then apply `X = ?` where `?` is the next most frequent letter from the given table. This gives `X = T` and finally `X = N` $  -10 \bmod 26  $ where you'll find:
 
 | A   | B   | C   | D   | E   | F   | G   | H   | I   | J   | K   | L   | M   | N   | O   | P   | Q   | R   | S   | T   | U   | V   | W   | X   | Y   | Z   |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -53,8 +53,8 @@ A TALE TOLD BY AN IDIOT, FULL OF SOUND AND FURY, SIGNIFYING NOTHING.
 > Use the keyword "CHARLES" to encrypt the plaintext
 >> MEET ME AT HAMMERSMITH BRIDGE TONIGHT
 
-First we construct our {{<latex i=" 5 \times 5 " />}} matrix with the keyword `CHARLES`:
-{{<latex>}}
+First we construct our $  5 \times 5  $ matrix with the keyword `CHARLES`:
+$$
 \begin{bmatrix}
 C & H & A & R & L\\\
 E & S & B & D & F\\\
@@ -62,7 +62,7 @@ G & I/J & K & M & N\\\
 O & P & Q & T & U\\\
 V & W & X & Y & Z
 \end{bmatrix}
-{{</latex>}}
+$$
 
 
 We can then split the plaintext into pairs with `X`s to fill repeated characters when necessary:
@@ -91,12 +91,12 @@ Use the tableu and keyword `RELATIONS` to encrypt `TO BE OR NOT TO BE THAT IS TH
 
 Steps:
 
-1. Find {{<latex i=" x " />}} value for each character in key by using it's index in the alphabet. i.e. `R = 17`, `E = 4`
-2. Perform Caesar cipher for each character in plaintext with each {{<latex i=" x " />}} value, repeating key when necessary.
+1. Find $  x  $ value for each character in key by using it's index in the alphabet. i.e. `R = 17`, `E = 4`
+2. Perform Caesar cipher for each character in plaintext with each $  x  $ value, repeating key when necessary.
 
 | Key:                  | R   | E   | L   | A   | T   | I   | O   | N   | S   |
 | --------------------- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| {{<latex i=" x " />}} | 17  | 4   | 11  | 0   | 19  | 8   | 14  | 13  | 18  |
+| $  x  $ | 17  | 4   | 11  | 0   | 19  | 8   | 14  | 13  | 18  |
 
 Encrypting `TO BE OR NOT BE THAT IS THE QUESTION` gives:
 ```
