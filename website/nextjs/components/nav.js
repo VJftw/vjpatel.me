@@ -1,75 +1,62 @@
 import Link from "next/link";
 import { Author } from "../lib/constants";
+import React from "react";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Navbar() {
+  const [navbarOpen, setNavbarOpen] = React.useState(false);
+
   return (
-    // <nav className="bg-gray-800">
-    <nav className="flex-shrink">
-      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-        <div className="relative flex items-center justify-between h-16">
-          <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-            {/* <!-- Mobile menu button--> */}
-            <button
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-              aria-expanded="false"
-            >
-              <span className="sr-only">Open main menu</span>
-            </button>
-          </div>
-          <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-            <Link href="/">
-              <a className="flex-shrink-0 flex items-center text-xl text-gray-800 font-semibold hover:underline hover:text-current">
-                <img
-                  className="h-10 w-10 mr-2 rounded-full"
-                  src={Author.picture}
-                  alt=""
-                />
-                VJ Patel
-              </a>
-            </Link>
-            <div className="hidden sm:block sm:ml-auto">
-              <div className="flex space-x-4">
-              <Link href="/blog"><a>Blog</a></Link>
-              <Link href="/projects"><a>Projects</a></Link>
-              <Link href="/notes"><a>Notes</a></Link>
-              <Link href="/academic"><a>Academic</a></Link>
-              </div>
-            </div>
-          </div>
+    <nav className="relative flex flex-wrap items-center justify-between navbar-expand-md">
+      <div className="container px-4 mx-auto flex flex-wrap items-center justify-between max-w-7xl">
+        <div className="w-full relative flex justify-between md:w-auto md:static md:block md:justify-start">
+          <Link href="/">
+            <a className="flex-shrink-0 flex items-center text-xl text-gray-800 font-semibold hover:underline hover:text-current">
+              <img
+                className="h-10 w-10 mr-2 rounded-full"
+                src={Author.picture}
+                alt=""
+              />
+              VJ Patel
+            </a>
+          </Link>
+          <button
+            className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block md:hidden outline-none focus:outline-none"
+            type="button"
+            onClick={() => setNavbarOpen(!navbarOpen)}
+          >
+            <FontAwesomeIcon icon={faBars} fixedWidth />
+          </button>
         </div>
-      </div>
-
-      {/* <!--
-    Mobile menu, toggle classNamees based on menu state.
-
-    Menu open: "block", Menu closed: "hidden"
-  --> */}
-      <div className="hidden sm:hidden">
-        <div className="px-2 pt-2 pb-3 space-y-1">
-          <a
-            href="#"
-            className="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900"
-          >
-            Dashboard
-          </a>
-          <a
-            href="#"
-            className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700"
-          >
-            Team
-          </a>
-          <a
-            href="#"
-            className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700"
-          >
-            Projects
-          </a>
-          <a
-            href="#"
-            className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700"
-          >
-            Calendar
-          </a>
+        <div
+          className={
+            "md:flex flex-grow items-center" +
+            (navbarOpen ? " flex" : " hidden")
+          }
+        >
+          <ul className="flex flex-col md:flex-row list-none items-center w-full md:w-auto md:ml-auto">
+            <li className="nav-item">
+              <Link href="/blog">
+                <a>Blog</a>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link href="/projects">
+                <a>Projects</a>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link href="/notes">
+                <a>Notes</a>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link href="/academic">
+                <a>Academic</a>
+              </Link>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
