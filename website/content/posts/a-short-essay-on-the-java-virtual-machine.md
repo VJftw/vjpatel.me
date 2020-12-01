@@ -3,6 +3,7 @@ date: "2013-09-11T23:06:35+01:00"
 title: "A Short Essay on the Java Virtual Machine"
 excerpt: "This short academic essay was written during my first year of my BSc obtained 75%+"
 tags: ["university", "infrastructure"]
+published: true
 ---
 
 ## To run a Java Program, you need a Java Virtual Machine. What is a Virtual Machine? Why is it necessary to have a Java Virtual Machine? Why is it useful that Java works this way?

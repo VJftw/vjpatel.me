@@ -4,6 +4,7 @@ title: "Implementations of Homomorphic Encryption"
 excerpt: "Excerpts from my undergraduate dissertation about Homomorphic Encryption"
 latex: true
 tags: ["university", "security"]
+published: true
 ---
 ## Introduction
 

@@ -33,6 +33,8 @@ export function getPostBySlug(slug, fields = []) {
 
   // Use default Author if none set
   items['author'] = items['author'] === undefined ? Author : items['author']
+  // unpublished by default
+  items['published'] = items['published'] === undefined ? false : items['published']
 
   return items
 }
