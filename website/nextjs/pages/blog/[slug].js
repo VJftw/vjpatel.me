@@ -9,8 +9,9 @@ import PostTitle from '../../components/blog/post-title'
 import Head from 'next/head'
 import { SITE_TITLE } from '../../lib/constants'
 import markdownToHtml from '../../lib/markdownToHtml'
+import readingTime from 'reading-time'
 
-export default function Post({ post, morePosts, preview }) {
+export default function Post({ post, preview }) {
   const router = useRouter()
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
@@ -28,7 +29,7 @@ export default function Post({ post, morePosts, preview }) {
                 title={post.title}
                 coverImage={post.coverImage}
                 date={post.date}
-                author={post.author}
+                readingTime={post.readingTime}
               />
               <PostBody content={post.content} />
             </article>
@@ -50,6 +51,7 @@ export async function getStaticProps({ params }) {
     'coverImage',
   ])
   const content = await markdownToHtml(post.content || '')
+  post.readingTime = readingTime(post.content).text
 
   return {
     props: {

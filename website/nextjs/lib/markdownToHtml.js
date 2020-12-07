@@ -7,16 +7,18 @@ import attacher from 'rehype-highlight'
 import math from 'remark-math'
 import renderSvg from 'rehype-mathjax'
 import gfm from 'remark-gfm'
+import footnotes from 'remark-footnotes'
 
 export default async function markdownToHtml(markdown) {
   const result = await unified()
     .use(remarkParse)
-    .use(remark2rehype)
     .use(autolink)
     .use(attacher)
     .use(math)
     .use(renderSvg)
+    .use(footnotes, {inlineNotes: true})
     .use(gfm)
+    .use(remark2rehype)
     .use(rehypeStringify)
     .process(markdown)
 
