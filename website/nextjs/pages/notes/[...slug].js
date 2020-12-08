@@ -8,7 +8,6 @@ import { getNoteBySlug, getAllNotes } from '../../lib/api/notes'
 import NoteTitle from '@/components/notes/note-title'
 import Head from 'next/head'
 import { SITE_TITLE } from '../../lib/constants'
-import markdownToHtml from '../../lib/markdownToHtml'
 
 export default function Note({ note, preview }) {
   const router = useRouter()
@@ -51,7 +50,7 @@ export async function getStaticProps({ params }) {
     'directory',
     'content',
   ])
-  const content = await markdownToHtml(note.content || '')
+  const content = note.content || ''
 
   return {
     props: {

@@ -8,7 +8,6 @@ import { getProjectBySlug, getAllProjects } from '../../lib/api/projects'
 import ProjectTitle from '../../components/projects/project-title'
 import Head from 'next/head'
 import { SITE_TITLE } from '../../lib/constants'
-import markdownToHtml from '../../lib/markdownToHtml'
 
 export default function Project({ project, preview }) {
   const router = useRouter()
@@ -55,7 +54,7 @@ export async function getStaticProps({ params }) {
     'links',
     'content',
   ])
-  const content = await markdownToHtml(project.content || '')
+  const content = project.content || ''
 
   return {
     props: {

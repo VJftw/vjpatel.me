@@ -8,7 +8,6 @@ import { getPostBySlug, getAllPosts } from '../../lib/api/blog'
 import PostTitle from '../../components/blog/post-title'
 import Head from 'next/head'
 import { SITE_TITLE } from '../../lib/constants'
-import markdownToHtml from '../../lib/markdownToHtml'
 import readingTime from 'reading-time'
 
 export default function Post({ post, preview }) {
@@ -16,6 +15,7 @@ export default function Post({ post, preview }) {
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }
+
   return (
     <Layout preview={preview}>
       <Container>
@@ -50,7 +50,7 @@ export async function getStaticProps({ params }) {
     'ogImage',
     'coverImage',
   ])
-  const content = await markdownToHtml(post.content || '')
+  const content = post.content || ''
   post.readingTime = readingTime(post.content).text
 
   return {

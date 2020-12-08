@@ -200,7 +200,128 @@ As mentioned in the Overall System, queues will be used to hold collections of t
 
 RabbitMQ will be used as it offers traditional message broking which the API will use to offload more resource intensive processes to be completed asynchronously (Humphrey, 2017). It also offers official support for Go.
 
+## Implementation and Experimental Work
+This section explains how the system was constructed and deployed.
 
+### Service Overview
+Figure 3 shows the overall system architecture on Amazon Web Services (AWS). The Application Load Balancer, Cluster management(containers) and Managed Database are provided from AWS as Software as a Service (SaaS). A managed database was desired because it offers simple backup and replication. The Application Load balancer from AWS integrates with the Elastic Container Service (ECS) to expose services behind a load balancer.
+
+The cluster consists of 2 m4.large (2 CPU cores – 8GB memory) EC2 spot instances. The m4 series of instances are preferred over the cheaper t2 series because they guarantee constant performance. The t2 instance class varies in performance based on past usage making them more suited for mostly idle configurations (Amazon Web Services, 2017). Spot instances are variably priced based on Amazon Web Services’ spare capacity. These instances may be terminated and restarted in a different data centre at any time In Figure 3, the Cache and Queues also reside within this cluster as they store non-persistent data. They can also be configured to behave as a cache cluster and a queue cluster via Redis Sentinel (Sanfilippo, 2012) and RabbitMQ Highly Available Queues (Pivotal Software Inc., 2017).
+
+Every service within the cluster and the clients communicate with JavaScript Object Notation (JSON) which is a lightweight data-interchange format (ECMA International, 2013).
+
+### Infrastructure and Deployment
+This system has been deployed to Amazon Web Services (AWS) via Hashicorp’s Terraform as infrastructure-as-code. Writing infrastructure-as-code allows us to pre-define complex infrastructures and spin them up or down on-demand. It also allows others to read how the system works without searching through a control panel. The following Amazon Web Services have been used:
+
+* Elastic Compute Cloud (EC2) – Virtual machines running Ubuntu Linux 16.04.
+* Route 53 – Domain Name Service (DNS) for routing the domain names.
+* Relational Database Service (RDS) – Managed relational database solution offering automatic backup and replication.
+* Elastic Container Service (ECS) – Docker container management solution.
+* Virtual Private Cloud (VPC) – Private virtual networks to isolate the application.
+* Identity and Access Management (IAM) – User and service access.
+* Certificate Manager – Transport Layer Security (TLS) certificate provision.
+* CloudWatch Logs – Service output logging.
+* Simple Storage Service (S3) – Object storage used for frontend web application and secure key storage.
+* CloudFront Content Delivery Network (CDN) – Frontend deployment for high availability.
+
+Travis CI has been used for continuous integration by running code style checks and tests before deploying to a test environment.
+
+### Frontend
+The Angular 4 framework has been used to develop the frontend client. It is the simplest part of the system as it aims to be a ‘thin-client’ as mentioned in Overall System. It has been deployed to Amazon Web Services’ CloudFront CDN for high availability and it performs a small health check to verify that the backend services are reachable and coping with current load.
+
+| File type        | Purpose                                                                                                       |
+| ---------------- | ------------------------------------------------------------------------------------------------------------- |
+| `*.service.ts`   | These interact with the backend to provide a repository that manages the lifecycle of entities on the client. |
+| `*.model.ts`     | These represent the entities used on the client.                                                              |
+| `*.component.ts` | These are used to build a UI in Angular. These is one for each view, operating as a View/Controller in MVC.   |
+| `*.module.ts`    | These are used to configure a library.                                                                        |
+
+#### Promises
+In the client, some object services provide a repository. These return an asynchronous guarantee for an object because a request to the backend server takes longer than accessing information already in memory. In JavaScript, this can be achieved using Promises (Mozilla Developer Network, 2017) and this works by programming the Promise object to first check a local in-memory structure for the existence of an object, resolving if it finds it
+otherwise querying the backend server for the object and resolving. 
+
+#### User Interface
+This application has been developed using Materialize CSS which incorporates Google’s Material Design standards into a user interface framework. Using this user interface framework aids in keeping a consistent style and experience throughout the application.
+
+The navigation system allows a user to go to any of the main sections of the application in one click on desktop and 2 touches on mobile. The main sections identified are:
+* Photos a user is tagged in.
+* Cliques a user belongs to. This page also displays tie-strengths next to other
+members in a clique.
+* Contexts a user has. This page also lists the global contexts.
+* Submit Feedback for the application.
+
+Figure 5 shows all the pages in the application and how a user interacts with the application to view them. Every page within the Authenticated and Navigation System container can navigate to Photos, Feedback, Friends and Contexts using the navigation system. This container also identifies pages which are only viewable once a user has been authenticated.
+
+The appendix provides screenshots of how the application looks under User Interface Screenshots.
+
+### Backend
+All the following components are executed in separate Docker LXC (Linux Containers) as individual, scalable micro services.
+
+The backend services share a lot of code thus have been developed in the same Go package. This package is built into a Docker container which is then started with different configurations across the cluster for the different API and worker services.
+
+#### Go API
+The API is started by setting the TYPE environment variable to ‘API’. This exposes a HTTP server on port 80. The API is RESTful and implements the following endpoints in Figure 6.
+
+| Endpoint   | Method | Purpose                                                                                                        |
+| ---------- | ------ | -------------------------------------------------------------------------------------------------------------- |
+| `/v1/auth` | `POST` | Authenticate a short-lived access token and userID, returning a different authentication for use with the API. |
+| `/v1/categories` | `GET` | Returns all categories including user-defined ones. |
+| `/v1/categories` | `POST` | Creates a new user-defined category. |
+| `/v1/friends?ids=["x","y","z"]` | `GET` | Returns user objects for the given friend IDs where the session-user is a friend. |
+| `/v1/cliques` | `GET` | Returns the cliques that the session-user is a member of. |
+| `/v1/cliques/{id}` | `PUT` | Updates the session-user's privacy preferences for a clique. |
+| `/v1/photos` | `POST` | Registers a photo with the application. |
+| `/v1/photos/{id}` | `PUT` | Updates a photo's categories. |
+| `/v1/surveys` | `POST` | Submitting surveys. |
+| `/v1/users?ids=["x","y","z"]` | `GET` | Returns the request user IDs that exist on the system for determining if a photo is negotiable. |
+| `/v1/ws?authToken=x` | `GET` | Upgrades the conection to a WebSocket allowing the API to send updates for the session-user in real-time.
+
+Where a session-user is involved (apart from the websocket endpoint `/v1/ws?authToken=x`), the session-user is identified by the `Authorization` header sent with requests. 
+
+#### Go Workers
+A worker is started by setting the `TYPE` environment variable to `WORKER` and setting the `QUEUE` environment variable to a valid queue name.
+
+##### Long Lived Authentication Token Worker
+This worker is started by setting the QUEUE environment variable to ‘auth-long-token’.
+
+By default, Facebook returns short-lived access tokens that often only have a lifetime of two hours (Facebook Inc., 2017b). This worker obtains a long-lived access token from Facebook using the short-lived access token for use in further API calls. It also obtains and caches the IDs for each profile vector that is used in tie-strength determination.
+
+This worker runs every time a user logs in to the application, obtaining a long-lived access token for that user and updating the cache with profile information. It then adds a message to the community detection queue for the logged in user’s friendship groups to be updated.
+
+##### Synchronise Photo Tags Worker
+This worker is started by setting the QUEUE environment variable to ‘photo-tags’.
+
+The API exposes an endpoint for users to create photo objects on this application. Arbitrary information could be sent through this endpoint therefore the backend should obtain information about a photo from Facebook’s Graph API itself as it cannot always trust the input from a client. The client sends the photo ID and Facebook user ID which this worker then uses to obtain information about the photo using the Facebook user’s long-lived access token.
+
+This worker runs whenever a new photo has been added.
+
+##### Community Detection Worker
+This worker is started by setting the QUEUE environment variable to ‘community-detection’.
+
+As mentioned in Algorithms, a new implementation of the Clique-Percolation Method is
+used for determining communities of users. 
+
+###### Algorithm
+This algorithm performs the following steps for a given user:
+1. Find and save new friends for a user by,
+   1. Using the user’s long-lived access token to query the Facebook Graph API for the user’s friends. 
+   2. Iterates through all of the returned friends, checking if they already exist in the system and adding new bidirectional relationships for ones that do not exist.
+2. Builds a local graph of only the user's friends and their friends.
+3. Obtain the user's existing cliques and its members.
+4. Find cliques by comparing the user's friends to each of their friend's friends using an array union operation. If the resulting array is longer than 3 items, a clique is found. If a clique is found,
+   1. Verify that each member of the clique is in every other member's friends list.
+   2. Verify that the clique is maximal by performing an array union on the members of clique's friends.
+   3. Compare the new clique to existing cliques.
+      1. If an existing subset clieque exists, migrate the existing clique to the newly found one.
+      2. If an identical clique exists, ignore the new one.
+      3. Otherwise, form a new clique.
+
+###### Pseudocode
+
+```javascript
+function community_detection_for_user(u):
+  pass
+```
 
 # Bibliography
 
