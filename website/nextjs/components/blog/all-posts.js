@@ -2,7 +2,6 @@ import PostPreview from './post-preview'
 
 export default function AllPosts({ posts }) {
   const filteredPosts = posts.filter(post => post.published);
-  console.log(filteredPosts)
   return (
     <section>
       <div className="grid grid-cols-1 lg:grid-cols-2 lg:col-gap-16 xl:col-gap-32 row-gap-20 lg:row-gap-32">

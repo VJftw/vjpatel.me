@@ -1,12 +1,9 @@
-import markdownStyles from '../markdown-styles.module.css'
+import RenderMarkdown from '../util/render-markdown'
 
 export default function ProjectBody({ content }) {
   return (
     <div className="max-w-screen-lg mx-auto px-4">
-      <div
-        className={markdownStyles['markdown']}
-        dangerouslySetInnerHTML={{ __html: content }}
-      />
+      <RenderMarkdown content={content} />
     </div>
   )
 }
