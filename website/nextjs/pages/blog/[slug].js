@@ -30,6 +30,7 @@ export default function Post({ post, preview }) {
                 coverImage={post.coverImage}
                 date={post.date}
                 readingTime={post.readingTime}
+                excerpt={post.excerpt}
               />
               <PostBody content={post.content} />
             </article>
@@ -47,6 +48,7 @@ export async function getStaticProps({ params }) {
     'slug',
     'author',
     'content',
+    'excerpt',
     'ogImage',
     'coverImage',
   ])
