@@ -6,6 +6,7 @@ import gfm from 'remark-gfm'
 import MathJax from 'react-mathjax';
 import RemarkMathPlugin  from 'remark-math'
 import footnotes from 'remark-footnotes'
+import smartypants from '@silvenon/remark-smartypants'
 
 
 const renderers = {
@@ -42,7 +43,7 @@ export default function RenderMarkdown({ content }) {
       <MathJax.Provider input="tex">
           <ReactMarkdown
             className={markdownStyles['markdown']}
-            plugins={[RemarkMathPlugin, gfm, footnotes]}
+            plugins={[RemarkMathPlugin, gfm, footnotes, smartypants]}
             children={content}
             renderers={renderers}
           />
