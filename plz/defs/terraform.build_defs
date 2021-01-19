@@ -19,18 +19,30 @@ def terraform(
         """,
     )
     cmds = [
-        "init",
-        "plan",
-        "apply",
+        "init plan",
+        "init apply",
     ]
     for cmd in cmds:
+        split_cmd=cmd.split(" ")
+        split_cmd_last=len(split_cmd) - 1
+        last_cmd=split_cmd[split_cmd_last]
+
         sh_cmd(
-            name = f"{name}_tf_{cmd}",
+            name = f"{name}_tf_{last_cmd}",
             cmd = f"""
-            abs="\\\$PWD"
-            cd $(out_location {working_dir})
-            "\\\$abs/$(out_exe {TERRAFORM_BINARY})" {cmd}
+abs="\\\$PWD"
+cd $(out_location {working_dir})
+for cmd in {cmd}; do
+    echo "-> terraform \\\$cmd"
+    "\\\$abs/$(out_exe {TERRAFORM_BINARY})" \\\$cmd
+done
             """,
             data = [working_dir, TERRAFORM_BINARY],
-            labels = ["terraform"],
+            labels = [f"terraform_{last_cmd}"],
         )
+
+# 1,2 - ravs didn't know how to upload here
+
+# HDC booked late because both booked on 12th and ravs only told after it came in
+
+# RGN booked late because Ravs didn't know which account it was coming in, ravs had a TT account and it came in US

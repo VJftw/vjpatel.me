@@ -25,6 +25,12 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-west-1
+
+      - name: Terraform Apply
+        env:
+          TF_CLI_ARGS_apply: --auto-approve
+          TF_IN_AUTOMATION : "true"
+        run: ./pleasew query alltargets --include terraform_apply | ./pleasew run -v=2 sequential -
       
       - name: Deploy
         run: ./pleasew run //website:deploy
