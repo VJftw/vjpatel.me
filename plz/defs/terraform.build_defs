@@ -1,0 +1,36 @@
+TERRAFORM_BINARY = "//third_party/tool:terraform"
+
+
+def terraform(
+    name: str,
+    srcs: list,
+    modules: list = [],
+    providers: list = [],
+):
+    working_dir=genrule(
+        name = f"_{name}_wd",
+        outs = [f"_{name}_wd"],
+        srcs = srcs,
+        cmd = f"""
+        mkdir -p $OUTS
+        for src in $SRCS; do
+            cp $src $OUTS/
+        done        
+        """,
+    )
+    cmds = [
+        "init",
+        "plan",
+        "apply",
+    ]
+    for cmd in cmds:
+        sh_cmd(
+            name = f"{name}_tf_{cmd}",
+            cmd = f"""
+            abs="\\\$PWD"
+            cd $(out_location {working_dir})
+            "\\\$abs/$(out_exe {TERRAFORM_BINARY})" {cmd}
+            """,
+            data = [working_dir, TERRAFORM_BINARY],
+            labels = ["terraform"],
+        )

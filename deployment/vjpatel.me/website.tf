@@ -11,7 +11,7 @@ module "cdn" {
   parent_zone_name     = local.domain
   acm_certificate_arn  = module.acm.this_acm_certificate_arn
   allowed_methods      = ["GET", "HEAD", "OPTIONS"]
-  minimum_protocol_version = "TLSv1.2"
+  minimum_protocol_version = "TLSv1.2_2019"
   compress             = true
   cached_methods       = ["GET", "HEAD", "OPTIONS"]
   encryption_enabled   = true
