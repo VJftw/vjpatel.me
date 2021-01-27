@@ -40,9 +40,3 @@ done
             data = [working_dir, TERRAFORM_BINARY],
             labels = [f"terraform_{last_cmd}"],
         )
-
-# 1,2 - ravs didn't know how to upload here
-
-# HDC booked late because both booked on 12th and ravs only told after it came in
-
-# RGN booked late because Ravs didn't know which account it was coming in, ravs had a TT account and it came in US
