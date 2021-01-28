@@ -2,7 +2,7 @@
 date: "2020-08-2T20:26:19+01:00"
 course: "Amazon Web Services (AWS)"
 module: "Certified Security - Specialty"
-title: "Notes"
+title: "Certified Security - Specialty"
 latex: true
 ---
 

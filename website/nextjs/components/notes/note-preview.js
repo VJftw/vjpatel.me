@@ -12,9 +12,6 @@ export default function NotePreview({
         <h3 className="text-xl mb-2 leading-snug">
             {title}
         </h3>
-        <div className="text-sm italic mb-1 text-gray-700 mx-1">
-          {directory}
-        </div>
       </a>
     </Link>
   )

@@ -1,6 +1,6 @@
 ---
 date: "2020-04-29T18:26:19+01:00"
-title: "Capturing Flags"
+title: "Capture the Flag"
 summary: "Notes for CTFs"
 ---
 
