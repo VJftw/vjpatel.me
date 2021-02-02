@@ -14,7 +14,7 @@ provider "aws" {
 }
 
 module "base_label" {
-  source    = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.16.0"
+  source    = "//third_party/terraform/modules:cloudposse_null_label"
   
   namespace = "vjpatel.me"
   attributes = ["website"]

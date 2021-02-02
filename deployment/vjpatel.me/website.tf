@@ -1,5 +1,5 @@
 module "cdn" {
-  source               = "git::https://github.com/cloudposse/terraform-aws-cloudfront-s3-cdn.git?ref=0.23.1"
+  source               = "//third_party/terraform/modules:cloudposse_aws_cloudfront_s3_cdn"
   
   namespace            = module.base_label.namespace
   stage                = module.base_label.stage
@@ -33,8 +33,7 @@ EOF
 }
 
 module "acm" {
-  source  = "terraform-aws-modules/acm/aws"
-  version = "~> v2.0"
+  source  = "//third_party/terraform/modules:terraform_aws_scm"
 
   domain_name  = "vjpatel.me"
   zone_id      = data.aws_route53_zone.main.zone_id

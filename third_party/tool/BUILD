@@ -1,6 +1,8 @@
 remote_file(
     name = "jq",
     url = "https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64",
+    visibility = ["PUBLIC"],
+    binary = True,
 )
 
 TERRAFORM_VERSION = "0.12.30"
