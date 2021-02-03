@@ -5,6 +5,8 @@ TERRAFORM_BINARY = "//third_party/tool:terraform"
 # TODO: tests when building for terraform:
 # - ensure no external module sources are unaccounted for
 # - maybe shift module deps management into this
+# TODO: pre-binaries and post-binaries support
+# TODO: linters support
 
 
 def terraform(
