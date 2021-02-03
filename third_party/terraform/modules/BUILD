@@ -47,3 +47,14 @@ terraform_module(
         ":cloudposse_null_label",
     ]
 )
+
+terraform_module(
+    name = "cloudposse_aws_tfstate_backend",
+    url = "https://github.com/cloudposse/terraform-aws-tfstate-backend/archive/0.17.0.tar.gz",
+    hashes = ["e2ede67e49088d0e2b8bcba448e0952624cd1a0d53dc9d313b75fba675e49f9d"],
+    licences = ["Apache-2.0"],
+    visibility = ["PUBLIC"],
+    deps = [
+        ":cloudposse_null_label",
+    ]
+)

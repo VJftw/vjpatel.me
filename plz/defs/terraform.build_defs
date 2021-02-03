@@ -1,7 +1,5 @@
 TERRAFORM_BINARY = "//third_party/tool:terraform"
 
-# TODO: tests when building for terraform_module:
-# - ensure no external module sources are unaccounted for
 # TODO: tests when building for terraform:
 # - ensure no external module sources are unaccounted for
 # - maybe shift module deps management into this
@@ -114,7 +112,7 @@ def terraform_module(
         deps=deps,
         visibility=visibility,
         cmd = f"""
-set -exuo pipefail
+set -euo pipefail
 mv $(location {og_module}) $OUTS
 if [[ -v SRCS_DEPS ]]; then
     mkdir $OUTS/modules/
@@ -124,6 +122,10 @@ if [[ -v SRCS_DEPS ]]; then
         find . -name "*.tf" -exec sed -i  "s#[^\\"]*$search[^\\"]*#./modules/$replace#g" {{}} +
         cp -r "$m" $OUTS/modules/
     done
+fi
+if grep -r --include \\*.tf -A3 "module \\"" $OUTS | grep -E "source\\s*=\\s*\\"[^\\/\\.]+.*"; then
+    echo "found module source not declared in deps"
+    exit 1
 fi
 echo "{url}" | cut -f3-5 -d/ > $OUTS/SOURCE_SEARCH
         """,

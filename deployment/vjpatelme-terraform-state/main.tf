@@ -14,16 +14,15 @@ provider "aws" {
 }
 
 module "base_label" {
-  source    = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.16.0"
+  source    = "//third_party/terraform/modules:cloudposse_null_label"
   
   namespace = "vjpatel.me"
 }
 
 module "terraform_state_backend" {
-  source     = "git::https://github.com/cloudposse/terraform-aws-tfstate-backend.git?ref=0.17.0"
+  source     = "//third_party/terraform/modules:cloudposse_aws_tfstate_backend"
 
   context    = module.base_label.context
   attributes = ["state"]
   region     = "eu-west-1"
 }
-
