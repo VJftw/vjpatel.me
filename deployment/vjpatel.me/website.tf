@@ -1,24 +1,24 @@
 module "cdn" {
-  source               = "//third_party/terraform/modules:cloudposse_aws_cloudfront_s3_cdn"
-  
-  namespace            = module.base_label.namespace
-  stage                = module.base_label.stage
-  tags                 = module.base_label.tags
-  delimiter            = module.base_label.delimiter
-  name                 = "website"
+  source = "//third_party/terraform/modules:cloudposse_aws_cloudfront_s3_cdn"
 
-  aliases              = [local.domain, "www.${local.domain}"]
-  parent_zone_name     = local.domain
-  acm_certificate_arn  = module.acm.this_acm_certificate_arn
-  allowed_methods      = ["GET", "HEAD", "OPTIONS"]
+  namespace = module.base_label.namespace
+  stage     = module.base_label.stage
+  tags      = module.base_label.tags
+  delimiter = module.base_label.delimiter
+  name      = "website"
+
+  aliases                  = [local.domain, "www.${local.domain}"]
+  parent_zone_name         = local.domain
+  acm_certificate_arn      = module.acm.this_acm_certificate_arn
+  allowed_methods          = ["GET", "HEAD", "OPTIONS"]
   minimum_protocol_version = "TLSv1.2_2019"
-  compress             = true
-  cached_methods       = ["GET", "HEAD", "OPTIONS"]
-  encryption_enabled   = true
-  error_document       = "/4xx.html"
-  origin_force_destroy = true
-  website_enabled      = true
-  routing_rules        = <<EOF
+  compress                 = true
+  cached_methods           = ["GET", "HEAD", "OPTIONS"]
+  encryption_enabled       = true
+  error_document           = "/4xx.html"
+  origin_force_destroy     = true
+  website_enabled          = true
+  routing_rules            = <<EOF
 [
   {
       "Redirect": {
@@ -33,10 +33,10 @@ EOF
 }
 
 module "acm" {
-  source  = "//third_party/terraform/modules:terraform_aws_scm"
+  source = "//third_party/terraform/modules:terraform_aws_scm"
 
-  domain_name  = "vjpatel.me"
-  zone_id      = data.aws_route53_zone.main.zone_id
+  domain_name = "vjpatel.me"
+  zone_id     = data.aws_route53_zone.main.zone_id
 
   subject_alternative_names = [
     "www.vjpatel.me",

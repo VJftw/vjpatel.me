@@ -1,11 +1,12 @@
-subinclude("//plz/defs:terraform")
+subinclude("//third_party/defs:terraform")
 
-terraform(
+terraform_root(
     name = "vjpatel.me",
     srcs = [
         "data.tf",
         "main.tf",
         "website.tf",
+        "//deployment/vjpatelme-terraform-state:state",
     ],
     providers = [
         "//third_party/terraform/providers:aws",

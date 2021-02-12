@@ -1,4 +1,4 @@
-subinclude("//plz/defs:terraform")
+subinclude("//third_party/defs:terraform")
 
 terraform_module(
     name = "terraform_aws_scm",

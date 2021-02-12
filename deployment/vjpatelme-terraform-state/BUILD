@@ -1,9 +1,10 @@
-subinclude("//plz/defs:terraform")
+subinclude("//third_party/defs:terraform")
 
-terraform(
+terraform_root(
     name = "vjpatel-terraform-state",
     srcs = [
         "main.tf",
+        ":state",
     ],
     providers = [
         "//third_party/terraform/providers:aws",
@@ -15,4 +16,10 @@ terraform(
         "//third_party/terraform/modules:cloudposse_null_label",
         "//third_party/terraform/modules:cloudposse_aws_tfstate_backend",
     ],
+)
+
+filegroup(
+    name="state",
+    srcs=["state.tf"],
+    visibility=["//deployment/..."],
 )

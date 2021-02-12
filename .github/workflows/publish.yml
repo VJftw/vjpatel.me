@@ -30,6 +30,7 @@ jobs:
         env:
           TF_CLI_ARGS_apply: --auto-approve
           TF_IN_AUTOMATION : "true"
+          TF_CLEAN_OUTPUT: "true"
         run: ./pleasew query alltargets --include terraform_apply | ./pleasew run -v=2 sequential -
       
       - name: Deploy
